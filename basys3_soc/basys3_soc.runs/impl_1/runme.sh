@@ -24,7 +24,7 @@ else
 fi
 export LD_LIBRARY_PATH
 
-HD_PWD='C:/work/vivado_2019/basys3_soc/basys3_soc.runs/impl_1'
+HD_PWD='C:/Users/user/Documents/GitHub/smartfarm/basys3_soc/basys3_soc.runs/impl_1'
 cd "$HD_PWD"
 
 HD_LOG=runme.log
@@ -42,6 +42,6 @@ EAStep()
 
 # pre-commands:
 /bin/touch .init_design.begin.rst
-EAStep vivado -log i2c_txtld_top.vdi -applog -m64 -product Vivado -messageDb vivado.pb -mode batch -source i2c_txtld_top.tcl -notrace
+EAStep vivado -log HC_SR04_top.vdi -applog -m64 -product Vivado -messageDb vivado.pb -mode batch -source HC_SR04_top.tcl -notrace
 
 

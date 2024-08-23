@@ -1,6 +1,6 @@
 
 *** Running vivado
-    with args -log i2c_txtld_top.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source i2c_txtld_top.tcl
+    with args -log HC_SR04_top.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source HC_SR04_top.tcl
 
 
 ****** Vivado v2019.2 (64-bit)
@@ -8,99 +8,68 @@
   **** IP Build 2700528 on Thu Nov  7 00:09:20 MST 2019
     ** Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
 
-source i2c_txtld_top.tcl -notrace
-Command: synth_design -top i2c_txtld_top -part xc7a35tcpg236-1
+source HC_SR04_top.tcl -notrace
+Command: synth_design -top HC_SR04_top -part xc7a35tcpg236-1
 Starting synth_design
 Attempting to get a license for feature 'Synthesis' and/or device 'xc7a35t'
 INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a35t'
 INFO: [Device 21-403] Loading part xc7a35tcpg236-1
 INFO: Launching helper process for spawning children vivado processes
-INFO: Helper process launched with PID 3464 
-WARNING: [Synth 8-6901] identifier 'state' is used before its declaration [C:/work/vivado_2019/basys3_soc/basys3_soc.srcs/sources_1/new/controler.v:691]
-WARNING: [Synth 8-6901] identifier 'state' is used before its declaration [C:/work/vivado_2019/basys3_soc/basys3_soc.srcs/sources_1/new/controler.v:835]
-WARNING: [Synth 8-2490] overwriting previous definition of module board_test_top [C:/work/vivado_2019/basys3_soc/basys3_soc.srcs/sources_1/new/test_top.v:116]
-WARNING: [Synth 8-2490] overwriting previous definition of module fnd_test_top [C:/work/vivado_2019/basys3_soc/basys3_soc.srcs/sources_1/new/test_top.v:124]
-WARNING: [Synth 8-992] watch_sec1 is already implicitly declared earlier [C:/work/vivado_2019/basys3_soc/basys3_soc.srcs/sources_1/new/test_top.v:205]
-WARNING: [Synth 8-992] watch_sec10 is already implicitly declared earlier [C:/work/vivado_2019/basys3_soc/basys3_soc.srcs/sources_1/new/test_top.v:205]
-WARNING: [Synth 8-992] watch_min1 is already implicitly declared earlier [C:/work/vivado_2019/basys3_soc/basys3_soc.srcs/sources_1/new/test_top.v:205]
-WARNING: [Synth 8-992] watch_min10 is already implicitly declared earlier [C:/work/vivado_2019/basys3_soc/basys3_soc.srcs/sources_1/new/test_top.v:205]
-WARNING: [Synth 8-992] set_sec1 is already implicitly declared earlier [C:/work/vivado_2019/basys3_soc/basys3_soc.srcs/sources_1/new/test_top.v:206]
-WARNING: [Synth 8-992] set_sec10 is already implicitly declared earlier [C:/work/vivado_2019/basys3_soc/basys3_soc.srcs/sources_1/new/test_top.v:206]
-WARNING: [Synth 8-992] set_min1 is already implicitly declared earlier [C:/work/vivado_2019/basys3_soc/basys3_soc.srcs/sources_1/new/test_top.v:206]
-WARNING: [Synth 8-992] set_min10 is already implicitly declared earlier [C:/work/vivado_2019/basys3_soc/basys3_soc.srcs/sources_1/new/test_top.v:206]
-WARNING: [Synth 8-2490] overwriting previous definition of module surbo_motor [C:/work/vivado_2019/basys3_soc/basys3_soc.srcs/sources_1/new/test_top.v:708]
+INFO: Helper process launched with PID 17296 
+WARNING: [Synth 8-6901] identifier 'state' is used before its declaration [C:/Users/user/Documents/GitHub/smartfarm/basys3_soc/basys3_soc.srcs/sources_1/new/controler.v:691]
+WARNING: [Synth 8-6901] identifier 'state' is used before its declaration [C:/Users/user/Documents/GitHub/smartfarm/basys3_soc/basys3_soc.srcs/sources_1/new/controler.v:835]
+WARNING: [Synth 8-2490] overwriting previous definition of module board_test_top [C:/Users/user/Documents/GitHub/smartfarm/basys3_soc/basys3_soc.srcs/sources_1/new/test_top.v:116]
+WARNING: [Synth 8-2490] overwriting previous definition of module fnd_test_top [C:/Users/user/Documents/GitHub/smartfarm/basys3_soc/basys3_soc.srcs/sources_1/new/test_top.v:124]
+WARNING: [Synth 8-992] watch_sec1 is already implicitly declared earlier [C:/Users/user/Documents/GitHub/smartfarm/basys3_soc/basys3_soc.srcs/sources_1/new/test_top.v:205]
+WARNING: [Synth 8-992] watch_sec10 is already implicitly declared earlier [C:/Users/user/Documents/GitHub/smartfarm/basys3_soc/basys3_soc.srcs/sources_1/new/test_top.v:205]
+WARNING: [Synth 8-992] watch_min1 is already implicitly declared earlier [C:/Users/user/Documents/GitHub/smartfarm/basys3_soc/basys3_soc.srcs/sources_1/new/test_top.v:205]
+WARNING: [Synth 8-992] watch_min10 is already implicitly declared earlier [C:/Users/user/Documents/GitHub/smartfarm/basys3_soc/basys3_soc.srcs/sources_1/new/test_top.v:205]
+WARNING: [Synth 8-992] set_sec1 is already implicitly declared earlier [C:/Users/user/Documents/GitHub/smartfarm/basys3_soc/basys3_soc.srcs/sources_1/new/test_top.v:206]
+WARNING: [Synth 8-992] set_sec10 is already implicitly declared earlier [C:/Users/user/Documents/GitHub/smartfarm/basys3_soc/basys3_soc.srcs/sources_1/new/test_top.v:206]
+WARNING: [Synth 8-992] set_min1 is already implicitly declared earlier [C:/Users/user/Documents/GitHub/smartfarm/basys3_soc/basys3_soc.srcs/sources_1/new/test_top.v:206]
+WARNING: [Synth 8-992] set_min10 is already implicitly declared earlier [C:/Users/user/Documents/GitHub/smartfarm/basys3_soc/basys3_soc.srcs/sources_1/new/test_top.v:206]
+WARNING: [Synth 8-2490] overwriting previous definition of module surbo_motor [C:/Users/user/Documents/GitHub/smartfarm/basys3_soc/basys3_soc.srcs/sources_1/new/test_top.v:708]
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 1159.484 ; gain = 232.109
+Starting RTL Elaboration : Time (s): cpu = 00:00:02 ; elapsed = 00:00:02 . Memory (MB): peak = 1164.762 ; gain = 235.375
 ---------------------------------------------------------------------------------
-INFO: [Synth 8-6157] synthesizing module 'i2c_txtld_top' [C:/work/vivado_2019/basys3_soc/basys3_soc.srcs/sources_1/new/test_top.v:996]
-	Parameter IDLE bound to: 6'b000001 
-	Parameter INIT bound to: 6'b000010 
-	Parameter SEND_DATA bound to: 6'b000100 
-	Parameter SEND_COMMAND bound to: 6'b001000 
-	Parameter SEND_STRING bound to: 6'b010000 
-INFO: [Synth 8-6157] synthesizing module 'clock_div_100' [C:/work/vivado_2019/basys3_soc/basys3_soc.srcs/sources_1/new/clock_library.v:23]
-INFO: [Synth 8-6157] synthesizing module 'edge_detector_n' [C:/work/vivado_2019/basys3_soc/basys3_soc.srcs/sources_1/new/exam02_sequential_logic.v:311]
-INFO: [Synth 8-6155] done synthesizing module 'edge_detector_n' (1#1) [C:/work/vivado_2019/basys3_soc/basys3_soc.srcs/sources_1/new/exam02_sequential_logic.v:311]
-WARNING: [Synth 8-7023] instance 'ed' of module 'edge_detector_n' has 5 connections declared, but only 4 given [C:/work/vivado_2019/basys3_soc/basys3_soc.srcs/sources_1/new/clock_library.v:40]
-INFO: [Synth 8-6155] done synthesizing module 'clock_div_100' (2#1) [C:/work/vivado_2019/basys3_soc/basys3_soc.srcs/sources_1/new/clock_library.v:23]
-WARNING: [Synth 8-7023] instance 'usec_clk' of module 'clock_div_100' has 4 connections declared, but only 3 given [C:/work/vivado_2019/basys3_soc/basys3_soc.srcs/sources_1/new/test_top.v:1011]
-INFO: [Synth 8-6157] synthesizing module 'button_cntr' [C:/work/vivado_2019/basys3_soc/basys3_soc.srcs/sources_1/new/controler.v:49]
-INFO: [Synth 8-6157] synthesizing module 'edge_detector_p' [C:/work/vivado_2019/basys3_soc/basys3_soc.srcs/sources_1/new/exam02_sequential_logic.v:289]
-INFO: [Synth 8-6155] done synthesizing module 'edge_detector_p' (3#1) [C:/work/vivado_2019/basys3_soc/basys3_soc.srcs/sources_1/new/exam02_sequential_logic.v:289]
-WARNING: [Synth 8-7023] instance 'ed_clk' of module 'edge_detector_p' has 5 connections declared, but only 4 given [C:/work/vivado_2019/basys3_soc/basys3_soc.srcs/sources_1/new/controler.v:58]
-INFO: [Synth 8-6155] done synthesizing module 'button_cntr' (4#1) [C:/work/vivado_2019/basys3_soc/basys3_soc.srcs/sources_1/new/controler.v:49]
-WARNING: [Synth 8-7023] instance 'btn0' of module 'button_cntr' has 5 connections declared, but only 4 given [C:/work/vivado_2019/basys3_soc/basys3_soc.srcs/sources_1/new/test_top.v:1025]
-WARNING: [Synth 8-7023] instance 'btn1' of module 'button_cntr' has 5 connections declared, but only 4 given [C:/work/vivado_2019/basys3_soc/basys3_soc.srcs/sources_1/new/test_top.v:1026]
-WARNING: [Synth 8-7023] instance 'btn2' of module 'button_cntr' has 5 connections declared, but only 4 given [C:/work/vivado_2019/basys3_soc/basys3_soc.srcs/sources_1/new/test_top.v:1027]
-WARNING: [Synth 8-7023] instance 'btn3' of module 'button_cntr' has 5 connections declared, but only 4 given [C:/work/vivado_2019/basys3_soc/basys3_soc.srcs/sources_1/new/test_top.v:1028]
-INFO: [Synth 8-6157] synthesizing module 'i2c_lcd_send_byte' [C:/work/vivado_2019/basys3_soc/basys3_soc.srcs/sources_1/new/controler.v:1195]
-	Parameter IDLE bound to: 6'b000001 
-	Parameter SEND_HIGH_NIBBLE_DISABLE bound to: 6'b000010 
-	Parameter SEND_HIGH_NIBBLE_ENABLE bound to: 6'b000100 
-	Parameter SEND_LOW_NIBBLE_DISABLE bound to: 6'b001000 
-	Parameter SEND_LOW_NIBBLE_ENABLE bound to: 6'b010000 
-	Parameter SEND_DISABLE bound to: 6'b100000 
-WARNING: [Synth 8-7023] instance 'comm_go_edge' of module 'edge_detector_n' has 5 connections declared, but only 4 given [C:/work/vivado_2019/basys3_soc/basys3_soc.srcs/sources_1/new/controler.v:1222]
-WARNING: [Synth 8-7023] instance 'usec_clk' of module 'clock_div_100' has 4 connections declared, but only 3 given [C:/work/vivado_2019/basys3_soc/basys3_soc.srcs/sources_1/new/controler.v:1226]
-INFO: [Synth 8-155] case statement is not full and has no default [C:/work/vivado_2019/basys3_soc/basys3_soc.srcs/sources_1/new/controler.v:1256]
-INFO: [Synth 8-6157] synthesizing module 'I2C_master' [C:/work/vivado_2019/basys3_soc/basys3_soc.srcs/sources_1/new/controler.v:1017]
-	Parameter IDLE bound to: 7'b0000001 
-	Parameter COMM_START bound to: 7'b0000010 
-	Parameter SEND_ADDR bound to: 7'b0000100 
-	Parameter RD_ACK bound to: 7'b0001000 
-	Parameter SEND_DATA bound to: 7'b0010000 
-	Parameter SCL_STOP bound to: 7'b0100000 
-	Parameter COMM_STOP bound to: 7'b1000000 
-WARNING: [Synth 8-7023] instance 'usec_clk' of module 'clock_div_100' has 4 connections declared, but only 3 given [C:/work/vivado_2019/basys3_soc/basys3_soc.srcs/sources_1/new/controler.v:1046]
-WARNING: [Synth 8-7023] instance 'comm_go_edge' of module 'edge_detector_n' has 5 connections declared, but only 4 given [C:/work/vivado_2019/basys3_soc/basys3_soc.srcs/sources_1/new/controler.v:1083]
-INFO: [Synth 8-155] case statement is not full and has no default [C:/work/vivado_2019/basys3_soc/basys3_soc.srcs/sources_1/new/controler.v:1110]
-WARNING: [Synth 8-3848] Net led in module/entity I2C_master does not have driver. [C:/work/vivado_2019/basys3_soc/basys3_soc.srcs/sources_1/new/controler.v:1024]
-INFO: [Synth 8-6155] done synthesizing module 'I2C_master' (5#1) [C:/work/vivado_2019/basys3_soc/basys3_soc.srcs/sources_1/new/controler.v:1017]
-INFO: [Synth 8-6155] done synthesizing module 'i2c_lcd_send_byte' (6#1) [C:/work/vivado_2019/basys3_soc/basys3_soc.srcs/sources_1/new/controler.v:1195]
-INFO: [Synth 8-155] case statement is not full and has no default [C:/work/vivado_2019/basys3_soc/basys3_soc.srcs/sources_1/new/test_top.v:1107]
-INFO: [Synth 8-155] case statement is not full and has no default [C:/work/vivado_2019/basys3_soc/basys3_soc.srcs/sources_1/new/test_top.v:1167]
-INFO: [Synth 8-155] case statement is not full and has no default [C:/work/vivado_2019/basys3_soc/basys3_soc.srcs/sources_1/new/test_top.v:1074]
-WARNING: [Synth 8-5788] Register send_reg in module i2c_txtld_top is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [C:/work/vivado_2019/basys3_soc/basys3_soc.srcs/sources_1/new/test_top.v:1039]
-WARNING: [Synth 8-5788] Register send_buffer_reg in module i2c_txtld_top is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [C:/work/vivado_2019/basys3_soc/basys3_soc.srcs/sources_1/new/test_top.v:1039]
-INFO: [Synth 8-6155] done synthesizing module 'i2c_txtld_top' (7#1) [C:/work/vivado_2019/basys3_soc/basys3_soc.srcs/sources_1/new/test_top.v:996]
-WARNING: [Synth 8-3331] design I2C_master has unconnected port led[15]
-WARNING: [Synth 8-3331] design I2C_master has unconnected port led[14]
-WARNING: [Synth 8-3331] design I2C_master has unconnected port led[13]
-WARNING: [Synth 8-3331] design I2C_master has unconnected port led[12]
-WARNING: [Synth 8-3331] design I2C_master has unconnected port led[11]
-WARNING: [Synth 8-3331] design I2C_master has unconnected port led[10]
-WARNING: [Synth 8-3331] design I2C_master has unconnected port led[9]
-WARNING: [Synth 8-3331] design I2C_master has unconnected port led[8]
-WARNING: [Synth 8-3331] design I2C_master has unconnected port led[7]
-WARNING: [Synth 8-3331] design I2C_master has unconnected port led[6]
-WARNING: [Synth 8-3331] design I2C_master has unconnected port led[5]
-WARNING: [Synth 8-3331] design I2C_master has unconnected port led[4]
-WARNING: [Synth 8-3331] design I2C_master has unconnected port led[3]
-WARNING: [Synth 8-3331] design I2C_master has unconnected port led[2]
-WARNING: [Synth 8-3331] design I2C_master has unconnected port led[1]
-WARNING: [Synth 8-3331] design I2C_master has unconnected port led[0]
+INFO: [Synth 8-6157] synthesizing module 'HC_SR04_top' [C:/Users/user/Documents/GitHub/smartfarm/basys3_soc/basys3_soc.srcs/sources_1/new/test_top.v:503]
+INFO: [Synth 8-6157] synthesizing module 'HC_SR04_cntr' [C:/Users/user/Documents/GitHub/smartfarm/basys3_soc/basys3_soc.srcs/sources_1/new/controler.v:683]
+	Parameter S_IDLE bound to: 4'b0001 
+	Parameter S_10US_TTL bound to: 4'b0010 
+	Parameter S_WAIT_PEDGE bound to: 4'b0100 
+	Parameter S_CALC_DIST bound to: 4'b1000 
+INFO: [Synth 8-6157] synthesizing module 'clock_div_100' [C:/Users/user/Documents/GitHub/smartfarm/basys3_soc/basys3_soc.srcs/sources_1/new/clock_library.v:23]
+INFO: [Synth 8-6157] synthesizing module 'edge_detector_n' [C:/Users/user/Documents/GitHub/smartfarm/basys3_soc/basys3_soc.srcs/sources_1/new/exam02_sequential_logic.v:311]
+INFO: [Synth 8-6155] done synthesizing module 'edge_detector_n' (1#1) [C:/Users/user/Documents/GitHub/smartfarm/basys3_soc/basys3_soc.srcs/sources_1/new/exam02_sequential_logic.v:311]
+WARNING: [Synth 8-7023] instance 'ed' of module 'edge_detector_n' has 5 connections declared, but only 4 given [C:/Users/user/Documents/GitHub/smartfarm/basys3_soc/basys3_soc.srcs/sources_1/new/clock_library.v:40]
+INFO: [Synth 8-6155] done synthesizing module 'clock_div_100' (2#1) [C:/Users/user/Documents/GitHub/smartfarm/basys3_soc/basys3_soc.srcs/sources_1/new/clock_library.v:23]
+WARNING: [Synth 8-7023] instance 'usec_clk' of module 'clock_div_100' has 4 connections declared, but only 3 given [C:/Users/user/Documents/GitHub/smartfarm/basys3_soc/basys3_soc.srcs/sources_1/new/controler.v:710]
+INFO: [Synth 8-6157] synthesizing module 'edge_detector_p' [C:/Users/user/Documents/GitHub/smartfarm/basys3_soc/basys3_soc.srcs/sources_1/new/exam02_sequential_logic.v:289]
+INFO: [Synth 8-6155] done synthesizing module 'edge_detector_p' (3#1) [C:/Users/user/Documents/GitHub/smartfarm/basys3_soc/basys3_soc.srcs/sources_1/new/exam02_sequential_logic.v:289]
+INFO: [Synth 8-6157] synthesizing module 'sr04_div_58' [C:/Users/user/Documents/GitHub/smartfarm/basys3_soc/basys3_soc.srcs/sources_1/new/clock_library.v:320]
+INFO: [Synth 8-6155] done synthesizing module 'sr04_div_58' (4#1) [C:/Users/user/Documents/GitHub/smartfarm/basys3_soc/basys3_soc.srcs/sources_1/new/clock_library.v:320]
+INFO: [Synth 8-155] case statement is not full and has no default [C:/Users/user/Documents/GitHub/smartfarm/basys3_soc/basys3_soc.srcs/sources_1/new/controler.v:744]
+WARNING: [Synth 8-5788] Register hc_sr04_trig_reg in module HC_SR04_cntr is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [C:/Users/user/Documents/GitHub/smartfarm/basys3_soc/basys3_soc.srcs/sources_1/new/controler.v:748]
+WARNING: [Synth 8-5788] Register distance_reg in module HC_SR04_cntr is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [C:/Users/user/Documents/GitHub/smartfarm/basys3_soc/basys3_soc.srcs/sources_1/new/controler.v:782]
+INFO: [Synth 8-6155] done synthesizing module 'HC_SR04_cntr' (5#1) [C:/Users/user/Documents/GitHub/smartfarm/basys3_soc/basys3_soc.srcs/sources_1/new/controler.v:683]
+INFO: [Synth 8-6157] synthesizing module 'bin_to_dec' [C:/Users/user/Documents/GitHub/smartfarm/basys3_soc/basys3_soc.srcs/sources_1/new/exam01_combinational_logic.v:382]
+INFO: [Synth 8-6155] done synthesizing module 'bin_to_dec' (6#1) [C:/Users/user/Documents/GitHub/smartfarm/basys3_soc/basys3_soc.srcs/sources_1/new/exam01_combinational_logic.v:382]
+WARNING: [Synth 8-689] width (12) of port connection 'bcd' does not match port width (16) of module 'bin_to_dec' [C:/Users/user/Documents/GitHub/smartfarm/basys3_soc/basys3_soc.srcs/sources_1/new/test_top.v:514]
+INFO: [Synth 8-6157] synthesizing module 'fnd_cntr' [C:/Users/user/Documents/GitHub/smartfarm/basys3_soc/basys3_soc.srcs/sources_1/new/controler.v:22]
+INFO: [Synth 8-6157] synthesizing module 'ring_counter_fnd' [C:/Users/user/Documents/GitHub/smartfarm/basys3_soc/basys3_soc.srcs/sources_1/new/exam02_sequential_logic.v:270]
+WARNING: [Synth 8-7023] instance 'ed' of module 'edge_detector_p' has 5 connections declared, but only 4 given [C:/Users/user/Documents/GitHub/smartfarm/basys3_soc/basys3_soc.srcs/sources_1/new/exam02_sequential_logic.v:278]
+INFO: [Synth 8-6155] done synthesizing module 'ring_counter_fnd' (7#1) [C:/Users/user/Documents/GitHub/smartfarm/basys3_soc/basys3_soc.srcs/sources_1/new/exam02_sequential_logic.v:270]
+INFO: [Synth 8-155] case statement is not full and has no default [C:/Users/user/Documents/GitHub/smartfarm/basys3_soc/basys3_soc.srcs/sources_1/new/controler.v:32]
+INFO: [Synth 8-6157] synthesizing module 'decoder_7seg' [C:/Users/user/Documents/GitHub/smartfarm/basys3_soc/basys3_soc.srcs/sources_1/new/exam01_combinational_logic.v:261]
+INFO: [Synth 8-6155] done synthesizing module 'decoder_7seg' (8#1) [C:/Users/user/Documents/GitHub/smartfarm/basys3_soc/basys3_soc.srcs/sources_1/new/exam01_combinational_logic.v:261]
+INFO: [Synth 8-6155] done synthesizing module 'fnd_cntr' (9#1) [C:/Users/user/Documents/GitHub/smartfarm/basys3_soc/basys3_soc.srcs/sources_1/new/controler.v:22]
+INFO: [Synth 8-6155] done synthesizing module 'HC_SR04_top' (10#1) [C:/Users/user/Documents/GitHub/smartfarm/basys3_soc/basys3_soc.srcs/sources_1/new/test_top.v:503]
+WARNING: [Synth 8-3331] design HC_SR04_cntr has unconnected port led_debug[7]
+WARNING: [Synth 8-3331] design HC_SR04_cntr has unconnected port led_debug[6]
+WARNING: [Synth 8-3331] design HC_SR04_cntr has unconnected port led_debug[5]
+WARNING: [Synth 8-3331] design HC_SR04_cntr has unconnected port led_debug[4]
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 1209.617 ; gain = 282.242
+Finished RTL Elaboration : Time (s): cpu = 00:00:02 ; elapsed = 00:00:03 . Memory (MB): peak = 1214.406 ; gain = 285.020
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -113,82 +82,87 @@ Report Check Netlist:
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 1209.617 ; gain = 282.242
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:02 ; elapsed = 00:00:03 . Memory (MB): peak = 1214.406 ; gain = 285.020
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 1209.617 ; gain = 282.242
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:02 ; elapsed = 00:00:03 . Memory (MB): peak = 1214.406 ; gain = 285.020
 ---------------------------------------------------------------------------------
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.009 . Memory (MB): peak = 1209.617 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.003 . Memory (MB): peak = 1214.406 ; gain = 0.000
 INFO: [Project 1-570] Preparing netlist for logic optimization
 
 Processing XDC Constraints
 Initializing timing engine
-Parsing XDC File [C:/work/vivado_2019/basys3_soc/basys3_soc.srcs/constrs_1/imports/verilog/Basys-3-Master.xdc]
-WARNING: [Vivado 12-584] No ports matched 'seg_7[7]'. [C:/work/vivado_2019/basys3_soc/basys3_soc.srcs/constrs_1/imports/verilog/Basys-3-Master.xdc:50]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/work/vivado_2019/basys3_soc/basys3_soc.srcs/constrs_1/imports/verilog/Basys-3-Master.xdc:50]
+Parsing XDC File [C:/Users/user/Documents/GitHub/smartfarm/basys3_soc/basys3_soc.srcs/constrs_1/imports/verilog/Basys-3-Master.xdc]
+WARNING: [Vivado 12-584] No ports matched 'led_debug[8]'. [C:/Users/user/Documents/GitHub/smartfarm/basys3_soc/basys3_soc.srcs/constrs_1/imports/verilog/Basys-3-Master.xdc:39]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/user/Documents/GitHub/smartfarm/basys3_soc/basys3_soc.srcs/constrs_1/imports/verilog/Basys-3-Master.xdc:39]
 Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-584] No ports matched 'seg_7[6]'. [C:/work/vivado_2019/basys3_soc/basys3_soc.srcs/constrs_1/imports/verilog/Basys-3-Master.xdc:51]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/work/vivado_2019/basys3_soc/basys3_soc.srcs/constrs_1/imports/verilog/Basys-3-Master.xdc:51]
+WARNING: [Vivado 12-584] No ports matched 'led_debug[9]'. [C:/Users/user/Documents/GitHub/smartfarm/basys3_soc/basys3_soc.srcs/constrs_1/imports/verilog/Basys-3-Master.xdc:40]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/user/Documents/GitHub/smartfarm/basys3_soc/basys3_soc.srcs/constrs_1/imports/verilog/Basys-3-Master.xdc:40]
 Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-584] No ports matched 'seg_7[5]'. [C:/work/vivado_2019/basys3_soc/basys3_soc.srcs/constrs_1/imports/verilog/Basys-3-Master.xdc:52]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/work/vivado_2019/basys3_soc/basys3_soc.srcs/constrs_1/imports/verilog/Basys-3-Master.xdc:52]
+WARNING: [Vivado 12-584] No ports matched 'led_debug[10]'. [C:/Users/user/Documents/GitHub/smartfarm/basys3_soc/basys3_soc.srcs/constrs_1/imports/verilog/Basys-3-Master.xdc:41]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/user/Documents/GitHub/smartfarm/basys3_soc/basys3_soc.srcs/constrs_1/imports/verilog/Basys-3-Master.xdc:41]
 Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-584] No ports matched 'seg_7[4]'. [C:/work/vivado_2019/basys3_soc/basys3_soc.srcs/constrs_1/imports/verilog/Basys-3-Master.xdc:53]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/work/vivado_2019/basys3_soc/basys3_soc.srcs/constrs_1/imports/verilog/Basys-3-Master.xdc:53]
+WARNING: [Vivado 12-584] No ports matched 'led_debug[11]'. [C:/Users/user/Documents/GitHub/smartfarm/basys3_soc/basys3_soc.srcs/constrs_1/imports/verilog/Basys-3-Master.xdc:42]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/user/Documents/GitHub/smartfarm/basys3_soc/basys3_soc.srcs/constrs_1/imports/verilog/Basys-3-Master.xdc:42]
 Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-584] No ports matched 'seg_7[3]'. [C:/work/vivado_2019/basys3_soc/basys3_soc.srcs/constrs_1/imports/verilog/Basys-3-Master.xdc:54]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/work/vivado_2019/basys3_soc/basys3_soc.srcs/constrs_1/imports/verilog/Basys-3-Master.xdc:54]
+WARNING: [Vivado 12-584] No ports matched 'led_debug[12]'. [C:/Users/user/Documents/GitHub/smartfarm/basys3_soc/basys3_soc.srcs/constrs_1/imports/verilog/Basys-3-Master.xdc:43]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/user/Documents/GitHub/smartfarm/basys3_soc/basys3_soc.srcs/constrs_1/imports/verilog/Basys-3-Master.xdc:43]
 Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-584] No ports matched 'seg_7[2]'. [C:/work/vivado_2019/basys3_soc/basys3_soc.srcs/constrs_1/imports/verilog/Basys-3-Master.xdc:55]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/work/vivado_2019/basys3_soc/basys3_soc.srcs/constrs_1/imports/verilog/Basys-3-Master.xdc:55]
+WARNING: [Vivado 12-584] No ports matched 'led_debug[13]'. [C:/Users/user/Documents/GitHub/smartfarm/basys3_soc/basys3_soc.srcs/constrs_1/imports/verilog/Basys-3-Master.xdc:44]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/user/Documents/GitHub/smartfarm/basys3_soc/basys3_soc.srcs/constrs_1/imports/verilog/Basys-3-Master.xdc:44]
 Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-584] No ports matched 'seg_7[1]'. [C:/work/vivado_2019/basys3_soc/basys3_soc.srcs/constrs_1/imports/verilog/Basys-3-Master.xdc:56]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/work/vivado_2019/basys3_soc/basys3_soc.srcs/constrs_1/imports/verilog/Basys-3-Master.xdc:56]
+WARNING: [Vivado 12-584] No ports matched 'led_debug[14]'. [C:/Users/user/Documents/GitHub/smartfarm/basys3_soc/basys3_soc.srcs/constrs_1/imports/verilog/Basys-3-Master.xdc:45]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/user/Documents/GitHub/smartfarm/basys3_soc/basys3_soc.srcs/constrs_1/imports/verilog/Basys-3-Master.xdc:45]
 Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-584] No ports matched 'seg_7[0]'. [C:/work/vivado_2019/basys3_soc/basys3_soc.srcs/constrs_1/imports/verilog/Basys-3-Master.xdc:58]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/work/vivado_2019/basys3_soc/basys3_soc.srcs/constrs_1/imports/verilog/Basys-3-Master.xdc:58]
+WARNING: [Vivado 12-584] No ports matched 'led_debug[15]'. [C:/Users/user/Documents/GitHub/smartfarm/basys3_soc/basys3_soc.srcs/constrs_1/imports/verilog/Basys-3-Master.xdc:46]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/user/Documents/GitHub/smartfarm/basys3_soc/basys3_soc.srcs/constrs_1/imports/verilog/Basys-3-Master.xdc:46]
 Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-584] No ports matched 'com[0]'. [C:/work/vivado_2019/basys3_soc/basys3_soc.srcs/constrs_1/imports/verilog/Basys-3-Master.xdc:60]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/work/vivado_2019/basys3_soc/basys3_soc.srcs/constrs_1/imports/verilog/Basys-3-Master.xdc:60]
+WARNING: [Vivado 12-584] No ports matched 'btn[0]'. [C:/Users/user/Documents/GitHub/smartfarm/basys3_soc/basys3_soc.srcs/constrs_1/imports/verilog/Basys-3-Master.xdc:68]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/user/Documents/GitHub/smartfarm/basys3_soc/basys3_soc.srcs/constrs_1/imports/verilog/Basys-3-Master.xdc:68]
 Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-584] No ports matched 'com[1]'. [C:/work/vivado_2019/basys3_soc/basys3_soc.srcs/constrs_1/imports/verilog/Basys-3-Master.xdc:61]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/work/vivado_2019/basys3_soc/basys3_soc.srcs/constrs_1/imports/verilog/Basys-3-Master.xdc:61]
+WARNING: [Vivado 12-584] No ports matched 'btn[1]'. [C:/Users/user/Documents/GitHub/smartfarm/basys3_soc/basys3_soc.srcs/constrs_1/imports/verilog/Basys-3-Master.xdc:69]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/user/Documents/GitHub/smartfarm/basys3_soc/basys3_soc.srcs/constrs_1/imports/verilog/Basys-3-Master.xdc:69]
 Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-584] No ports matched 'com[2]'. [C:/work/vivado_2019/basys3_soc/basys3_soc.srcs/constrs_1/imports/verilog/Basys-3-Master.xdc:62]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/work/vivado_2019/basys3_soc/basys3_soc.srcs/constrs_1/imports/verilog/Basys-3-Master.xdc:62]
+WARNING: [Vivado 12-584] No ports matched 'btn[2]'. [C:/Users/user/Documents/GitHub/smartfarm/basys3_soc/basys3_soc.srcs/constrs_1/imports/verilog/Basys-3-Master.xdc:70]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/user/Documents/GitHub/smartfarm/basys3_soc/basys3_soc.srcs/constrs_1/imports/verilog/Basys-3-Master.xdc:70]
 Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-584] No ports matched 'com[3]'. [C:/work/vivado_2019/basys3_soc/basys3_soc.srcs/constrs_1/imports/verilog/Basys-3-Master.xdc:63]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/work/vivado_2019/basys3_soc/basys3_soc.srcs/constrs_1/imports/verilog/Basys-3-Master.xdc:63]
+WARNING: [Vivado 12-584] No ports matched 'btn[3]'. [C:/Users/user/Documents/GitHub/smartfarm/basys3_soc/basys3_soc.srcs/constrs_1/imports/verilog/Basys-3-Master.xdc:71]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/user/Documents/GitHub/smartfarm/basys3_soc/basys3_soc.srcs/constrs_1/imports/verilog/Basys-3-Master.xdc:71]
 Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-Finished Parsing XDC File [C:/work/vivado_2019/basys3_soc/basys3_soc.srcs/constrs_1/imports/verilog/Basys-3-Master.xdc]
-INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [C:/work/vivado_2019/basys3_soc/basys3_soc.srcs/constrs_1/imports/verilog/Basys-3-Master.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/i2c_txtld_top_propImpl.xdc].
-Resolution: To avoid this warning, move constraints listed in [.Xil/i2c_txtld_top_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
+WARNING: [Vivado 12-584] No ports matched 'vauxp14'. [C:/Users/user/Documents/GitHub/smartfarm/basys3_soc/basys3_soc.srcs/constrs_1/imports/verilog/Basys-3-Master.xdc:107]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/user/Documents/GitHub/smartfarm/basys3_soc/basys3_soc.srcs/constrs_1/imports/verilog/Basys-3-Master.xdc:107]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'vauxn14'. [C:/Users/user/Documents/GitHub/smartfarm/basys3_soc/basys3_soc.srcs/constrs_1/imports/verilog/Basys-3-Master.xdc:111]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/user/Documents/GitHub/smartfarm/basys3_soc/basys3_soc.srcs/constrs_1/imports/verilog/Basys-3-Master.xdc:111]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+Finished Parsing XDC File [C:/Users/user/Documents/GitHub/smartfarm/basys3_soc/basys3_soc.srcs/constrs_1/imports/verilog/Basys-3-Master.xdc]
+INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [C:/Users/user/Documents/GitHub/smartfarm/basys3_soc/basys3_soc.srcs/constrs_1/imports/verilog/Basys-3-Master.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/HC_SR04_top_propImpl.xdc].
+Resolution: To avoid this warning, move constraints listed in [.Xil/HC_SR04_top_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
 Completed Processing XDC Constraints
 
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1329.973 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1337.590 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.006 . Memory (MB): peak = 1329.973 ; gain = 0.000
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.002 . Memory (MB): peak = 1337.590 ; gain = 0.000
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:15 ; elapsed = 00:00:17 . Memory (MB): peak = 1329.973 ; gain = 402.598
+Finished Constraint Validation : Time (s): cpu = 00:00:04 ; elapsed = 00:00:07 . Memory (MB): peak = 1337.590 ; gain = 408.203
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7a35tcpg236-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:15 ; elapsed = 00:00:17 . Memory (MB): peak = 1329.973 ; gain = 402.598
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:04 ; elapsed = 00:00:07 . Memory (MB): peak = 1337.590 ; gain = 408.203
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:15 ; elapsed = 00:00:17 . Memory (MB): peak = 1329.973 ; gain = 402.598
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:04 ; elapsed = 00:00:07 . Memory (MB): peak = 1337.590 ; gain = 408.203
 ---------------------------------------------------------------------------------
-INFO: [Synth 8-4471] merging register 'comm_go_reg' into 'count_usec_en_reg' [C:/work/vivado_2019/basys3_soc/basys3_soc.srcs/sources_1/new/controler.v:1251]
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:16 ; elapsed = 00:00:18 . Memory (MB): peak = 1329.973 ; gain = 402.598
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:04 ; elapsed = 00:00:07 . Memory (MB): peak = 1337.590 ; gain = 408.203
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -201,33 +175,24 @@ Start RTL Component Statistics
 ---------------------------------------------------------------------------------
 Detailed RTL Component Info : 
 +---Adders : 
-	   2 Input      7 Bit       Adders := 3     
-	   2 Input      4 Bit       Adders := 2     
-	   2 Input      3 Bit       Adders := 2     
+	   2 Input      7 Bit       Adders := 1     
+	   2 Input      6 Bit       Adders := 1     
+	   2 Input      4 Bit       Adders := 25    
+	   2 Input      3 Bit       Adders := 1     
 +---Registers : 
-	               40 Bit    Registers := 1     
-	                8 Bit    Registers := 2     
-	                7 Bit    Registers := 5     
-	                6 Bit    Registers := 4     
-	                4 Bit    Registers := 2     
-	                3 Bit    Registers := 2     
-	                1 Bit    Registers := 41    
+	               22 Bit    Registers := 1     
+	                7 Bit    Registers := 1     
+	                6 Bit    Registers := 1     
+	                4 Bit    Registers := 4     
+	                1 Bit    Registers := 9     
 +---Muxes : 
-	   2 Input      8 Bit        Muxes := 1     
-	   7 Input      8 Bit        Muxes := 1     
-	   2 Input      7 Bit        Muxes := 3     
-	   8 Input      7 Bit        Muxes := 1     
+	   2 Input      7 Bit        Muxes := 1     
 	   2 Input      6 Bit        Muxes := 2     
-	   7 Input      6 Bit        Muxes := 1     
-	   6 Input      6 Bit        Muxes := 1     
-	   2 Input      5 Bit        Muxes := 2     
-	   2 Input      4 Bit        Muxes := 3     
 	   6 Input      4 Bit        Muxes := 1     
-	   2 Input      3 Bit        Muxes := 3     
-	   2 Input      1 Bit        Muxes := 51    
-	   8 Input      1 Bit        Muxes := 7     
-	   7 Input      1 Bit        Muxes := 6     
-	   6 Input      1 Bit        Muxes := 8     
+	   2 Input      4 Bit        Muxes := 19    
+	   5 Input      4 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 9     
+	   5 Input      1 Bit        Muxes := 8     
 ---------------------------------------------------------------------------------
 Finished RTL Component Statistics 
 ---------------------------------------------------------------------------------
@@ -235,27 +200,6 @@ Finished RTL Component Statistics
 Start RTL Hierarchical Component Statistics 
 ---------------------------------------------------------------------------------
 Hierarchical RTL Component report 
-Module i2c_txtld_top 
-Detailed RTL Component Info : 
-+---Adders : 
-	   2 Input      4 Bit       Adders := 2     
-+---Registers : 
-	               40 Bit    Registers := 1     
-	                8 Bit    Registers := 1     
-	                6 Bit    Registers := 2     
-	                4 Bit    Registers := 2     
-	                1 Bit    Registers := 4     
-+---Muxes : 
-	   2 Input      8 Bit        Muxes := 1     
-	   7 Input      8 Bit        Muxes := 1     
-	   2 Input      6 Bit        Muxes := 1     
-	   6 Input      6 Bit        Muxes := 1     
-	   2 Input      5 Bit        Muxes := 2     
-	   2 Input      4 Bit        Muxes := 3     
-	   6 Input      4 Bit        Muxes := 1     
-	   2 Input      1 Bit        Muxes := 18    
-	   6 Input      1 Bit        Muxes := 8     
-	   7 Input      1 Bit        Muxes := 1     
 Module edge_detector_n 
 Detailed RTL Component Info : 
 +---Registers : 
@@ -276,34 +220,45 @@ Detailed RTL Component Info :
 	                1 Bit    Registers := 2     
 +---Muxes : 
 	   2 Input      1 Bit        Muxes := 2     
-Module button_cntr 
-Detailed RTL Component Info : 
-+---Registers : 
-	                1 Bit    Registers := 1     
-Module I2C_master 
+Module sr04_div_58 
 Detailed RTL Component Info : 
 +---Adders : 
-	   2 Input      3 Bit       Adders := 2     
+	   2 Input      6 Bit       Adders := 1     
 +---Registers : 
-	                7 Bit    Registers := 2     
-	                3 Bit    Registers := 2     
-	                1 Bit    Registers := 3     
+	                6 Bit    Registers := 1     
 +---Muxes : 
-	   8 Input      7 Bit        Muxes := 1     
-	   2 Input      6 Bit        Muxes := 1     
-	   2 Input      3 Bit        Muxes := 3     
-	   2 Input      1 Bit        Muxes := 4     
-	   8 Input      1 Bit        Muxes := 7     
-Module i2c_lcd_send_byte 
+	   2 Input      6 Bit        Muxes := 2     
+	   2 Input      1 Bit        Muxes := 2     
+Module HC_SR04_cntr 
 Detailed RTL Component Info : 
 +---Registers : 
-	                8 Bit    Registers := 1     
-	                6 Bit    Registers := 2     
-	                1 Bit    Registers := 2     
+	               22 Bit    Registers := 1     
+	                4 Bit    Registers := 2     
+	                1 Bit    Registers := 3     
 +---Muxes : 
-	   7 Input      6 Bit        Muxes := 1     
-	   7 Input      1 Bit        Muxes := 5     
+	   6 Input      4 Bit        Muxes := 1     
+	   5 Input      1 Bit        Muxes := 7     
 	   2 Input      1 Bit        Muxes := 1     
+Module bin_to_dec 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input      4 Bit       Adders := 25    
+	   2 Input      3 Bit       Adders := 1     
++---Muxes : 
+	   2 Input      4 Bit        Muxes := 18    
+Module ring_counter_fnd 
+Detailed RTL Component Info : 
++---Registers : 
+	                4 Bit    Registers := 1     
++---Muxes : 
+	   2 Input      4 Bit        Muxes := 1     
+Module fnd_cntr 
+Detailed RTL Component Info : 
++---Registers : 
+	                4 Bit    Registers := 1     
++---Muxes : 
+	   5 Input      4 Bit        Muxes := 1     
+	   5 Input      1 Bit        Muxes := 1     
 ---------------------------------------------------------------------------------
 Finished RTL Hierarchical Component Statistics
 ---------------------------------------------------------------------------------
@@ -320,73 +275,12 @@ Finished Part Resource Summary
 Start Cross Boundary and Area Optimization
 ---------------------------------------------------------------------------------
 Warning: Parallel synthesis criteria is not met 
-INFO: [Synth 8-4471] merging register 'btn1/ed_clk/ff_cur_reg' into 'btn0/ed_clk/ff_cur_reg' [C:/work/vivado_2019/basys3_soc/basys3_soc.srcs/sources_1/new/exam02_sequential_logic.v:297]
-INFO: [Synth 8-4471] merging register 'btn2/ed_clk/ff_cur_reg' into 'btn0/ed_clk/ff_cur_reg' [C:/work/vivado_2019/basys3_soc/basys3_soc.srcs/sources_1/new/exam02_sequential_logic.v:297]
-INFO: [Synth 8-4471] merging register 'btn3/ed_clk/ff_cur_reg' into 'btn0/ed_clk/ff_cur_reg' [C:/work/vivado_2019/basys3_soc/basys3_soc.srcs/sources_1/new/exam02_sequential_logic.v:297]
-INFO: [Synth 8-4471] merging register 'btn1/ed_clk/ff_old_reg' into 'btn0/ed_clk/ff_old_reg' [C:/work/vivado_2019/basys3_soc/basys3_soc.srcs/sources_1/new/exam02_sequential_logic.v:298]
-INFO: [Synth 8-4471] merging register 'btn2/ed_clk/ff_old_reg' into 'btn0/ed_clk/ff_old_reg' [C:/work/vivado_2019/basys3_soc/basys3_soc.srcs/sources_1/new/exam02_sequential_logic.v:298]
-INFO: [Synth 8-4471] merging register 'btn3/ed_clk/ff_old_reg' into 'btn0/ed_clk/ff_old_reg' [C:/work/vivado_2019/basys3_soc/basys3_soc.srcs/sources_1/new/exam02_sequential_logic.v:298]
-WARNING: [Synth 8-3331] design i2c_txtld_top has unconnected port led_debug[15]
-WARNING: [Synth 8-3331] design i2c_txtld_top has unconnected port led_debug[14]
-WARNING: [Synth 8-3331] design i2c_txtld_top has unconnected port led_debug[13]
-WARNING: [Synth 8-3331] design i2c_txtld_top has unconnected port led_debug[12]
-WARNING: [Synth 8-3331] design i2c_txtld_top has unconnected port led_debug[11]
-WARNING: [Synth 8-3331] design i2c_txtld_top has unconnected port led_debug[10]
-WARNING: [Synth 8-3331] design i2c_txtld_top has unconnected port led_debug[9]
-WARNING: [Synth 8-3331] design i2c_txtld_top has unconnected port led_debug[8]
-WARNING: [Synth 8-3331] design i2c_txtld_top has unconnected port led_debug[7]
-WARNING: [Synth 8-3331] design i2c_txtld_top has unconnected port led_debug[6]
-WARNING: [Synth 8-3331] design i2c_txtld_top has unconnected port led_debug[5]
-WARNING: [Synth 8-3331] design i2c_txtld_top has unconnected port led_debug[4]
-WARNING: [Synth 8-3331] design i2c_txtld_top has unconnected port led_debug[3]
-WARNING: [Synth 8-3331] design i2c_txtld_top has unconnected port led_debug[2]
-WARNING: [Synth 8-3331] design i2c_txtld_top has unconnected port led_debug[1]
-WARNING: [Synth 8-3331] design i2c_txtld_top has unconnected port led_debug[0]
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\next_state_reg[5] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\hello_reg[7] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\hello_reg[15] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\hello_reg[23] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\hello_reg[31] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\hello_reg[39] )
-INFO: [Synth 8-3333] propagating constant 1 across sequential element (\hello_reg[3] )
-INFO: [Synth 8-3333] propagating constant 1 across sequential element (\hello_reg[11] )
-INFO: [Synth 8-3333] propagating constant 1 across sequential element (\hello_reg[19] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\hello_reg[27] )
-INFO: [Synth 8-3333] propagating constant 1 across sequential element (\hello_reg[35] )
-INFO: [Synth 8-3333] propagating constant 1 across sequential element (\hello_reg[6] )
-INFO: [Synth 8-3333] propagating constant 1 across sequential element (\hello_reg[14] )
-INFO: [Synth 8-3333] propagating constant 1 across sequential element (\hello_reg[22] )
-INFO: [Synth 8-3333] propagating constant 1 across sequential element (\hello_reg[30] )
-INFO: [Synth 8-3333] propagating constant 1 across sequential element (\hello_reg[38] )
-INFO: [Synth 8-3333] propagating constant 1 across sequential element (\hello_reg[2] )
-INFO: [Synth 8-3333] propagating constant 1 across sequential element (\hello_reg[10] )
-INFO: [Synth 8-3333] propagating constant 1 across sequential element (\hello_reg[18] )
-INFO: [Synth 8-3333] propagating constant 1 across sequential element (\hello_reg[26] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\hello_reg[34] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\hello_reg[5] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\hello_reg[13] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\hello_reg[21] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\hello_reg[29] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\hello_reg[37] )
-INFO: [Synth 8-3333] propagating constant 1 across sequential element (\hello_reg[1] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\hello_reg[9] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\hello_reg[17] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\hello_reg[25] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\hello_reg[33] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\hello_reg[4] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\hello_reg[12] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\hello_reg[20] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\hello_reg[28] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\hello_reg[36] )
-INFO: [Synth 8-3333] propagating constant 1 across sequential element (\hello_reg[0] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\hello_reg[8] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\hello_reg[16] )
-INFO: [Synth 8-3333] propagating constant 1 across sequential element (\hello_reg[24] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\hello_reg[32] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\i2c_lcd_send_byte_0/data_reg[1] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\send_buffer_reg[7] )
+WARNING: [Synth 8-3331] design HC_SR04_top has unconnected port led_debug[7]
+WARNING: [Synth 8-3331] design HC_SR04_top has unconnected port led_debug[6]
+WARNING: [Synth 8-3331] design HC_SR04_top has unconnected port led_debug[5]
+WARNING: [Synth 8-3331] design HC_SR04_top has unconnected port led_debug[4]
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:19 ; elapsed = 00:00:21 . Memory (MB): peak = 1329.973 ; gain = 402.598
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:05 ; elapsed = 00:00:09 . Memory (MB): peak = 1337.590 ; gain = 408.203
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -398,13 +292,13 @@ Report RTL Partitions:
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:29 ; elapsed = 00:00:32 . Memory (MB): peak = 1329.973 ; gain = 402.598
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:07 ; elapsed = 00:00:13 . Memory (MB): peak = 1337.590 ; gain = 408.203
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:30 ; elapsed = 00:00:33 . Memory (MB): peak = 1333.117 ; gain = 405.742
+Finished Timing Optimization : Time (s): cpu = 00:00:08 ; elapsed = 00:00:13 . Memory (MB): peak = 1351.035 ; gain = 421.648
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -416,7 +310,7 @@ Report RTL Partitions:
 Start Technology Mapping
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:30 ; elapsed = 00:00:34 . Memory (MB): peak = 1335.387 ; gain = 408.012
+Finished Technology Mapping : Time (s): cpu = 00:00:08 ; elapsed = 00:00:13 . Memory (MB): peak = 1360.078 ; gain = 430.691
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -440,13 +334,13 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:36 ; elapsed = 00:00:40 . Memory (MB): peak = 1340.238 ; gain = 412.863
+Finished IO Insertion : Time (s): cpu = 00:00:09 ; elapsed = 00:00:15 . Memory (MB): peak = 1365.859 ; gain = 436.473
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:36 ; elapsed = 00:00:40 . Memory (MB): peak = 1340.238 ; gain = 412.863
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:09 ; elapsed = 00:00:15 . Memory (MB): peak = 1365.859 ; gain = 436.473
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -465,25 +359,25 @@ Report Check Netlist:
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:36 ; elapsed = 00:00:40 . Memory (MB): peak = 1340.238 ; gain = 412.863
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:09 ; elapsed = 00:00:15 . Memory (MB): peak = 1365.859 ; gain = 436.473
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:00:36 ; elapsed = 00:00:40 . Memory (MB): peak = 1340.238 ; gain = 412.863
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:09 ; elapsed = 00:00:15 . Memory (MB): peak = 1365.859 ; gain = 436.473
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:36 ; elapsed = 00:00:40 . Memory (MB): peak = 1340.238 ; gain = 412.863
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:09 ; elapsed = 00:00:15 . Memory (MB): peak = 1365.859 ; gain = 436.473
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:00:36 ; elapsed = 00:00:40 . Memory (MB): peak = 1340.238 ; gain = 412.863
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:09 ; elapsed = 00:00:15 . Memory (MB): peak = 1365.859 ; gain = 436.473
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -500,68 +394,60 @@ Report Cell Usage:
 |      |Cell   |Count |
 +------+-------+------+
 |1     |BUFG   |     1|
-|2     |CARRY4 |    17|
-|3     |LUT1   |     4|
-|4     |LUT2   |    19|
-|5     |LUT3   |    18|
-|6     |LUT4   |    64|
-|7     |LUT5   |    31|
-|8     |LUT6   |    61|
-|9     |FDCE   |   144|
-|10    |FDPE   |    11|
-|11    |FDRE   |    25|
-|12    |IBUF   |     5|
-|13    |OBUF   |     1|
-|14    |OBUFT  |    17|
+|2     |CARRY4 |    14|
+|3     |LUT1   |     1|
+|4     |LUT2   |     7|
+|5     |LUT3   |    12|
+|6     |LUT4   |    50|
+|7     |LUT5   |    12|
+|8     |LUT6   |    51|
+|9     |MUXF7  |     4|
+|10    |FDCE   |    62|
+|11    |FDPE   |     5|
+|12    |FDRE   |    34|
+|13    |IBUF   |     3|
+|14    |OBUF   |    17|
+|15    |OBUFT  |     4|
 +------+-------+------+
 
 Report Instance Areas: 
-+------+----------------------+-------------------+------+
-|      |Instance              |Module             |Cells |
-+------+----------------------+-------------------+------+
-|1     |top                   |                   |   418|
-|2     |  btn0                |button_cntr        |    31|
-|3     |    ed_btn            |edge_detector_p_10 |     4|
-|4     |    ed_clk            |edge_detector_p_11 |     3|
-|5     |  btn1                |button_cntr_0      |     6|
-|6     |    ed_btn            |edge_detector_p_9  |     5|
-|7     |  btn2                |button_cntr_1      |     5|
-|8     |    ed_btn            |edge_detector_p    |     4|
-|9     |  i2c_lcd_send_byte_0 |i2c_lcd_send_byte  |   219|
-|10    |    I2C_master_0      |I2C_master         |    84|
-|11    |      comm_go_edge    |edge_detector_n_5  |     3|
-|12    |      scl_edge        |edge_detector_n_6  |    13|
-|13    |      usec_clk        |clock_div_100_7    |    20|
-|14    |        ed            |edge_detector_n_8  |     4|
-|15    |    comm_go_edge      |edge_detector_n_2  |     6|
-|16    |    usec_clk          |clock_div_100_3    |    49|
-|17    |      ed              |edge_detector_n_4  |    33|
-|18    |  usec_clk            |clock_div_100      |    49|
-|19    |    ed                |edge_detector_n    |    33|
-+------+----------------------+-------------------+------+
++------+--------------------+------------------+------+
+|      |Instance            |Module            |Cells |
++------+--------------------+------------------+------+
+|1     |top                 |                  |   277|
+|2     |  HC_SR04_cntr_0    |HC_SR04_cntr      |   205|
+|3     |    clk_div_58      |sr04_div_58       |    23|
+|4     |    edge_detector_0 |edge_detector_p_0 |     8|
+|5     |    usec_clk        |clock_div_100     |    73|
+|6     |      ed            |edge_detector_n   |    57|
+|7     |  fnd               |fnd_cntr          |    47|
+|8     |    nolabel_line40  |decoder_7seg      |     7|
+|9     |    rc              |ring_counter_fnd  |    36|
+|10    |      ed            |edge_detector_p   |     3|
++------+--------------------+------------------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:36 ; elapsed = 00:00:40 . Memory (MB): peak = 1340.238 ; gain = 412.863
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:09 ; elapsed = 00:00:15 . Memory (MB): peak = 1365.859 ; gain = 436.473
 ---------------------------------------------------------------------------------
-Synthesis finished with 0 errors, 0 critical warnings and 16 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:27 ; elapsed = 00:00:37 . Memory (MB): peak = 1340.238 ; gain = 292.508
-Synthesis Optimization Complete : Time (s): cpu = 00:00:36 ; elapsed = 00:00:40 . Memory (MB): peak = 1340.238 ; gain = 412.863
+Synthesis finished with 0 errors, 0 critical warnings and 4 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:06 ; elapsed = 00:00:14 . Memory (MB): peak = 1365.859 ; gain = 313.289
+Synthesis Optimization Complete : Time (s): cpu = 00:00:09 ; elapsed = 00:00:15 . Memory (MB): peak = 1365.859 ; gain = 436.473
 INFO: [Project 1-571] Translating synthesized netlist
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.011 . Memory (MB): peak = 1352.297 ; gain = 0.000
-INFO: [Netlist 29-17] Analyzing 17 Unisim elements for replacement
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.002 . Memory (MB): peak = 1377.961 ; gain = 0.000
+INFO: [Netlist 29-17] Analyzing 18 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1352.297 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1377.961 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
 INFO: [Common 17-83] Releasing license: Synthesis
-81 Infos, 71 Warnings, 12 Critical Warnings and 0 Errors encountered.
+34 Infos, 41 Warnings, 14 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:44 ; elapsed = 00:00:49 . Memory (MB): peak = 1352.297 ; gain = 705.922
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1352.297 ; gain = 0.000
+synth_design: Time (s): cpu = 00:00:10 ; elapsed = 00:00:19 . Memory (MB): peak = 1377.961 ; gain = 730.234
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1377.961 ; gain = 0.000
 WARNING: [Constraints 18-5210] No constraints selected for write.
 Resolution: This message can indicate that there are no constraints for the design, or it can indicate that the used_in flags are set such that the constraints are ignored. This later case is used when running synth_design to not write synthesis constraints to the resulting checkpoint. Instead, project constraints are read when the synthesized design is opened.
-INFO: [Common 17-1381] The checkpoint 'C:/work/vivado_2019/basys3_soc/basys3_soc.runs/synth_1/i2c_txtld_top.dcp' has been generated.
-INFO: [runtcl-4] Executing : report_utilization -file i2c_txtld_top_utilization_synth.rpt -pb i2c_txtld_top_utilization_synth.pb
-INFO: [Common 17-206] Exiting Vivado at Fri Aug 23 10:36:50 2024...
+INFO: [Common 17-1381] The checkpoint 'C:/Users/user/Documents/GitHub/smartfarm/basys3_soc/basys3_soc.runs/synth_1/HC_SR04_top.dcp' has been generated.
+INFO: [runtcl-4] Executing : report_utilization -file HC_SR04_top_utilization_synth.rpt -pb HC_SR04_top_utilization_synth.pb
+INFO: [Common 17-206] Exiting Vivado at Fri Aug 23 17:34:53 2024...
