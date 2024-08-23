@@ -1,3 +1,3 @@
 # smartfarm
  smartfarm
-![alt text](Blcoc_diagram.jpg)
+[text](Blcoc_diagram.drawio)
