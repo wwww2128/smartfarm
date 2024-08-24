@@ -1345,3 +1345,19 @@ module i2c_lcd_send_byte (
         I2C_master I2C_master_0 (.clk(clk), .reset_p(reset_p), .addr(addr),  .rd_wr(0), .data(data),  .comm_go(comm_go), .scl(scl), .sda(sda), .led(led));
         
 endmodule   
+
+module dht11_control(
+    input clk, reset_p, 
+    inout dht11_data,
+    output [15:0] dht11_value);
+    
+    wire [7:0] humidity, temperature; 
+    dht11_cntrl dth11( .clk(clk), .reset_p(reset_p), .dht11_data(dht11_data), .humidity(humidity), .temperature(temperature), .led_debug(led_debug));
+    
+    wire [15:0] humidity_bcd, temperature_bcd;
+    bin_to_dec bcd_humi(.bin({4'b0, humidity}),  .bcd(humidity_bcd));
+    bin_to_dec bcd_temp(.bin({4'b0, temperature}),  .bcd(temperature_bcd));
+    
+    assign value = {humidity_bcd[7:0], temperature_bcd[7:0]};
+    
+endmodule
