@@ -40,4 +40,4 @@ EAStep()
      fi
 }
 
-EAStep vivado -log HC_SR04_top.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source HC_SR04_top.tcl
+EAStep vivado -log top_module_of_smart_farm.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source top_module_of_smart_farm.tcl

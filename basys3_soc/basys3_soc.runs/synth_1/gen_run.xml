@@ -1,16 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="synth_1" LaunchPart="xc7a35tcpg236-1" LaunchTime="1724402067">
-  <File Type="PA-TCL" Name="HC_SR04_top.tcl"/>
-  <File Type="RDS-PROPCONSTRS" Name="HC_SR04_top_drc_synth.rpt"/>
-  <File Type="REPORTS-TCL" Name="HC_SR04_top_reports.tcl"/>
-  <File Type="RDS-RDS" Name="HC_SR04_top.vds"/>
-  <File Type="RDS-UTIL" Name="HC_SR04_top_utilization_synth.rpt"/>
-  <File Type="RDS-UTIL-PB" Name="HC_SR04_top_utilization_synth.pb"/>
-  <File Type="RDS-DCP" Name="HC_SR04_top.dcp"/>
-  <File Type="VDS-TIMINGSUMMARY" Name="HC_SR04_top_timing_summary_synth.rpt"/>
-  <File Type="VDS-TIMING-PB" Name="HC_SR04_top_timing_summary_synth.pb"/>
+<GenRun Id="synth_1" LaunchPart="xc7a35tcpg236-1" LaunchTime="1724481691">
+  <File Type="PA-TCL" Name="top_module_of_smart_farm.tcl"/>
+  <File Type="RDS-PROPCONSTRS" Name="top_module_of_smart_farm_drc_synth.rpt"/>
+  <File Type="REPORTS-TCL" Name="top_module_of_smart_farm_reports.tcl"/>
+  <File Type="RDS-RDS" Name="top_module_of_smart_farm.vds"/>
+  <File Type="RDS-UTIL" Name="top_module_of_smart_farm_utilization_synth.rpt"/>
+  <File Type="RDS-UTIL-PB" Name="top_module_of_smart_farm_utilization_synth.pb"/>
+  <File Type="RDS-DCP" Name="top_module_of_smart_farm.dcp"/>
+  <File Type="VDS-TIMINGSUMMARY" Name="top_module_of_smart_farm_timing_summary_synth.rpt"/>
+  <File Type="VDS-TIMING-PB" Name="top_module_of_smart_farm_timing_summary_synth.pb"/>
   <FileSet Name="sources" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1">
     <Filter Type="Srcs"/>
+    <File Path="$PSRCDIR/sources_1/ip/xadc_wiz_2/xadc_wiz_2.xci">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/ip/xadc_wiz_3/xadc_wiz_3.xci">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
     <File Path="$PSRCDIR/sources_1/new/clock_library.v">
       <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
@@ -39,22 +53,14 @@
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
-    <File Path="$PSRCDIR/sources_1/new/test_top.v">
-      <FileInfo>
-        <Attr Name="UsedIn" Val="synthesis"/>
-        <Attr Name="UsedIn" Val="implementation"/>
-        <Attr Name="UsedIn" Val="simulation"/>
-      </FileInfo>
-    </File>
-    <File Path="$PSRCDIR/sources_1/ip/xadc_wiz_2/xadc_wiz_2.xci">
-      <FileInfo>
-        <Attr Name="AutoDisabled" Val="1"/>
-        <Attr Name="UsedIn" Val="synthesis"/>
-        <Attr Name="UsedIn" Val="implementation"/>
-        <Attr Name="UsedIn" Val="simulation"/>
-      </FileInfo>
-    </File>
     <File Path="$PSRCDIR/sources_1/new/top_module_of_smart_farm.v">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/new/test_top.v">
       <FileInfo>
         <Attr Name="AutoDisabled" Val="1"/>
         <Attr Name="UsedIn" Val="synthesis"/>
@@ -63,14 +69,6 @@
       </FileInfo>
     </File>
     <File Path="$PSRCDIR/sources_1/ip/xadc_wiz_1/xadc_wiz_1.xci">
-      <FileInfo>
-        <Attr Name="AutoDisabled" Val="1"/>
-        <Attr Name="UsedIn" Val="synthesis"/>
-        <Attr Name="UsedIn" Val="implementation"/>
-        <Attr Name="UsedIn" Val="simulation"/>
-      </FileInfo>
-    </File>
-    <File Path="$PSRCDIR/sources_1/ip/xadc_wiz_0/xadc_wiz_0.xci">
       <FileInfo>
         <Attr Name="AutoDisabled" Val="1"/>
         <Attr Name="UsedIn" Val="synthesis"/>
@@ -88,7 +86,7 @@
     </File>
     <Config>
       <Option Name="DesignMode" Val="RTL"/>
-      <Option Name="TopModule" Val="HC_SR04_top"/>
+      <Option Name="TopModule" Val="top_module_of_smart_farm"/>
     </Config>
   </FileSet>
   <FileSet Name="constrs_in" Type="Constrs" RelSrcDir="$PSRCDIR/constrs_1">

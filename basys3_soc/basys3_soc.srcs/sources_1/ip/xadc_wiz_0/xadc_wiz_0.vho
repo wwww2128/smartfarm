@@ -64,8 +64,10 @@ COMPONENT xadc_wiz_0
     reset_in : IN STD_LOGIC;
     vp_in : IN STD_LOGIC;
     vn_in : IN STD_LOGIC;
-    vauxp6 : IN STD_LOGIC;
-    vauxn6 : IN STD_LOGIC;
+    user_temp_alarm_out : OUT STD_LOGIC;
+    vccint_alarm_out : OUT STD_LOGIC;
+    vccaux_alarm_out : OUT STD_LOGIC;
+    ot_out : OUT STD_LOGIC;
     channel_out : OUT STD_LOGIC_VECTOR(4 DOWNTO 0);
     eoc_out : OUT STD_LOGIC;
     alarm_out : OUT STD_LOGIC;
@@ -91,8 +93,10 @@ your_instance_name : xadc_wiz_0
     reset_in => reset_in,
     vp_in => vp_in,
     vn_in => vn_in,
-    vauxp6 => vauxp6,
-    vauxn6 => vauxn6,
+    user_temp_alarm_out => user_temp_alarm_out,
+    vccint_alarm_out => vccint_alarm_out,
+    vccaux_alarm_out => vccaux_alarm_out,
+    ot_out => ot_out,
     channel_out => channel_out,
     eoc_out => eoc_out,
     alarm_out => alarm_out,
