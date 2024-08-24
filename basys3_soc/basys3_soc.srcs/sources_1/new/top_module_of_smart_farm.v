@@ -19,10 +19,43 @@
 // 
 //////////////////////////////////////////////////////////////////////////////////
 
-
+// Top moudle of Smarr Farm
 module top_module_of_smart_farm(
-
-    );
+    input clk, reset_p,
+    input [2:0] btn,
+    input [3:0] sw,
+    inout dht11_data,
+    input vauxp6, vauxn6,
+    input vauxp15, vauxn15,
+    input hc_sr04_echo,
+    output hc_sr04_trig);
+    
+    // Button Control module
+    wire btn_electric_fan_mode, btn_led_mode, btn_window_mode;
+    button_cntr btn0(.clk(clk), .reset_p(reset_p), .btn(btn[0]), .btn_pedge(btn_electric_fan_mode));
+    button_cntr btn1(.clk(clk), .reset_p(reset_p), .btn(btn[1]), .btn_pedge(btn_led_mode));
+    button_cntr btn2(.clk(clk), .reset_p(reset_p), .btn(btn[2]), .btn_pedge(btn_window_mode));
+    
+    // Declare Switch
+    wire sw_led_up, sw_led_down, sw_window_open, sw_window_close;
+    assign sw_led_up = sw[0];
+    assign sw_led_down = sw[1];
+    assign sw_window_open = sw[2];
+    assign sw_window_close = sw[3];
+    
+    // Declare sensor variables.
+    wire [15:0] dht11_value;
+    wire [7:0] sunlight_value;
+    wire water_flag;
+    wire led_up_down;
+    wire [7:0] distance_between_plant_and_LED;
+    
+    // Instance of sensor module
+    dht11_control dht11_control_instance (.clk(clk), .reset_p(reset_p), .dht11_data(dht11_data), .dht11_value(dht11_value));
+    cds_control cds_control_instance (.clk(clk), .reset_p(reset_p), .vauxp6(vauxp6), .vauxn6(vauxn6), .sunlight_value(sunlight_value));
+    water_level_control water_level_control_instance (.clk(clk), .reset_p(reset_p), .vauxp15(vauxp15), .vauxn15(vauxn15), .water_flag(water_flag));
+    hc_sr04_control hc_sr04_control_instance (.clk(clk), .reset_p(reset_p), .hc_sr04_echo(hc_sr04_echo), .hc_sr04_trig(hc_sr04_trig), .led_up_down(led_up_down), .distance_between_plant_and_led(distance_between_plant_and_led));
+    
 endmodule
 
 
@@ -65,7 +98,8 @@ module hc_sr04_control (
     input clk, reset_p, 
     input hc_sr04_echo,
     output hc_sr04_trig,
-    output led_up_down );
+    output led_up_down,
+    output [7:0] distance_between_plant_and_led );
     
     // Instance of HC_SR04 Control module
     wire [21:0] distance_cm;
@@ -75,4 +109,54 @@ module hc_sr04_control (
     //      식물 간에 거리가 10cm 이상이면 led_uo_down = 0
     assign led_up_down = (distance_cm < 22'd10) ? 1 : 0;
     
+    // 현재 식물과 LED간에 거리를 출력한다.
+    assign distance_between_plant_and_led = distance_cm[7:0];
+    
+endmodule
+
+
+
+
+// DHT11 Control module
+module dht11_control(
+    input clk, reset_p, 
+    inout dht11_data,
+    output [15:0] dht11_value);
+
+    wire [7:0] humidity, temperature; 
+    dht11_cntrl dth11( .clk(clk), .reset_p(reset_p), .dht11_data(dht11_data), .humidity(humidity), .temperature(temperature), .led_debug(led_debug));
+
+
+    assign dht11_value = {humidity[7:0], temperature[7:0]};
+
+endmodule
+
+
+
+
+// Cds Control module (sunlight)
+module cds_control (
+       input clk, reset_p,
+       input vauxp6, vauxn6,
+       output [7:0] sunlight_value);
+
+       wire [4:0] channel_out;
+       wire [16:0] do_out;
+       wire eoc_out;
+
+        // ADC Module instance
+       xadc_wiz_0 adc_6 (
+        .daddr_in({2'b0, channel_out}),
+        .dclk_in(clk),
+        .den_in(eoc_out),
+        .reset_in(reset_p),
+        .vauxp6(vauxp6),
+        .vauxn6(vauxn6),
+        .channel_out(channel_out),
+        .do_out(do_out),
+        .eoc_out(eoc_out)
+    );
+
+    assign sunlight_value = do_out[15:8];
+
 endmodule
