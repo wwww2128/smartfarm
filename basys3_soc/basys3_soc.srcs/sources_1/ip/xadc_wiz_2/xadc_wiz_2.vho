@@ -64,6 +64,8 @@ COMPONENT xadc_wiz_2
     reset_in : IN STD_LOGIC;
     vp_in : IN STD_LOGIC;
     vn_in : IN STD_LOGIC;
+    vauxp6 : IN STD_LOGIC;
+    vauxn6 : IN STD_LOGIC;
     vauxp15 : IN STD_LOGIC;
     vauxn15 : IN STD_LOGIC;
     channel_out : OUT STD_LOGIC_VECTOR(4 DOWNTO 0);
@@ -91,6 +93,8 @@ your_instance_name : xadc_wiz_2
     reset_in => reset_in,
     vp_in => vp_in,
     vn_in => vn_in,
+    vauxp6 => vauxp6,
+    vauxn6 => vauxn6,
     vauxp15 => vauxp15,
     vauxn15 => vauxn15,
     channel_out => channel_out,

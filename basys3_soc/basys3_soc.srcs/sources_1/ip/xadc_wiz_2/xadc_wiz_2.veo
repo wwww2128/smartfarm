@@ -65,6 +65,8 @@ xadc_wiz_2 your_instance_name (
   .reset_in(reset_in),        // input wire reset_in
   .vp_in(vp_in),              // input wire vp_in
   .vn_in(vn_in),              // input wire vn_in
+  .vauxp6(vauxp6),            // input wire vauxp6
+  .vauxn6(vauxn6),            // input wire vauxn6
   .vauxp15(vauxp15),          // input wire vauxp15
   .vauxn15(vauxn15),          // input wire vauxn15
   .channel_out(channel_out),  // output wire [4 : 0] channel_out
