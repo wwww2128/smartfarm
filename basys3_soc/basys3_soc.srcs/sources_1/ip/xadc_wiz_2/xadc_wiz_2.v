@@ -47,7 +47,7 @@
 // PART OF THIS FILE AT ALL TIMES.
 `timescale 1ns / 1 ps
 
-(* CORE_GENERATION_INFO = "xadc_wiz_2,xadc_wiz_v3_3_7,{component_name=xadc_wiz_2,enable_axi=false,enable_axi4stream=false,dclk_frequency=100,enable_busy=true,enable_convst=false,enable_convstclk=false,enable_dclk=true,enable_drp=true,enable_eoc=true,enable_eos=true,enable_vbram_alaram=false,enable_vccddro_alaram=false,enable_Vccint_Alaram=false,enable_Vccaux_alaram=false,enable_vccpaux_alaram=false,enable_vccpint_alaram=false,ot_alaram=false,user_temp_alaram=false,timing_mode=continuous,channel_averaging=None,sequencer_mode=off,startup_channel_selection=single_channel}" *)
+(* CORE_GENERATION_INFO = "xadc_wiz_2,xadc_wiz_v3_3_7,{component_name=xadc_wiz_2,enable_axi=false,enable_axi4stream=false,dclk_frequency=100,enable_busy=true,enable_convst=false,enable_convstclk=false,enable_dclk=true,enable_drp=true,enable_eoc=true,enable_eos=true,enable_vbram_alaram=false,enable_vccddro_alaram=false,enable_Vccint_Alaram=false,enable_Vccaux_alaram=false,enable_vccpaux_alaram=false,enable_vccpint_alaram=false,ot_alaram=false,user_temp_alaram=false,timing_mode=continuous,channel_averaging=None,sequencer_mode=on,startup_channel_selection=contineous_sequence}" *)
 
 
 module xadc_wiz_2
@@ -58,6 +58,8 @@ module xadc_wiz_2
           di_in,               // Input data bus for the dynamic reconfiguration port
           dwe_in,              // Write Enable for the dynamic reconfiguration port
           reset_in,            // Reset signal for the System Monitor control logic
+          vauxp6,              // Auxiliary channel 6
+          vauxn6,
           vauxp15,             // Auxiliary channel 15
           vauxn15,
           busy_out,            // ADC Busy signal
@@ -76,6 +78,8 @@ module xadc_wiz_2
           input [15:0] di_in;
           input dwe_in;
           input reset_in;
+          input vauxp6;
+          input vauxn6;
           input vauxp15;
           input vauxn15;
           input vp_in;
@@ -118,8 +122,8 @@ module xadc_wiz_2
           assign aux_channel_p[5] = 1'b0;
           assign aux_channel_n[5] = 1'b0;
 
-          assign aux_channel_p[6] = 1'b0;
-          assign aux_channel_n[6] = 1'b0;
+          assign aux_channel_p[6] = vauxp6;
+          assign aux_channel_n[6] = vauxn6;
 
           assign aux_channel_p[7] = 1'b0;
           assign aux_channel_n[7] = 1'b0;
@@ -148,13 +152,13 @@ module xadc_wiz_2
           assign aux_channel_p[15] = vauxp15;
           assign aux_channel_n[15] = vauxn15;
 XADC #(
-        .INIT_40(16'h001F), // config reg 0
-        .INIT_41(16'h310F), // config reg 1
+        .INIT_40(16'h0000), // config reg 0
+        .INIT_41(16'h210F), // config reg 1
         .INIT_42(16'h0400), // config reg 2
-        .INIT_48(16'h0100), // Sequencer channel selection
-        .INIT_49(16'h0000), // Sequencer channel selection
+        .INIT_48(16'h0000), // Sequencer channel selection
+        .INIT_49(16'h8040), // Sequencer channel selection
         .INIT_4A(16'h0000), // Sequencer Average selection
-        .INIT_4B(16'h0000), // Sequencer Average selection
+        .INIT_4B(16'h8040), // Sequencer Average selection
         .INIT_4C(16'h0000), // Sequencer Bipolar selection
         .INIT_4D(16'h0000), // Sequencer Bipolar selection
         .INIT_4E(16'h0000), // Sequencer Acq time selection
