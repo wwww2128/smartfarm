@@ -29,9 +29,6 @@ module top_module_of_smart_farm (
     input vauxp15, vauxn15,
     input hc_sr04_echo,
     output hc_sr04_trig,
-<<<<<<< Updated upstream
-    output window_pwm);
-=======
     output window_pwm,
     output fan_pwm,
     output fan_dir_pwm,
@@ -43,7 +40,6 @@ module top_module_of_smart_farm (
     output led_debug);
     
     assign led_debug = water_flag;
->>>>>>> Stashed changes
     
     // Button Control module
     wire btn_led_light, btn_window_mode, btn_electric_fan_power;
@@ -75,12 +71,6 @@ module top_module_of_smart_farm (
     hc_sr04_control hc_sr04_control_instance (.clk(clk), .reset_p(reset_p), .hc_sr04_echo(hc_sr04_echo), .hc_sr04_trig(hc_sr04_trig), .led_up_down(led_up_down), .distance_between_plant_and_led(distance_between_plant_and_led));
     
     // Instance of Control module
-<<<<<<< Updated upstream
-    window_control window_control_instance (.clk(clk), .reset_p(reset_p), .dht11_value(dht11_value), .sw_window_open(sw_window_open), .sw_window_close(sw_window_close), .btn_window_control(btn_window_control), .window_pwm(window_pwm));
-    
-    // Show temperature, humidity to FND
-    show_the_fnd show_the_fnd_instance(.clk(clk), .reset_p(reset_p), .hex_value(dht11_value), .com(com), .seg_7(seg_7));
-=======
     window_control window_control_instance (.clk(clk), .reset_p(reset_p), .dht11_value(dht11_value), .sw_window_open(sw_window_open), .sw_window_close(sw_window_close), .btn_window_control(btn_window_mode), .window_pwm(window_pwm));
     electric_fan_control electric_fan_control_instance (.clk(clk), .reset_p(reset_p), .sw_cntr_electirc_fan_dir(sw_cntr_electirc_fan_dir), .sw_electric_fan_mode(sw_electric_fan_mode), .dht11_value(dht11_value), .btn_electric_fan_power(btn_electric_fan_power), .fan_pwm(fan_pwm), .fan_dir_pwm(fan_dir_pwm));
     led_control led_control_instance (.clk(clk), .reset_p(reset_p), .sw_led_mode(sw_led_mode), .btn_led_light(btn_led_light), .water_flag(water_flag), .sunlight_value(sunlight_value), .led_pwm(led_pwm), .warning_water_level_led(warning_water_level_led));
@@ -88,7 +78,6 @@ module top_module_of_smart_farm (
     
     // Show temperature, humidity to FND
     show_the_fnd show_the_fnd_instance(.clk(clk), .reset_p(reset_p), .hex_value(dht11_value), .sunlight_value(sunlight_value), .com(com), .seg_7(seg_7));
->>>>>>> Stashed changes
     
     
 endmodule
@@ -98,33 +87,6 @@ endmodule
 ////////////////////////        temp Module        ////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////
-<<<<<<< Updated upstream
-
-module show_the_fnd (
-    input clk, reset_p,
-    input [15:0] hex_value,
-    output [3:0] com,
-    output [7:0] seg_7);
-    
-    // Convert from binary to BCD Code
-    wire [15:0] temperature_bcd, humidity_bcd;
-    bin_to_dec bcd_temp(.bin({4'b0, hex_value[15:8]}),  .bcd(temperature_bcd));
-    bin_to_dec bcd_humi(.bin({4'b0, hex_value[7:0]}),  .bcd(humidity_bcd));
-    
-    // FND Control module
-    fnd_cntr fnd_cntr_instance (.clk(clk), .reset_p(reset_p), .value({temperature_bcd[7:0], humidity_bcd[7:0]}), .com(com), .seg_7(seg_7));
-    
-endmodule
-
-
-//////////////////////////////////////////////////////////////////////////////////
-//////////////////////////////////////////////////////////////////////////////////
-////////////////////////        Senseor Module        ////////////////////////////
-//////////////////////////////////////////////////////////////////////////////////
-//////////////////////////////////////////////////////////////////////////////////
-
-=======
->>>>>>> Stashed changes
 
 module show_the_fnd (
     input clk, reset_p,
@@ -202,23 +164,8 @@ module cds_and_water_level_control (
      wire [16:0] do_out;
      wire eoc_out;
 
-<<<<<<< Updated upstream
-// Cds Control module (sunlight)
-module cds_control (
-       input clk, reset_p,
-       input vauxp6, vauxn6,
-       output [7:0] sunlight_value);
-
-       wire [4:0] channel_out;
-       wire [16:0] do_out;
-       wire eoc_out;
-
-        // ADC Module instance
-       xadc_wiz_3 xadc_cds (
-=======
      // ADC Module instance
        xadc_wiz_10 xadc_cds (
->>>>>>> Stashed changes
         .daddr_in({2'b0, channel_out}),
         .dclk_in(clk),
         .den_in(eoc_out),
@@ -459,80 +406,6 @@ endmodule
 
 
 
-<<<<<<< Updated upstream
-//////////////////////////////////////////////////////////////////////////////////
-//////////////////////////////////////////////////////////////////////////////////
-////////////////////////        Control Module        ////////////////////////////
-//////////////////////////////////////////////////////////////////////////////////
-//////////////////////////////////////////////////////////////////////////////////
-
-
-
-// Window control module
-module window_control (
-    input clk, reset_p,
-    input [15:0] dht11_value,
-    input sw_window_open,
-    input sw_window_close,
-    input btn_window_control,
-    output window_pwm );
-    
-    // Declare temperature, humidity 
-    wire [7:0] temperature, humidity;
-    assign temperature = dht11_value [15:8];
-    assign humidity = dht11_value [7:0];
-    
-    // Declare state machine.
-    parameter S_MANUAL_MODE = 2'b01;
-    parameter S_AUTO_MODE = 2'b10;
-    
-    // Declare state, next state variables
-    reg [1:0] state, next_state;
-    
-    // 언제 다음 상태 단계로 전이되는가?
-    always @(posedge clk or posedge reset_p) begin
-        if(reset_p) state = S_MANUAL_MODE;
-        else state = next_state;
-    end
-    
-    // Declare duty of window
-    // min_duty == Window Open 상태
-    // max_duty == Window Close 상태
-    reg [5:0] duty, min_duty, max_duty;
-
-    
-    // 각 상태 단계의 동작 및 다음 상태 전이 조건 정의
-    always @(negedge clk or posedge reset_p) begin
-        if(reset_p) begin
-           next_state =  S_MANUAL_MODE;
-           duty = max_duty;
-           max_duty = 6'd25;
-           min_duty = 6'd5;
-        end
-        else begin
-            case (state) 
-                // 1단계) 수동 조작 단계
-                S_MANUAL_MODE: begin
-                    if(sw_window_open && duty > min_duty) duty = duty - 1;
-                    if(sw_window_close && duty < max_duty) duty = duty + 1;                    
-                end
-                
-                // 2단계) 자동 조작 단계
-                 S_AUTO_MODE : begin
-                    if(temperature <= 20 || humidity < 40) duty = max_duty;
-                    else if(temperature <= 24 || humidity < 60) duty = 6'd16;
-                    else if(temperature >= 28 || humidity >= 60) duty = min_duty; 
-                 end   
-            endcase 
-        end
-    end
-    
-    // Instance of pwm_control module
-    pwm_Nstep_freq #(
-    .duty_step(200),
-    .pwm_freq(50)) 
-    pwm_servo_motor (.clk(clk), .reset_p(reset_p), .duty(duty), .pwm(window_pwm));
-=======
 
 // LED Control module
 module led_control (
@@ -632,6 +505,5 @@ module water_pump (
     output pump_on_off );
     
     assign pump_on_off = water_flag;
->>>>>>> Stashed changes
     
 endmodule

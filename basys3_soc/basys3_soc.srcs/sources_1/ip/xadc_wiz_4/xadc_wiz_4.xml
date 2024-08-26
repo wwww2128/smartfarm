@@ -1694,19 +1694,11 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-<<<<<<< Updated upstream:basys3_soc/basys3_soc.srcs/sources_1/ip/xadc_wiz_2/xadc_wiz_2.xml
-            <spirit:value>Sat Aug 24 06:57:01 UTC 2024</spirit:value>
-          </spirit:parameter>
-          <spirit:parameter>
-            <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:5d235206</spirit:value>
-=======
             <spirit:value>Mon Aug 26 01:48:50 UTC 2024</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
             <spirit:value>9:dee66816</spirit:value>
->>>>>>> Stashed changes:basys3_soc/basys3_soc.srcs/sources_1/ip/xadc_wiz_4/xadc_wiz_4.xml
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -1721,19 +1713,11 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-<<<<<<< Updated upstream:basys3_soc/basys3_soc.srcs/sources_1/ip/xadc_wiz_2/xadc_wiz_2.xml
-            <spirit:value>Sat Aug 24 06:57:02 UTC 2024</spirit:value>
-          </spirit:parameter>
-          <spirit:parameter>
-            <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:5d235206</spirit:value>
-=======
             <spirit:value>Mon Aug 26 01:48:51 UTC 2024</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
             <spirit:value>9:dee66816</spirit:value>
->>>>>>> Stashed changes:basys3_soc/basys3_soc.srcs/sources_1/ip/xadc_wiz_4/xadc_wiz_4.xml
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -1744,11 +1728,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-<<<<<<< Updated upstream:basys3_soc/basys3_soc.srcs/sources_1/ip/xadc_wiz_2/xadc_wiz_2.xml
-            <spirit:value>9:5d235206</spirit:value>
-=======
             <spirit:value>9:dee66816</spirit:value>
->>>>>>> Stashed changes:basys3_soc/basys3_soc.srcs/sources_1/ip/xadc_wiz_4/xadc_wiz_4.xml
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -1764,19 +1744,11 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-<<<<<<< Updated upstream:basys3_soc/basys3_soc.srcs/sources_1/ip/xadc_wiz_2/xadc_wiz_2.xml
-            <spirit:value>Sat Aug 24 06:57:02 UTC 2024</spirit:value>
-          </spirit:parameter>
-          <spirit:parameter>
-            <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:5d235206</spirit:value>
-=======
             <spirit:value>Mon Aug 26 01:48:51 UTC 2024</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
             <spirit:value>9:dee66816</spirit:value>
->>>>>>> Stashed changes:basys3_soc/basys3_soc.srcs/sources_1/ip/xadc_wiz_4/xadc_wiz_4.xml
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -1791,19 +1763,11 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-<<<<<<< Updated upstream:basys3_soc/basys3_soc.srcs/sources_1/ip/xadc_wiz_2/xadc_wiz_2.xml
-            <spirit:value>Sat Aug 24 06:57:02 UTC 2024</spirit:value>
-          </spirit:parameter>
-          <spirit:parameter>
-            <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:5d2a96a1</spirit:value>
-=======
             <spirit:value>Mon Aug 26 01:48:51 UTC 2024</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
             <spirit:value>9:ebc14748</spirit:value>
->>>>>>> Stashed changes:basys3_soc/basys3_soc.srcs/sources_1/ip/xadc_wiz_4/xadc_wiz_4.xml
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -1819,19 +1783,11 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-<<<<<<< Updated upstream:basys3_soc/basys3_soc.srcs/sources_1/ip/xadc_wiz_2/xadc_wiz_2.xml
-            <spirit:value>Sat Aug 24 06:57:02 UTC 2024</spirit:value>
-          </spirit:parameter>
-          <spirit:parameter>
-            <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:5d2a96a1</spirit:value>
-=======
             <spirit:value>Mon Aug 26 01:48:51 UTC 2024</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
             <spirit:value>9:ebc14748</spirit:value>
->>>>>>> Stashed changes:basys3_soc/basys3_soc.srcs/sources_1/ip/xadc_wiz_4/xadc_wiz_4.xml
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -1842,11 +1798,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-<<<<<<< Updated upstream:basys3_soc/basys3_soc.srcs/sources_1/ip/xadc_wiz_2/xadc_wiz_2.xml
-            <spirit:value>9:5d235206</spirit:value>
-=======
             <spirit:value>9:dee66816</spirit:value>
->>>>>>> Stashed changes:basys3_soc/basys3_soc.srcs/sources_1/ip/xadc_wiz_4/xadc_wiz_4.xml
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -1860,19 +1812,11 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-<<<<<<< Updated upstream:basys3_soc/basys3_soc.srcs/sources_1/ip/xadc_wiz_2/xadc_wiz_2.xml
-            <spirit:value>Sat Aug 24 06:57:02 UTC 2024</spirit:value>
-          </spirit:parameter>
-          <spirit:parameter>
-            <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:5d235206</spirit:value>
-=======
             <spirit:value>Mon Aug 26 01:48:51 UTC 2024</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
             <spirit:value>9:dee66816</spirit:value>
->>>>>>> Stashed changes:basys3_soc/basys3_soc.srcs/sources_1/ip/xadc_wiz_4/xadc_wiz_4.xml
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>

@@ -47,11 +47,7 @@
 // PART OF THIS FILE AT ALL TIMES.
 `timescale 1ns / 1 ps
 
-<<<<<<< Updated upstream:basys3_soc/basys3_soc.srcs/sources_1/ip/xadc_wiz_2/xadc_wiz_2.v
-(* CORE_GENERATION_INFO = "xadc_wiz_2,xadc_wiz_v3_3_7,{component_name=xadc_wiz_2,enable_axi=false,enable_axi4stream=false,dclk_frequency=100,enable_busy=true,enable_convst=false,enable_convstclk=false,enable_dclk=true,enable_drp=true,enable_eoc=true,enable_eos=true,enable_vbram_alaram=false,enable_vccddro_alaram=false,enable_Vccint_Alaram=false,enable_Vccaux_alaram=false,enable_vccpaux_alaram=false,enable_vccpint_alaram=false,ot_alaram=false,user_temp_alaram=false,timing_mode=continuous,channel_averaging=None,sequencer_mode=on,startup_channel_selection=contineous_sequence}" *)
-=======
 (* CORE_GENERATION_INFO = "xadc_wiz_4,xadc_wiz_v3_3_7,{component_name=xadc_wiz_4,enable_axi=false,enable_axi4stream=false,dclk_frequency=100,enable_busy=true,enable_convst=false,enable_convstclk=false,enable_dclk=true,enable_drp=true,enable_eoc=true,enable_eos=true,enable_vbram_alaram=false,enable_vccddro_alaram=false,enable_Vccint_Alaram=false,enable_Vccaux_alaram=false,enable_vccpaux_alaram=false,enable_vccpint_alaram=false,ot_alaram=false,user_temp_alaram=false,timing_mode=continuous,channel_averaging=None,sequencer_mode=on,startup_channel_selection=contineous_sequence}" *)
->>>>>>> Stashed changes:basys3_soc/basys3_soc.srcs/sources_1/ip/xadc_wiz_4/xadc_wiz_4.v
 
 
 module xadc_wiz_4
