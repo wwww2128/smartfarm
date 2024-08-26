@@ -1,0 +1,101 @@
+Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
+-----------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2019.2 (win64) Build 2708876 Wed Nov  6 21:40:23 MST 2019
+| Date         : Mon Aug 26 14:28:46 2024
+| Host         : DESKTOP-5VNL0D5 running 64-bit major release  (build 9200)
+| Command      : report_control_sets -verbose -file top_module_of_smart_farm_control_sets_placed.rpt
+| Design       : top_module_of_smart_farm
+| Device       : xc7a35t
+-----------------------------------------------------------------------------------------------------
+
+Control Set Information
+
+Table of Contents
+-----------------
+1. Summary
+2. Histogram
+3. Flip-Flop Distribution
+4. Detailed Control Set Information
+
+1. Summary
+----------
+
++----------------------------------------------------------+-------+
+|                          Status                          | Count |
++----------------------------------------------------------+-------+
+| Total control sets                                       |    23 |
+|    Minimum number of control sets                        |    23 |
+|    Addition due to synthesis replication                 |     0 |
+|    Addition due to physical synthesis replication        |     0 |
+| Unused register locations in slices containing registers |    54 |
++----------------------------------------------------------+-------+
+* Control sets can be merged at opt_design using control_set_merge or merge_equivalent_drivers
+** Run report_qor_suggestions for automated merging and remapping suggestions
+
+
+2. Histogram
+------------
+
++--------------------+-------+
+|       Fanout       | Count |
++--------------------+-------+
+| Total control sets |    23 |
+| >= 0 to < 4        |     3 |
+| >= 4 to < 6        |     3 |
+| >= 6 to < 8        |     3 |
+| >= 8 to < 10       |     2 |
+| >= 10 to < 12      |     0 |
+| >= 12 to < 14      |     1 |
+| >= 14 to < 16      |     0 |
+| >= 16              |    11 |
++--------------------+-------+
+* Control sets can be remapped at either synth_design or opt_design
+
+
+3. Flip-Flop Distribution
+-------------------------
+
++--------------+-----------------------+------------------------+-----------------+--------------+
+| Clock Enable | Synchronous Set/Reset | Asynchronous Set/Reset | Total Registers | Total Slices |
++--------------+-----------------------+------------------------+-----------------+--------------+
+| No           | No                    | No                     |              35 |           11 |
+| No           | No                    | Yes                    |             233 |           75 |
+| No           | Yes                   | No                     |               0 |            0 |
+| Yes          | No                    | No                     |              18 |            7 |
+| Yes          | No                    | Yes                    |             300 |           99 |
+| Yes          | Yes                   | No                     |               0 |            0 |
++--------------+-----------------------+------------------------+-----------------+--------------+
+
+
+4. Detailed Control Set Information
+-----------------------------------
+
++----------------+-----------------------------------------------------------------------------+------------------+------------------+----------------+
+|  Clock Signal  |                                Enable Signal                                | Set/Reset Signal | Slice Load Count | Bel Load Count |
++----------------+-----------------------------------------------------------------------------+------------------+------------------+----------------+
+| ~clk_IBUF_BUFG | hc_sr04_control_instance/HC_SR04_cntr_0/hc_sr04_trig1_out                   |                  |                1 |              1 |
+|  clk_IBUF_BUFG | btn0/ed_clk/ff_old_reg_0                                                    | reset_p_IBUF     |                2 |              3 |
+|  clk_IBUF_BUFG | cds_and_water_level_control_instance/ed_eoc_out_cds/ff_old_reg_0            | reset_p_IBUF     |                2 |              3 |
+|  clk_IBUF_BUFG | show_the_fnd_instance/fnd_cntr_instance/rc/E[0]                             |                  |                4 |              4 |
+| ~clk_IBUF_BUFG | hc_sr04_control_instance/HC_SR04_cntr_0/edge_detector_0/E[0]                | reset_p_IBUF     |                2 |              4 |
+|  clk_IBUF_BUFG | show_the_fnd_instance/fnd_cntr_instance/rc/ed/E[0]                          | reset_p_IBUF     |                3 |              5 |
+|  clk_IBUF_BUFG | dht11_control_instance/dth11/ed/E[0]                                        | reset_p_IBUF     |                1 |              6 |
+| ~clk_IBUF_BUFG | electric_fan_control_instance/direction_of_fan_i_1_n_0                      | reset_p_IBUF     |                2 |              6 |
+| ~clk_IBUF_BUFG | window_control_instance/duty                                                | reset_p_IBUF     |                4 |              7 |
+|  clk_IBUF_BUFG | cds_and_water_level_control_instance/ed_eoc_out_cds/E[0]                    | reset_p_IBUF     |                3 |              8 |
+| ~clk_IBUF_BUFG | led_control_instance/auto_duty[7]_i_1_n_0                                   | reset_p_IBUF     |                2 |              8 |
+|  clk_IBUF_BUFG | dht11_control_instance/dth11/ed/temp_data_reg[1][0]                         |                  |                2 |             13 |
+|  clk_IBUF_BUFG | hc_sr04_control_instance/HC_SR04_cntr_0/usec_clk/ed/ff_old_reg_0            | reset_p_IBUF     |                6 |             22 |
+| ~clk_IBUF_BUFG | dht11_control_instance/dth11/usec_clk/ed/ff_old_reg_0                       | reset_p_IBUF     |               10 |             22 |
+|  clk_IBUF_BUFG | electric_fan_control_instance/control_servo_pwm/ed/temp_pwm_nedge           | reset_p_IBUF     |                8 |             32 |
+|  clk_IBUF_BUFG | led_control_instance/control_auto_led_pwm/ed/temp_pwm_nedge                 | reset_p_IBUF     |                8 |             32 |
+|  clk_IBUF_BUFG | led_control_instance/control_manual_led_pwm/ed/temp_pwm_nedge               | reset_p_IBUF     |                8 |             32 |
+|  clk_IBUF_BUFG | electric_fan_control_instance/control_power_pwm/ed/temp_pwm_nedge           | reset_p_IBUF     |                8 |             32 |
+| ~clk_IBUF_BUFG | window_control_instance/pwm_servo_motor/edge_detector_0/pwm_freqXstep_nedge | reset_p_IBUF     |                8 |             32 |
+|  clk_IBUF_BUFG |                                                                             |                  |               11 |             35 |
+|  clk_IBUF_BUFG | dht11_control_instance/dth11/data_count[5]_i_1_n_0                          | reset_p_IBUF     |               22 |             46 |
+| ~clk_IBUF_BUFG |                                                                             | reset_p_IBUF     |               21 |             66 |
+|  clk_IBUF_BUFG |                                                                             | reset_p_IBUF     |               54 |            167 |
++----------------+-----------------------------------------------------------------------------+------------------+------------------+----------------+
+
+

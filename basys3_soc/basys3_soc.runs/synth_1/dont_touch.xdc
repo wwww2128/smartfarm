@@ -3,6 +3,7 @@
 
 # XDC: imports/verilog/Basys-3-Master.xdc
 
+<<<<<<< Updated upstream
 # IP: ip/xadc_wiz_2/xadc_wiz_2.xci
 set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==xadc_wiz_2 || ORIG_REF_NAME==xadc_wiz_2} -quiet] -quiet
 
@@ -18,3 +19,12 @@ set_property DONT_TOUCH TRUE [get_cells [split [join [get_cells -hier -filter {R
 
 # XDC: ip/xadc_wiz_3/xadc_wiz_3.xdc
 set_property DONT_TOUCH TRUE [get_cells [split [join [get_cells -hier -filter {REF_NAME==xadc_wiz_3 || ORIG_REF_NAME==xadc_wiz_3} -quiet] {/inst } ]/inst ] -quiet] -quiet
+=======
+# IP: ip/xadc_wiz_10/xadc_wiz_10.xci
+set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==xadc_wiz_10 || ORIG_REF_NAME==xadc_wiz_10} -quiet] -quiet
+
+# XDC: ip/xadc_wiz_10/xadc_wiz_10_ooc.xdc
+
+# XDC: ip/xadc_wiz_10/xadc_wiz_10.xdc
+set_property DONT_TOUCH TRUE [get_cells [split [join [get_cells -hier -filter {REF_NAME==xadc_wiz_10 || ORIG_REF_NAME==xadc_wiz_10} -quiet] {/inst } ]/inst ] -quiet] -quiet
+>>>>>>> Stashed changes
