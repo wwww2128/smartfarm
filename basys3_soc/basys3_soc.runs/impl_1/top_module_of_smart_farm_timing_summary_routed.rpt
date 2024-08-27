@@ -1,7 +1,7 @@
 Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2019.2 (win64) Build 2708876 Wed Nov  6 21:40:23 MST 2019
-| Date         : Mon Aug 26 14:29:11 2024
+| Date         : Tue Aug 27 17:45:51 2024
 | Host         : DESKTOP-5VNL0D5 running 64-bit major release  (build 9200)
 | Command      : report_timing_summary -max_paths 10 -file top_module_of_smart_farm_timing_summary_routed.rpt -pb top_module_of_smart_farm_timing_summary_routed.pb -rpx top_module_of_smart_farm_timing_summary_routed.rpx -warn_on_violation
 | Design       : top_module_of_smart_farm
@@ -76,14 +76,14 @@ Table of Contents
 
 5. checking no_input_delay
 --------------------------
- There are 11 input ports with no input delay specified. (HIGH)
+ There are 13 input ports with no input delay specified. (HIGH)
 
  There are 0 input ports with no input delay but user has a false path constraint.
 
 
 6. checking no_output_delay
 ---------------------------
- There are 20 ports with no output delay specified. (HIGH)
+ There are 25 ports with no output delay specified. (HIGH)
 
  There are 0 ports with no output delay but user has a false path constraint
 
@@ -128,7 +128,7 @@ Table of Contents
 
     WNS(ns)      TNS(ns)  TNS Failing Endpoints  TNS Total Endpoints      WHS(ns)      THS(ns)  THS Failing Endpoints  THS Total Endpoints     WPWS(ns)     TPWS(ns)  TPWS Failing Endpoints  TPWS Total Endpoints  
     -------      -------  ---------------------  -------------------      -------      -------  ---------------------  -------------------     --------     --------  ----------------------  --------------------  
-     -2.507      -32.633                     14                  899        0.075        0.000                      0                  899        4.500        0.000                       0                   588  
+     -2.187      -35.650                     22                 1227        0.156        0.000                      0                 1227        4.500        0.000                       0                   801  
 
 
 Timing constraints are not met.
@@ -151,7 +151,7 @@ sys_clk_pin  {0.000 5.000}      10.000          100.000
 
 Clock             WNS(ns)      TNS(ns)  TNS Failing Endpoints  TNS Total Endpoints      WHS(ns)      THS(ns)  THS Failing Endpoints  THS Total Endpoints     WPWS(ns)     TPWS(ns)  TPWS Failing Endpoints  TPWS Total Endpoints  
 -----             -------      -------  ---------------------  -------------------      -------      -------  ---------------------  -------------------     --------     --------  ----------------------  --------------------  
-sys_clk_pin        -2.507      -32.633                     14                  899        0.075        0.000                      0                  899        4.500        0.000                       0                   588  
+sys_clk_pin        -2.187      -35.650                     22                 1227        0.156        0.000                      0                 1227        4.500        0.000                       0                   801  
 
 
 ------------------------------------------------------------------------------------------------
@@ -182,27 +182,27 @@ Path Group    From Clock    To Clock          WNS(ns)      TNS(ns)  TNS Failing 
 From Clock:  sys_clk_pin
   To Clock:  sys_clk_pin
 
-Setup :           14  Failing Endpoints,  Worst Slack       -2.507ns,  Total Violation      -32.633ns
-Hold  :            0  Failing Endpoints,  Worst Slack        0.075ns,  Total Violation        0.000ns
+Setup :           22  Failing Endpoints,  Worst Slack       -2.187ns,  Total Violation      -35.650ns
+Hold  :            0  Failing Endpoints,  Worst Slack        0.156ns,  Total Violation        0.000ns
 PW    :            0  Failing Endpoints,  Worst Slack        4.500ns,  Total Violation        0.000ns
 ---------------------------------------------------------------------------------------------------
 
 
 Max Delay Paths
 --------------------------------------------------------------------------------------
-Slack (VIOLATED) :        -2.507ns  (required time - arrival time)
-  Source:                 dht11_control_instance/dth11/count_usec_reg[15]/C
+Slack (VIOLATED) :        -2.187ns  (required time - arrival time)
+  Source:                 dht11_control_instance/dth11/count_usec_reg[3]/C
                             (falling edge-triggered cell FDCE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
-  Destination:            dht11_control_instance/dth11/humidity_reg[3]/CE
+  Destination:            dht11_control_instance/dth11/humidity_reg[0]/CE
                             (rising edge-triggered cell FDRE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
   Path Group:             sys_clk_pin
   Path Type:              Setup (Max at Slow Process Corner)
   Requirement:            5.000ns  (sys_clk_pin rise@10.000ns - sys_clk_pin fall@5.000ns)
-  Data Path Delay:        7.226ns  (logic 2.150ns (29.755%)  route 5.076ns (70.245%))
-  Logic Levels:           8  (CARRY4=1 LUT2=1 LUT4=1 LUT5=2 LUT6=3)
-  Clock Path Skew:        -0.041ns (DCD - SCD + CPR)
-    Destination Clock Delay (DCD):    4.773ns = ( 14.773 - 10.000 ) 
-    Source Clock Delay      (SCD):    5.072ns = ( 10.072 - 5.000 ) 
+  Data Path Delay:        6.845ns  (logic 2.052ns (29.978%)  route 4.793ns (70.022%))
+  Logic Levels:           8  (CARRY4=1 LUT6=7)
+  Clock Path Skew:        -0.102ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    4.781ns = ( 14.781 - 10.000 ) 
+    Source Clock Delay      (SCD):    5.141ns = ( 10.141 - 5.000 ) 
     Clock Pessimism Removal (CPR):    0.258ns
   Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
     Total System Jitter     (TSJ):    0.071ns
@@ -219,29 +219,29 @@ Slack (VIOLATED) :        -2.507ns  (required time - arrival time)
     W5                   IBUF (Prop_ibuf_I_O)         1.458     6.458 f  clk_IBUF_inst/O
                          net (fo=1, routed)           1.967     8.425    clk_IBUF
     BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.096     8.521 f  clk_IBUF_BUFG_inst/O
-                         net (fo=587, routed)         1.551    10.072    dht11_control_instance/dth11/CLK
-    SLICE_X42Y61         FDCE                                         r  dht11_control_instance/dth11/count_usec_reg[15]/C  (IS_INVERTED)
+                         net (fo=800, routed)         1.620    10.141    dht11_control_instance/dth11/CLK
+    SLICE_X58Y64         FDCE                                         r  dht11_control_instance/dth11/count_usec_reg[3]/C  (IS_INVERTED)
   -------------------------------------------------------------------    -------------------
-    SLICE_X42Y61         FDCE (Prop_fdce_C_Q)         0.524    10.596 f  dht11_control_instance/dth11/count_usec_reg[15]/Q
-                         net (fo=3, routed)           0.451    11.046    dht11_control_instance/dth11/count_usec_reg[15]
-    SLICE_X45Y62         LUT2 (Prop_lut2_I0_O)        0.124    11.170 r  dht11_control_instance/dth11/next_state[5]_i_15/O
-                         net (fo=2, routed)           1.035    12.205    dht11_control_instance/dth11/next_state[5]_i_15_n_0
-    SLICE_X44Y60         LUT6 (Prop_lut6_I5_O)        0.124    12.329 r  dht11_control_instance/dth11/next_state[5]_i_6/O
-                         net (fo=33, routed)          0.576    12.905    dht11_control_instance/dth11/ed/data_count_reg[4]_0
-    SLICE_X41Y60         LUT6 (Prop_lut6_I2_O)        0.124    13.029 r  dht11_control_instance/dth11/ed/temp_data[29]_i_1/O
-                         net (fo=3, routed)           0.507    13.536    dht11_control_instance/dth11/ed/D[29]
-    SLICE_X41Y59         LUT5 (Prop_lut5_I4_O)        0.124    13.660 r  dht11_control_instance/dth11/ed/humidity1__2_carry__0_i_9/O
-                         net (fo=3, routed)           0.995    14.655    dht11_control_instance/dth11/ed/humidity1__2_carry__0_i_9_n_0
-    SLICE_X39Y60         LUT6 (Prop_lut6_I3_O)        0.124    14.779 r  dht11_control_instance/dth11/ed/humidity1__2_carry__0_i_6/O
-                         net (fo=1, routed)           0.000    14.779    dht11_control_instance/dth11/ed_n_57
-    SLICE_X39Y60         CARRY4 (Prop_carry4_S[1]_O[2])
-                                                      0.580    15.359 r  dht11_control_instance/dth11/humidity1__2_carry__0/O[2]
-                         net (fo=1, routed)           0.598    15.956    dht11_control_instance/dth11/ed/humidity1[6]
-    SLICE_X38Y60         LUT4 (Prop_lut4_I3_O)        0.302    16.258 f  dht11_control_instance/dth11/ed/humidity[7]_i_3/O
-                         net (fo=1, routed)           0.571    16.830    dht11_control_instance/dth11/ed/humidity[7]_i_3_n_0
-    SLICE_X36Y60         LUT5 (Prop_lut5_I1_O)        0.124    16.954 r  dht11_control_instance/dth11/ed/humidity[7]_i_1/O
-                         net (fo=13, routed)          0.344    17.298    dht11_control_instance/dth11/ed_n_50
-    SLICE_X36Y61         FDRE                                         r  dht11_control_instance/dth11/humidity_reg[3]/CE
+    SLICE_X58Y64         FDCE (Prop_fdce_C_Q)         0.459    10.600 r  dht11_control_instance/dth11/count_usec_reg[3]/Q
+                         net (fo=3, routed)           0.680    11.280    dht11_control_instance/dth11/count_usec_reg[3]
+    SLICE_X59Y64         LUT6 (Prop_lut6_I0_O)        0.124    11.404 r  dht11_control_instance/dth11/temp_data[22]_i_8/O
+                         net (fo=3, routed)           0.849    12.253    dht11_control_instance/dth11/temp_data[22]_i_8_n_0
+    SLICE_X56Y63         LUT6 (Prop_lut6_I4_O)        0.124    12.377 r  dht11_control_instance/dth11/temp_data[22]_i_3/O
+                         net (fo=13, routed)          0.660    13.037    dht11_control_instance/dth11/ed/temperature_reg[1]_0
+    SLICE_X54Y65         LUT6 (Prop_lut6_I2_O)        0.124    13.161 r  dht11_control_instance/dth11/ed/temp_data[19]_i_1/O
+                         net (fo=4, routed)           0.377    13.538    dht11_control_instance/dth11/ed/D[3]
+    SLICE_X55Y65         LUT6 (Prop_lut6_I2_O)        0.124    13.662 r  dht11_control_instance/dth11/ed/humidity1__2_carry_i_12/O
+                         net (fo=3, routed)           0.878    14.540    dht11_control_instance/dth11/ed/humidity1__2_carry_i_12_n_0
+    SLICE_X55Y64         LUT6 (Prop_lut6_I0_O)        0.124    14.664 r  dht11_control_instance/dth11/ed/humidity1__2_carry__0_i_7/O
+                         net (fo=1, routed)           0.000    14.664    dht11_control_instance/dth11/ed_n_58
+    SLICE_X55Y64         CARRY4 (Prop_carry4_S[0]_O[2])
+                                                      0.547    15.211 r  dht11_control_instance/dth11/humidity1__2_carry__0/O[2]
+                         net (fo=1, routed)           0.434    15.645    dht11_control_instance/dth11/ed/humidity1[6]
+    SLICE_X54Y62         LUT6 (Prop_lut6_I5_O)        0.302    15.947 f  dht11_control_instance/dth11/ed/humidity[7]_i_2/O
+                         net (fo=1, routed)           0.572    16.519    dht11_control_instance/dth11/ed/humidity[7]_i_2_n_0
+    SLICE_X55Y61         LUT6 (Prop_lut6_I1_O)        0.124    16.643 r  dht11_control_instance/dth11/ed/humidity[7]_i_1/O
+                         net (fo=16, routed)          0.343    16.986    dht11_control_instance/dth11/ed_n_54
+    SLICE_X55Y60         FDRE                                         r  dht11_control_instance/dth11/humidity_reg[0]/CE
   -------------------------------------------------------------------    -------------------
 
                          (clock sys_clk_pin rise edge)
@@ -251,30 +251,30 @@ Slack (VIOLATED) :        -2.507ns  (required time - arrival time)
     W5                   IBUF (Prop_ibuf_I_O)         1.388    11.388 r  clk_IBUF_inst/O
                          net (fo=1, routed)           1.862    13.250    clk_IBUF
     BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.091    13.341 r  clk_IBUF_BUFG_inst/O
-                         net (fo=587, routed)         1.432    14.773    dht11_control_instance/dth11/CLK
-    SLICE_X36Y61         FDRE                                         r  dht11_control_instance/dth11/humidity_reg[3]/C
-                         clock pessimism              0.258    15.031    
-                         clock uncertainty           -0.035    14.996    
-    SLICE_X36Y61         FDRE (Setup_fdre_C_CE)      -0.205    14.791    dht11_control_instance/dth11/humidity_reg[3]
+                         net (fo=800, routed)         1.440    14.781    dht11_control_instance/dth11/CLK
+    SLICE_X55Y60         FDRE                                         r  dht11_control_instance/dth11/humidity_reg[0]/C
+                         clock pessimism              0.258    15.039    
+                         clock uncertainty           -0.035    15.004    
+    SLICE_X55Y60         FDRE (Setup_fdre_C_CE)      -0.205    14.799    dht11_control_instance/dth11/humidity_reg[0]
   -------------------------------------------------------------------
-                         required time                         14.791    
-                         arrival time                         -17.298    
+                         required time                         14.799    
+                         arrival time                         -16.986    
   -------------------------------------------------------------------
-                         slack                                 -2.507    
+                         slack                                 -2.187    
 
-Slack (VIOLATED) :        -2.507ns  (required time - arrival time)
-  Source:                 dht11_control_instance/dth11/count_usec_reg[15]/C
+Slack (VIOLATED) :        -2.187ns  (required time - arrival time)
+  Source:                 dht11_control_instance/dth11/count_usec_reg[3]/C
                             (falling edge-triggered cell FDCE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
   Destination:            dht11_control_instance/dth11/humidity_reg[4]/CE
                             (rising edge-triggered cell FDRE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
   Path Group:             sys_clk_pin
   Path Type:              Setup (Max at Slow Process Corner)
   Requirement:            5.000ns  (sys_clk_pin rise@10.000ns - sys_clk_pin fall@5.000ns)
-  Data Path Delay:        7.226ns  (logic 2.150ns (29.755%)  route 5.076ns (70.245%))
-  Logic Levels:           8  (CARRY4=1 LUT2=1 LUT4=1 LUT5=2 LUT6=3)
-  Clock Path Skew:        -0.041ns (DCD - SCD + CPR)
-    Destination Clock Delay (DCD):    4.773ns = ( 14.773 - 10.000 ) 
-    Source Clock Delay      (SCD):    5.072ns = ( 10.072 - 5.000 ) 
+  Data Path Delay:        6.845ns  (logic 2.052ns (29.978%)  route 4.793ns (70.022%))
+  Logic Levels:           8  (CARRY4=1 LUT6=7)
+  Clock Path Skew:        -0.102ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    4.781ns = ( 14.781 - 10.000 ) 
+    Source Clock Delay      (SCD):    5.141ns = ( 10.141 - 5.000 ) 
     Clock Pessimism Removal (CPR):    0.258ns
   Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
     Total System Jitter     (TSJ):    0.071ns
@@ -291,101 +291,29 @@ Slack (VIOLATED) :        -2.507ns  (required time - arrival time)
     W5                   IBUF (Prop_ibuf_I_O)         1.458     6.458 f  clk_IBUF_inst/O
                          net (fo=1, routed)           1.967     8.425    clk_IBUF
     BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.096     8.521 f  clk_IBUF_BUFG_inst/O
-                         net (fo=587, routed)         1.551    10.072    dht11_control_instance/dth11/CLK
-    SLICE_X42Y61         FDCE                                         r  dht11_control_instance/dth11/count_usec_reg[15]/C  (IS_INVERTED)
+                         net (fo=800, routed)         1.620    10.141    dht11_control_instance/dth11/CLK
+    SLICE_X58Y64         FDCE                                         r  dht11_control_instance/dth11/count_usec_reg[3]/C  (IS_INVERTED)
   -------------------------------------------------------------------    -------------------
-    SLICE_X42Y61         FDCE (Prop_fdce_C_Q)         0.524    10.596 f  dht11_control_instance/dth11/count_usec_reg[15]/Q
-                         net (fo=3, routed)           0.451    11.046    dht11_control_instance/dth11/count_usec_reg[15]
-    SLICE_X45Y62         LUT2 (Prop_lut2_I0_O)        0.124    11.170 r  dht11_control_instance/dth11/next_state[5]_i_15/O
-                         net (fo=2, routed)           1.035    12.205    dht11_control_instance/dth11/next_state[5]_i_15_n_0
-    SLICE_X44Y60         LUT6 (Prop_lut6_I5_O)        0.124    12.329 r  dht11_control_instance/dth11/next_state[5]_i_6/O
-                         net (fo=33, routed)          0.576    12.905    dht11_control_instance/dth11/ed/data_count_reg[4]_0
-    SLICE_X41Y60         LUT6 (Prop_lut6_I2_O)        0.124    13.029 r  dht11_control_instance/dth11/ed/temp_data[29]_i_1/O
-                         net (fo=3, routed)           0.507    13.536    dht11_control_instance/dth11/ed/D[29]
-    SLICE_X41Y59         LUT5 (Prop_lut5_I4_O)        0.124    13.660 r  dht11_control_instance/dth11/ed/humidity1__2_carry__0_i_9/O
-                         net (fo=3, routed)           0.995    14.655    dht11_control_instance/dth11/ed/humidity1__2_carry__0_i_9_n_0
-    SLICE_X39Y60         LUT6 (Prop_lut6_I3_O)        0.124    14.779 r  dht11_control_instance/dth11/ed/humidity1__2_carry__0_i_6/O
-                         net (fo=1, routed)           0.000    14.779    dht11_control_instance/dth11/ed_n_57
-    SLICE_X39Y60         CARRY4 (Prop_carry4_S[1]_O[2])
-                                                      0.580    15.359 r  dht11_control_instance/dth11/humidity1__2_carry__0/O[2]
-                         net (fo=1, routed)           0.598    15.956    dht11_control_instance/dth11/ed/humidity1[6]
-    SLICE_X38Y60         LUT4 (Prop_lut4_I3_O)        0.302    16.258 f  dht11_control_instance/dth11/ed/humidity[7]_i_3/O
-                         net (fo=1, routed)           0.571    16.830    dht11_control_instance/dth11/ed/humidity[7]_i_3_n_0
-    SLICE_X36Y60         LUT5 (Prop_lut5_I1_O)        0.124    16.954 r  dht11_control_instance/dth11/ed/humidity[7]_i_1/O
-                         net (fo=13, routed)          0.344    17.298    dht11_control_instance/dth11/ed_n_50
-    SLICE_X36Y61         FDRE                                         r  dht11_control_instance/dth11/humidity_reg[4]/CE
-  -------------------------------------------------------------------    -------------------
-
-                         (clock sys_clk_pin rise edge)
-                                                     10.000    10.000 r  
-    W5                                                0.000    10.000 r  clk (IN)
-                         net (fo=0)                   0.000    10.000    clk
-    W5                   IBUF (Prop_ibuf_I_O)         1.388    11.388 r  clk_IBUF_inst/O
-                         net (fo=1, routed)           1.862    13.250    clk_IBUF
-    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.091    13.341 r  clk_IBUF_BUFG_inst/O
-                         net (fo=587, routed)         1.432    14.773    dht11_control_instance/dth11/CLK
-    SLICE_X36Y61         FDRE                                         r  dht11_control_instance/dth11/humidity_reg[4]/C
-                         clock pessimism              0.258    15.031    
-                         clock uncertainty           -0.035    14.996    
-    SLICE_X36Y61         FDRE (Setup_fdre_C_CE)      -0.205    14.791    dht11_control_instance/dth11/humidity_reg[4]
-  -------------------------------------------------------------------
-                         required time                         14.791    
-                         arrival time                         -17.298    
-  -------------------------------------------------------------------
-                         slack                                 -2.507    
-
-Slack (VIOLATED) :        -2.507ns  (required time - arrival time)
-  Source:                 dht11_control_instance/dth11/count_usec_reg[15]/C
-                            (falling edge-triggered cell FDCE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
-  Destination:            dht11_control_instance/dth11/humidity_reg[5]/CE
-                            (rising edge-triggered cell FDRE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
-  Path Group:             sys_clk_pin
-  Path Type:              Setup (Max at Slow Process Corner)
-  Requirement:            5.000ns  (sys_clk_pin rise@10.000ns - sys_clk_pin fall@5.000ns)
-  Data Path Delay:        7.226ns  (logic 2.150ns (29.755%)  route 5.076ns (70.245%))
-  Logic Levels:           8  (CARRY4=1 LUT2=1 LUT4=1 LUT5=2 LUT6=3)
-  Clock Path Skew:        -0.041ns (DCD - SCD + CPR)
-    Destination Clock Delay (DCD):    4.773ns = ( 14.773 - 10.000 ) 
-    Source Clock Delay      (SCD):    5.072ns = ( 10.072 - 5.000 ) 
-    Clock Pessimism Removal (CPR):    0.258ns
-  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
-    Total System Jitter     (TSJ):    0.071ns
-    Total Input Jitter      (TIJ):    0.000ns
-    Discrete Jitter          (DJ):    0.000ns
-    Phase Error              (PE):    0.000ns
-
-    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
-  -------------------------------------------------------------------    -------------------
-                         (clock sys_clk_pin fall edge)
-                                                      5.000     5.000 f  
-    W5                                                0.000     5.000 f  clk (IN)
-                         net (fo=0)                   0.000     5.000    clk
-    W5                   IBUF (Prop_ibuf_I_O)         1.458     6.458 f  clk_IBUF_inst/O
-                         net (fo=1, routed)           1.967     8.425    clk_IBUF
-    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.096     8.521 f  clk_IBUF_BUFG_inst/O
-                         net (fo=587, routed)         1.551    10.072    dht11_control_instance/dth11/CLK
-    SLICE_X42Y61         FDCE                                         r  dht11_control_instance/dth11/count_usec_reg[15]/C  (IS_INVERTED)
-  -------------------------------------------------------------------    -------------------
-    SLICE_X42Y61         FDCE (Prop_fdce_C_Q)         0.524    10.596 f  dht11_control_instance/dth11/count_usec_reg[15]/Q
-                         net (fo=3, routed)           0.451    11.046    dht11_control_instance/dth11/count_usec_reg[15]
-    SLICE_X45Y62         LUT2 (Prop_lut2_I0_O)        0.124    11.170 r  dht11_control_instance/dth11/next_state[5]_i_15/O
-                         net (fo=2, routed)           1.035    12.205    dht11_control_instance/dth11/next_state[5]_i_15_n_0
-    SLICE_X44Y60         LUT6 (Prop_lut6_I5_O)        0.124    12.329 r  dht11_control_instance/dth11/next_state[5]_i_6/O
-                         net (fo=33, routed)          0.576    12.905    dht11_control_instance/dth11/ed/data_count_reg[4]_0
-    SLICE_X41Y60         LUT6 (Prop_lut6_I2_O)        0.124    13.029 r  dht11_control_instance/dth11/ed/temp_data[29]_i_1/O
-                         net (fo=3, routed)           0.507    13.536    dht11_control_instance/dth11/ed/D[29]
-    SLICE_X41Y59         LUT5 (Prop_lut5_I4_O)        0.124    13.660 r  dht11_control_instance/dth11/ed/humidity1__2_carry__0_i_9/O
-                         net (fo=3, routed)           0.995    14.655    dht11_control_instance/dth11/ed/humidity1__2_carry__0_i_9_n_0
-    SLICE_X39Y60         LUT6 (Prop_lut6_I3_O)        0.124    14.779 r  dht11_control_instance/dth11/ed/humidity1__2_carry__0_i_6/O
-                         net (fo=1, routed)           0.000    14.779    dht11_control_instance/dth11/ed_n_57
-    SLICE_X39Y60         CARRY4 (Prop_carry4_S[1]_O[2])
-                                                      0.580    15.359 r  dht11_control_instance/dth11/humidity1__2_carry__0/O[2]
-                         net (fo=1, routed)           0.598    15.956    dht11_control_instance/dth11/ed/humidity1[6]
-    SLICE_X38Y60         LUT4 (Prop_lut4_I3_O)        0.302    16.258 f  dht11_control_instance/dth11/ed/humidity[7]_i_3/O
-                         net (fo=1, routed)           0.571    16.830    dht11_control_instance/dth11/ed/humidity[7]_i_3_n_0
-    SLICE_X36Y60         LUT5 (Prop_lut5_I1_O)        0.124    16.954 r  dht11_control_instance/dth11/ed/humidity[7]_i_1/O
-                         net (fo=13, routed)          0.344    17.298    dht11_control_instance/dth11/ed_n_50
-    SLICE_X36Y61         FDRE                                         r  dht11_control_instance/dth11/humidity_reg[5]/CE
+    SLICE_X58Y64         FDCE (Prop_fdce_C_Q)         0.459    10.600 r  dht11_control_instance/dth11/count_usec_reg[3]/Q
+                         net (fo=3, routed)           0.680    11.280    dht11_control_instance/dth11/count_usec_reg[3]
+    SLICE_X59Y64         LUT6 (Prop_lut6_I0_O)        0.124    11.404 r  dht11_control_instance/dth11/temp_data[22]_i_8/O
+                         net (fo=3, routed)           0.849    12.253    dht11_control_instance/dth11/temp_data[22]_i_8_n_0
+    SLICE_X56Y63         LUT6 (Prop_lut6_I4_O)        0.124    12.377 r  dht11_control_instance/dth11/temp_data[22]_i_3/O
+                         net (fo=13, routed)          0.660    13.037    dht11_control_instance/dth11/ed/temperature_reg[1]_0
+    SLICE_X54Y65         LUT6 (Prop_lut6_I2_O)        0.124    13.161 r  dht11_control_instance/dth11/ed/temp_data[19]_i_1/O
+                         net (fo=4, routed)           0.377    13.538    dht11_control_instance/dth11/ed/D[3]
+    SLICE_X55Y65         LUT6 (Prop_lut6_I2_O)        0.124    13.662 r  dht11_control_instance/dth11/ed/humidity1__2_carry_i_12/O
+                         net (fo=3, routed)           0.878    14.540    dht11_control_instance/dth11/ed/humidity1__2_carry_i_12_n_0
+    SLICE_X55Y64         LUT6 (Prop_lut6_I0_O)        0.124    14.664 r  dht11_control_instance/dth11/ed/humidity1__2_carry__0_i_7/O
+                         net (fo=1, routed)           0.000    14.664    dht11_control_instance/dth11/ed_n_58
+    SLICE_X55Y64         CARRY4 (Prop_carry4_S[0]_O[2])
+                                                      0.547    15.211 r  dht11_control_instance/dth11/humidity1__2_carry__0/O[2]
+                         net (fo=1, routed)           0.434    15.645    dht11_control_instance/dth11/ed/humidity1[6]
+    SLICE_X54Y62         LUT6 (Prop_lut6_I5_O)        0.302    15.947 f  dht11_control_instance/dth11/ed/humidity[7]_i_2/O
+                         net (fo=1, routed)           0.572    16.519    dht11_control_instance/dth11/ed/humidity[7]_i_2_n_0
+    SLICE_X55Y61         LUT6 (Prop_lut6_I1_O)        0.124    16.643 r  dht11_control_instance/dth11/ed/humidity[7]_i_1/O
+                         net (fo=16, routed)          0.343    16.986    dht11_control_instance/dth11/ed_n_54
+    SLICE_X55Y60         FDRE                                         r  dht11_control_instance/dth11/humidity_reg[4]/CE
   -------------------------------------------------------------------    -------------------
 
                          (clock sys_clk_pin rise edge)
@@ -395,174 +323,30 @@ Slack (VIOLATED) :        -2.507ns  (required time - arrival time)
     W5                   IBUF (Prop_ibuf_I_O)         1.388    11.388 r  clk_IBUF_inst/O
                          net (fo=1, routed)           1.862    13.250    clk_IBUF
     BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.091    13.341 r  clk_IBUF_BUFG_inst/O
-                         net (fo=587, routed)         1.432    14.773    dht11_control_instance/dth11/CLK
-    SLICE_X36Y61         FDRE                                         r  dht11_control_instance/dth11/humidity_reg[5]/C
-                         clock pessimism              0.258    15.031    
-                         clock uncertainty           -0.035    14.996    
-    SLICE_X36Y61         FDRE (Setup_fdre_C_CE)      -0.205    14.791    dht11_control_instance/dth11/humidity_reg[5]
+                         net (fo=800, routed)         1.440    14.781    dht11_control_instance/dth11/CLK
+    SLICE_X55Y60         FDRE                                         r  dht11_control_instance/dth11/humidity_reg[4]/C
+                         clock pessimism              0.258    15.039    
+                         clock uncertainty           -0.035    15.004    
+    SLICE_X55Y60         FDRE (Setup_fdre_C_CE)      -0.205    14.799    dht11_control_instance/dth11/humidity_reg[4]
   -------------------------------------------------------------------
-                         required time                         14.791    
-                         arrival time                         -17.298    
+                         required time                         14.799    
+                         arrival time                         -16.986    
   -------------------------------------------------------------------
-                         slack                                 -2.507    
+                         slack                                 -2.187    
 
-Slack (VIOLATED) :        -2.507ns  (required time - arrival time)
-  Source:                 dht11_control_instance/dth11/count_usec_reg[15]/C
-                            (falling edge-triggered cell FDCE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
-  Destination:            dht11_control_instance/dth11/temperature_reg[3]/CE
-                            (rising edge-triggered cell FDRE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
-  Path Group:             sys_clk_pin
-  Path Type:              Setup (Max at Slow Process Corner)
-  Requirement:            5.000ns  (sys_clk_pin rise@10.000ns - sys_clk_pin fall@5.000ns)
-  Data Path Delay:        7.226ns  (logic 2.150ns (29.755%)  route 5.076ns (70.245%))
-  Logic Levels:           8  (CARRY4=1 LUT2=1 LUT4=1 LUT5=2 LUT6=3)
-  Clock Path Skew:        -0.041ns (DCD - SCD + CPR)
-    Destination Clock Delay (DCD):    4.773ns = ( 14.773 - 10.000 ) 
-    Source Clock Delay      (SCD):    5.072ns = ( 10.072 - 5.000 ) 
-    Clock Pessimism Removal (CPR):    0.258ns
-  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
-    Total System Jitter     (TSJ):    0.071ns
-    Total Input Jitter      (TIJ):    0.000ns
-    Discrete Jitter          (DJ):    0.000ns
-    Phase Error              (PE):    0.000ns
-
-    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
-  -------------------------------------------------------------------    -------------------
-                         (clock sys_clk_pin fall edge)
-                                                      5.000     5.000 f  
-    W5                                                0.000     5.000 f  clk (IN)
-                         net (fo=0)                   0.000     5.000    clk
-    W5                   IBUF (Prop_ibuf_I_O)         1.458     6.458 f  clk_IBUF_inst/O
-                         net (fo=1, routed)           1.967     8.425    clk_IBUF
-    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.096     8.521 f  clk_IBUF_BUFG_inst/O
-                         net (fo=587, routed)         1.551    10.072    dht11_control_instance/dth11/CLK
-    SLICE_X42Y61         FDCE                                         r  dht11_control_instance/dth11/count_usec_reg[15]/C  (IS_INVERTED)
-  -------------------------------------------------------------------    -------------------
-    SLICE_X42Y61         FDCE (Prop_fdce_C_Q)         0.524    10.596 f  dht11_control_instance/dth11/count_usec_reg[15]/Q
-                         net (fo=3, routed)           0.451    11.046    dht11_control_instance/dth11/count_usec_reg[15]
-    SLICE_X45Y62         LUT2 (Prop_lut2_I0_O)        0.124    11.170 r  dht11_control_instance/dth11/next_state[5]_i_15/O
-                         net (fo=2, routed)           1.035    12.205    dht11_control_instance/dth11/next_state[5]_i_15_n_0
-    SLICE_X44Y60         LUT6 (Prop_lut6_I5_O)        0.124    12.329 r  dht11_control_instance/dth11/next_state[5]_i_6/O
-                         net (fo=33, routed)          0.576    12.905    dht11_control_instance/dth11/ed/data_count_reg[4]_0
-    SLICE_X41Y60         LUT6 (Prop_lut6_I2_O)        0.124    13.029 r  dht11_control_instance/dth11/ed/temp_data[29]_i_1/O
-                         net (fo=3, routed)           0.507    13.536    dht11_control_instance/dth11/ed/D[29]
-    SLICE_X41Y59         LUT5 (Prop_lut5_I4_O)        0.124    13.660 r  dht11_control_instance/dth11/ed/humidity1__2_carry__0_i_9/O
-                         net (fo=3, routed)           0.995    14.655    dht11_control_instance/dth11/ed/humidity1__2_carry__0_i_9_n_0
-    SLICE_X39Y60         LUT6 (Prop_lut6_I3_O)        0.124    14.779 r  dht11_control_instance/dth11/ed/humidity1__2_carry__0_i_6/O
-                         net (fo=1, routed)           0.000    14.779    dht11_control_instance/dth11/ed_n_57
-    SLICE_X39Y60         CARRY4 (Prop_carry4_S[1]_O[2])
-                                                      0.580    15.359 r  dht11_control_instance/dth11/humidity1__2_carry__0/O[2]
-                         net (fo=1, routed)           0.598    15.956    dht11_control_instance/dth11/ed/humidity1[6]
-    SLICE_X38Y60         LUT4 (Prop_lut4_I3_O)        0.302    16.258 f  dht11_control_instance/dth11/ed/humidity[7]_i_3/O
-                         net (fo=1, routed)           0.571    16.830    dht11_control_instance/dth11/ed/humidity[7]_i_3_n_0
-    SLICE_X36Y60         LUT5 (Prop_lut5_I1_O)        0.124    16.954 r  dht11_control_instance/dth11/ed/humidity[7]_i_1/O
-                         net (fo=13, routed)          0.344    17.298    dht11_control_instance/dth11/ed_n_50
-    SLICE_X36Y61         FDRE                                         r  dht11_control_instance/dth11/temperature_reg[3]/CE
-  -------------------------------------------------------------------    -------------------
-
-                         (clock sys_clk_pin rise edge)
-                                                     10.000    10.000 r  
-    W5                                                0.000    10.000 r  clk (IN)
-                         net (fo=0)                   0.000    10.000    clk
-    W5                   IBUF (Prop_ibuf_I_O)         1.388    11.388 r  clk_IBUF_inst/O
-                         net (fo=1, routed)           1.862    13.250    clk_IBUF
-    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.091    13.341 r  clk_IBUF_BUFG_inst/O
-                         net (fo=587, routed)         1.432    14.773    dht11_control_instance/dth11/CLK
-    SLICE_X36Y61         FDRE                                         r  dht11_control_instance/dth11/temperature_reg[3]/C
-                         clock pessimism              0.258    15.031    
-                         clock uncertainty           -0.035    14.996    
-    SLICE_X36Y61         FDRE (Setup_fdre_C_CE)      -0.205    14.791    dht11_control_instance/dth11/temperature_reg[3]
-  -------------------------------------------------------------------
-                         required time                         14.791    
-                         arrival time                         -17.298    
-  -------------------------------------------------------------------
-                         slack                                 -2.507    
-
-Slack (VIOLATED) :        -2.507ns  (required time - arrival time)
-  Source:                 dht11_control_instance/dth11/count_usec_reg[15]/C
-                            (falling edge-triggered cell FDCE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
-  Destination:            dht11_control_instance/dth11/temperature_reg[4]/CE
-                            (rising edge-triggered cell FDRE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
-  Path Group:             sys_clk_pin
-  Path Type:              Setup (Max at Slow Process Corner)
-  Requirement:            5.000ns  (sys_clk_pin rise@10.000ns - sys_clk_pin fall@5.000ns)
-  Data Path Delay:        7.226ns  (logic 2.150ns (29.755%)  route 5.076ns (70.245%))
-  Logic Levels:           8  (CARRY4=1 LUT2=1 LUT4=1 LUT5=2 LUT6=3)
-  Clock Path Skew:        -0.041ns (DCD - SCD + CPR)
-    Destination Clock Delay (DCD):    4.773ns = ( 14.773 - 10.000 ) 
-    Source Clock Delay      (SCD):    5.072ns = ( 10.072 - 5.000 ) 
-    Clock Pessimism Removal (CPR):    0.258ns
-  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
-    Total System Jitter     (TSJ):    0.071ns
-    Total Input Jitter      (TIJ):    0.000ns
-    Discrete Jitter          (DJ):    0.000ns
-    Phase Error              (PE):    0.000ns
-
-    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
-  -------------------------------------------------------------------    -------------------
-                         (clock sys_clk_pin fall edge)
-                                                      5.000     5.000 f  
-    W5                                                0.000     5.000 f  clk (IN)
-                         net (fo=0)                   0.000     5.000    clk
-    W5                   IBUF (Prop_ibuf_I_O)         1.458     6.458 f  clk_IBUF_inst/O
-                         net (fo=1, routed)           1.967     8.425    clk_IBUF
-    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.096     8.521 f  clk_IBUF_BUFG_inst/O
-                         net (fo=587, routed)         1.551    10.072    dht11_control_instance/dth11/CLK
-    SLICE_X42Y61         FDCE                                         r  dht11_control_instance/dth11/count_usec_reg[15]/C  (IS_INVERTED)
-  -------------------------------------------------------------------    -------------------
-    SLICE_X42Y61         FDCE (Prop_fdce_C_Q)         0.524    10.596 f  dht11_control_instance/dth11/count_usec_reg[15]/Q
-                         net (fo=3, routed)           0.451    11.046    dht11_control_instance/dth11/count_usec_reg[15]
-    SLICE_X45Y62         LUT2 (Prop_lut2_I0_O)        0.124    11.170 r  dht11_control_instance/dth11/next_state[5]_i_15/O
-                         net (fo=2, routed)           1.035    12.205    dht11_control_instance/dth11/next_state[5]_i_15_n_0
-    SLICE_X44Y60         LUT6 (Prop_lut6_I5_O)        0.124    12.329 r  dht11_control_instance/dth11/next_state[5]_i_6/O
-                         net (fo=33, routed)          0.576    12.905    dht11_control_instance/dth11/ed/data_count_reg[4]_0
-    SLICE_X41Y60         LUT6 (Prop_lut6_I2_O)        0.124    13.029 r  dht11_control_instance/dth11/ed/temp_data[29]_i_1/O
-                         net (fo=3, routed)           0.507    13.536    dht11_control_instance/dth11/ed/D[29]
-    SLICE_X41Y59         LUT5 (Prop_lut5_I4_O)        0.124    13.660 r  dht11_control_instance/dth11/ed/humidity1__2_carry__0_i_9/O
-                         net (fo=3, routed)           0.995    14.655    dht11_control_instance/dth11/ed/humidity1__2_carry__0_i_9_n_0
-    SLICE_X39Y60         LUT6 (Prop_lut6_I3_O)        0.124    14.779 r  dht11_control_instance/dth11/ed/humidity1__2_carry__0_i_6/O
-                         net (fo=1, routed)           0.000    14.779    dht11_control_instance/dth11/ed_n_57
-    SLICE_X39Y60         CARRY4 (Prop_carry4_S[1]_O[2])
-                                                      0.580    15.359 r  dht11_control_instance/dth11/humidity1__2_carry__0/O[2]
-                         net (fo=1, routed)           0.598    15.956    dht11_control_instance/dth11/ed/humidity1[6]
-    SLICE_X38Y60         LUT4 (Prop_lut4_I3_O)        0.302    16.258 f  dht11_control_instance/dth11/ed/humidity[7]_i_3/O
-                         net (fo=1, routed)           0.571    16.830    dht11_control_instance/dth11/ed/humidity[7]_i_3_n_0
-    SLICE_X36Y60         LUT5 (Prop_lut5_I1_O)        0.124    16.954 r  dht11_control_instance/dth11/ed/humidity[7]_i_1/O
-                         net (fo=13, routed)          0.344    17.298    dht11_control_instance/dth11/ed_n_50
-    SLICE_X36Y61         FDRE                                         r  dht11_control_instance/dth11/temperature_reg[4]/CE
-  -------------------------------------------------------------------    -------------------
-
-                         (clock sys_clk_pin rise edge)
-                                                     10.000    10.000 r  
-    W5                                                0.000    10.000 r  clk (IN)
-                         net (fo=0)                   0.000    10.000    clk
-    W5                   IBUF (Prop_ibuf_I_O)         1.388    11.388 r  clk_IBUF_inst/O
-                         net (fo=1, routed)           1.862    13.250    clk_IBUF
-    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.091    13.341 r  clk_IBUF_BUFG_inst/O
-                         net (fo=587, routed)         1.432    14.773    dht11_control_instance/dth11/CLK
-    SLICE_X36Y61         FDRE                                         r  dht11_control_instance/dth11/temperature_reg[4]/C
-                         clock pessimism              0.258    15.031    
-                         clock uncertainty           -0.035    14.996    
-    SLICE_X36Y61         FDRE (Setup_fdre_C_CE)      -0.205    14.791    dht11_control_instance/dth11/temperature_reg[4]
-  -------------------------------------------------------------------
-                         required time                         14.791    
-                         arrival time                         -17.298    
-  -------------------------------------------------------------------
-                         slack                                 -2.507    
-
-Slack (VIOLATED) :        -2.506ns  (required time - arrival time)
-  Source:                 dht11_control_instance/dth11/count_usec_reg[15]/C
+Slack (VIOLATED) :        -2.187ns  (required time - arrival time)
+  Source:                 dht11_control_instance/dth11/count_usec_reg[3]/C
                             (falling edge-triggered cell FDCE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
   Destination:            dht11_control_instance/dth11/humidity_reg[6]/CE
                             (rising edge-triggered cell FDRE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
   Path Group:             sys_clk_pin
   Path Type:              Setup (Max at Slow Process Corner)
   Requirement:            5.000ns  (sys_clk_pin rise@10.000ns - sys_clk_pin fall@5.000ns)
-  Data Path Delay:        7.226ns  (logic 2.150ns (29.755%)  route 5.076ns (70.245%))
-  Logic Levels:           8  (CARRY4=1 LUT2=1 LUT4=1 LUT5=2 LUT6=3)
-  Clock Path Skew:        -0.040ns (DCD - SCD + CPR)
-    Destination Clock Delay (DCD):    4.774ns = ( 14.774 - 10.000 ) 
-    Source Clock Delay      (SCD):    5.072ns = ( 10.072 - 5.000 ) 
+  Data Path Delay:        6.845ns  (logic 2.052ns (29.978%)  route 4.793ns (70.022%))
+  Logic Levels:           8  (CARRY4=1 LUT6=7)
+  Clock Path Skew:        -0.102ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    4.781ns = ( 14.781 - 10.000 ) 
+    Source Clock Delay      (SCD):    5.141ns = ( 10.141 - 5.000 ) 
     Clock Pessimism Removal (CPR):    0.258ns
   Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
     Total System Jitter     (TSJ):    0.071ns
@@ -579,29 +363,29 @@ Slack (VIOLATED) :        -2.506ns  (required time - arrival time)
     W5                   IBUF (Prop_ibuf_I_O)         1.458     6.458 f  clk_IBUF_inst/O
                          net (fo=1, routed)           1.967     8.425    clk_IBUF
     BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.096     8.521 f  clk_IBUF_BUFG_inst/O
-                         net (fo=587, routed)         1.551    10.072    dht11_control_instance/dth11/CLK
-    SLICE_X42Y61         FDCE                                         r  dht11_control_instance/dth11/count_usec_reg[15]/C  (IS_INVERTED)
+                         net (fo=800, routed)         1.620    10.141    dht11_control_instance/dth11/CLK
+    SLICE_X58Y64         FDCE                                         r  dht11_control_instance/dth11/count_usec_reg[3]/C  (IS_INVERTED)
   -------------------------------------------------------------------    -------------------
-    SLICE_X42Y61         FDCE (Prop_fdce_C_Q)         0.524    10.596 f  dht11_control_instance/dth11/count_usec_reg[15]/Q
-                         net (fo=3, routed)           0.451    11.046    dht11_control_instance/dth11/count_usec_reg[15]
-    SLICE_X45Y62         LUT2 (Prop_lut2_I0_O)        0.124    11.170 r  dht11_control_instance/dth11/next_state[5]_i_15/O
-                         net (fo=2, routed)           1.035    12.205    dht11_control_instance/dth11/next_state[5]_i_15_n_0
-    SLICE_X44Y60         LUT6 (Prop_lut6_I5_O)        0.124    12.329 r  dht11_control_instance/dth11/next_state[5]_i_6/O
-                         net (fo=33, routed)          0.576    12.905    dht11_control_instance/dth11/ed/data_count_reg[4]_0
-    SLICE_X41Y60         LUT6 (Prop_lut6_I2_O)        0.124    13.029 r  dht11_control_instance/dth11/ed/temp_data[29]_i_1/O
-                         net (fo=3, routed)           0.507    13.536    dht11_control_instance/dth11/ed/D[29]
-    SLICE_X41Y59         LUT5 (Prop_lut5_I4_O)        0.124    13.660 r  dht11_control_instance/dth11/ed/humidity1__2_carry__0_i_9/O
-                         net (fo=3, routed)           0.995    14.655    dht11_control_instance/dth11/ed/humidity1__2_carry__0_i_9_n_0
-    SLICE_X39Y60         LUT6 (Prop_lut6_I3_O)        0.124    14.779 r  dht11_control_instance/dth11/ed/humidity1__2_carry__0_i_6/O
-                         net (fo=1, routed)           0.000    14.779    dht11_control_instance/dth11/ed_n_57
-    SLICE_X39Y60         CARRY4 (Prop_carry4_S[1]_O[2])
-                                                      0.580    15.359 r  dht11_control_instance/dth11/humidity1__2_carry__0/O[2]
-                         net (fo=1, routed)           0.598    15.956    dht11_control_instance/dth11/ed/humidity1[6]
-    SLICE_X38Y60         LUT4 (Prop_lut4_I3_O)        0.302    16.258 f  dht11_control_instance/dth11/ed/humidity[7]_i_3/O
-                         net (fo=1, routed)           0.571    16.830    dht11_control_instance/dth11/ed/humidity[7]_i_3_n_0
-    SLICE_X36Y60         LUT5 (Prop_lut5_I1_O)        0.124    16.954 r  dht11_control_instance/dth11/ed/humidity[7]_i_1/O
-                         net (fo=13, routed)          0.344    17.298    dht11_control_instance/dth11/ed_n_50
-    SLICE_X36Y59         FDRE                                         r  dht11_control_instance/dth11/humidity_reg[6]/CE
+    SLICE_X58Y64         FDCE (Prop_fdce_C_Q)         0.459    10.600 r  dht11_control_instance/dth11/count_usec_reg[3]/Q
+                         net (fo=3, routed)           0.680    11.280    dht11_control_instance/dth11/count_usec_reg[3]
+    SLICE_X59Y64         LUT6 (Prop_lut6_I0_O)        0.124    11.404 r  dht11_control_instance/dth11/temp_data[22]_i_8/O
+                         net (fo=3, routed)           0.849    12.253    dht11_control_instance/dth11/temp_data[22]_i_8_n_0
+    SLICE_X56Y63         LUT6 (Prop_lut6_I4_O)        0.124    12.377 r  dht11_control_instance/dth11/temp_data[22]_i_3/O
+                         net (fo=13, routed)          0.660    13.037    dht11_control_instance/dth11/ed/temperature_reg[1]_0
+    SLICE_X54Y65         LUT6 (Prop_lut6_I2_O)        0.124    13.161 r  dht11_control_instance/dth11/ed/temp_data[19]_i_1/O
+                         net (fo=4, routed)           0.377    13.538    dht11_control_instance/dth11/ed/D[3]
+    SLICE_X55Y65         LUT6 (Prop_lut6_I2_O)        0.124    13.662 r  dht11_control_instance/dth11/ed/humidity1__2_carry_i_12/O
+                         net (fo=3, routed)           0.878    14.540    dht11_control_instance/dth11/ed/humidity1__2_carry_i_12_n_0
+    SLICE_X55Y64         LUT6 (Prop_lut6_I0_O)        0.124    14.664 r  dht11_control_instance/dth11/ed/humidity1__2_carry__0_i_7/O
+                         net (fo=1, routed)           0.000    14.664    dht11_control_instance/dth11/ed_n_58
+    SLICE_X55Y64         CARRY4 (Prop_carry4_S[0]_O[2])
+                                                      0.547    15.211 r  dht11_control_instance/dth11/humidity1__2_carry__0/O[2]
+                         net (fo=1, routed)           0.434    15.645    dht11_control_instance/dth11/ed/humidity1[6]
+    SLICE_X54Y62         LUT6 (Prop_lut6_I5_O)        0.302    15.947 f  dht11_control_instance/dth11/ed/humidity[7]_i_2/O
+                         net (fo=1, routed)           0.572    16.519    dht11_control_instance/dth11/ed/humidity[7]_i_2_n_0
+    SLICE_X55Y61         LUT6 (Prop_lut6_I1_O)        0.124    16.643 r  dht11_control_instance/dth11/ed/humidity[7]_i_1/O
+                         net (fo=16, routed)          0.343    16.986    dht11_control_instance/dth11/ed_n_54
+    SLICE_X55Y60         FDRE                                         r  dht11_control_instance/dth11/humidity_reg[6]/CE
   -------------------------------------------------------------------    -------------------
 
                          (clock sys_clk_pin rise edge)
@@ -611,30 +395,30 @@ Slack (VIOLATED) :        -2.506ns  (required time - arrival time)
     W5                   IBUF (Prop_ibuf_I_O)         1.388    11.388 r  clk_IBUF_inst/O
                          net (fo=1, routed)           1.862    13.250    clk_IBUF
     BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.091    13.341 r  clk_IBUF_BUFG_inst/O
-                         net (fo=587, routed)         1.433    14.774    dht11_control_instance/dth11/CLK
-    SLICE_X36Y59         FDRE                                         r  dht11_control_instance/dth11/humidity_reg[6]/C
-                         clock pessimism              0.258    15.032    
-                         clock uncertainty           -0.035    14.997    
-    SLICE_X36Y59         FDRE (Setup_fdre_C_CE)      -0.205    14.792    dht11_control_instance/dth11/humidity_reg[6]
+                         net (fo=800, routed)         1.440    14.781    dht11_control_instance/dth11/CLK
+    SLICE_X55Y60         FDRE                                         r  dht11_control_instance/dth11/humidity_reg[6]/C
+                         clock pessimism              0.258    15.039    
+                         clock uncertainty           -0.035    15.004    
+    SLICE_X55Y60         FDRE (Setup_fdre_C_CE)      -0.205    14.799    dht11_control_instance/dth11/humidity_reg[6]
   -------------------------------------------------------------------
-                         required time                         14.792    
-                         arrival time                         -17.298    
+                         required time                         14.799    
+                         arrival time                         -16.986    
   -------------------------------------------------------------------
-                         slack                                 -2.506    
+                         slack                                 -2.187    
 
-Slack (VIOLATED) :        -2.506ns  (required time - arrival time)
-  Source:                 dht11_control_instance/dth11/count_usec_reg[15]/C
+Slack (VIOLATED) :        -2.187ns  (required time - arrival time)
+  Source:                 dht11_control_instance/dth11/count_usec_reg[3]/C
                             (falling edge-triggered cell FDCE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
   Destination:            dht11_control_instance/dth11/humidity_reg[7]/CE
                             (rising edge-triggered cell FDRE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
   Path Group:             sys_clk_pin
   Path Type:              Setup (Max at Slow Process Corner)
   Requirement:            5.000ns  (sys_clk_pin rise@10.000ns - sys_clk_pin fall@5.000ns)
-  Data Path Delay:        7.226ns  (logic 2.150ns (29.755%)  route 5.076ns (70.245%))
-  Logic Levels:           8  (CARRY4=1 LUT2=1 LUT4=1 LUT5=2 LUT6=3)
-  Clock Path Skew:        -0.040ns (DCD - SCD + CPR)
-    Destination Clock Delay (DCD):    4.774ns = ( 14.774 - 10.000 ) 
-    Source Clock Delay      (SCD):    5.072ns = ( 10.072 - 5.000 ) 
+  Data Path Delay:        6.845ns  (logic 2.052ns (29.978%)  route 4.793ns (70.022%))
+  Logic Levels:           8  (CARRY4=1 LUT6=7)
+  Clock Path Skew:        -0.102ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    4.781ns = ( 14.781 - 10.000 ) 
+    Source Clock Delay      (SCD):    5.141ns = ( 10.141 - 5.000 ) 
     Clock Pessimism Removal (CPR):    0.258ns
   Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
     Total System Jitter     (TSJ):    0.071ns
@@ -651,29 +435,29 @@ Slack (VIOLATED) :        -2.506ns  (required time - arrival time)
     W5                   IBUF (Prop_ibuf_I_O)         1.458     6.458 f  clk_IBUF_inst/O
                          net (fo=1, routed)           1.967     8.425    clk_IBUF
     BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.096     8.521 f  clk_IBUF_BUFG_inst/O
-                         net (fo=587, routed)         1.551    10.072    dht11_control_instance/dth11/CLK
-    SLICE_X42Y61         FDCE                                         r  dht11_control_instance/dth11/count_usec_reg[15]/C  (IS_INVERTED)
+                         net (fo=800, routed)         1.620    10.141    dht11_control_instance/dth11/CLK
+    SLICE_X58Y64         FDCE                                         r  dht11_control_instance/dth11/count_usec_reg[3]/C  (IS_INVERTED)
   -------------------------------------------------------------------    -------------------
-    SLICE_X42Y61         FDCE (Prop_fdce_C_Q)         0.524    10.596 f  dht11_control_instance/dth11/count_usec_reg[15]/Q
-                         net (fo=3, routed)           0.451    11.046    dht11_control_instance/dth11/count_usec_reg[15]
-    SLICE_X45Y62         LUT2 (Prop_lut2_I0_O)        0.124    11.170 r  dht11_control_instance/dth11/next_state[5]_i_15/O
-                         net (fo=2, routed)           1.035    12.205    dht11_control_instance/dth11/next_state[5]_i_15_n_0
-    SLICE_X44Y60         LUT6 (Prop_lut6_I5_O)        0.124    12.329 r  dht11_control_instance/dth11/next_state[5]_i_6/O
-                         net (fo=33, routed)          0.576    12.905    dht11_control_instance/dth11/ed/data_count_reg[4]_0
-    SLICE_X41Y60         LUT6 (Prop_lut6_I2_O)        0.124    13.029 r  dht11_control_instance/dth11/ed/temp_data[29]_i_1/O
-                         net (fo=3, routed)           0.507    13.536    dht11_control_instance/dth11/ed/D[29]
-    SLICE_X41Y59         LUT5 (Prop_lut5_I4_O)        0.124    13.660 r  dht11_control_instance/dth11/ed/humidity1__2_carry__0_i_9/O
-                         net (fo=3, routed)           0.995    14.655    dht11_control_instance/dth11/ed/humidity1__2_carry__0_i_9_n_0
-    SLICE_X39Y60         LUT6 (Prop_lut6_I3_O)        0.124    14.779 r  dht11_control_instance/dth11/ed/humidity1__2_carry__0_i_6/O
-                         net (fo=1, routed)           0.000    14.779    dht11_control_instance/dth11/ed_n_57
-    SLICE_X39Y60         CARRY4 (Prop_carry4_S[1]_O[2])
-                                                      0.580    15.359 r  dht11_control_instance/dth11/humidity1__2_carry__0/O[2]
-                         net (fo=1, routed)           0.598    15.956    dht11_control_instance/dth11/ed/humidity1[6]
-    SLICE_X38Y60         LUT4 (Prop_lut4_I3_O)        0.302    16.258 f  dht11_control_instance/dth11/ed/humidity[7]_i_3/O
-                         net (fo=1, routed)           0.571    16.830    dht11_control_instance/dth11/ed/humidity[7]_i_3_n_0
-    SLICE_X36Y60         LUT5 (Prop_lut5_I1_O)        0.124    16.954 r  dht11_control_instance/dth11/ed/humidity[7]_i_1/O
-                         net (fo=13, routed)          0.344    17.298    dht11_control_instance/dth11/ed_n_50
-    SLICE_X36Y59         FDRE                                         r  dht11_control_instance/dth11/humidity_reg[7]/CE
+    SLICE_X58Y64         FDCE (Prop_fdce_C_Q)         0.459    10.600 r  dht11_control_instance/dth11/count_usec_reg[3]/Q
+                         net (fo=3, routed)           0.680    11.280    dht11_control_instance/dth11/count_usec_reg[3]
+    SLICE_X59Y64         LUT6 (Prop_lut6_I0_O)        0.124    11.404 r  dht11_control_instance/dth11/temp_data[22]_i_8/O
+                         net (fo=3, routed)           0.849    12.253    dht11_control_instance/dth11/temp_data[22]_i_8_n_0
+    SLICE_X56Y63         LUT6 (Prop_lut6_I4_O)        0.124    12.377 r  dht11_control_instance/dth11/temp_data[22]_i_3/O
+                         net (fo=13, routed)          0.660    13.037    dht11_control_instance/dth11/ed/temperature_reg[1]_0
+    SLICE_X54Y65         LUT6 (Prop_lut6_I2_O)        0.124    13.161 r  dht11_control_instance/dth11/ed/temp_data[19]_i_1/O
+                         net (fo=4, routed)           0.377    13.538    dht11_control_instance/dth11/ed/D[3]
+    SLICE_X55Y65         LUT6 (Prop_lut6_I2_O)        0.124    13.662 r  dht11_control_instance/dth11/ed/humidity1__2_carry_i_12/O
+                         net (fo=3, routed)           0.878    14.540    dht11_control_instance/dth11/ed/humidity1__2_carry_i_12_n_0
+    SLICE_X55Y64         LUT6 (Prop_lut6_I0_O)        0.124    14.664 r  dht11_control_instance/dth11/ed/humidity1__2_carry__0_i_7/O
+                         net (fo=1, routed)           0.000    14.664    dht11_control_instance/dth11/ed_n_58
+    SLICE_X55Y64         CARRY4 (Prop_carry4_S[0]_O[2])
+                                                      0.547    15.211 r  dht11_control_instance/dth11/humidity1__2_carry__0/O[2]
+                         net (fo=1, routed)           0.434    15.645    dht11_control_instance/dth11/ed/humidity1[6]
+    SLICE_X54Y62         LUT6 (Prop_lut6_I5_O)        0.302    15.947 f  dht11_control_instance/dth11/ed/humidity[7]_i_2/O
+                         net (fo=1, routed)           0.572    16.519    dht11_control_instance/dth11/ed/humidity[7]_i_2_n_0
+    SLICE_X55Y61         LUT6 (Prop_lut6_I1_O)        0.124    16.643 r  dht11_control_instance/dth11/ed/humidity[7]_i_1/O
+                         net (fo=16, routed)          0.343    16.986    dht11_control_instance/dth11/ed_n_54
+    SLICE_X55Y60         FDRE                                         r  dht11_control_instance/dth11/humidity_reg[7]/CE
   -------------------------------------------------------------------    -------------------
 
                          (clock sys_clk_pin rise edge)
@@ -683,30 +467,30 @@ Slack (VIOLATED) :        -2.506ns  (required time - arrival time)
     W5                   IBUF (Prop_ibuf_I_O)         1.388    11.388 r  clk_IBUF_inst/O
                          net (fo=1, routed)           1.862    13.250    clk_IBUF
     BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.091    13.341 r  clk_IBUF_BUFG_inst/O
-                         net (fo=587, routed)         1.433    14.774    dht11_control_instance/dth11/CLK
-    SLICE_X36Y59         FDRE                                         r  dht11_control_instance/dth11/humidity_reg[7]/C
-                         clock pessimism              0.258    15.032    
-                         clock uncertainty           -0.035    14.997    
-    SLICE_X36Y59         FDRE (Setup_fdre_C_CE)      -0.205    14.792    dht11_control_instance/dth11/humidity_reg[7]
+                         net (fo=800, routed)         1.440    14.781    dht11_control_instance/dth11/CLK
+    SLICE_X55Y60         FDRE                                         r  dht11_control_instance/dth11/humidity_reg[7]/C
+                         clock pessimism              0.258    15.039    
+                         clock uncertainty           -0.035    15.004    
+    SLICE_X55Y60         FDRE (Setup_fdre_C_CE)      -0.205    14.799    dht11_control_instance/dth11/humidity_reg[7]
   -------------------------------------------------------------------
-                         required time                         14.792    
-                         arrival time                         -17.298    
+                         required time                         14.799    
+                         arrival time                         -16.986    
   -------------------------------------------------------------------
-                         slack                                 -2.506    
+                         slack                                 -2.187    
 
-Slack (VIOLATED) :        -2.506ns  (required time - arrival time)
-  Source:                 dht11_control_instance/dth11/count_usec_reg[15]/C
+Slack (VIOLATED) :        -2.187ns  (required time - arrival time)
+  Source:                 dht11_control_instance/dth11/count_usec_reg[3]/C
                             (falling edge-triggered cell FDCE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
   Destination:            dht11_control_instance/dth11/temperature_reg[0]/CE
                             (rising edge-triggered cell FDRE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
   Path Group:             sys_clk_pin
   Path Type:              Setup (Max at Slow Process Corner)
   Requirement:            5.000ns  (sys_clk_pin rise@10.000ns - sys_clk_pin fall@5.000ns)
-  Data Path Delay:        7.226ns  (logic 2.150ns (29.755%)  route 5.076ns (70.245%))
-  Logic Levels:           8  (CARRY4=1 LUT2=1 LUT4=1 LUT5=2 LUT6=3)
-  Clock Path Skew:        -0.040ns (DCD - SCD + CPR)
-    Destination Clock Delay (DCD):    4.774ns = ( 14.774 - 10.000 ) 
-    Source Clock Delay      (SCD):    5.072ns = ( 10.072 - 5.000 ) 
+  Data Path Delay:        6.845ns  (logic 2.052ns (29.978%)  route 4.793ns (70.022%))
+  Logic Levels:           8  (CARRY4=1 LUT6=7)
+  Clock Path Skew:        -0.102ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    4.781ns = ( 14.781 - 10.000 ) 
+    Source Clock Delay      (SCD):    5.141ns = ( 10.141 - 5.000 ) 
     Clock Pessimism Removal (CPR):    0.258ns
   Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
     Total System Jitter     (TSJ):    0.071ns
@@ -723,29 +507,29 @@ Slack (VIOLATED) :        -2.506ns  (required time - arrival time)
     W5                   IBUF (Prop_ibuf_I_O)         1.458     6.458 f  clk_IBUF_inst/O
                          net (fo=1, routed)           1.967     8.425    clk_IBUF
     BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.096     8.521 f  clk_IBUF_BUFG_inst/O
-                         net (fo=587, routed)         1.551    10.072    dht11_control_instance/dth11/CLK
-    SLICE_X42Y61         FDCE                                         r  dht11_control_instance/dth11/count_usec_reg[15]/C  (IS_INVERTED)
+                         net (fo=800, routed)         1.620    10.141    dht11_control_instance/dth11/CLK
+    SLICE_X58Y64         FDCE                                         r  dht11_control_instance/dth11/count_usec_reg[3]/C  (IS_INVERTED)
   -------------------------------------------------------------------    -------------------
-    SLICE_X42Y61         FDCE (Prop_fdce_C_Q)         0.524    10.596 f  dht11_control_instance/dth11/count_usec_reg[15]/Q
-                         net (fo=3, routed)           0.451    11.046    dht11_control_instance/dth11/count_usec_reg[15]
-    SLICE_X45Y62         LUT2 (Prop_lut2_I0_O)        0.124    11.170 r  dht11_control_instance/dth11/next_state[5]_i_15/O
-                         net (fo=2, routed)           1.035    12.205    dht11_control_instance/dth11/next_state[5]_i_15_n_0
-    SLICE_X44Y60         LUT6 (Prop_lut6_I5_O)        0.124    12.329 r  dht11_control_instance/dth11/next_state[5]_i_6/O
-                         net (fo=33, routed)          0.576    12.905    dht11_control_instance/dth11/ed/data_count_reg[4]_0
-    SLICE_X41Y60         LUT6 (Prop_lut6_I2_O)        0.124    13.029 r  dht11_control_instance/dth11/ed/temp_data[29]_i_1/O
-                         net (fo=3, routed)           0.507    13.536    dht11_control_instance/dth11/ed/D[29]
-    SLICE_X41Y59         LUT5 (Prop_lut5_I4_O)        0.124    13.660 r  dht11_control_instance/dth11/ed/humidity1__2_carry__0_i_9/O
-                         net (fo=3, routed)           0.995    14.655    dht11_control_instance/dth11/ed/humidity1__2_carry__0_i_9_n_0
-    SLICE_X39Y60         LUT6 (Prop_lut6_I3_O)        0.124    14.779 r  dht11_control_instance/dth11/ed/humidity1__2_carry__0_i_6/O
-                         net (fo=1, routed)           0.000    14.779    dht11_control_instance/dth11/ed_n_57
-    SLICE_X39Y60         CARRY4 (Prop_carry4_S[1]_O[2])
-                                                      0.580    15.359 r  dht11_control_instance/dth11/humidity1__2_carry__0/O[2]
-                         net (fo=1, routed)           0.598    15.956    dht11_control_instance/dth11/ed/humidity1[6]
-    SLICE_X38Y60         LUT4 (Prop_lut4_I3_O)        0.302    16.258 f  dht11_control_instance/dth11/ed/humidity[7]_i_3/O
-                         net (fo=1, routed)           0.571    16.830    dht11_control_instance/dth11/ed/humidity[7]_i_3_n_0
-    SLICE_X36Y60         LUT5 (Prop_lut5_I1_O)        0.124    16.954 r  dht11_control_instance/dth11/ed/humidity[7]_i_1/O
-                         net (fo=13, routed)          0.344    17.298    dht11_control_instance/dth11/ed_n_50
-    SLICE_X36Y59         FDRE                                         r  dht11_control_instance/dth11/temperature_reg[0]/CE
+    SLICE_X58Y64         FDCE (Prop_fdce_C_Q)         0.459    10.600 r  dht11_control_instance/dth11/count_usec_reg[3]/Q
+                         net (fo=3, routed)           0.680    11.280    dht11_control_instance/dth11/count_usec_reg[3]
+    SLICE_X59Y64         LUT6 (Prop_lut6_I0_O)        0.124    11.404 r  dht11_control_instance/dth11/temp_data[22]_i_8/O
+                         net (fo=3, routed)           0.849    12.253    dht11_control_instance/dth11/temp_data[22]_i_8_n_0
+    SLICE_X56Y63         LUT6 (Prop_lut6_I4_O)        0.124    12.377 r  dht11_control_instance/dth11/temp_data[22]_i_3/O
+                         net (fo=13, routed)          0.660    13.037    dht11_control_instance/dth11/ed/temperature_reg[1]_0
+    SLICE_X54Y65         LUT6 (Prop_lut6_I2_O)        0.124    13.161 r  dht11_control_instance/dth11/ed/temp_data[19]_i_1/O
+                         net (fo=4, routed)           0.377    13.538    dht11_control_instance/dth11/ed/D[3]
+    SLICE_X55Y65         LUT6 (Prop_lut6_I2_O)        0.124    13.662 r  dht11_control_instance/dth11/ed/humidity1__2_carry_i_12/O
+                         net (fo=3, routed)           0.878    14.540    dht11_control_instance/dth11/ed/humidity1__2_carry_i_12_n_0
+    SLICE_X55Y64         LUT6 (Prop_lut6_I0_O)        0.124    14.664 r  dht11_control_instance/dth11/ed/humidity1__2_carry__0_i_7/O
+                         net (fo=1, routed)           0.000    14.664    dht11_control_instance/dth11/ed_n_58
+    SLICE_X55Y64         CARRY4 (Prop_carry4_S[0]_O[2])
+                                                      0.547    15.211 r  dht11_control_instance/dth11/humidity1__2_carry__0/O[2]
+                         net (fo=1, routed)           0.434    15.645    dht11_control_instance/dth11/ed/humidity1[6]
+    SLICE_X54Y62         LUT6 (Prop_lut6_I5_O)        0.302    15.947 f  dht11_control_instance/dth11/ed/humidity[7]_i_2/O
+                         net (fo=1, routed)           0.572    16.519    dht11_control_instance/dth11/ed/humidity[7]_i_2_n_0
+    SLICE_X55Y61         LUT6 (Prop_lut6_I1_O)        0.124    16.643 r  dht11_control_instance/dth11/ed/humidity[7]_i_1/O
+                         net (fo=16, routed)          0.343    16.986    dht11_control_instance/dth11/ed_n_54
+    SLICE_X55Y60         FDRE                                         r  dht11_control_instance/dth11/temperature_reg[0]/CE
   -------------------------------------------------------------------    -------------------
 
                          (clock sys_clk_pin rise edge)
@@ -755,30 +539,30 @@ Slack (VIOLATED) :        -2.506ns  (required time - arrival time)
     W5                   IBUF (Prop_ibuf_I_O)         1.388    11.388 r  clk_IBUF_inst/O
                          net (fo=1, routed)           1.862    13.250    clk_IBUF
     BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.091    13.341 r  clk_IBUF_BUFG_inst/O
-                         net (fo=587, routed)         1.433    14.774    dht11_control_instance/dth11/CLK
-    SLICE_X36Y59         FDRE                                         r  dht11_control_instance/dth11/temperature_reg[0]/C
-                         clock pessimism              0.258    15.032    
-                         clock uncertainty           -0.035    14.997    
-    SLICE_X36Y59         FDRE (Setup_fdre_C_CE)      -0.205    14.792    dht11_control_instance/dth11/temperature_reg[0]
+                         net (fo=800, routed)         1.440    14.781    dht11_control_instance/dth11/CLK
+    SLICE_X55Y60         FDRE                                         r  dht11_control_instance/dth11/temperature_reg[0]/C
+                         clock pessimism              0.258    15.039    
+                         clock uncertainty           -0.035    15.004    
+    SLICE_X55Y60         FDRE (Setup_fdre_C_CE)      -0.205    14.799    dht11_control_instance/dth11/temperature_reg[0]
   -------------------------------------------------------------------
-                         required time                         14.792    
-                         arrival time                         -17.298    
+                         required time                         14.799    
+                         arrival time                         -16.986    
   -------------------------------------------------------------------
-                         slack                                 -2.506    
+                         slack                                 -2.187    
 
-Slack (VIOLATED) :        -2.506ns  (required time - arrival time)
-  Source:                 dht11_control_instance/dth11/count_usec_reg[15]/C
+Slack (VIOLATED) :        -2.187ns  (required time - arrival time)
+  Source:                 dht11_control_instance/dth11/count_usec_reg[3]/C
                             (falling edge-triggered cell FDCE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
   Destination:            dht11_control_instance/dth11/temperature_reg[1]/CE
                             (rising edge-triggered cell FDRE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
   Path Group:             sys_clk_pin
   Path Type:              Setup (Max at Slow Process Corner)
   Requirement:            5.000ns  (sys_clk_pin rise@10.000ns - sys_clk_pin fall@5.000ns)
-  Data Path Delay:        7.226ns  (logic 2.150ns (29.755%)  route 5.076ns (70.245%))
-  Logic Levels:           8  (CARRY4=1 LUT2=1 LUT4=1 LUT5=2 LUT6=3)
-  Clock Path Skew:        -0.040ns (DCD - SCD + CPR)
-    Destination Clock Delay (DCD):    4.774ns = ( 14.774 - 10.000 ) 
-    Source Clock Delay      (SCD):    5.072ns = ( 10.072 - 5.000 ) 
+  Data Path Delay:        6.845ns  (logic 2.052ns (29.978%)  route 4.793ns (70.022%))
+  Logic Levels:           8  (CARRY4=1 LUT6=7)
+  Clock Path Skew:        -0.102ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    4.781ns = ( 14.781 - 10.000 ) 
+    Source Clock Delay      (SCD):    5.141ns = ( 10.141 - 5.000 ) 
     Clock Pessimism Removal (CPR):    0.258ns
   Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
     Total System Jitter     (TSJ):    0.071ns
@@ -795,29 +579,29 @@ Slack (VIOLATED) :        -2.506ns  (required time - arrival time)
     W5                   IBUF (Prop_ibuf_I_O)         1.458     6.458 f  clk_IBUF_inst/O
                          net (fo=1, routed)           1.967     8.425    clk_IBUF
     BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.096     8.521 f  clk_IBUF_BUFG_inst/O
-                         net (fo=587, routed)         1.551    10.072    dht11_control_instance/dth11/CLK
-    SLICE_X42Y61         FDCE                                         r  dht11_control_instance/dth11/count_usec_reg[15]/C  (IS_INVERTED)
+                         net (fo=800, routed)         1.620    10.141    dht11_control_instance/dth11/CLK
+    SLICE_X58Y64         FDCE                                         r  dht11_control_instance/dth11/count_usec_reg[3]/C  (IS_INVERTED)
   -------------------------------------------------------------------    -------------------
-    SLICE_X42Y61         FDCE (Prop_fdce_C_Q)         0.524    10.596 f  dht11_control_instance/dth11/count_usec_reg[15]/Q
-                         net (fo=3, routed)           0.451    11.046    dht11_control_instance/dth11/count_usec_reg[15]
-    SLICE_X45Y62         LUT2 (Prop_lut2_I0_O)        0.124    11.170 r  dht11_control_instance/dth11/next_state[5]_i_15/O
-                         net (fo=2, routed)           1.035    12.205    dht11_control_instance/dth11/next_state[5]_i_15_n_0
-    SLICE_X44Y60         LUT6 (Prop_lut6_I5_O)        0.124    12.329 r  dht11_control_instance/dth11/next_state[5]_i_6/O
-                         net (fo=33, routed)          0.576    12.905    dht11_control_instance/dth11/ed/data_count_reg[4]_0
-    SLICE_X41Y60         LUT6 (Prop_lut6_I2_O)        0.124    13.029 r  dht11_control_instance/dth11/ed/temp_data[29]_i_1/O
-                         net (fo=3, routed)           0.507    13.536    dht11_control_instance/dth11/ed/D[29]
-    SLICE_X41Y59         LUT5 (Prop_lut5_I4_O)        0.124    13.660 r  dht11_control_instance/dth11/ed/humidity1__2_carry__0_i_9/O
-                         net (fo=3, routed)           0.995    14.655    dht11_control_instance/dth11/ed/humidity1__2_carry__0_i_9_n_0
-    SLICE_X39Y60         LUT6 (Prop_lut6_I3_O)        0.124    14.779 r  dht11_control_instance/dth11/ed/humidity1__2_carry__0_i_6/O
-                         net (fo=1, routed)           0.000    14.779    dht11_control_instance/dth11/ed_n_57
-    SLICE_X39Y60         CARRY4 (Prop_carry4_S[1]_O[2])
-                                                      0.580    15.359 r  dht11_control_instance/dth11/humidity1__2_carry__0/O[2]
-                         net (fo=1, routed)           0.598    15.956    dht11_control_instance/dth11/ed/humidity1[6]
-    SLICE_X38Y60         LUT4 (Prop_lut4_I3_O)        0.302    16.258 f  dht11_control_instance/dth11/ed/humidity[7]_i_3/O
-                         net (fo=1, routed)           0.571    16.830    dht11_control_instance/dth11/ed/humidity[7]_i_3_n_0
-    SLICE_X36Y60         LUT5 (Prop_lut5_I1_O)        0.124    16.954 r  dht11_control_instance/dth11/ed/humidity[7]_i_1/O
-                         net (fo=13, routed)          0.344    17.298    dht11_control_instance/dth11/ed_n_50
-    SLICE_X36Y59         FDRE                                         r  dht11_control_instance/dth11/temperature_reg[1]/CE
+    SLICE_X58Y64         FDCE (Prop_fdce_C_Q)         0.459    10.600 r  dht11_control_instance/dth11/count_usec_reg[3]/Q
+                         net (fo=3, routed)           0.680    11.280    dht11_control_instance/dth11/count_usec_reg[3]
+    SLICE_X59Y64         LUT6 (Prop_lut6_I0_O)        0.124    11.404 r  dht11_control_instance/dth11/temp_data[22]_i_8/O
+                         net (fo=3, routed)           0.849    12.253    dht11_control_instance/dth11/temp_data[22]_i_8_n_0
+    SLICE_X56Y63         LUT6 (Prop_lut6_I4_O)        0.124    12.377 r  dht11_control_instance/dth11/temp_data[22]_i_3/O
+                         net (fo=13, routed)          0.660    13.037    dht11_control_instance/dth11/ed/temperature_reg[1]_0
+    SLICE_X54Y65         LUT6 (Prop_lut6_I2_O)        0.124    13.161 r  dht11_control_instance/dth11/ed/temp_data[19]_i_1/O
+                         net (fo=4, routed)           0.377    13.538    dht11_control_instance/dth11/ed/D[3]
+    SLICE_X55Y65         LUT6 (Prop_lut6_I2_O)        0.124    13.662 r  dht11_control_instance/dth11/ed/humidity1__2_carry_i_12/O
+                         net (fo=3, routed)           0.878    14.540    dht11_control_instance/dth11/ed/humidity1__2_carry_i_12_n_0
+    SLICE_X55Y64         LUT6 (Prop_lut6_I0_O)        0.124    14.664 r  dht11_control_instance/dth11/ed/humidity1__2_carry__0_i_7/O
+                         net (fo=1, routed)           0.000    14.664    dht11_control_instance/dth11/ed_n_58
+    SLICE_X55Y64         CARRY4 (Prop_carry4_S[0]_O[2])
+                                                      0.547    15.211 r  dht11_control_instance/dth11/humidity1__2_carry__0/O[2]
+                         net (fo=1, routed)           0.434    15.645    dht11_control_instance/dth11/ed/humidity1[6]
+    SLICE_X54Y62         LUT6 (Prop_lut6_I5_O)        0.302    15.947 f  dht11_control_instance/dth11/ed/humidity[7]_i_2/O
+                         net (fo=1, routed)           0.572    16.519    dht11_control_instance/dth11/ed/humidity[7]_i_2_n_0
+    SLICE_X55Y61         LUT6 (Prop_lut6_I1_O)        0.124    16.643 r  dht11_control_instance/dth11/ed/humidity[7]_i_1/O
+                         net (fo=16, routed)          0.343    16.986    dht11_control_instance/dth11/ed_n_54
+    SLICE_X55Y60         FDRE                                         r  dht11_control_instance/dth11/temperature_reg[1]/CE
   -------------------------------------------------------------------    -------------------
 
                          (clock sys_clk_pin rise edge)
@@ -827,30 +611,30 @@ Slack (VIOLATED) :        -2.506ns  (required time - arrival time)
     W5                   IBUF (Prop_ibuf_I_O)         1.388    11.388 r  clk_IBUF_inst/O
                          net (fo=1, routed)           1.862    13.250    clk_IBUF
     BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.091    13.341 r  clk_IBUF_BUFG_inst/O
-                         net (fo=587, routed)         1.433    14.774    dht11_control_instance/dth11/CLK
-    SLICE_X36Y59         FDRE                                         r  dht11_control_instance/dth11/temperature_reg[1]/C
-                         clock pessimism              0.258    15.032    
-                         clock uncertainty           -0.035    14.997    
-    SLICE_X36Y59         FDRE (Setup_fdre_C_CE)      -0.205    14.792    dht11_control_instance/dth11/temperature_reg[1]
+                         net (fo=800, routed)         1.440    14.781    dht11_control_instance/dth11/CLK
+    SLICE_X55Y60         FDRE                                         r  dht11_control_instance/dth11/temperature_reg[1]/C
+                         clock pessimism              0.258    15.039    
+                         clock uncertainty           -0.035    15.004    
+    SLICE_X55Y60         FDRE (Setup_fdre_C_CE)      -0.205    14.799    dht11_control_instance/dth11/temperature_reg[1]
   -------------------------------------------------------------------
-                         required time                         14.792    
-                         arrival time                         -17.298    
+                         required time                         14.799    
+                         arrival time                         -16.986    
   -------------------------------------------------------------------
-                         slack                                 -2.506    
+                         slack                                 -2.187    
 
-Slack (VIOLATED) :        -2.506ns  (required time - arrival time)
-  Source:                 dht11_control_instance/dth11/count_usec_reg[15]/C
+Slack (VIOLATED) :        -2.187ns  (required time - arrival time)
+  Source:                 dht11_control_instance/dth11/count_usec_reg[3]/C
                             (falling edge-triggered cell FDCE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
-  Destination:            dht11_control_instance/dth11/temperature_reg[2]/CE
+  Destination:            dht11_control_instance/dth11/temperature_reg[3]/CE
                             (rising edge-triggered cell FDRE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
   Path Group:             sys_clk_pin
   Path Type:              Setup (Max at Slow Process Corner)
   Requirement:            5.000ns  (sys_clk_pin rise@10.000ns - sys_clk_pin fall@5.000ns)
-  Data Path Delay:        7.226ns  (logic 2.150ns (29.755%)  route 5.076ns (70.245%))
-  Logic Levels:           8  (CARRY4=1 LUT2=1 LUT4=1 LUT5=2 LUT6=3)
-  Clock Path Skew:        -0.040ns (DCD - SCD + CPR)
-    Destination Clock Delay (DCD):    4.774ns = ( 14.774 - 10.000 ) 
-    Source Clock Delay      (SCD):    5.072ns = ( 10.072 - 5.000 ) 
+  Data Path Delay:        6.845ns  (logic 2.052ns (29.978%)  route 4.793ns (70.022%))
+  Logic Levels:           8  (CARRY4=1 LUT6=7)
+  Clock Path Skew:        -0.102ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    4.781ns = ( 14.781 - 10.000 ) 
+    Source Clock Delay      (SCD):    5.141ns = ( 10.141 - 5.000 ) 
     Clock Pessimism Removal (CPR):    0.258ns
   Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
     Total System Jitter     (TSJ):    0.071ns
@@ -867,29 +651,29 @@ Slack (VIOLATED) :        -2.506ns  (required time - arrival time)
     W5                   IBUF (Prop_ibuf_I_O)         1.458     6.458 f  clk_IBUF_inst/O
                          net (fo=1, routed)           1.967     8.425    clk_IBUF
     BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.096     8.521 f  clk_IBUF_BUFG_inst/O
-                         net (fo=587, routed)         1.551    10.072    dht11_control_instance/dth11/CLK
-    SLICE_X42Y61         FDCE                                         r  dht11_control_instance/dth11/count_usec_reg[15]/C  (IS_INVERTED)
+                         net (fo=800, routed)         1.620    10.141    dht11_control_instance/dth11/CLK
+    SLICE_X58Y64         FDCE                                         r  dht11_control_instance/dth11/count_usec_reg[3]/C  (IS_INVERTED)
   -------------------------------------------------------------------    -------------------
-    SLICE_X42Y61         FDCE (Prop_fdce_C_Q)         0.524    10.596 f  dht11_control_instance/dth11/count_usec_reg[15]/Q
-                         net (fo=3, routed)           0.451    11.046    dht11_control_instance/dth11/count_usec_reg[15]
-    SLICE_X45Y62         LUT2 (Prop_lut2_I0_O)        0.124    11.170 r  dht11_control_instance/dth11/next_state[5]_i_15/O
-                         net (fo=2, routed)           1.035    12.205    dht11_control_instance/dth11/next_state[5]_i_15_n_0
-    SLICE_X44Y60         LUT6 (Prop_lut6_I5_O)        0.124    12.329 r  dht11_control_instance/dth11/next_state[5]_i_6/O
-                         net (fo=33, routed)          0.576    12.905    dht11_control_instance/dth11/ed/data_count_reg[4]_0
-    SLICE_X41Y60         LUT6 (Prop_lut6_I2_O)        0.124    13.029 r  dht11_control_instance/dth11/ed/temp_data[29]_i_1/O
-                         net (fo=3, routed)           0.507    13.536    dht11_control_instance/dth11/ed/D[29]
-    SLICE_X41Y59         LUT5 (Prop_lut5_I4_O)        0.124    13.660 r  dht11_control_instance/dth11/ed/humidity1__2_carry__0_i_9/O
-                         net (fo=3, routed)           0.995    14.655    dht11_control_instance/dth11/ed/humidity1__2_carry__0_i_9_n_0
-    SLICE_X39Y60         LUT6 (Prop_lut6_I3_O)        0.124    14.779 r  dht11_control_instance/dth11/ed/humidity1__2_carry__0_i_6/O
-                         net (fo=1, routed)           0.000    14.779    dht11_control_instance/dth11/ed_n_57
-    SLICE_X39Y60         CARRY4 (Prop_carry4_S[1]_O[2])
-                                                      0.580    15.359 r  dht11_control_instance/dth11/humidity1__2_carry__0/O[2]
-                         net (fo=1, routed)           0.598    15.956    dht11_control_instance/dth11/ed/humidity1[6]
-    SLICE_X38Y60         LUT4 (Prop_lut4_I3_O)        0.302    16.258 f  dht11_control_instance/dth11/ed/humidity[7]_i_3/O
-                         net (fo=1, routed)           0.571    16.830    dht11_control_instance/dth11/ed/humidity[7]_i_3_n_0
-    SLICE_X36Y60         LUT5 (Prop_lut5_I1_O)        0.124    16.954 r  dht11_control_instance/dth11/ed/humidity[7]_i_1/O
-                         net (fo=13, routed)          0.344    17.298    dht11_control_instance/dth11/ed_n_50
-    SLICE_X36Y59         FDRE                                         r  dht11_control_instance/dth11/temperature_reg[2]/CE
+    SLICE_X58Y64         FDCE (Prop_fdce_C_Q)         0.459    10.600 r  dht11_control_instance/dth11/count_usec_reg[3]/Q
+                         net (fo=3, routed)           0.680    11.280    dht11_control_instance/dth11/count_usec_reg[3]
+    SLICE_X59Y64         LUT6 (Prop_lut6_I0_O)        0.124    11.404 r  dht11_control_instance/dth11/temp_data[22]_i_8/O
+                         net (fo=3, routed)           0.849    12.253    dht11_control_instance/dth11/temp_data[22]_i_8_n_0
+    SLICE_X56Y63         LUT6 (Prop_lut6_I4_O)        0.124    12.377 r  dht11_control_instance/dth11/temp_data[22]_i_3/O
+                         net (fo=13, routed)          0.660    13.037    dht11_control_instance/dth11/ed/temperature_reg[1]_0
+    SLICE_X54Y65         LUT6 (Prop_lut6_I2_O)        0.124    13.161 r  dht11_control_instance/dth11/ed/temp_data[19]_i_1/O
+                         net (fo=4, routed)           0.377    13.538    dht11_control_instance/dth11/ed/D[3]
+    SLICE_X55Y65         LUT6 (Prop_lut6_I2_O)        0.124    13.662 r  dht11_control_instance/dth11/ed/humidity1__2_carry_i_12/O
+                         net (fo=3, routed)           0.878    14.540    dht11_control_instance/dth11/ed/humidity1__2_carry_i_12_n_0
+    SLICE_X55Y64         LUT6 (Prop_lut6_I0_O)        0.124    14.664 r  dht11_control_instance/dth11/ed/humidity1__2_carry__0_i_7/O
+                         net (fo=1, routed)           0.000    14.664    dht11_control_instance/dth11/ed_n_58
+    SLICE_X55Y64         CARRY4 (Prop_carry4_S[0]_O[2])
+                                                      0.547    15.211 r  dht11_control_instance/dth11/humidity1__2_carry__0/O[2]
+                         net (fo=1, routed)           0.434    15.645    dht11_control_instance/dth11/ed/humidity1[6]
+    SLICE_X54Y62         LUT6 (Prop_lut6_I5_O)        0.302    15.947 f  dht11_control_instance/dth11/ed/humidity[7]_i_2/O
+                         net (fo=1, routed)           0.572    16.519    dht11_control_instance/dth11/ed/humidity[7]_i_2_n_0
+    SLICE_X55Y61         LUT6 (Prop_lut6_I1_O)        0.124    16.643 r  dht11_control_instance/dth11/ed/humidity[7]_i_1/O
+                         net (fo=16, routed)          0.343    16.986    dht11_control_instance/dth11/ed_n_54
+    SLICE_X55Y60         FDRE                                         r  dht11_control_instance/dth11/temperature_reg[3]/CE
   -------------------------------------------------------------------    -------------------
 
                          (clock sys_clk_pin rise edge)
@@ -899,16 +683,232 @@ Slack (VIOLATED) :        -2.506ns  (required time - arrival time)
     W5                   IBUF (Prop_ibuf_I_O)         1.388    11.388 r  clk_IBUF_inst/O
                          net (fo=1, routed)           1.862    13.250    clk_IBUF
     BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.091    13.341 r  clk_IBUF_BUFG_inst/O
-                         net (fo=587, routed)         1.433    14.774    dht11_control_instance/dth11/CLK
-    SLICE_X36Y59         FDRE                                         r  dht11_control_instance/dth11/temperature_reg[2]/C
-                         clock pessimism              0.258    15.032    
-                         clock uncertainty           -0.035    14.997    
-    SLICE_X36Y59         FDRE (Setup_fdre_C_CE)      -0.205    14.792    dht11_control_instance/dth11/temperature_reg[2]
+                         net (fo=800, routed)         1.440    14.781    dht11_control_instance/dth11/CLK
+    SLICE_X55Y60         FDRE                                         r  dht11_control_instance/dth11/temperature_reg[3]/C
+                         clock pessimism              0.258    15.039    
+                         clock uncertainty           -0.035    15.004    
+    SLICE_X55Y60         FDRE (Setup_fdre_C_CE)      -0.205    14.799    dht11_control_instance/dth11/temperature_reg[3]
   -------------------------------------------------------------------
-                         required time                         14.792    
-                         arrival time                         -17.298    
+                         required time                         14.799    
+                         arrival time                         -16.986    
   -------------------------------------------------------------------
-                         slack                                 -2.506    
+                         slack                                 -2.187    
+
+Slack (VIOLATED) :        -2.187ns  (required time - arrival time)
+  Source:                 dht11_control_instance/dth11/count_usec_reg[3]/C
+                            (falling edge-triggered cell FDCE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            dht11_control_instance/dth11/temperature_reg[6]/CE
+                            (rising edge-triggered cell FDRE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Path Group:             sys_clk_pin
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            5.000ns  (sys_clk_pin rise@10.000ns - sys_clk_pin fall@5.000ns)
+  Data Path Delay:        6.845ns  (logic 2.052ns (29.978%)  route 4.793ns (70.022%))
+  Logic Levels:           8  (CARRY4=1 LUT6=7)
+  Clock Path Skew:        -0.102ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    4.781ns = ( 14.781 - 10.000 ) 
+    Source Clock Delay      (SCD):    5.141ns = ( 10.141 - 5.000 ) 
+    Clock Pessimism Removal (CPR):    0.258ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock sys_clk_pin fall edge)
+                                                      5.000     5.000 f  
+    W5                                                0.000     5.000 f  clk (IN)
+                         net (fo=0)                   0.000     5.000    clk
+    W5                   IBUF (Prop_ibuf_I_O)         1.458     6.458 f  clk_IBUF_inst/O
+                         net (fo=1, routed)           1.967     8.425    clk_IBUF
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.096     8.521 f  clk_IBUF_BUFG_inst/O
+                         net (fo=800, routed)         1.620    10.141    dht11_control_instance/dth11/CLK
+    SLICE_X58Y64         FDCE                                         r  dht11_control_instance/dth11/count_usec_reg[3]/C  (IS_INVERTED)
+  -------------------------------------------------------------------    -------------------
+    SLICE_X58Y64         FDCE (Prop_fdce_C_Q)         0.459    10.600 r  dht11_control_instance/dth11/count_usec_reg[3]/Q
+                         net (fo=3, routed)           0.680    11.280    dht11_control_instance/dth11/count_usec_reg[3]
+    SLICE_X59Y64         LUT6 (Prop_lut6_I0_O)        0.124    11.404 r  dht11_control_instance/dth11/temp_data[22]_i_8/O
+                         net (fo=3, routed)           0.849    12.253    dht11_control_instance/dth11/temp_data[22]_i_8_n_0
+    SLICE_X56Y63         LUT6 (Prop_lut6_I4_O)        0.124    12.377 r  dht11_control_instance/dth11/temp_data[22]_i_3/O
+                         net (fo=13, routed)          0.660    13.037    dht11_control_instance/dth11/ed/temperature_reg[1]_0
+    SLICE_X54Y65         LUT6 (Prop_lut6_I2_O)        0.124    13.161 r  dht11_control_instance/dth11/ed/temp_data[19]_i_1/O
+                         net (fo=4, routed)           0.377    13.538    dht11_control_instance/dth11/ed/D[3]
+    SLICE_X55Y65         LUT6 (Prop_lut6_I2_O)        0.124    13.662 r  dht11_control_instance/dth11/ed/humidity1__2_carry_i_12/O
+                         net (fo=3, routed)           0.878    14.540    dht11_control_instance/dth11/ed/humidity1__2_carry_i_12_n_0
+    SLICE_X55Y64         LUT6 (Prop_lut6_I0_O)        0.124    14.664 r  dht11_control_instance/dth11/ed/humidity1__2_carry__0_i_7/O
+                         net (fo=1, routed)           0.000    14.664    dht11_control_instance/dth11/ed_n_58
+    SLICE_X55Y64         CARRY4 (Prop_carry4_S[0]_O[2])
+                                                      0.547    15.211 r  dht11_control_instance/dth11/humidity1__2_carry__0/O[2]
+                         net (fo=1, routed)           0.434    15.645    dht11_control_instance/dth11/ed/humidity1[6]
+    SLICE_X54Y62         LUT6 (Prop_lut6_I5_O)        0.302    15.947 f  dht11_control_instance/dth11/ed/humidity[7]_i_2/O
+                         net (fo=1, routed)           0.572    16.519    dht11_control_instance/dth11/ed/humidity[7]_i_2_n_0
+    SLICE_X55Y61         LUT6 (Prop_lut6_I1_O)        0.124    16.643 r  dht11_control_instance/dth11/ed/humidity[7]_i_1/O
+                         net (fo=16, routed)          0.343    16.986    dht11_control_instance/dth11/ed_n_54
+    SLICE_X55Y60         FDRE                                         r  dht11_control_instance/dth11/temperature_reg[6]/CE
+  -------------------------------------------------------------------    -------------------
+
+                         (clock sys_clk_pin rise edge)
+                                                     10.000    10.000 r  
+    W5                                                0.000    10.000 r  clk (IN)
+                         net (fo=0)                   0.000    10.000    clk
+    W5                   IBUF (Prop_ibuf_I_O)         1.388    11.388 r  clk_IBUF_inst/O
+                         net (fo=1, routed)           1.862    13.250    clk_IBUF
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.091    13.341 r  clk_IBUF_BUFG_inst/O
+                         net (fo=800, routed)         1.440    14.781    dht11_control_instance/dth11/CLK
+    SLICE_X55Y60         FDRE                                         r  dht11_control_instance/dth11/temperature_reg[6]/C
+                         clock pessimism              0.258    15.039    
+                         clock uncertainty           -0.035    15.004    
+    SLICE_X55Y60         FDRE (Setup_fdre_C_CE)      -0.205    14.799    dht11_control_instance/dth11/temperature_reg[6]
+  -------------------------------------------------------------------
+                         required time                         14.799    
+                         arrival time                         -16.986    
+  -------------------------------------------------------------------
+                         slack                                 -2.187    
+
+Slack (VIOLATED) :        -2.155ns  (required time - arrival time)
+  Source:                 dht11_control_instance/dth11/count_usec_reg[3]/C
+                            (falling edge-triggered cell FDCE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            dht11_control_instance/dth11/humidity_reg[1]/CE
+                            (rising edge-triggered cell FDRE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Path Group:             sys_clk_pin
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            5.000ns  (sys_clk_pin rise@10.000ns - sys_clk_pin fall@5.000ns)
+  Data Path Delay:        6.848ns  (logic 2.052ns (29.964%)  route 4.796ns (70.036%))
+  Logic Levels:           8  (CARRY4=1 LUT6=7)
+  Clock Path Skew:        -0.102ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    4.781ns = ( 14.781 - 10.000 ) 
+    Source Clock Delay      (SCD):    5.141ns = ( 10.141 - 5.000 ) 
+    Clock Pessimism Removal (CPR):    0.258ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock sys_clk_pin fall edge)
+                                                      5.000     5.000 f  
+    W5                                                0.000     5.000 f  clk (IN)
+                         net (fo=0)                   0.000     5.000    clk
+    W5                   IBUF (Prop_ibuf_I_O)         1.458     6.458 f  clk_IBUF_inst/O
+                         net (fo=1, routed)           1.967     8.425    clk_IBUF
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.096     8.521 f  clk_IBUF_BUFG_inst/O
+                         net (fo=800, routed)         1.620    10.141    dht11_control_instance/dth11/CLK
+    SLICE_X58Y64         FDCE                                         r  dht11_control_instance/dth11/count_usec_reg[3]/C  (IS_INVERTED)
+  -------------------------------------------------------------------    -------------------
+    SLICE_X58Y64         FDCE (Prop_fdce_C_Q)         0.459    10.600 r  dht11_control_instance/dth11/count_usec_reg[3]/Q
+                         net (fo=3, routed)           0.680    11.280    dht11_control_instance/dth11/count_usec_reg[3]
+    SLICE_X59Y64         LUT6 (Prop_lut6_I0_O)        0.124    11.404 r  dht11_control_instance/dth11/temp_data[22]_i_8/O
+                         net (fo=3, routed)           0.849    12.253    dht11_control_instance/dth11/temp_data[22]_i_8_n_0
+    SLICE_X56Y63         LUT6 (Prop_lut6_I4_O)        0.124    12.377 r  dht11_control_instance/dth11/temp_data[22]_i_3/O
+                         net (fo=13, routed)          0.660    13.037    dht11_control_instance/dth11/ed/temperature_reg[1]_0
+    SLICE_X54Y65         LUT6 (Prop_lut6_I2_O)        0.124    13.161 r  dht11_control_instance/dth11/ed/temp_data[19]_i_1/O
+                         net (fo=4, routed)           0.377    13.538    dht11_control_instance/dth11/ed/D[3]
+    SLICE_X55Y65         LUT6 (Prop_lut6_I2_O)        0.124    13.662 r  dht11_control_instance/dth11/ed/humidity1__2_carry_i_12/O
+                         net (fo=3, routed)           0.878    14.540    dht11_control_instance/dth11/ed/humidity1__2_carry_i_12_n_0
+    SLICE_X55Y64         LUT6 (Prop_lut6_I0_O)        0.124    14.664 r  dht11_control_instance/dth11/ed/humidity1__2_carry__0_i_7/O
+                         net (fo=1, routed)           0.000    14.664    dht11_control_instance/dth11/ed_n_58
+    SLICE_X55Y64         CARRY4 (Prop_carry4_S[0]_O[2])
+                                                      0.547    15.211 r  dht11_control_instance/dth11/humidity1__2_carry__0/O[2]
+                         net (fo=1, routed)           0.434    15.645    dht11_control_instance/dth11/ed/humidity1[6]
+    SLICE_X54Y62         LUT6 (Prop_lut6_I5_O)        0.302    15.947 f  dht11_control_instance/dth11/ed/humidity[7]_i_2/O
+                         net (fo=1, routed)           0.572    16.519    dht11_control_instance/dth11/ed/humidity[7]_i_2_n_0
+    SLICE_X55Y61         LUT6 (Prop_lut6_I1_O)        0.124    16.643 r  dht11_control_instance/dth11/ed/humidity[7]_i_1/O
+                         net (fo=16, routed)          0.346    16.989    dht11_control_instance/dth11/ed_n_54
+    SLICE_X54Y59         FDRE                                         r  dht11_control_instance/dth11/humidity_reg[1]/CE
+  -------------------------------------------------------------------    -------------------
+
+                         (clock sys_clk_pin rise edge)
+                                                     10.000    10.000 r  
+    W5                                                0.000    10.000 r  clk (IN)
+                         net (fo=0)                   0.000    10.000    clk
+    W5                   IBUF (Prop_ibuf_I_O)         1.388    11.388 r  clk_IBUF_inst/O
+                         net (fo=1, routed)           1.862    13.250    clk_IBUF
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.091    13.341 r  clk_IBUF_BUFG_inst/O
+                         net (fo=800, routed)         1.440    14.781    dht11_control_instance/dth11/CLK
+    SLICE_X54Y59         FDRE                                         r  dht11_control_instance/dth11/humidity_reg[1]/C
+                         clock pessimism              0.258    15.039    
+                         clock uncertainty           -0.035    15.004    
+    SLICE_X54Y59         FDRE (Setup_fdre_C_CE)      -0.169    14.835    dht11_control_instance/dth11/humidity_reg[1]
+  -------------------------------------------------------------------
+                         required time                         14.835    
+                         arrival time                         -16.989    
+  -------------------------------------------------------------------
+                         slack                                 -2.155    
+
+Slack (VIOLATED) :        -2.155ns  (required time - arrival time)
+  Source:                 dht11_control_instance/dth11/count_usec_reg[3]/C
+                            (falling edge-triggered cell FDCE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            dht11_control_instance/dth11/humidity_reg[2]/CE
+                            (rising edge-triggered cell FDRE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Path Group:             sys_clk_pin
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            5.000ns  (sys_clk_pin rise@10.000ns - sys_clk_pin fall@5.000ns)
+  Data Path Delay:        6.848ns  (logic 2.052ns (29.964%)  route 4.796ns (70.036%))
+  Logic Levels:           8  (CARRY4=1 LUT6=7)
+  Clock Path Skew:        -0.102ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    4.781ns = ( 14.781 - 10.000 ) 
+    Source Clock Delay      (SCD):    5.141ns = ( 10.141 - 5.000 ) 
+    Clock Pessimism Removal (CPR):    0.258ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock sys_clk_pin fall edge)
+                                                      5.000     5.000 f  
+    W5                                                0.000     5.000 f  clk (IN)
+                         net (fo=0)                   0.000     5.000    clk
+    W5                   IBUF (Prop_ibuf_I_O)         1.458     6.458 f  clk_IBUF_inst/O
+                         net (fo=1, routed)           1.967     8.425    clk_IBUF
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.096     8.521 f  clk_IBUF_BUFG_inst/O
+                         net (fo=800, routed)         1.620    10.141    dht11_control_instance/dth11/CLK
+    SLICE_X58Y64         FDCE                                         r  dht11_control_instance/dth11/count_usec_reg[3]/C  (IS_INVERTED)
+  -------------------------------------------------------------------    -------------------
+    SLICE_X58Y64         FDCE (Prop_fdce_C_Q)         0.459    10.600 r  dht11_control_instance/dth11/count_usec_reg[3]/Q
+                         net (fo=3, routed)           0.680    11.280    dht11_control_instance/dth11/count_usec_reg[3]
+    SLICE_X59Y64         LUT6 (Prop_lut6_I0_O)        0.124    11.404 r  dht11_control_instance/dth11/temp_data[22]_i_8/O
+                         net (fo=3, routed)           0.849    12.253    dht11_control_instance/dth11/temp_data[22]_i_8_n_0
+    SLICE_X56Y63         LUT6 (Prop_lut6_I4_O)        0.124    12.377 r  dht11_control_instance/dth11/temp_data[22]_i_3/O
+                         net (fo=13, routed)          0.660    13.037    dht11_control_instance/dth11/ed/temperature_reg[1]_0
+    SLICE_X54Y65         LUT6 (Prop_lut6_I2_O)        0.124    13.161 r  dht11_control_instance/dth11/ed/temp_data[19]_i_1/O
+                         net (fo=4, routed)           0.377    13.538    dht11_control_instance/dth11/ed/D[3]
+    SLICE_X55Y65         LUT6 (Prop_lut6_I2_O)        0.124    13.662 r  dht11_control_instance/dth11/ed/humidity1__2_carry_i_12/O
+                         net (fo=3, routed)           0.878    14.540    dht11_control_instance/dth11/ed/humidity1__2_carry_i_12_n_0
+    SLICE_X55Y64         LUT6 (Prop_lut6_I0_O)        0.124    14.664 r  dht11_control_instance/dth11/ed/humidity1__2_carry__0_i_7/O
+                         net (fo=1, routed)           0.000    14.664    dht11_control_instance/dth11/ed_n_58
+    SLICE_X55Y64         CARRY4 (Prop_carry4_S[0]_O[2])
+                                                      0.547    15.211 r  dht11_control_instance/dth11/humidity1__2_carry__0/O[2]
+                         net (fo=1, routed)           0.434    15.645    dht11_control_instance/dth11/ed/humidity1[6]
+    SLICE_X54Y62         LUT6 (Prop_lut6_I5_O)        0.302    15.947 f  dht11_control_instance/dth11/ed/humidity[7]_i_2/O
+                         net (fo=1, routed)           0.572    16.519    dht11_control_instance/dth11/ed/humidity[7]_i_2_n_0
+    SLICE_X55Y61         LUT6 (Prop_lut6_I1_O)        0.124    16.643 r  dht11_control_instance/dth11/ed/humidity[7]_i_1/O
+                         net (fo=16, routed)          0.346    16.989    dht11_control_instance/dth11/ed_n_54
+    SLICE_X54Y59         FDRE                                         r  dht11_control_instance/dth11/humidity_reg[2]/CE
+  -------------------------------------------------------------------    -------------------
+
+                         (clock sys_clk_pin rise edge)
+                                                     10.000    10.000 r  
+    W5                                                0.000    10.000 r  clk (IN)
+                         net (fo=0)                   0.000    10.000    clk
+    W5                   IBUF (Prop_ibuf_I_O)         1.388    11.388 r  clk_IBUF_inst/O
+                         net (fo=1, routed)           1.862    13.250    clk_IBUF
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.091    13.341 r  clk_IBUF_BUFG_inst/O
+                         net (fo=800, routed)         1.440    14.781    dht11_control_instance/dth11/CLK
+    SLICE_X54Y59         FDRE                                         r  dht11_control_instance/dth11/humidity_reg[2]/C
+                         clock pessimism              0.258    15.039    
+                         clock uncertainty           -0.035    15.004    
+    SLICE_X54Y59         FDRE (Setup_fdre_C_CE)      -0.169    14.835    dht11_control_instance/dth11/humidity_reg[2]
+  -------------------------------------------------------------------
+                         required time                         14.835    
+                         arrival time                         -16.989    
+  -------------------------------------------------------------------
+                         slack                                 -2.155    
 
 
 
@@ -916,70 +916,117 @@ Slack (VIOLATED) :        -2.506ns  (required time - arrival time)
 
 Min Delay Paths
 --------------------------------------------------------------------------------------
-Slack (MET) :             0.075ns  (arrival time - required time)
-  Source:                 show_the_fnd_instance/fnd_cntr_instance/rc/com_reg[2]/C
-                            (rising edge-triggered cell FDPE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
-  Destination:            show_the_fnd_instance/fnd_cntr_instance/hex_value_reg[0]/D
-                            (rising edge-triggered cell FDRE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
-  Path Group:             sys_clk_pin
-  Path Type:              Hold (Min at Fast Process Corner)
-  Requirement:            0.000ns  (sys_clk_pin rise@0.000ns - sys_clk_pin rise@0.000ns)
-  Data Path Delay:        0.428ns  (logic 0.186ns (43.440%)  route 0.242ns (56.560%))
-  Logic Levels:           1  (LUT6=1)
-  Clock Path Skew:        0.262ns (DCD - SCD - CPR)
-    Destination Clock Delay (DCD):    1.950ns
-    Source Clock Delay      (SCD):    1.439ns
-    Clock Pessimism Removal (CPR):    0.249ns
-
-    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
-  -------------------------------------------------------------------    -------------------
-                         (clock sys_clk_pin rise edge)
-                                                      0.000     0.000 r  
-    W5                                                0.000     0.000 r  clk (IN)
-                         net (fo=0)                   0.000     0.000    clk
-    W5                   IBUF (Prop_ibuf_I_O)         0.226     0.226 r  clk_IBUF_inst/O
-                         net (fo=1, routed)           0.631     0.858    clk_IBUF
-    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.026     0.884 r  clk_IBUF_BUFG_inst/O
-                         net (fo=587, routed)         0.556     1.439    show_the_fnd_instance/fnd_cntr_instance/rc/CLK
-    SLICE_X36Y66         FDPE                                         r  show_the_fnd_instance/fnd_cntr_instance/rc/com_reg[2]/C
-  -------------------------------------------------------------------    -------------------
-    SLICE_X36Y66         FDPE (Prop_fdpe_C_Q)         0.141     1.580 r  show_the_fnd_instance/fnd_cntr_instance/rc/com_reg[2]/Q
-                         net (fo=8, routed)           0.242     1.822    cds_and_water_level_control_instance/Q[1]
-    SLICE_X33Y66         LUT6 (Prop_lut6_I2_O)        0.045     1.867 r  cds_and_water_level_control_instance/hex_value[0]_i_1/O
-                         net (fo=1, routed)           0.000     1.867    show_the_fnd_instance/fnd_cntr_instance/D[0]
-    SLICE_X33Y66         FDRE                                         r  show_the_fnd_instance/fnd_cntr_instance/hex_value_reg[0]/D
-  -------------------------------------------------------------------    -------------------
-
-                         (clock sys_clk_pin rise edge)
-                                                      0.000     0.000 r  
-    W5                                                0.000     0.000 r  clk (IN)
-                         net (fo=0)                   0.000     0.000    clk
-    W5                   IBUF (Prop_ibuf_I_O)         0.414     0.414 r  clk_IBUF_inst/O
-                         net (fo=1, routed)           0.685     1.099    clk_IBUF
-    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.029     1.128 r  clk_IBUF_BUFG_inst/O
-                         net (fo=587, routed)         0.822     1.950    show_the_fnd_instance/fnd_cntr_instance/CLK
-    SLICE_X33Y66         FDRE                                         r  show_the_fnd_instance/fnd_cntr_instance/hex_value_reg[0]/C
-                         clock pessimism             -0.249     1.701    
-    SLICE_X33Y66         FDRE (Hold_fdre_C_D)         0.091     1.792    show_the_fnd_instance/fnd_cntr_instance/hex_value_reg[0]
-  -------------------------------------------------------------------
-                         required time                         -1.792    
-                         arrival time                           1.867    
-  -------------------------------------------------------------------
-                         slack                                  0.075    
-
-Slack (MET) :             0.109ns  (arrival time - required time)
-  Source:                 show_the_fnd_instance/fnd_cntr_instance/rc/clk_div_reg[16]/C
-                            (rising edge-triggered cell FDRE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
-  Destination:            show_the_fnd_instance/fnd_cntr_instance/rc/ed/ff_cur_reg/D
+Slack (MET) :             0.156ns  (arrival time - required time)
+  Source:                 btn1/ed_btn/ff_cur_reg/C
+                            (rising edge-triggered cell FDCE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            btn1/ed_btn/ff_old_reg/D
                             (rising edge-triggered cell FDCE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
   Path Group:             sys_clk_pin
   Path Type:              Hold (Min at Fast Process Corner)
   Requirement:            0.000ns  (sys_clk_pin rise@0.000ns - sys_clk_pin rise@0.000ns)
-  Data Path Delay:        0.431ns  (logic 0.141ns (32.702%)  route 0.290ns (67.298%))
+  Data Path Delay:        0.266ns  (logic 0.141ns (52.969%)  route 0.125ns (47.031%))
   Logic Levels:           0  
-  Clock Path Skew:        0.265ns (DCD - SCD - CPR)
-    Destination Clock Delay (DCD):    1.952ns
-    Source Clock Delay      (SCD):    1.438ns
+  Clock Path Skew:        0.035ns (DCD - SCD - CPR)
+    Destination Clock Delay (DCD):    1.950ns
+    Source Clock Delay      (SCD):    1.437ns
+    Clock Pessimism Removal (CPR):    0.478ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock sys_clk_pin rise edge)
+                                                      0.000     0.000 r  
+    W5                                                0.000     0.000 r  clk (IN)
+                         net (fo=0)                   0.000     0.000    clk
+    W5                   IBUF (Prop_ibuf_I_O)         0.226     0.226 r  clk_IBUF_inst/O
+                         net (fo=1, routed)           0.631     0.858    clk_IBUF
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.026     0.884 r  clk_IBUF_BUFG_inst/O
+                         net (fo=800, routed)         0.554     1.437    btn1/ed_btn/CLK
+    SLICE_X55Y72         FDCE                                         r  btn1/ed_btn/ff_cur_reg/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X55Y72         FDCE (Prop_fdce_C_Q)         0.141     1.578 r  btn1/ed_btn/ff_cur_reg/Q
+                         net (fo=3, routed)           0.125     1.703    btn1/ed_btn/p_0_in[1]
+    SLICE_X57Y71         FDCE                                         r  btn1/ed_btn/ff_old_reg/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock sys_clk_pin rise edge)
+                                                      0.000     0.000 r  
+    W5                                                0.000     0.000 r  clk (IN)
+                         net (fo=0)                   0.000     0.000    clk
+    W5                   IBUF (Prop_ibuf_I_O)         0.414     0.414 r  clk_IBUF_inst/O
+                         net (fo=1, routed)           0.685     1.099    clk_IBUF
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.029     1.128 r  clk_IBUF_BUFG_inst/O
+                         net (fo=800, routed)         0.822     1.950    btn1/ed_btn/CLK
+    SLICE_X57Y71         FDCE                                         r  btn1/ed_btn/ff_old_reg/C
+                         clock pessimism             -0.478     1.472    
+    SLICE_X57Y71         FDCE (Hold_fdce_C_D)         0.075     1.547    btn1/ed_btn/ff_old_reg
+  -------------------------------------------------------------------
+                         required time                         -1.547    
+                         arrival time                           1.703    
+  -------------------------------------------------------------------
+                         slack                                  0.156    
+
+Slack (MET) :             0.169ns  (arrival time - required time)
+  Source:                 btn1/debounced_btn_reg/C
+                            (rising edge-triggered cell FDCE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            btn1/ed_btn/ff_cur_reg/D
+                            (rising edge-triggered cell FDCE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Path Group:             sys_clk_pin
+  Path Type:              Hold (Min at Fast Process Corner)
+  Requirement:            0.000ns  (sys_clk_pin rise@0.000ns - sys_clk_pin rise@0.000ns)
+  Data Path Delay:        0.273ns  (logic 0.141ns (51.655%)  route 0.132ns (48.345%))
+  Logic Levels:           0  
+  Clock Path Skew:        0.034ns (DCD - SCD - CPR)
+    Destination Clock Delay (DCD):    1.949ns
+    Source Clock Delay      (SCD):    1.437ns
+    Clock Pessimism Removal (CPR):    0.478ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock sys_clk_pin rise edge)
+                                                      0.000     0.000 r  
+    W5                                                0.000     0.000 r  clk (IN)
+                         net (fo=0)                   0.000     0.000    clk
+    W5                   IBUF (Prop_ibuf_I_O)         0.226     0.226 r  clk_IBUF_inst/O
+                         net (fo=1, routed)           0.631     0.858    clk_IBUF
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.026     0.884 r  clk_IBUF_BUFG_inst/O
+                         net (fo=800, routed)         0.554     1.437    btn1/CLK
+    SLICE_X53Y72         FDCE                                         r  btn1/debounced_btn_reg/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X53Y72         FDCE (Prop_fdce_C_Q)         0.141     1.578 r  btn1/debounced_btn_reg/Q
+                         net (fo=1, routed)           0.132     1.710    btn1/ed_btn/ff_cur_reg_0
+    SLICE_X55Y72         FDCE                                         r  btn1/ed_btn/ff_cur_reg/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock sys_clk_pin rise edge)
+                                                      0.000     0.000 r  
+    W5                                                0.000     0.000 r  clk (IN)
+                         net (fo=0)                   0.000     0.000    clk
+    W5                   IBUF (Prop_ibuf_I_O)         0.414     0.414 r  clk_IBUF_inst/O
+                         net (fo=1, routed)           0.685     1.099    clk_IBUF
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.029     1.128 r  clk_IBUF_BUFG_inst/O
+                         net (fo=800, routed)         0.821     1.949    btn1/ed_btn/CLK
+    SLICE_X55Y72         FDCE                                         r  btn1/ed_btn/ff_cur_reg/C
+                         clock pessimism             -0.478     1.471    
+    SLICE_X55Y72         FDCE (Hold_fdce_C_D)         0.070     1.541    btn1/ed_btn/ff_cur_reg
+  -------------------------------------------------------------------
+                         required time                         -1.541    
+                         arrival time                           1.710    
+  -------------------------------------------------------------------
+                         slack                                  0.169    
+
+Slack (MET) :             0.175ns  (arrival time - required time)
+  Source:                 btn0/ed_btn/ff_cur_reg/C
+                            (rising edge-triggered cell FDCE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            btn0/ed_btn/ff_old_reg/D
+                            (rising edge-triggered cell FDCE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Path Group:             sys_clk_pin
+  Path Type:              Hold (Min at Fast Process Corner)
+  Requirement:            0.000ns  (sys_clk_pin rise@0.000ns - sys_clk_pin rise@0.000ns)
+  Data Path Delay:        0.511ns  (logic 0.141ns (27.593%)  route 0.370ns (72.407%))
+  Logic Levels:           0  
+  Clock Path Skew:        0.261ns (DCD - SCD - CPR)
+    Destination Clock Delay (DCD):    1.941ns
+    Source Clock Delay      (SCD):    1.431ns
     Clock Pessimism Removal (CPR):    0.249ns
 
     Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
@@ -991,12 +1038,12 @@ Slack (MET) :             0.109ns  (arrival time - required time)
     W5                   IBUF (Prop_ibuf_I_O)         0.226     0.226 r  clk_IBUF_inst/O
                          net (fo=1, routed)           0.631     0.858    clk_IBUF
     BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.026     0.884 r  clk_IBUF_BUFG_inst/O
-                         net (fo=587, routed)         0.555     1.438    show_the_fnd_instance/fnd_cntr_instance/rc/CLK
-    SLICE_X35Y66         FDRE                                         r  show_the_fnd_instance/fnd_cntr_instance/rc/clk_div_reg[16]/C
+                         net (fo=800, routed)         0.548     1.431    btn0/ed_btn/CLK
+    SLICE_X37Y75         FDCE                                         r  btn0/ed_btn/ff_cur_reg/C
   -------------------------------------------------------------------    -------------------
-    SLICE_X35Y66         FDRE (Prop_fdre_C_Q)         0.141     1.579 r  show_the_fnd_instance/fnd_cntr_instance/rc/clk_div_reg[16]/Q
-                         net (fo=2, routed)           0.290     1.869    show_the_fnd_instance/fnd_cntr_instance/rc/ed/S[0]
-    SLICE_X39Y64         FDCE                                         r  show_the_fnd_instance/fnd_cntr_instance/rc/ed/ff_cur_reg/D
+    SLICE_X37Y75         FDCE (Prop_fdce_C_Q)         0.141     1.572 r  btn0/ed_btn/ff_cur_reg/Q
+                         net (fo=2, routed)           0.370     1.942    btn0/ed_btn/p_0_in[1]
+    SLICE_X35Y76         FDCE                                         r  btn0/ed_btn/ff_old_reg/D
   -------------------------------------------------------------------    -------------------
 
                          (clock sys_clk_pin rise edge)
@@ -1006,30 +1053,30 @@ Slack (MET) :             0.109ns  (arrival time - required time)
     W5                   IBUF (Prop_ibuf_I_O)         0.414     0.414 r  clk_IBUF_inst/O
                          net (fo=1, routed)           0.685     1.099    clk_IBUF
     BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.029     1.128 r  clk_IBUF_BUFG_inst/O
-                         net (fo=587, routed)         0.824     1.952    show_the_fnd_instance/fnd_cntr_instance/rc/ed/CLK
-    SLICE_X39Y64         FDCE                                         r  show_the_fnd_instance/fnd_cntr_instance/rc/ed/ff_cur_reg/C
-                         clock pessimism             -0.249     1.703    
-    SLICE_X39Y64         FDCE (Hold_fdce_C_D)         0.057     1.760    show_the_fnd_instance/fnd_cntr_instance/rc/ed/ff_cur_reg
+                         net (fo=800, routed)         0.813     1.941    btn0/ed_btn/CLK
+    SLICE_X35Y76         FDCE                                         r  btn0/ed_btn/ff_old_reg/C
+                         clock pessimism             -0.249     1.692    
+    SLICE_X35Y76         FDCE (Hold_fdce_C_D)         0.075     1.767    btn0/ed_btn/ff_old_reg
   -------------------------------------------------------------------
-                         required time                         -1.760    
-                         arrival time                           1.869    
+                         required time                         -1.767    
+                         arrival time                           1.942    
   -------------------------------------------------------------------
-                         slack                                  0.109    
+                         slack                                  0.175    
 
-Slack (MET) :             0.154ns  (arrival time - required time)
-  Source:                 dht11_control_instance/dth11/usec_clk/cnt_sysclk_reg[4]/C
+Slack (MET) :             0.176ns  (arrival time - required time)
+  Source:                 lcd_display_control_instance/i2c_lcd_send_byte_0/I2C_master_0/comm_go_edge/ff_cur_reg/C
                             (falling edge-triggered cell FDCE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
-  Destination:            dht11_control_instance/dth11/usec_clk/cnt_sysclk_reg[5]/D
+  Destination:            lcd_display_control_instance/i2c_lcd_send_byte_0/I2C_master_0/comm_go_edge/ff_old_reg/D
                             (falling edge-triggered cell FDCE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
   Path Group:             sys_clk_pin
   Path Type:              Hold (Min at Fast Process Corner)
   Requirement:            0.000ns  (sys_clk_pin fall@5.000ns - sys_clk_pin fall@5.000ns)
-  Data Path Delay:        0.291ns  (logic 0.191ns (65.565%)  route 0.100ns (34.435%))
-  Logic Levels:           1  (LUT6=1)
-  Clock Path Skew:        0.013ns (DCD - SCD - CPR)
-    Destination Clock Delay (DCD):    1.958ns = ( 6.958 - 5.000 ) 
-    Source Clock Delay      (SCD):    1.444ns = ( 6.444 - 5.000 ) 
-    Clock Pessimism Removal (CPR):    0.501ns
+  Data Path Delay:        0.272ns  (logic 0.146ns (53.606%)  route 0.126ns (46.394%))
+  Logic Levels:           0  
+  Clock Path Skew:        0.033ns (DCD - SCD - CPR)
+    Destination Clock Delay (DCD):    1.982ns = ( 6.982 - 5.000 ) 
+    Source Clock Delay      (SCD):    1.471ns = ( 6.471 - 5.000 ) 
+    Clock Pessimism Removal (CPR):    0.478ns
 
     Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
   -------------------------------------------------------------------    -------------------
@@ -1040,14 +1087,12 @@ Slack (MET) :             0.154ns  (arrival time - required time)
     W5                   IBUF (Prop_ibuf_I_O)         0.226     5.226 f  clk_IBUF_inst/O
                          net (fo=1, routed)           0.631     5.858    clk_IBUF
     BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.026     5.884 f  clk_IBUF_BUFG_inst/O
-                         net (fo=587, routed)         0.561     6.444    dht11_control_instance/dth11/usec_clk/CLK
-    SLICE_X47Y57         FDCE                                         r  dht11_control_instance/dth11/usec_clk/cnt_sysclk_reg[4]/C  (IS_INVERTED)
+                         net (fo=800, routed)         0.588     6.471    lcd_display_control_instance/i2c_lcd_send_byte_0/I2C_master_0/comm_go_edge/CLK
+    SLICE_X63Y83         FDCE                                         r  lcd_display_control_instance/i2c_lcd_send_byte_0/I2C_master_0/comm_go_edge/ff_cur_reg/C  (IS_INVERTED)
   -------------------------------------------------------------------    -------------------
-    SLICE_X47Y57         FDCE (Prop_fdce_C_Q)         0.146     6.590 r  dht11_control_instance/dth11/usec_clk/cnt_sysclk_reg[4]/Q
-                         net (fo=5, routed)           0.100     6.691    dht11_control_instance/dth11/usec_clk/cnt_sysclk_reg[4]
-    SLICE_X46Y57         LUT6 (Prop_lut6_I3_O)        0.045     6.736 r  dht11_control_instance/dth11/usec_clk/cnt_sysclk[5]_i_1/O
-                         net (fo=1, routed)           0.000     6.736    dht11_control_instance/dth11/usec_clk/p_0_in[5]
-    SLICE_X46Y57         FDCE                                         r  dht11_control_instance/dth11/usec_clk/cnt_sysclk_reg[5]/D
+    SLICE_X63Y83         FDCE (Prop_fdce_C_Q)         0.146     6.617 r  lcd_display_control_instance/i2c_lcd_send_byte_0/I2C_master_0/comm_go_edge/ff_cur_reg/Q
+                         net (fo=2, routed)           0.126     6.744    lcd_display_control_instance/i2c_lcd_send_byte_0/I2C_master_0/comm_go_edge/p_0_in[1]
+    SLICE_X60Y83         FDCE                                         r  lcd_display_control_instance/i2c_lcd_send_byte_0/I2C_master_0/comm_go_edge/ff_old_reg/D
   -------------------------------------------------------------------    -------------------
 
                          (clock sys_clk_pin fall edge)
@@ -1057,176 +1102,29 @@ Slack (MET) :             0.154ns  (arrival time - required time)
     W5                   IBUF (Prop_ibuf_I_O)         0.414     5.414 f  clk_IBUF_inst/O
                          net (fo=1, routed)           0.685     6.099    clk_IBUF
     BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.029     6.128 f  clk_IBUF_BUFG_inst/O
-                         net (fo=587, routed)         0.831     6.958    dht11_control_instance/dth11/usec_clk/CLK
-    SLICE_X46Y57         FDCE                                         r  dht11_control_instance/dth11/usec_clk/cnt_sysclk_reg[5]/C  (IS_INVERTED)
-                         clock pessimism             -0.501     6.457    
-    SLICE_X46Y57         FDCE (Hold_fdce_C_D)         0.124     6.581    dht11_control_instance/dth11/usec_clk/cnt_sysclk_reg[5]
+                         net (fo=800, routed)         0.855     6.982    lcd_display_control_instance/i2c_lcd_send_byte_0/I2C_master_0/comm_go_edge/CLK
+    SLICE_X60Y83         FDCE                                         r  lcd_display_control_instance/i2c_lcd_send_byte_0/I2C_master_0/comm_go_edge/ff_old_reg/C  (IS_INVERTED)
+                         clock pessimism             -0.478     6.504    
+    SLICE_X60Y83         FDCE (Hold_fdce_C_D)         0.063     6.567    lcd_display_control_instance/i2c_lcd_send_byte_0/I2C_master_0/comm_go_edge/ff_old_reg
   -------------------------------------------------------------------
-                         required time                         -6.581    
-                         arrival time                           6.736    
+                         required time                         -6.567    
+                         arrival time                           6.744    
   -------------------------------------------------------------------
-                         slack                                  0.154    
+                         slack                                  0.176    
 
-Slack (MET) :             0.161ns  (arrival time - required time)
-  Source:                 led_control_instance/control_manual_led_pwm/ed/ff_cur_reg/C
+Slack (MET) :             0.176ns  (arrival time - required time)
+  Source:                 dht11_control_instance/dth11/ed/ff_cur_reg/C
                             (rising edge-triggered cell FDCE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
-  Destination:            led_control_instance/control_manual_led_pwm/ed/ff_old_reg/D
-                            (rising edge-triggered cell FDCE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
-  Path Group:             sys_clk_pin
-  Path Type:              Hold (Min at Fast Process Corner)
-  Requirement:            0.000ns  (sys_clk_pin rise@0.000ns - sys_clk_pin rise@0.000ns)
-  Data Path Delay:        0.265ns  (logic 0.141ns (53.136%)  route 0.124ns (46.864%))
-  Logic Levels:           0  
-  Clock Path Skew:        0.034ns (DCD - SCD - CPR)
-    Destination Clock Delay (DCD):    1.947ns
-    Source Clock Delay      (SCD):    1.435ns
-    Clock Pessimism Removal (CPR):    0.478ns
-
-    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
-  -------------------------------------------------------------------    -------------------
-                         (clock sys_clk_pin rise edge)
-                                                      0.000     0.000 r  
-    W5                                                0.000     0.000 r  clk (IN)
-                         net (fo=0)                   0.000     0.000    clk
-    W5                   IBUF (Prop_ibuf_I_O)         0.226     0.226 r  clk_IBUF_inst/O
-                         net (fo=1, routed)           0.631     0.858    clk_IBUF
-    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.026     0.884 r  clk_IBUF_BUFG_inst/O
-                         net (fo=587, routed)         0.552     1.435    led_control_instance/control_manual_led_pwm/ed/CLK
-    SLICE_X29Y79         FDCE                                         r  led_control_instance/control_manual_led_pwm/ed/ff_cur_reg/C
-  -------------------------------------------------------------------    -------------------
-    SLICE_X29Y79         FDCE (Prop_fdce_C_Q)         0.141     1.576 r  led_control_instance/control_manual_led_pwm/ed/ff_cur_reg/Q
-                         net (fo=2, routed)           0.124     1.701    led_control_instance/control_manual_led_pwm/ed/p_0_in[1]
-    SLICE_X31Y80         FDCE                                         r  led_control_instance/control_manual_led_pwm/ed/ff_old_reg/D
-  -------------------------------------------------------------------    -------------------
-
-                         (clock sys_clk_pin rise edge)
-                                                      0.000     0.000 r  
-    W5                                                0.000     0.000 r  clk (IN)
-                         net (fo=0)                   0.000     0.000    clk
-    W5                   IBUF (Prop_ibuf_I_O)         0.414     0.414 r  clk_IBUF_inst/O
-                         net (fo=1, routed)           0.685     1.099    clk_IBUF
-    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.029     1.128 r  clk_IBUF_BUFG_inst/O
-                         net (fo=587, routed)         0.819     1.947    led_control_instance/control_manual_led_pwm/ed/CLK
-    SLICE_X31Y80         FDCE                                         r  led_control_instance/control_manual_led_pwm/ed/ff_old_reg/C
-                         clock pessimism             -0.478     1.469    
-    SLICE_X31Y80         FDCE (Hold_fdce_C_D)         0.070     1.539    led_control_instance/control_manual_led_pwm/ed/ff_old_reg
-  -------------------------------------------------------------------
-                         required time                         -1.539    
-                         arrival time                           1.701    
-  -------------------------------------------------------------------
-                         slack                                  0.161    
-
-Slack (MET) :             0.181ns  (arrival time - required time)
-  Source:                 show_the_fnd_instance/fnd_cntr_instance/rc/com_reg[0]/C
-                            (rising edge-triggered cell FDCE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
-  Destination:            show_the_fnd_instance/fnd_cntr_instance/rc/com_reg[1]/D
-                            (rising edge-triggered cell FDPE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
-  Path Group:             sys_clk_pin
-  Path Type:              Hold (Min at Fast Process Corner)
-  Requirement:            0.000ns  (sys_clk_pin rise@0.000ns - sys_clk_pin rise@0.000ns)
-  Data Path Delay:        0.515ns  (logic 0.164ns (31.846%)  route 0.351ns (68.154%))
-  Logic Levels:           0  
-  Clock Path Skew:        0.264ns (DCD - SCD - CPR)
-    Destination Clock Delay (DCD):    1.950ns
-    Source Clock Delay      (SCD):    1.437ns
-    Clock Pessimism Removal (CPR):    0.249ns
-
-    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
-  -------------------------------------------------------------------    -------------------
-                         (clock sys_clk_pin rise edge)
-                                                      0.000     0.000 r  
-    W5                                                0.000     0.000 r  clk (IN)
-                         net (fo=0)                   0.000     0.000    clk
-    W5                   IBUF (Prop_ibuf_I_O)         0.226     0.226 r  clk_IBUF_inst/O
-                         net (fo=1, routed)           0.631     0.858    clk_IBUF
-    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.026     0.884 r  clk_IBUF_BUFG_inst/O
-                         net (fo=587, routed)         0.554     1.437    show_the_fnd_instance/fnd_cntr_instance/rc/CLK
-    SLICE_X34Y67         FDCE                                         r  show_the_fnd_instance/fnd_cntr_instance/rc/com_reg[0]/C
-  -------------------------------------------------------------------    -------------------
-    SLICE_X34Y67         FDCE (Prop_fdce_C_Q)         0.164     1.601 r  show_the_fnd_instance/fnd_cntr_instance/rc/com_reg[0]/Q
-                         net (fo=4, routed)           0.351     1.952    show_the_fnd_instance/fnd_cntr_instance/rc/Q[0]
-    SLICE_X36Y66         FDPE                                         r  show_the_fnd_instance/fnd_cntr_instance/rc/com_reg[1]/D
-  -------------------------------------------------------------------    -------------------
-
-                         (clock sys_clk_pin rise edge)
-                                                      0.000     0.000 r  
-    W5                                                0.000     0.000 r  clk (IN)
-                         net (fo=0)                   0.000     0.000    clk
-    W5                   IBUF (Prop_ibuf_I_O)         0.414     0.414 r  clk_IBUF_inst/O
-                         net (fo=1, routed)           0.685     1.099    clk_IBUF
-    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.029     1.128 r  clk_IBUF_BUFG_inst/O
-                         net (fo=587, routed)         0.822     1.950    show_the_fnd_instance/fnd_cntr_instance/rc/CLK
-    SLICE_X36Y66         FDPE                                         r  show_the_fnd_instance/fnd_cntr_instance/rc/com_reg[1]/C
-                         clock pessimism             -0.249     1.701    
-    SLICE_X36Y66         FDPE (Hold_fdpe_C_D)         0.070     1.771    show_the_fnd_instance/fnd_cntr_instance/rc/com_reg[1]
-  -------------------------------------------------------------------
-                         required time                         -1.771    
-                         arrival time                           1.952    
-  -------------------------------------------------------------------
-                         slack                                  0.181    
-
-Slack (MET) :             0.186ns  (arrival time - required time)
-  Source:                 electric_fan_control_instance/control_power_pwm/ed/ff_cur_reg/C
-                            (rising edge-triggered cell FDCE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
-  Destination:            electric_fan_control_instance/control_power_pwm/ed/ff_old_reg/D
+  Destination:            dht11_control_instance/dth11/ed/ff_old_reg/D
                             (rising edge-triggered cell FDCE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
   Path Group:             sys_clk_pin
   Path Type:              Hold (Min at Fast Process Corner)
   Requirement:            0.000ns  (sys_clk_pin rise@0.000ns - sys_clk_pin rise@0.000ns)
-  Data Path Delay:        0.289ns  (logic 0.164ns (56.823%)  route 0.125ns (43.177%))
-  Logic Levels:           0  
-  Clock Path Skew:        0.033ns (DCD - SCD - CPR)
-    Destination Clock Delay (DCD):    1.945ns
-    Source Clock Delay      (SCD):    1.434ns
-    Clock Pessimism Removal (CPR):    0.478ns
-
-    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
-  -------------------------------------------------------------------    -------------------
-                         (clock sys_clk_pin rise edge)
-                                                      0.000     0.000 r  
-    W5                                                0.000     0.000 r  clk (IN)
-                         net (fo=0)                   0.000     0.000    clk
-    W5                   IBUF (Prop_ibuf_I_O)         0.226     0.226 r  clk_IBUF_inst/O
-                         net (fo=1, routed)           0.631     0.858    clk_IBUF
-    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.026     0.884 r  clk_IBUF_BUFG_inst/O
-                         net (fo=587, routed)         0.551     1.434    electric_fan_control_instance/control_power_pwm/ed/CLK
-    SLICE_X38Y72         FDCE                                         r  electric_fan_control_instance/control_power_pwm/ed/ff_cur_reg/C
-  -------------------------------------------------------------------    -------------------
-    SLICE_X38Y72         FDCE (Prop_fdce_C_Q)         0.164     1.598 r  electric_fan_control_instance/control_power_pwm/ed/ff_cur_reg/Q
-                         net (fo=2, routed)           0.125     1.723    electric_fan_control_instance/control_power_pwm/ed/p_0_in[1]
-    SLICE_X41Y72         FDCE                                         r  electric_fan_control_instance/control_power_pwm/ed/ff_old_reg/D
-  -------------------------------------------------------------------    -------------------
-
-                         (clock sys_clk_pin rise edge)
-                                                      0.000     0.000 r  
-    W5                                                0.000     0.000 r  clk (IN)
-                         net (fo=0)                   0.000     0.000    clk
-    W5                   IBUF (Prop_ibuf_I_O)         0.414     0.414 r  clk_IBUF_inst/O
-                         net (fo=1, routed)           0.685     1.099    clk_IBUF
-    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.029     1.128 r  clk_IBUF_BUFG_inst/O
-                         net (fo=587, routed)         0.817     1.945    electric_fan_control_instance/control_power_pwm/ed/CLK
-    SLICE_X41Y72         FDCE                                         r  electric_fan_control_instance/control_power_pwm/ed/ff_old_reg/C
-                         clock pessimism             -0.478     1.467    
-    SLICE_X41Y72         FDCE (Hold_fdce_C_D)         0.070     1.537    electric_fan_control_instance/control_power_pwm/ed/ff_old_reg
-  -------------------------------------------------------------------
-                         required time                         -1.537    
-                         arrival time                           1.723    
-  -------------------------------------------------------------------
-                         slack                                  0.186    
-
-Slack (MET) :             0.186ns  (arrival time - required time)
-  Source:                 hc_sr04_control_instance/HC_SR04_cntr_0/edge_detector_0/ff_cur_reg/C
-                            (rising edge-triggered cell FDCE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
-  Destination:            hc_sr04_control_instance/HC_SR04_cntr_0/edge_detector_0/ff_old_reg/D
-                            (rising edge-triggered cell FDCE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
-  Path Group:             sys_clk_pin
-  Path Type:              Hold (Min at Fast Process Corner)
-  Requirement:            0.000ns  (sys_clk_pin rise@0.000ns - sys_clk_pin rise@0.000ns)
-  Data Path Delay:        0.262ns  (logic 0.141ns (53.808%)  route 0.121ns (46.192%))
+  Data Path Delay:        0.263ns  (logic 0.141ns (53.514%)  route 0.122ns (46.486%))
   Logic Levels:           0  
   Clock Path Skew:        0.017ns (DCD - SCD - CPR)
-    Destination Clock Delay (DCD):    1.990ns
-    Source Clock Delay      (SCD):    1.474ns
+    Destination Clock Delay (DCD):    1.989ns
+    Source Clock Delay      (SCD):    1.473ns
     Clock Pessimism Removal (CPR):    0.499ns
 
     Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
@@ -1238,12 +1136,12 @@ Slack (MET) :             0.186ns  (arrival time - required time)
     W5                   IBUF (Prop_ibuf_I_O)         0.226     0.226 r  clk_IBUF_inst/O
                          net (fo=1, routed)           0.631     0.858    clk_IBUF
     BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.026     0.884 r  clk_IBUF_BUFG_inst/O
-                         net (fo=587, routed)         0.591     1.474    hc_sr04_control_instance/HC_SR04_cntr_0/edge_detector_0/CLK
-    SLICE_X65Y89         FDCE                                         r  hc_sr04_control_instance/HC_SR04_cntr_0/edge_detector_0/ff_cur_reg/C
+                         net (fo=800, routed)         0.590     1.473    dht11_control_instance/dth11/ed/CLK
+    SLICE_X65Y62         FDCE                                         r  dht11_control_instance/dth11/ed/ff_cur_reg/C
   -------------------------------------------------------------------    -------------------
-    SLICE_X65Y89         FDCE (Prop_fdce_C_Q)         0.141     1.615 r  hc_sr04_control_instance/HC_SR04_cntr_0/edge_detector_0/ff_cur_reg/Q
-                         net (fo=4, routed)           0.121     1.736    hc_sr04_control_instance/HC_SR04_cntr_0/edge_detector_0/p_0_in[1]
-    SLICE_X64Y90         FDCE                                         r  hc_sr04_control_instance/HC_SR04_cntr_0/edge_detector_0/ff_old_reg/D
+    SLICE_X65Y62         FDCE (Prop_fdce_C_Q)         0.141     1.614 r  dht11_control_instance/dth11/ed/ff_cur_reg/Q
+                         net (fo=9, routed)           0.122     1.737    dht11_control_instance/dth11/ed/p_0_in[1]
+    SLICE_X63Y61         FDCE                                         r  dht11_control_instance/dth11/ed/ff_old_reg/D
   -------------------------------------------------------------------    -------------------
 
                          (clock sys_clk_pin rise edge)
@@ -1253,29 +1151,29 @@ Slack (MET) :             0.186ns  (arrival time - required time)
     W5                   IBUF (Prop_ibuf_I_O)         0.414     0.414 r  clk_IBUF_inst/O
                          net (fo=1, routed)           0.685     1.099    clk_IBUF
     BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.029     1.128 r  clk_IBUF_BUFG_inst/O
-                         net (fo=587, routed)         0.862     1.990    hc_sr04_control_instance/HC_SR04_cntr_0/edge_detector_0/CLK
-    SLICE_X64Y90         FDCE                                         r  hc_sr04_control_instance/HC_SR04_cntr_0/edge_detector_0/ff_old_reg/C
-                         clock pessimism             -0.499     1.491    
-    SLICE_X64Y90         FDCE (Hold_fdce_C_D)         0.059     1.550    hc_sr04_control_instance/HC_SR04_cntr_0/edge_detector_0/ff_old_reg
+                         net (fo=800, routed)         0.861     1.989    dht11_control_instance/dth11/ed/CLK
+    SLICE_X63Y61         FDCE                                         r  dht11_control_instance/dth11/ed/ff_old_reg/C
+                         clock pessimism             -0.499     1.490    
+    SLICE_X63Y61         FDCE (Hold_fdce_C_D)         0.070     1.560    dht11_control_instance/dth11/ed/ff_old_reg
   -------------------------------------------------------------------
-                         required time                         -1.550    
-                         arrival time                           1.736    
+                         required time                         -1.560    
+                         arrival time                           1.737    
   -------------------------------------------------------------------
-                         slack                                  0.186    
+                         slack                                  0.176    
 
-Slack (MET) :             0.189ns  (arrival time - required time)
-  Source:                 btn1/ed_btn/ff_cur_reg/C
+Slack (MET) :             0.177ns  (arrival time - required time)
+  Source:                 led_control_instance/control_manual_led_pwm/ed/ff_cur_reg/C
                             (rising edge-triggered cell FDCE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
-  Destination:            btn1/ed_btn/ff_old_reg/D
+  Destination:            led_control_instance/control_manual_led_pwm/ed/ff_old_reg/D
                             (rising edge-triggered cell FDCE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
   Path Group:             sys_clk_pin
   Path Type:              Hold (Min at Fast Process Corner)
   Requirement:            0.000ns  (sys_clk_pin rise@0.000ns - sys_clk_pin rise@0.000ns)
-  Data Path Delay:        0.274ns  (logic 0.164ns (59.853%)  route 0.110ns (40.147%))
+  Data Path Delay:        0.262ns  (logic 0.141ns (53.808%)  route 0.121ns (46.192%))
   Logic Levels:           0  
   Clock Path Skew:        0.015ns (DCD - SCD - CPR)
-    Destination Clock Delay (DCD):    1.952ns
-    Source Clock Delay      (SCD):    1.440ns
+    Destination Clock Delay (DCD):    1.944ns
+    Source Clock Delay      (SCD):    1.432ns
     Clock Pessimism Removal (CPR):    0.497ns
 
     Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
@@ -1287,12 +1185,12 @@ Slack (MET) :             0.189ns  (arrival time - required time)
     W5                   IBUF (Prop_ibuf_I_O)         0.226     0.226 r  clk_IBUF_inst/O
                          net (fo=1, routed)           0.631     0.858    clk_IBUF
     BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.026     0.884 r  clk_IBUF_BUFG_inst/O
-                         net (fo=587, routed)         0.557     1.440    btn1/ed_btn/CLK
-    SLICE_X38Y65         FDCE                                         r  btn1/ed_btn/ff_cur_reg/C
+                         net (fo=800, routed)         0.549     1.432    led_control_instance/control_manual_led_pwm/ed/CLK
+    SLICE_X37Y76         FDCE                                         r  led_control_instance/control_manual_led_pwm/ed/ff_cur_reg/C
   -------------------------------------------------------------------    -------------------
-    SLICE_X38Y65         FDCE (Prop_fdce_C_Q)         0.164     1.604 r  btn1/ed_btn/ff_cur_reg/Q
-                         net (fo=3, routed)           0.110     1.714    btn1/ed_btn/p_0_in[1]
-    SLICE_X39Y64         FDCE                                         r  btn1/ed_btn/ff_old_reg/D
+    SLICE_X37Y76         FDCE (Prop_fdce_C_Q)         0.141     1.573 r  led_control_instance/control_manual_led_pwm/ed/ff_cur_reg/Q
+                         net (fo=2, routed)           0.121     1.694    led_control_instance/control_manual_led_pwm/ed/p_0_in[1]
+    SLICE_X37Y77         FDCE                                         r  led_control_instance/control_manual_led_pwm/ed/ff_old_reg/D
   -------------------------------------------------------------------    -------------------
 
                          (clock sys_clk_pin rise edge)
@@ -1302,30 +1200,30 @@ Slack (MET) :             0.189ns  (arrival time - required time)
     W5                   IBUF (Prop_ibuf_I_O)         0.414     0.414 r  clk_IBUF_inst/O
                          net (fo=1, routed)           0.685     1.099    clk_IBUF
     BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.029     1.128 r  clk_IBUF_BUFG_inst/O
-                         net (fo=587, routed)         0.824     1.952    btn1/ed_btn/CLK
-    SLICE_X39Y64         FDCE                                         r  btn1/ed_btn/ff_old_reg/C
-                         clock pessimism             -0.497     1.455    
-    SLICE_X39Y64         FDCE (Hold_fdce_C_D)         0.070     1.525    btn1/ed_btn/ff_old_reg
+                         net (fo=800, routed)         0.816     1.944    led_control_instance/control_manual_led_pwm/ed/CLK
+    SLICE_X37Y77         FDCE                                         r  led_control_instance/control_manual_led_pwm/ed/ff_old_reg/C
+                         clock pessimism             -0.497     1.447    
+    SLICE_X37Y77         FDCE (Hold_fdce_C_D)         0.070     1.517    led_control_instance/control_manual_led_pwm/ed/ff_old_reg
   -------------------------------------------------------------------
-                         required time                         -1.525    
-                         arrival time                           1.714    
+                         required time                         -1.517    
+                         arrival time                           1.694    
   -------------------------------------------------------------------
-                         slack                                  0.189    
+                         slack                                  0.177    
 
-Slack (MET) :             0.194ns  (arrival time - required time)
-  Source:                 hc_sr04_control_instance/HC_SR04_cntr_0/usec_clk/cnt_sysclk_reg[4]/C
+Slack (MET) :             0.180ns  (arrival time - required time)
+  Source:                 led_height_control_instance/step_motor_control_instance/msec_clk/cnt_clksource_reg[0]/C
                             (falling edge-triggered cell FDCE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
-  Destination:            hc_sr04_control_instance/HC_SR04_cntr_0/usec_clk/cnt_sysclk_reg[6]/D
+  Destination:            led_height_control_instance/step_motor_control_instance/msec_clk/cnt_clksource_reg[2]/D
                             (falling edge-triggered cell FDCE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
   Path Group:             sys_clk_pin
   Path Type:              Hold (Min at Fast Process Corner)
   Requirement:            0.000ns  (sys_clk_pin fall@5.000ns - sys_clk_pin fall@5.000ns)
-  Data Path Delay:        0.306ns  (logic 0.212ns (69.210%)  route 0.094ns (30.790%))
-  Logic Levels:           1  (LUT6=1)
+  Data Path Delay:        0.328ns  (logic 0.194ns (59.211%)  route 0.134ns (40.790%))
+  Logic Levels:           1  (LUT4=1)
   Clock Path Skew:        0.013ns (DCD - SCD - CPR)
-    Destination Clock Delay (DCD):    1.989ns = ( 6.989 - 5.000 ) 
-    Source Clock Delay      (SCD):    1.475ns = ( 6.475 - 5.000 ) 
-    Clock Pessimism Removal (CPR):    0.501ns
+    Destination Clock Delay (DCD):    1.977ns = ( 6.977 - 5.000 ) 
+    Source Clock Delay      (SCD):    1.465ns = ( 6.465 - 5.000 ) 
+    Clock Pessimism Removal (CPR):    0.499ns
 
     Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
   -------------------------------------------------------------------    -------------------
@@ -1336,14 +1234,14 @@ Slack (MET) :             0.194ns  (arrival time - required time)
     W5                   IBUF (Prop_ibuf_I_O)         0.226     5.226 f  clk_IBUF_inst/O
                          net (fo=1, routed)           0.631     5.858    clk_IBUF
     BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.026     5.884 f  clk_IBUF_BUFG_inst/O
-                         net (fo=587, routed)         0.592     6.475    hc_sr04_control_instance/HC_SR04_cntr_0/usec_clk/CLK
-    SLICE_X60Y94         FDCE                                         r  hc_sr04_control_instance/HC_SR04_cntr_0/usec_clk/cnt_sysclk_reg[4]/C  (IS_INVERTED)
+                         net (fo=800, routed)         0.582     6.465    led_height_control_instance/step_motor_control_instance/msec_clk/CLK
+    SLICE_X3Y24          FDCE                                         r  led_height_control_instance/step_motor_control_instance/msec_clk/cnt_clksource_reg[0]/C  (IS_INVERTED)
   -------------------------------------------------------------------    -------------------
-    SLICE_X60Y94         FDCE (Prop_fdce_C_Q)         0.167     6.642 r  hc_sr04_control_instance/HC_SR04_cntr_0/usec_clk/cnt_sysclk_reg[4]/Q
-                         net (fo=5, routed)           0.094     6.737    hc_sr04_control_instance/HC_SR04_cntr_0/usec_clk/cnt_sysclk_reg[4]
-    SLICE_X61Y94         LUT6 (Prop_lut6_I0_O)        0.045     6.782 r  hc_sr04_control_instance/HC_SR04_cntr_0/usec_clk/cnt_sysclk[6]_i_1__0/O
-                         net (fo=1, routed)           0.000     6.782    hc_sr04_control_instance/HC_SR04_cntr_0/usec_clk/p_0_in__0[6]
-    SLICE_X61Y94         FDCE                                         r  hc_sr04_control_instance/HC_SR04_cntr_0/usec_clk/cnt_sysclk_reg[6]/D
+    SLICE_X3Y24          FDCE (Prop_fdce_C_Q)         0.146     6.611 r  led_height_control_instance/step_motor_control_instance/msec_clk/cnt_clksource_reg[0]/Q
+                         net (fo=8, routed)           0.134     6.745    led_height_control_instance/step_motor_control_instance/msec_clk/cnt_clksource_reg[0]
+    SLICE_X2Y24          LUT4 (Prop_lut4_I0_O)        0.048     6.793 r  led_height_control_instance/step_motor_control_instance/msec_clk/cnt_clksource[2]_i_1/O
+                         net (fo=1, routed)           0.000     6.793    led_height_control_instance/step_motor_control_instance/msec_clk/p_0_in__2[2]
+    SLICE_X2Y24          FDCE                                         r  led_height_control_instance/step_motor_control_instance/msec_clk/cnt_clksource_reg[2]/D
   -------------------------------------------------------------------    -------------------
 
                          (clock sys_clk_pin fall edge)
@@ -1353,30 +1251,30 @@ Slack (MET) :             0.194ns  (arrival time - required time)
     W5                   IBUF (Prop_ibuf_I_O)         0.414     5.414 f  clk_IBUF_inst/O
                          net (fo=1, routed)           0.685     6.099    clk_IBUF
     BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.029     6.128 f  clk_IBUF_BUFG_inst/O
-                         net (fo=587, routed)         0.861     6.989    hc_sr04_control_instance/HC_SR04_cntr_0/usec_clk/CLK
-    SLICE_X61Y94         FDCE                                         r  hc_sr04_control_instance/HC_SR04_cntr_0/usec_clk/cnt_sysclk_reg[6]/C  (IS_INVERTED)
-                         clock pessimism             -0.501     6.488    
-    SLICE_X61Y94         FDCE (Hold_fdce_C_D)         0.099     6.587    hc_sr04_control_instance/HC_SR04_cntr_0/usec_clk/cnt_sysclk_reg[6]
+                         net (fo=800, routed)         0.850     6.977    led_height_control_instance/step_motor_control_instance/msec_clk/CLK
+    SLICE_X2Y24          FDCE                                         r  led_height_control_instance/step_motor_control_instance/msec_clk/cnt_clksource_reg[2]/C  (IS_INVERTED)
+                         clock pessimism             -0.499     6.478    
+    SLICE_X2Y24          FDCE (Hold_fdce_C_D)         0.135     6.613    led_height_control_instance/step_motor_control_instance/msec_clk/cnt_clksource_reg[2]
   -------------------------------------------------------------------
-                         required time                         -6.587    
-                         arrival time                           6.782    
+                         required time                         -6.613    
+                         arrival time                           6.793    
   -------------------------------------------------------------------
-                         slack                                  0.194    
+                         slack                                  0.180    
 
-Slack (MET) :             0.194ns  (arrival time - required time)
-  Source:                 dht11_control_instance/dth11/data_count_reg[0]/C
-                            (rising edge-triggered cell FDCE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
-  Destination:            dht11_control_instance/dth11/data_count_reg[2]/D
+Slack (MET) :             0.187ns  (arrival time - required time)
+  Source:                 lcd_display_control_instance/send_buffer_reg[4]/C
+                            (rising edge-triggered cell FDRE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            lcd_display_control_instance/i2c_lcd_send_byte_0/data_reg[4]/D
                             (rising edge-triggered cell FDCE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
   Path Group:             sys_clk_pin
   Path Type:              Hold (Min at Fast Process Corner)
   Requirement:            0.000ns  (sys_clk_pin rise@0.000ns - sys_clk_pin rise@0.000ns)
-  Data Path Delay:        0.320ns  (logic 0.186ns (58.068%)  route 0.134ns (41.932%))
-  Logic Levels:           1  (LUT6=1)
-  Clock Path Skew:        0.034ns (DCD - SCD - CPR)
-    Destination Clock Delay (DCD):    1.956ns
-    Source Clock Delay      (SCD):    1.444ns
-    Clock Pessimism Removal (CPR):    0.478ns
+  Data Path Delay:        0.294ns  (logic 0.186ns (63.228%)  route 0.108ns (36.772%))
+  Logic Levels:           1  (LUT5=1)
+  Clock Path Skew:        0.015ns (DCD - SCD - CPR)
+    Destination Clock Delay (DCD):    1.980ns
+    Source Clock Delay      (SCD):    1.466ns
+    Clock Pessimism Removal (CPR):    0.499ns
 
     Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
   -------------------------------------------------------------------    -------------------
@@ -1387,14 +1285,14 @@ Slack (MET) :             0.194ns  (arrival time - required time)
     W5                   IBUF (Prop_ibuf_I_O)         0.226     0.226 r  clk_IBUF_inst/O
                          net (fo=1, routed)           0.631     0.858    clk_IBUF
     BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.026     0.884 r  clk_IBUF_BUFG_inst/O
-                         net (fo=587, routed)         0.561     1.444    dht11_control_instance/dth11/CLK
-    SLICE_X45Y59         FDCE                                         r  dht11_control_instance/dth11/data_count_reg[0]/C
+                         net (fo=800, routed)         0.583     1.466    lcd_display_control_instance/CLK
+    SLICE_X63Y78         FDRE                                         r  lcd_display_control_instance/send_buffer_reg[4]/C
   -------------------------------------------------------------------    -------------------
-    SLICE_X45Y59         FDCE (Prop_fdce_C_Q)         0.141     1.585 r  dht11_control_instance/dth11/data_count_reg[0]/Q
-                         net (fo=5, routed)           0.134     1.720    dht11_control_instance/dth11/ed/data_count_reg[4]_1[0]
-    SLICE_X43Y60         LUT6 (Prop_lut6_I3_O)        0.045     1.765 r  dht11_control_instance/dth11/ed/data_count[2]_i_1/O
-                         net (fo=1, routed)           0.000     1.765    dht11_control_instance/dth11/ed_n_47
-    SLICE_X43Y60         FDCE                                         r  dht11_control_instance/dth11/data_count_reg[2]/D
+    SLICE_X63Y78         FDRE (Prop_fdre_C_Q)         0.141     1.607 r  lcd_display_control_instance/send_buffer_reg[4]/Q
+                         net (fo=1, routed)           0.108     1.715    lcd_display_control_instance/i2c_lcd_send_byte_0/data_reg[7]_0[4]
+    SLICE_X63Y79         LUT5 (Prop_lut5_I4_O)        0.045     1.760 r  lcd_display_control_instance/i2c_lcd_send_byte_0/data[4]_i_1/O
+                         net (fo=1, routed)           0.000     1.760    lcd_display_control_instance/i2c_lcd_send_byte_0/data0_in[4]
+    SLICE_X63Y79         FDCE                                         r  lcd_display_control_instance/i2c_lcd_send_byte_0/data_reg[4]/D
   -------------------------------------------------------------------    -------------------
 
                          (clock sys_clk_pin rise edge)
@@ -1404,15 +1302,115 @@ Slack (MET) :             0.194ns  (arrival time - required time)
     W5                   IBUF (Prop_ibuf_I_O)         0.414     0.414 r  clk_IBUF_inst/O
                          net (fo=1, routed)           0.685     1.099    clk_IBUF
     BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.029     1.128 r  clk_IBUF_BUFG_inst/O
-                         net (fo=587, routed)         0.829     1.956    dht11_control_instance/dth11/CLK
-    SLICE_X43Y60         FDCE                                         r  dht11_control_instance/dth11/data_count_reg[2]/C
-                         clock pessimism             -0.478     1.478    
-    SLICE_X43Y60         FDCE (Hold_fdce_C_D)         0.092     1.570    dht11_control_instance/dth11/data_count_reg[2]
+                         net (fo=800, routed)         0.852     1.980    lcd_display_control_instance/i2c_lcd_send_byte_0/CLK
+    SLICE_X63Y79         FDCE                                         r  lcd_display_control_instance/i2c_lcd_send_byte_0/data_reg[4]/C
+                         clock pessimism             -0.499     1.481    
+    SLICE_X63Y79         FDCE (Hold_fdce_C_D)         0.092     1.573    lcd_display_control_instance/i2c_lcd_send_byte_0/data_reg[4]
   -------------------------------------------------------------------
-                         required time                         -1.570    
-                         arrival time                           1.765    
+                         required time                         -1.573    
+                         arrival time                           1.760    
   -------------------------------------------------------------------
-                         slack                                  0.194    
+                         slack                                  0.187    
+
+Slack (MET) :             0.188ns  (arrival time - required time)
+  Source:                 led_height_control_instance/step_motor_control_instance/msec_clk/cnt_clksource_reg[0]/C
+                            (falling edge-triggered cell FDCE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            led_height_control_instance/step_motor_control_instance/msec_clk/cnt_clksource_reg[1]/D
+                            (falling edge-triggered cell FDCE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Path Group:             sys_clk_pin
+  Path Type:              Hold (Min at Fast Process Corner)
+  Requirement:            0.000ns  (sys_clk_pin fall@5.000ns - sys_clk_pin fall@5.000ns)
+  Data Path Delay:        0.325ns  (logic 0.191ns (58.834%)  route 0.134ns (41.166%))
+  Logic Levels:           1  (LUT3=1)
+  Clock Path Skew:        0.013ns (DCD - SCD - CPR)
+    Destination Clock Delay (DCD):    1.977ns = ( 6.977 - 5.000 ) 
+    Source Clock Delay      (SCD):    1.465ns = ( 6.465 - 5.000 ) 
+    Clock Pessimism Removal (CPR):    0.499ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock sys_clk_pin fall edge)
+                                                      5.000     5.000 f  
+    W5                                                0.000     5.000 f  clk (IN)
+                         net (fo=0)                   0.000     5.000    clk
+    W5                   IBUF (Prop_ibuf_I_O)         0.226     5.226 f  clk_IBUF_inst/O
+                         net (fo=1, routed)           0.631     5.858    clk_IBUF
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.026     5.884 f  clk_IBUF_BUFG_inst/O
+                         net (fo=800, routed)         0.582     6.465    led_height_control_instance/step_motor_control_instance/msec_clk/CLK
+    SLICE_X3Y24          FDCE                                         r  led_height_control_instance/step_motor_control_instance/msec_clk/cnt_clksource_reg[0]/C  (IS_INVERTED)
+  -------------------------------------------------------------------    -------------------
+    SLICE_X3Y24          FDCE (Prop_fdce_C_Q)         0.146     6.611 r  led_height_control_instance/step_motor_control_instance/msec_clk/cnt_clksource_reg[0]/Q
+                         net (fo=8, routed)           0.134     6.745    led_height_control_instance/step_motor_control_instance/msec_clk/cnt_clksource_reg[0]
+    SLICE_X2Y24          LUT3 (Prop_lut3_I1_O)        0.045     6.790 r  led_height_control_instance/step_motor_control_instance/msec_clk/cnt_clksource[1]_i_1/O
+                         net (fo=1, routed)           0.000     6.790    led_height_control_instance/step_motor_control_instance/msec_clk/p_0_in__2[1]
+    SLICE_X2Y24          FDCE                                         r  led_height_control_instance/step_motor_control_instance/msec_clk/cnt_clksource_reg[1]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock sys_clk_pin fall edge)
+                                                      5.000     5.000 f  
+    W5                                                0.000     5.000 f  clk (IN)
+                         net (fo=0)                   0.000     5.000    clk
+    W5                   IBUF (Prop_ibuf_I_O)         0.414     5.414 f  clk_IBUF_inst/O
+                         net (fo=1, routed)           0.685     6.099    clk_IBUF
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.029     6.128 f  clk_IBUF_BUFG_inst/O
+                         net (fo=800, routed)         0.850     6.977    led_height_control_instance/step_motor_control_instance/msec_clk/CLK
+    SLICE_X2Y24          FDCE                                         r  led_height_control_instance/step_motor_control_instance/msec_clk/cnt_clksource_reg[1]/C  (IS_INVERTED)
+                         clock pessimism             -0.499     6.478    
+    SLICE_X2Y24          FDCE (Hold_fdce_C_D)         0.124     6.602    led_height_control_instance/step_motor_control_instance/msec_clk/cnt_clksource_reg[1]
+  -------------------------------------------------------------------
+                         required time                         -6.602    
+                         arrival time                           6.790    
+  -------------------------------------------------------------------
+                         slack                                  0.188    
+
+Slack (MET) :             0.200ns  (arrival time - required time)
+  Source:                 led_height_control_instance/step_motor_control_instance/usec_clk/ed/ff_cur_reg/C
+                            (falling edge-triggered cell FDCE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            led_height_control_instance/step_motor_control_instance/usec_clk/ed/ff_old_reg/D
+                            (falling edge-triggered cell FDCE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Path Group:             sys_clk_pin
+  Path Type:              Hold (Min at Fast Process Corner)
+  Requirement:            0.000ns  (sys_clk_pin fall@5.000ns - sys_clk_pin fall@5.000ns)
+  Data Path Delay:        0.282ns  (logic 0.146ns (51.777%)  route 0.136ns (48.223%))
+  Logic Levels:           0  
+  Clock Path Skew:        0.000ns (DCD - SCD - CPR)
+    Destination Clock Delay (DCD):    1.978ns = ( 6.978 - 5.000 ) 
+    Source Clock Delay      (SCD):    1.466ns = ( 6.466 - 5.000 ) 
+    Clock Pessimism Removal (CPR):    0.512ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock sys_clk_pin fall edge)
+                                                      5.000     5.000 f  
+    W5                                                0.000     5.000 f  clk (IN)
+                         net (fo=0)                   0.000     5.000    clk
+    W5                   IBUF (Prop_ibuf_I_O)         0.226     5.226 f  clk_IBUF_inst/O
+                         net (fo=1, routed)           0.631     5.858    clk_IBUF
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.026     5.884 f  clk_IBUF_BUFG_inst/O
+                         net (fo=800, routed)         0.583     6.466    led_height_control_instance/step_motor_control_instance/usec_clk/ed/CLK
+    SLICE_X4Y27          FDCE                                         r  led_height_control_instance/step_motor_control_instance/usec_clk/ed/ff_cur_reg/C  (IS_INVERTED)
+  -------------------------------------------------------------------    -------------------
+    SLICE_X4Y27          FDCE (Prop_fdce_C_Q)         0.146     6.612 r  led_height_control_instance/step_motor_control_instance/usec_clk/ed/ff_cur_reg/Q
+                         net (fo=2, routed)           0.136     6.748    led_height_control_instance/step_motor_control_instance/usec_clk/ed/msec_clk/ed_source/p_0_in[1]
+    SLICE_X4Y27          FDCE                                         r  led_height_control_instance/step_motor_control_instance/usec_clk/ed/ff_old_reg/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock sys_clk_pin fall edge)
+                                                      5.000     5.000 f  
+    W5                                                0.000     5.000 f  clk (IN)
+                         net (fo=0)                   0.000     5.000    clk
+    W5                   IBUF (Prop_ibuf_I_O)         0.414     5.414 f  clk_IBUF_inst/O
+                         net (fo=1, routed)           0.685     6.099    clk_IBUF
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.029     6.128 f  clk_IBUF_BUFG_inst/O
+                         net (fo=800, routed)         0.851     6.978    led_height_control_instance/step_motor_control_instance/usec_clk/ed/CLK
+    SLICE_X4Y27          FDCE                                         r  led_height_control_instance/step_motor_control_instance/usec_clk/ed/ff_old_reg/C  (IS_INVERTED)
+                         clock pessimism             -0.512     6.466    
+    SLICE_X4Y27          FDCE (Hold_fdce_C_D)         0.082     6.548    led_height_control_instance/step_motor_control_instance/usec_clk/ed/ff_old_reg
+  -------------------------------------------------------------------
+                         required time                         -6.548    
+                         arrival time                           6.748    
+  -------------------------------------------------------------------
+                         slack                                  0.200    
 
 
 
@@ -1428,34 +1426,34 @@ Sources:            { clk }
 Check Type        Corner  Lib Pin    Reference Pin  Required(ns)  Actual(ns)  Slack(ns)  Location       Pin
 Min Period        n/a     XADC/DCLK  n/a            4.000         10.000      6.000      XADC_X0Y0      cds_and_water_level_control_instance/xadc_cds/inst/DCLK
 Min Period        n/a     BUFG/I     n/a            2.155         10.000      7.845      BUFGCTRL_X0Y0  clk_IBUF_BUFG_inst/I
-Min Period        n/a     FDRE/C     n/a            1.000         10.000      9.000      SLICE_X37Y73   btn0/clk_div_reg[0]/C
-Min Period        n/a     FDRE/C     n/a            1.000         10.000      9.000      SLICE_X37Y75   btn0/clk_div_reg[10]/C
-Min Period        n/a     FDRE/C     n/a            1.000         10.000      9.000      SLICE_X37Y75   btn0/clk_div_reg[11]/C
-Min Period        n/a     FDRE/C     n/a            1.000         10.000      9.000      SLICE_X37Y76   btn0/clk_div_reg[12]/C
-Min Period        n/a     FDRE/C     n/a            1.000         10.000      9.000      SLICE_X37Y76   btn0/clk_div_reg[13]/C
-Min Period        n/a     FDRE/C     n/a            1.000         10.000      9.000      SLICE_X37Y76   btn0/clk_div_reg[14]/C
-Min Period        n/a     FDRE/C     n/a            1.000         10.000      9.000      SLICE_X37Y76   btn0/clk_div_reg[15]/C
-Min Period        n/a     FDRE/C     n/a            1.000         10.000      9.000      SLICE_X37Y77   btn0/clk_div_reg[16]/C
-Low Pulse Width   Slow    FDCE/C     n/a            0.500         5.000       4.500      SLICE_X33Y70   led_control_instance/control_auto_led_pwm/cnt_duty_reg[5]/C
-Low Pulse Width   Slow    FDCE/C     n/a            0.500         5.000       4.500      SLICE_X33Y70   led_control_instance/control_auto_led_pwm/cnt_duty_reg[6]/C
-Low Pulse Width   Slow    FDCE/C     n/a            0.500         5.000       4.500      SLICE_X33Y70   led_control_instance/control_auto_led_pwm/cnt_duty_reg[7]/C
-Low Pulse Width   Slow    FDCE/C     n/a            0.500         5.000       4.500      SLICE_X30Y81   led_control_instance/control_manual_led_pwm/cnt_duty_reg[17]/C
-Low Pulse Width   Slow    FDCE/C     n/a            0.500         5.000       4.500      SLICE_X30Y81   led_control_instance/control_manual_led_pwm/cnt_duty_reg[18]/C
-Low Pulse Width   Slow    FDCE/C     n/a            0.500         5.000       4.500      SLICE_X30Y81   led_control_instance/control_manual_led_pwm/cnt_duty_reg[19]/C
-Low Pulse Width   Slow    FDCE/C     n/a            0.500         5.000       4.500      SLICE_X31Y79   led_control_instance/control_manual_led_pwm/cnt_temp_reg[28]/C
-Low Pulse Width   Slow    FDCE/C     n/a            0.500         5.000       4.500      SLICE_X31Y79   led_control_instance/control_manual_led_pwm/cnt_temp_reg[29]/C
-Low Pulse Width   Slow    FDCE/C     n/a            0.500         5.000       4.500      SLICE_X31Y79   led_control_instance/control_manual_led_pwm/cnt_temp_reg[30]/C
-Low Pulse Width   Slow    FDCE/C     n/a            0.500         5.000       4.500      SLICE_X31Y79   led_control_instance/control_manual_led_pwm/cnt_temp_reg[31]/C
-High Pulse Width  Slow    FDCE/C     n/a            0.500         5.000       4.500      SLICE_X32Y70   led_control_instance/auto_duty_reg[1]/C
-High Pulse Width  Slow    FDCE/C     n/a            0.500         5.000       4.500      SLICE_X32Y70   led_control_instance/auto_duty_reg[7]/C
-High Pulse Width  Slow    FDPE/C     n/a            0.500         5.000       4.500      SLICE_X50Y36   electric_fan_control_instance/dir_duty_reg[1]/C
-High Pulse Width  Slow    FDPE/C     n/a            0.500         5.000       4.500      SLICE_X50Y36   electric_fan_control_instance/dir_duty_reg[2]/C
-High Pulse Width  Slow    FDPE/C     n/a            0.500         5.000       4.500      SLICE_X50Y36   electric_fan_control_instance/dir_duty_reg[3]/C
-High Pulse Width  Slow    FDCE/C     n/a            0.500         5.000       4.500      SLICE_X50Y36   electric_fan_control_instance/dir_duty_reg[4]/C
-High Pulse Width  Slow    FDCE/C     n/a            0.500         5.000       4.500      SLICE_X50Y36   electric_fan_control_instance/direction_of_fan_reg/C
-High Pulse Width  Slow    FDCE/C     n/a            0.500         5.000       4.500      SLICE_X45Y71   window_control_instance/pwm_servo_motor/edge_detector_0/ff_cur_reg/C
-High Pulse Width  Slow    FDCE/C     n/a            0.500         5.000       4.500      SLICE_X43Y69   window_control_instance/pwm_servo_motor/edge_detector_0/ff_old_reg/C
-High Pulse Width  Slow    FDCE/C     n/a            0.500         5.000       4.500      SLICE_X46Y71   window_control_instance/pwm_servo_motor/cnt_sysclk_reg[20]/C
+Min Period        n/a     FDRE/C     n/a            1.000         10.000      9.000      SLICE_X49Y70   btn0/clk_div_reg[0]/C
+Min Period        n/a     FDRE/C     n/a            1.000         10.000      9.000      SLICE_X49Y72   btn0/clk_div_reg[10]/C
+Min Period        n/a     FDRE/C     n/a            1.000         10.000      9.000      SLICE_X49Y72   btn0/clk_div_reg[11]/C
+Min Period        n/a     FDRE/C     n/a            1.000         10.000      9.000      SLICE_X49Y73   btn0/clk_div_reg[12]/C
+Min Period        n/a     FDRE/C     n/a            1.000         10.000      9.000      SLICE_X49Y73   btn0/clk_div_reg[13]/C
+Min Period        n/a     FDRE/C     n/a            1.000         10.000      9.000      SLICE_X49Y73   btn0/clk_div_reg[14]/C
+Min Period        n/a     FDRE/C     n/a            1.000         10.000      9.000      SLICE_X49Y73   btn0/clk_div_reg[15]/C
+Min Period        n/a     FDRE/C     n/a            1.000         10.000      9.000      SLICE_X49Y74   btn0/clk_div_reg[16]/C
+Low Pulse Width   Slow    FDPE/C     n/a            0.500         5.000       4.500      SLICE_X54Y35   electric_fan_control_instance/dir_state_reg[0]/C
+Low Pulse Width   Slow    FDCE/C     n/a            0.500         5.000       4.500      SLICE_X54Y35   electric_fan_control_instance/dir_state_reg[1]/C
+Low Pulse Width   Slow    FDCE/C     n/a            0.500         5.000       4.500      SLICE_X46Y40   electric_fan_control_instance/control_servo_pwm/cnt_temp_reg[0]/C
+Low Pulse Width   Slow    FDCE/C     n/a            0.500         5.000       4.500      SLICE_X46Y42   electric_fan_control_instance/control_servo_pwm/cnt_temp_reg[10]/C
+Low Pulse Width   Slow    FDCE/C     n/a            0.500         5.000       4.500      SLICE_X46Y42   electric_fan_control_instance/control_servo_pwm/cnt_temp_reg[11]/C
+Low Pulse Width   Slow    FDCE/C     n/a            0.500         5.000       4.500      SLICE_X64Y87   lcd_display_control_instance/i2c_lcd_send_byte_0/I2C_master_0/counter_usec5_reg[0]/C
+Low Pulse Width   Slow    FDCE/C     n/a            0.500         5.000       4.500      SLICE_X64Y87   lcd_display_control_instance/i2c_lcd_send_byte_0/I2C_master_0/counter_usec5_reg[1]/C
+Low Pulse Width   Slow    FDCE/C     n/a            0.500         5.000       4.500      SLICE_X64Y87   lcd_display_control_instance/i2c_lcd_send_byte_0/I2C_master_0/counter_usec5_reg[2]/C
+Low Pulse Width   Slow    FDCE/C     n/a            0.500         5.000       4.500      SLICE_X36Y70   led_control_instance/control_manual_led_pwm/cnt_temp_reg[0]/C
+Low Pulse Width   Slow    FDCE/C     n/a            0.500         5.000       4.500      SLICE_X46Y40   electric_fan_control_instance/control_servo_pwm/cnt_temp_reg[1]/C
+High Pulse Width  Slow    FDCE/C     n/a            0.500         5.000       4.500      SLICE_X51Y35   electric_fan_control_instance/dir_duty_reg[4]/C
+High Pulse Width  Slow    FDCE/C     n/a            0.500         5.000       4.500      SLICE_X51Y35   electric_fan_control_instance/direction_of_fan_reg/C
+High Pulse Width  Slow    FDCE/C     n/a            0.500         5.000       4.500      SLICE_X62Y87   lcd_display_control_instance/i2c_lcd_send_byte_0/usec_clk/cnt_sysclk_reg[0]/C
+High Pulse Width  Slow    FDCE/C     n/a            0.500         5.000       4.500      SLICE_X63Y87   lcd_display_control_instance/i2c_lcd_send_byte_0/usec_clk/cnt_sysclk_reg[1]/C
+High Pulse Width  Slow    FDCE/C     n/a            0.500         5.000       4.500      SLICE_X62Y87   lcd_display_control_instance/i2c_lcd_send_byte_0/usec_clk/cnt_sysclk_reg[2]/C
+High Pulse Width  Slow    FDCE/C     n/a            0.500         5.000       4.500      SLICE_X62Y87   lcd_display_control_instance/i2c_lcd_send_byte_0/usec_clk/cnt_sysclk_reg[3]/C
+High Pulse Width  Slow    FDCE/C     n/a            0.500         5.000       4.500      SLICE_X62Y87   lcd_display_control_instance/i2c_lcd_send_byte_0/usec_clk/cnt_sysclk_reg[4]/C
+High Pulse Width  Slow    FDCE/C     n/a            0.500         5.000       4.500      SLICE_X62Y86   lcd_display_control_instance/i2c_lcd_send_byte_0/usec_clk/cnt_sysclk_reg[5]/C
+High Pulse Width  Slow    FDCE/C     n/a            0.500         5.000       4.500      SLICE_X62Y86   lcd_display_control_instance/i2c_lcd_send_byte_0/usec_clk/cnt_sysclk_reg[6]/C
+High Pulse Width  Slow    FDCE/C     n/a            0.500         5.000       4.500      SLICE_X59Y61   dht11_control_instance/dth11/usec_clk/ed/ff_old_reg/C
 
 
 

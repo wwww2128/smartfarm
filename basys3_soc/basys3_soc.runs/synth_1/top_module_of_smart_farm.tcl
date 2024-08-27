@@ -39,9 +39,10 @@ read_verilog -library xil_defaultlib {
   E:/Work/vivado_2019/basys3_soc/basys3_soc.srcs/sources_1/new/controler.v
   E:/Work/vivado_2019/basys3_soc/basys3_soc.srcs/sources_1/new/exam01_combinational_logic.v
   E:/Work/vivado_2019/basys3_soc/basys3_soc.srcs/sources_1/new/exam02_sequential_logic.v
+  E:/Work/vivado_2019/basys3_soc/basys3_soc.srcs/sources_1/new/i2c_lcd_send_byte.v
   E:/Work/vivado_2019/basys3_soc/basys3_soc.srcs/sources_1/new/top_module_of_smart_farm.v
 }
-read_ip -quiet e:/Work/vivado_2019/basys3_soc/basys3_soc.srcs/sources_1/ip/xadc_wiz_10/xadc_wiz_10.xci
+read_ip -quiet E:/Work/vivado_2019/basys3_soc/basys3_soc.srcs/sources_1/ip/xadc_wiz_10/xadc_wiz_10.xci
 set_property used_in_implementation false [get_files -all e:/Work/vivado_2019/basys3_soc/basys3_soc.srcs/sources_1/ip/xadc_wiz_10/xadc_wiz_10_ooc.xdc]
 set_property used_in_implementation false [get_files -all e:/Work/vivado_2019/basys3_soc/basys3_soc.srcs/sources_1/ip/xadc_wiz_10/xadc_wiz_10.xdc]
 

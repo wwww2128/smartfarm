@@ -77,7 +77,7 @@ set rc [catch {
   set_property ip_output_repo E:/Work/vivado_2019/basys3_soc/basys3_soc.cache/ip [current_project]
   set_property ip_cache_permissions {read write} [current_project]
   add_files -quiet E:/Work/vivado_2019/basys3_soc/basys3_soc.runs/synth_1/top_module_of_smart_farm.dcp
-  read_ip -quiet e:/Work/vivado_2019/basys3_soc/basys3_soc.srcs/sources_1/ip/xadc_wiz_10/xadc_wiz_10.xci
+  read_ip -quiet E:/Work/vivado_2019/basys3_soc/basys3_soc.srcs/sources_1/ip/xadc_wiz_10/xadc_wiz_10.xci
   read_xdc E:/Work/vivado_2019/basys3_soc/basys3_soc.srcs/constrs_1/imports/verilog/Basys-3-Master.xdc
   link_design -top top_module_of_smart_farm -part xc7a35tcpg236-1
   close_msg_db -file init_design.pb
