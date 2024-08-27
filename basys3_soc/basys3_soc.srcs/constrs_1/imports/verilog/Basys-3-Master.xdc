@@ -75,8 +75,8 @@ set_property -dict { PACKAGE_PIN U17   IOSTANDARD LVCMOS33 } [get_ports btn[3]]
 set_property -dict { PACKAGE_PIN J1   IOSTANDARD LVCMOS33 } [get_ports {dht11_data}];#Sch name = JA1
 set_property -dict { PACKAGE_PIN L2   IOSTANDARD LVCMOS33 } [get_ports {hc_sr04_echo}];#Sch name = JA2
 set_property -dict { PACKAGE_PIN J2   IOSTANDARD LVCMOS33 } [get_ports {hc_sr04_trig}];#Sch name = JA3
-#set_property -dict { PACKAGE_PIN G2   IOSTANDARD LVCMOS33 } [get_ports {motor_pwm}];#Sch name = JA4
-#set_property -dict { PACKAGE_PIN H1   IOSTANDARD LVCMOS33 } [get_ports {led_r}];#Sch name = JA7
+set_property -dict { PACKAGE_PIN G2   IOSTANDARD LVCMOS33 } [get_ports {scl}];#Sch name = JA4
+set_property -dict { PACKAGE_PIN H1   IOSTANDARD LVCMOS33 } [get_ports {sda}];#Sch name = JA7
 #set_property -dict { PACKAGE_PIN K2   IOSTANDARD LVCMOS33 } [get_ports {led_g}];#Sch name = JA8
 set_property -dict { PACKAGE_PIN H2   IOSTANDARD LVCMOS33 } [get_ports {led_pwm}];#Sch name = JA9
 set_property -dict { PACKAGE_PIN G3   IOSTANDARD LVCMOS33 } [get_ports {warning_water_level_led}];#Sch name = JA10
@@ -95,10 +95,10 @@ set_property -dict { PACKAGE_PIN G3   IOSTANDARD LVCMOS33 } [get_ports {warning_
 set_property -dict { PACKAGE_PIN K17   IOSTANDARD LVCMOS33 } [get_ports {window_pwm}];#Sch name = JC1
 set_property -dict { PACKAGE_PIN M18   IOSTANDARD LVCMOS33 } [get_ports {fan_pwm}];#Sch name = JC2
 set_property -dict { PACKAGE_PIN N17   IOSTANDARD LVCMOS33 } [get_ports {fan_dir_pwm}];#Sch name = JC3
-#set_property -dict { PACKAGE_PIN P18   IOSTANDARD LVCMOS33 } [get_ports {hc_sr04_trig}];#Sch name = JC4
-#set_property -dict { PACKAGE_PIN L17   IOSTANDARD LVCMOS33 } [get_ports {JC[4]}];#Sch name = JC7
-#set_property -dict { PACKAGE_PIN M19   IOSTANDARD LVCMOS33 } [get_ports {JC[5]}];#Sch name = JC8
-#set_property -dict { PACKAGE_PIN P17   IOSTANDARD LVCMOS33 } [get_ports {JC[6]}];#Sch name = JC9
+set_property -dict { PACKAGE_PIN P18   IOSTANDARD LVCMOS33 } [get_ports {half_step_mode_sequence[0]}];#Sch name = JC4
+set_property -dict { PACKAGE_PIN L17   IOSTANDARD LVCMOS33 } [get_ports {half_step_mode_sequence[1]}];#Sch name = JC7
+set_property -dict { PACKAGE_PIN M19   IOSTANDARD LVCMOS33 } [get_ports {half_step_mode_sequence[2]}];#Sch name = JC8
+set_property -dict { PACKAGE_PIN P17   IOSTANDARD LVCMOS33 } [get_ports {half_step_mode_sequence[3]}];#Sch name = JC9
 set_property -dict { PACKAGE_PIN R18   IOSTANDARD LVCMOS33 } [get_ports {pump_on_off}];#Sch name = JC10
 
 ##Pmod Header JXADC

@@ -35,11 +35,10 @@ module top_module_of_smart_farm (
     output led_pwm,
     output warning_water_level_led,
     output pump_on_off,
+    output [3:0] half_step_mode_sequence,
+    output scl, sda,
     output [3:0] com,
-    output [7:0] seg_7,
-    output led_debug);
-    
-    assign led_debug = water_flag;
+    output [7:0] seg_7);
     
     // Button Control module
     wire btn_led_light, btn_window_mode, btn_electric_fan_power;
@@ -49,11 +48,12 @@ module top_module_of_smart_farm (
     
     // Declare Switch
     wire sw_led_up, sw_led_down, sw_window_open, sw_window_close, sw_cntr_electirc_fan_dir, sw_electric_fan_mode;
-    wire sw_led_mode;
-    assign sw_led_up = sw[0];
-    assign sw_led_down = sw[1];
-    assign sw_window_open = sw[2];
-    assign sw_window_close = sw[3];
+    wire sw_led_mode, sw_led_height_mode;
+    assign sw_led_height_mode = sw[0];
+    assign sw_led_up = sw[1];
+    assign sw_led_down = sw[2];
+    assign sw_window_open = sw[6];
+    assign sw_window_close = sw[7];
     assign sw_led_mode = sw[10];
     assign sw_cntr_electirc_fan_dir = sw[14];
     assign sw_electric_fan_mode = sw[15];
@@ -74,7 +74,11 @@ module top_module_of_smart_farm (
     window_control window_control_instance (.clk(clk), .reset_p(reset_p), .dht11_value(dht11_value), .sw_window_open(sw_window_open), .sw_window_close(sw_window_close), .btn_window_control(btn_window_mode), .window_pwm(window_pwm));
     electric_fan_control electric_fan_control_instance (.clk(clk), .reset_p(reset_p), .sw_cntr_electirc_fan_dir(sw_cntr_electirc_fan_dir), .sw_electric_fan_mode(sw_electric_fan_mode), .dht11_value(dht11_value), .btn_electric_fan_power(btn_electric_fan_power), .fan_pwm(fan_pwm), .fan_dir_pwm(fan_dir_pwm));
     led_control led_control_instance (.clk(clk), .reset_p(reset_p), .sw_led_mode(sw_led_mode), .btn_led_light(btn_led_light), .water_flag(water_flag), .sunlight_value(sunlight_value), .led_pwm(led_pwm), .warning_water_level_led(warning_water_level_led));
-    water_pump water_pump_instance (.clk(clk), .reset_p(reset_p), .water_flag(water_flag), .pump_on_off(pump_on_off));
+    water_pump water_pump_instance (.clk(clk), .reset_p(reset_p), .water_flag(water_flag), .pump_on_off(pump_on_off));  
+    led_height_control led_height_control_instance ( .clk(clk), .reset_p(reset_p), .sw_led_height_mode(sw_led_height_mode), .led_up_down(led_up_down), .distance_between_plant_and_led(distance_between_plant_and_led),
+                        .sw_led_up(sw_led_up), .sw_led_down(sw_led_down), .half_step_mode_sequence(half_step_mode_sequence));
+                        
+     lcd_display_control lcd_display_control_instance (.clk(clk), .reset_p(reset_p), .dht11_value(dht11_value), .sunlight_value(sunlight_value), .water_flag(water_flag), .scl(scl), .sda(sda));
     
     // Show temperature, humidity to FND
     show_the_fnd show_the_fnd_instance(.clk(clk), .reset_p(reset_p), .hex_value(dht11_value), .sunlight_value(sunlight_value), .com(com), .seg_7(seg_7));
@@ -98,10 +102,10 @@ module show_the_fnd (
     // Convert from binary to BCD Code
     wire [15:0] temperature_bcd, humidity_bcd;
     bin_to_dec bcd_temp(.bin({4'b0, hex_value[15:8]}),  .bcd(temperature_bcd));
-    bin_to_dec bcd_humi(.bin({4'b0, sunlight_value[7:0]}),  .bcd(humidity_bcd));
+    bin_to_dec bcd_humi(.bin({4'b0, hex_value[7:0]}),  .bcd(humidity_bcd));
     
     // FND Control module
-    fnd_cntr fnd_cntr_instance (.clk(clk), .reset_p(reset_p), .value(humidity_bcd), .com(com), .seg_7(seg_7));
+    fnd_cntr fnd_cntr_instance (.clk(clk), .reset_p(reset_p), .value({temperature_bcd[7:0], humidity_bcd[7:0]}), .com(com), .seg_7(seg_7));
     
 endmodule
 
@@ -125,9 +129,9 @@ module hc_sr04_control (
     wire [21:0] distance_cm;
     HC_SR04_cntr HC_SR04_cntr_0(.clk(clk), .reset_p(reset_p), .hc_sr04_echo(hc_sr04_echo), .hc_sr04_trig(hc_sr04_trig), .distance(distance_cm),  .led_debug(led_debug));
     
-    // 만약 식물 간에 거리가 10cm 미만이면 led_up_down = 1
-    //      식물 간에 거리가 10cm 이상이면 led_uo_down = 0
-    assign led_up_down = (distance_cm < 22'd10) ? 1 : 0;
+    // 만약 식물 간에 거리가 5cm 미만이면 led_up_down = 1
+    //      식물 간에 거리가 5cm 이상이면 led_uo_down = 0
+    assign led_up_down = (distance_cm < 22'd5) ? 1 : 0;
     
     // 현재 식물과 LED간에 거리를 출력한다.
     assign distance_between_plant_and_led = distance_cm[7:0];
@@ -473,27 +477,131 @@ module led_control (
     
 endmodule
 
-
-
-// LCD Display Control
-module lcd_display_control (
+// LED Height Control module
+module led_height_control(
     input clk, reset_p,
-    input [15:0] dht11_value,
-    input [7:0] sunlight_value,
-    input water_flag,
-    output scl, sda );
+    input sw_led_height_mode,
+    input led_up_down,
+    input [7:0] distance_between_plant_and_led,
+    input sw_led_up, sw_led_down,
+    output [3:0] half_step_mode_sequence);
+    
+    // Declare necessary variables
+    reg up_down, motor_enable;
+    
+    // Select up_down, motor_enable
+    always @(posedge clk or posedge reset_p) begin
+        if(reset_p) begin
+            up_down = 1;
+            motor_enable = 0;
+        end
+        else begin
+            if(sw_led_up) begin
+                up_down = 1;
+                if(sw_led_down) motor_enable = 0;
+                else motor_enable = 1;
+            end
+            else if(sw_led_down) begin
+                up_down = 0;
+                if(sw_led_up) motor_enable = 0;
+                else motor_enable = 1;
+            end
+            else motor_enable = 0;
+        end
+    end
     
     
-    
+    // Instance of Step motor control module
+    step_motor_control step_motor_control_instance (.clk(clk), .reset_p(reset_p), .up_down(up_down), .motor_enable(motor_enable), .half_step_mode_sequence(half_step_mode_sequence));
 endmodule
 
-// LED Height Control module
-module led_height_control (
+
+// Step Motor Control Module
+module step_motor_control (
     input clk, reset_p,
-    input led_up_down,
-    input sw_led_up, sw_led_down,
-    output led_height_pwm );
-        
+    input up_down,
+    input motor_enable,
+    output reg [3:0] half_step_mode_sequence );
+    
+    // 1msec clk
+    wire clk_1usec, clk_1mssec;
+    clock_div_100 usec_clk( .clk(clk), .reset_p(reset_p), .clk_div_100(clk_1usec));
+    clock_div_1000 msec_clk(.clk(clk), .reset_p(reset_p), .clk_source(clk_1usec), .clk_div_1000_nedge(clk_1mssec));
+    
+    // msecond counter
+    reg [1:0] counter;
+    reg counter_enable;
+    
+    always @(negedge clk or posedge reset_p) begin
+        if(reset_p) counter = 0;
+        else if(clk_1mssec && counter_enable) counter = counter + 1;
+        else if(!counter_enable) counter = 0;       
+    end
+    
+    // Control step motor
+    // Half step 시퀀스
+    wire [3:0] half_step_sequence [0:7];
+    assign half_step_sequence[0] = 4'b1001; // 0x9
+    assign half_step_sequence[1] = 4'b0001; // 0x1
+    assign half_step_sequence[2] = 4'b0011; // 0x3
+    assign half_step_sequence[3] = 4'b0010; // 0x2
+    assign half_step_sequence[4] = 4'b0110; // 0x6
+    assign half_step_sequence[5] = 4'b0100; // 0x4
+    assign half_step_sequence[6] = 4'b1100; // 0xC
+    assign half_step_sequence[7] = 4'b1000; // 0x8
+    
+    // Declare State Machine
+    parameter S_SEND_SEQUENCE = 2'b01;
+    parameter S_WAIT_1MS = 2'b10;
+    
+    reg [1:0] state, next_state;
+    
+    // 언제 다음 state로 전이되는가?
+    always @(negedge clk or posedge reset_p) begin
+        if(reset_p) state = S_SEND_SEQUENCE;
+        else state = next_state;
+    end
+    
+    // Delcare Data count
+    reg [2:0] reg_cnt_data;
+    
+    always @(posedge clk or posedge reset_p) begin
+        if(reset_p) begin
+            counter_enable = 0; 
+            reg_cnt_data = 0;
+            next_state = S_SEND_SEQUENCE;
+        end
+        else begin
+            if(motor_enable) begin
+                case (state)
+                    S_SEND_SEQUENCE : begin
+                        case(up_down) 
+                            1 : begin
+                                half_step_mode_sequence = half_step_sequence[reg_cnt_data];
+                                reg_cnt_data = reg_cnt_data + 1;
+                            end
+                    
+                            0 : begin
+                                half_step_mode_sequence = half_step_sequence[reg_cnt_data];
+                                reg_cnt_data = reg_cnt_data - 1;
+                            end 
+                        endcase
+                        
+                        next_state = S_WAIT_1MS;
+                    end
+                    
+                    S_WAIT_1MS : begin
+                        if(counter < 2'd1) 
+                            counter_enable = 1;
+                        else begin
+                            counter_enable = 0;
+                            next_state = S_SEND_SEQUENCE;
+                        end
+                    end   
+                endcase
+            end
+        end
+    end
     
 endmodule
 

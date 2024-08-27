@@ -19,201 +19,313 @@
 // 
 //////////////////////////////////////////////////////////////////////////////////
 
-// I2C Text 전송
-module i2c_txtld_top (
+module lcd_display_control (
     input clk, reset_p,
-    output scl, sda,
-    output [15:0] led_debug
-);
-
+    input [15:0] dht11_value,
+    input [7:0] sunlight_value,
+    input water_flag,
+    output scl, sda);
+    
+    // Convert from binary to BCD
+    wire [7:0] temperature, humidity;
+    wire [15:0] temperature_bcd, humidity_bcd;
+    
+    assign temperature = dht11_value[15:8];
+    assign humidity = dht11_value[7:0];
+    
+    bin_to_dec bcd_temp(.bin({4'b0, temperature}),  .bcd(temperature_bcd));
+    bin_to_dec bcd_humi(.bin({4'b0, humidity}),  .bcd(humidity_bcd));
+    
     // Declare state machine
-    parameter IDLE = 6'b00_0001;
-    parameter INIT = 6'b00_0010;
-    parameter SEND_DATA = 6'b00_0100;
-    parameter SEND_COMMAND = 6'b00_1000;
-    parameter SEND_STRING = 6'b01_0000;
+    parameter IDLE = 9'b0_0000_0001;
+    parameter INIT = 9'b0_0000_0010;
+    parameter SEND_STRING_TEMPERATURE = 9'b0_0000_0100;
+    parameter SEND_TEMPERATURE_DATA = 9'b0_0000_1000;
+    parameter SEND_COMMAND_NEXT_LINE = 9'b0_0001_0000;
+    parameter SEND_STRING_HUMIDITY = 9'b0_0010_0000;
+    parameter SEND_HUMIDITY_DATA = 9'b0_0100_0000;
+    parameter WAIT_1SEC = 9'b0_1000_0000;
+    parameter SEND_COMMAND = 9'b1_0000_0000;
 
-    // Get usecond clock
-    wire clk_usec;
-    clock_div_100 usec_clk (
-        .clk(clk),
-        .reset_p(reset_p),
-        .clk_div_100_nedge(clk_usec)
-    );
-
-    // 마이크로세컨드 단위로 카운트
-    reg [21:0] count_usec;
-    reg count_usec_en;
-
-    always @(negedge clk or posedge reset_p) begin
-        if (reset_p)
-            count_usec = 0;
-        else if (clk_usec && count_usec_en)
-            count_usec = count_usec + 1;
-        else if (!count_usec_en)
-            count_usec = 0;
-    end
-
-    // Declare register of text
-    reg [7:0] send_buffer;
-
-    // Declare variables
-    reg rs, send;
-    wire busy;
-
-    // Instance of i2c lcd send byte
-    i2c_lcd_send_byte i2c_lcd_send_byte_0 (
-        .clk(clk),
-        .reset_p(reset_p),
-        .addr(7'h27),
-        .send_buffer(send_buffer),
-        .rs(rs),
-        .send(send),
-        .scl(scl),
-        .sda(sda),
-        .busy(busy),
-        .led(led_debug)
-    );
-
-    // Declare state, next state
-    reg [5:0] state, next_state;
-
-    // State transition
-    always @(negedge clk or posedge reset_p) begin
-        if (reset_p)
-            state = IDLE;
-        else
-            state = next_state;
-    end
-
-    // 초기화 플래그 레지스터
-    reg init_flag;
-
-    // Counting for data
-    reg [3:0] cnt_data;
-
-    // 문자열 Register
-    reg [8*5-1:0] hello;
-    reg [3:0] cnt_string;
-
-    // 각 상태에 대한 동작 정의
-    always @(posedge clk or posedge reset_p) begin
-        if (reset_p) begin
-            next_state = IDLE;
-            init_flag = 0;
-            count_usec_en = 0;
-            cnt_data = 0;
-            rs = 0;
-            hello = "HELLO"; // C언어처럼 마지막에 NULL은 없다.
-            cnt_string = 0;
+      // Get usecond clock
+      wire clk_usec;
+      clock_div_100 usec_clk (.clk(clk), .reset_p(reset_p), .clk_div_100_nedge(clk_usec));
+        
+      // 마이크로세컨드 단위로 카운트 
+      // enable 이 1이면 카운트 동작 , 1이 아니면 0으로 카운트 초기화 
+      reg [21:0] count_usec;
+      reg count_usec_en;
+      always @(negedge clk or posedge reset_p)begin
+             if(reset_p) count_usec = 0;
+             else if(clk_usec && count_usec_en) count_usec = count_usec + 1;
+             else if(!count_usec_en) count_usec = 0;
         end
-        else begin
-            case (state)
-                // IDLE 상태
-                IDLE: begin
-                    if (init_flag) begin
-                        if (btn_pedge[0])
-                            next_state = SEND_DATA;
-                        if (btn_pedge[1])
-                            next_state = SEND_COMMAND;
-                        if (btn_pedge[2])
-                            next_state = SEND_STRING;                                           
-                    end
-                    else begin
-                        if (count_usec <= 22'd80_000) begin
-                            count_usec_en = 1;
-                        end
-                        else begin
-                            count_usec_en = 0;
-                            next_state = INIT;
-                        end
-                    end
-                end
-                
-                // INIT 상태
-                INIT: begin
-                    if (busy) begin
-                        send = 0;
-                        if (cnt_data >= 6) begin
-                            init_flag = 1;
-                            cnt_data = 0;
-                            next_state = IDLE;
-                        end
-                    end
-                    else if (!send) begin
-                        case (cnt_data)
-                            0: send_buffer = 8'h33;
-                            1: send_buffer = 8'h32;
-                            2: send_buffer = 8'h28; // 2줄, 5X8 Dots 사용
-                            3: send_buffer = 8'h0f; // Display: 1, Cursor: on + 깜빡임 
-                            4: send_buffer = 8'h01;
-                            5: send_buffer = 8'h06;
-                        endcase
-                        rs = 0;
-                        cnt_data = cnt_data + 1;
-                        send = 1;
-                    end
-                end
-                
-                // SEND_DATA 상태
-                SEND_DATA: begin
-                    if (busy) begin
-                        next_state = IDLE;
-                        send = 0;
-                        if (cnt_data >= 9)
-                            cnt_data = 0;
-                        else
-                            cnt_data = cnt_data + 1;
-                    end
-                    else begin
-                        send_buffer = "0" + cnt_data; // A의 아스키 코드
-                        rs = 1;
-                        send = 1;
-                    end
-                end
-                
-                // SEND_COMMAND 상태
-                SEND_COMMAND: begin
-                    if (busy) begin
-                        next_state = IDLE;
-                        send = 0;
-                        if (cnt_data >= 9)
-                            cnt_data = 0;
-                        else
-                            cnt_data = cnt_data + 1;
-                    end
-                    else begin
-                        send_buffer = 8'h14;
-                        rs = 0;
-                        send = 1;
-                    end
-                end
-                
-                // SEND_STRING 상태
-                SEND_STRING: begin
-                    if (busy) begin
-                        send = 0;
-                        if (cnt_string >= 5) begin
-                            cnt_string = 0;
-                            next_state = IDLE;
-                        end
-                    end
-                    else if (!send) begin
-                        case (cnt_string)
-                            0: send_buffer = hello[39 : 32];
-                            1: send_buffer = hello[31 : 24];
-                            2: send_buffer = hello[23 : 16];
-                            3: send_buffer = hello[15 : 8];
-                            4: send_buffer = hello[7 : 0];
-                        endcase
-                        rs = 1;
-                        cnt_string = cnt_string + 1;
-                        send = 1;
-                    end
-                end
-            endcase
+        
+        // Declare register of text
+        reg [7:0] send_buffer;
+        
+        // Declare varables
+        reg rs, send;
+        wire busy;
+        
+        //  instance of i2c lcd send byte 
+        i2c_lcd_send_byte i2c_lcd_send_byte_0 (.clk(clk), .reset_p(reset_p),
+                                        .addr(7'h27), .send_buffer(send_buffer), .rs(rs), .send(send),             
+                                        .scl(scl), .sda(sda), .busy(busy));                                   
+                                        
+        // Declare state, next state
+        reg [10:0] state, next_state;
+        
+        // 언제 다음 상태로 넘어가는가?
+        always @(negedge clk or posedge reset_p) begin
+                if(reset_p) state = IDLE;
+                else state = next_state;
         end
-    end
+    
+        // 초기화 했는지 여부를 나타내는 FLAG Register
+        reg init_flag, flag_reset;
+        
+        // Counting for data
+        reg [9:0] cnt_data ;
+        
+        // 문자열 Register
+        reg [14*8-1:0] str_temperature;
+        reg [11*8-1:0] str_humidity;
+        reg [9:0] cnt_string;
+        
+        // 각 상태에 대한 동작 정의
+        always @(posedge clk or posedge reset_p) begin
+                if(reset_p) begin
+                    next_state = IDLE;
+                    init_flag = 0;
+                    count_usec_en = 0;
+                    cnt_data = 0;
+                    rs = 0;
+                    str_temperature = "Temperature : "; // C언어처럼 마지막에 NULL은 없다.
+                    str_humidity = "Humidity : ";
+                    cnt_string = 0;
+                    flag_reset = 0;
+                end
+                else begin
+                    case (state)
+                            // 1단계) IDLE
+                            IDLE : begin
+                                    if(init_flag) begin
+                                        if(count_usec < 22'd1000) begin
+                                                count_usec_en = 1;
+                                        end
+                                        else begin
+                                            count_usec_en = 0;
+                                            next_state = SEND_STRING_TEMPERATURE;          
+                                        end
+                                    end
+                                    else  begin
+                                            if(count_usec <= 22'd80_000) begin
+                                                count_usec_en = 1;
+                                            end
+                                            else begin
+                                                count_usec_en = 0;
+                                                next_state = INIT;
+                                             end
+                                    end
+                            end
+                            
+                            // 2단계) INIT
+                            INIT : begin
+                                if(busy) begin
+                                     send = 0;
+                                     
+                                     if(cnt_data >=6) begin                   
+                                        init_flag = 1;
+                                        cnt_data = 0;
+                                        next_state = IDLE;       
+                                     end
+                                end
+                                else if(!send) begin // send == 0 && busy == 0일 때만 동작
+                                                     // busy는 다음 posedge 일 때 0-> 1로 변화하기 때문에
+                                                     // 8'h33을 보내고, 바로 8'h82로 보내서 위와 같은 조건을 추가
+                                        case(cnt_data)
+                                                0: send_buffer = 8'h33;
+                                                1: send_buffer = 8'h32;
+                                                2: send_buffer = 8'h2a; // 2줄, 5X8 Dots 사용
+                                                3: send_buffer = 8'h0c; // Display : 1, Cursor : on + 깜빡임 
+                                                4: send_buffer = 8'h01;
+                                                5: send_buffer = 8'h06; 
+                                        endcase 
+                                        
+                                        rs = 0;
+                                        cnt_data = cnt_data + 1;
+                                        send = 1;
+                                end
+                            end
+                            
+                            // 3단계) SEND_STRING_TEMPERATURE
+                            SEND_STRING_TEMPERATURE : begin
+                                if(busy) begin
+                                     send = 0;
+                                     
+                                     if(cnt_string >= 14) begin                   
+                                        cnt_string = 0;
+                                        next_state = SEND_TEMPERATURE_DATA;       
+                                     end
+                                end
+                                else if(!send) begin // send == 0 && busy == 0일 때만 동작
+                                                     // busy는 다음 posedge 일 때 0-> 1로 변화하기 때문에
+                                                     // 8'h33을 보내고, 바로 8'h82로 보내서 위와 같은 조건을 추가
+                                        case(cnt_string)
+                                                0: send_buffer = str_temperature[111 : 104];
+                                                1: send_buffer = str_temperature[103 : 96];
+                                                2: send_buffer = str_temperature[95 : 88];
+                                                3: send_buffer = str_temperature[87 : 80];
+                                                4: send_buffer = str_temperature[79 : 72];
+                                                5: send_buffer = str_temperature[71 : 64];
+                                                6: send_buffer = str_temperature[63 : 56];
+                                                7: send_buffer = str_temperature[55 : 48];
+                                                8: send_buffer = str_temperature[47 : 40];
+                                                9: send_buffer = str_temperature[39 : 32];
+                                                10: send_buffer = str_temperature[31 : 24];
+                                                11: send_buffer = str_temperature[23 : 16];
+                                                12: send_buffer = str_temperature[15 : 8];
+                                                13: send_buffer = str_temperature[7 : 0];
+                                        endcase 
+                                        
+                                        rs = 1;
+                                        cnt_string = cnt_string + 1;
+                                        send = 1;
+                                end
+                          end
+                            
+                            
+                            // 4단계) SEND_TEMPERATURE_DATA
+                            SEND_TEMPERATURE_DATA : begin
+                                    if(busy) begin
+                                            send = 0;
+        
+                                            if(cnt_data >= 2) begin 
+                                                    cnt_data = 0;
+                                                    next_state = SEND_COMMAND_NEXT_LINE;
+                                            end
+                                    end
+                                    else if(!send) begin
+                                        case(cnt_data) 
+                                            0 : send_buffer = "0" + temperature_bcd[7:4];
+                                            1 : send_buffer = "0" + temperature_bcd[3:0];
+                                        endcase
+                                        
+                                        cnt_data = cnt_data + 1;
+                                        rs = 1;
+                                        send = 1;
+                                    end
+                            end
+                            
+                            // 5단계) SEND_COMMAND_NEXT_LINE
+                            SEND_COMMAND_NEXT_LINE : begin
+                                    if(busy) begin
+                                            if(flag_reset) begin
+                                                flag_reset = 0;
+                                                next_state = SEND_STRING_HUMIDITY;
+                                            end
+                                            send = 0;
+                                  end
+                                  else begin
+                                            send_buffer = 8'hc0;
+                                            rs = 0;
+                                            send = 1;
+                                            flag_reset = 1;
+                                 end
+                            end
+                            
+                            
+                            // 6단계) SEND_STRING_HUMIDITY
+                            SEND_STRING_HUMIDITY : begin
+                                if(busy) begin
+                                     send = 0;
+                                     
+                                     if(cnt_string >= 11) begin                   
+                                        cnt_string = 0;
+                                        next_state = SEND_HUMIDITY_DATA;       
+                                     end
+                                end
+                                else if(!send) begin // send == 0 && busy == 0일 때만 동작
+                                                     // busy는 다음 posedge 일 때 0-> 1로 변화하기 때문에
+                                                     // 8'h33을 보내고, 바로 8'h82로 보내서 위와 같은 조건을 추가
+                                        case(cnt_string)
+                                                0: send_buffer = str_humidity[87 : 80];
+                                                1: send_buffer = str_humidity[79 : 72];
+                                                2: send_buffer = str_humidity[71 : 64];
+                                                3: send_buffer = str_humidity[63 : 56];
+                                                4: send_buffer = str_humidity[55 : 48];
+                                                5: send_buffer = str_humidity[47 : 40];
+                                                6: send_buffer = str_humidity[39 : 32];
+                                                7: send_buffer = str_humidity[31 : 24];
+                                                8: send_buffer = str_humidity[23 : 16];
+                                                9: send_buffer = str_humidity[15 : 8];
+                                                10: send_buffer = str_humidity[7 : 0];
+                                        endcase 
+                                        
+                                        rs = 1;
+                                        cnt_string = cnt_string + 1;
+                                        send = 1;
+                                end
+                          end
+                          
+                  
+                          // 7단계) SEND_HUMIDITY_DATA
+                          SEND_HUMIDITY_DATA : begin
+                                if(busy) begin
+                                            send = 0;
+                                            
+                                            if(cnt_data >= 2) begin
+                                                cnt_data = 0;       
+                                                next_state = WAIT_1SEC;
+                                             end
+                                    end
+                                    else if(!send) begin
+                                            case(cnt_data) 
+                                                0 : send_buffer = "0" + humidity_bcd[7:4];
+                                                1 : send_buffer = "0" + humidity_bcd[3:0];
+                                            endcase
+                                            
+                                            cnt_data = cnt_data + 1;
+                                            rs = 1;
+                                            send = 1;
+                                    end
+                          end
+                          
+                          // 8단계) WAIT_1SEC
+                          WAIT_1SEC : begin
+                                if(count_usec < 22'd1_000_000) begin
+                                     count_usec_en = 1;
+                                end
+                                else begin
+                                       count_usec_en = 0;
+                                       next_state = SEND_COMMAND;
+                                end
+                          end
+                          
+                          // 9단계) SEND_COMMAND
+                          SEND_COMMAND : begin
+                                 if(busy) begin
+                                       send = 0;
+                                  end 
+                                  else if(!send) begin
+                                            if(flag_reset) begin
+                                                flag_reset = 0;
+                                                next_state = IDLE;
+                                            end
+                                            else begin
+                                                send_buffer = 8'h01;
+                                                rs = 0;
+                                                send = 1;
+                                                flag_reset = 1;
+                                            end     
+                                 end
+                          end
+                    endcase
+                end
+                
+        end
+        
 endmodule
 
 // LCD 디스플레이와 i2c 통신 
@@ -226,8 +338,8 @@ module i2c_lcd_send_byte (
         output scl, sda,
         output reg busy,
         output [15:0] led );        // Register가 LCD로 데이터를 보내는 동안에는 
-                                         // 외부에서 데이터 보내는 중인 상태임을 표시하기 위해
-                                         // busy == 1 이면 데이터 전송중인 상태, busy == 0이면 데이터 전송 중이 아닌 상태
+                                    // 외부에서 데이터 보내는 중인 상태임을 표시하기 위해
+                                    // busy == 1 이면 데이터 전송중인 상태, busy == 0이면 데이터 전송 중이 아닌 상태
 
 
         // Decalare State Machine
