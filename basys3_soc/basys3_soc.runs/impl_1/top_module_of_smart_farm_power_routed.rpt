@@ -1,7 +1,7 @@
 Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2019.2 (win64) Build 2708876 Wed Nov  6 21:40:23 MST 2019
-| Date             : Tue Aug 27 17:45:50 2024
+| Date             : Wed Aug 28 14:19:13 2024
 | Host             : DESKTOP-5VNL0D5 running 64-bit major release  (build 9200)
 | Command          : report_power -file top_module_of_smart_farm_power_routed.rpt -pb top_module_of_smart_farm_power_summary_routed.pb -rpx top_module_of_smart_farm_power_routed.rpx
 | Design           : top_module_of_smart_farm
@@ -30,10 +30,10 @@ Table of Contents
 ----------
 
 +--------------------------+--------------+
-| Total On-Chip Power (W)  | 0.087        |
+| Total On-Chip Power (W)  | 0.089        |
 | Design Power Budget (W)  | Unspecified* |
 | Power Budget Margin (W)  | NA           |
-| Dynamic (W)              | 0.016        |
+| Dynamic (W)              | 0.017        |
 | Device Static (W)        | 0.072        |
 | Effective TJA (C/W)      | 5.0          |
 | Max Ambient (C)          | 84.6         |
@@ -49,21 +49,23 @@ Table of Contents
 1.1 On-Chip Components
 ----------------------
 
-+----------------+-----------+----------+-----------+-----------------+
-| On-Chip        | Power (W) | Used     | Available | Utilization (%) |
-+----------------+-----------+----------+-----------+-----------------+
-| Clocks         |     0.006 |        3 |       --- |             --- |
-| Slice Logic    |     0.003 |     2513 |       --- |             --- |
-|   LUT as Logic |     0.002 |     1197 |     20800 |            5.75 |
-|   CARRY4       |    <0.001 |      198 |      8150 |            2.43 |
-|   Register     |    <0.001 |      799 |     41600 |            1.92 |
-|   Others       |     0.000 |       65 |       --- |             --- |
-| Signals        |     0.002 |     1383 |       --- |             --- |
-| I/O            |     0.004 |       43 |       106 |           40.57 |
-| XADC           |     0.002 |        1 |       --- |             --- |
-| Static Power   |     0.072 |          |           |                 |
-| Total          |     0.087 |          |           |                 |
-+----------------+-----------+----------+-----------+-----------------+
++--------------------------+-----------+----------+-----------+-----------------+
+| On-Chip                  | Power (W) | Used     | Available | Utilization (%) |
++--------------------------+-----------+----------+-----------+-----------------+
+| Clocks                   |     0.006 |        3 |       --- |             --- |
+| Slice Logic              |     0.003 |     3190 |       --- |             --- |
+|   LUT as Logic           |     0.003 |     1498 |     20800 |            7.20 |
+|   CARRY4                 |    <0.001 |      237 |      8150 |            2.91 |
+|   Register               |    <0.001 |     1015 |     41600 |            2.44 |
+|   LUT as Distributed RAM |    <0.001 |        8 |      9600 |            0.08 |
+|   F7/F8 Muxes            |    <0.001 |        2 |     32600 |           <0.01 |
+|   Others                 |     0.000 |       83 |       --- |             --- |
+| Signals                  |     0.002 |     1722 |       --- |             --- |
+| I/O                      |     0.004 |       45 |       106 |           42.45 |
+| XADC                     |     0.002 |        1 |       --- |             --- |
+| Static Power             |     0.072 |          |           |                 |
+| Total                    |     0.089 |          |           |                 |
++--------------------------+-----------+----------+-----------+-----------------+
 
 
 1.2 Power Supply Summary
@@ -72,7 +74,7 @@ Table of Contents
 +-----------+-------------+-----------+-------------+------------+
 | Source    | Voltage (V) | Total (A) | Dynamic (A) | Static (A) |
 +-----------+-------------+-----------+-------------+------------+
-| Vccint    |       1.000 |     0.020 |       0.010 |      0.010 |
+| Vccint    |       1.000 |     0.021 |       0.012 |      0.010 |
 | Vccaux    |       1.800 |     0.013 |       0.000 |      0.013 |
 | Vcco33    |       3.300 |     0.002 |       0.001 |      0.001 |
 | Vcco25    |       2.500 |     0.000 |       0.000 |      0.000 |
@@ -141,15 +143,14 @@ Table of Contents
 +----------------------------------------+-----------+
 | Name                                   | Power (W) |
 +----------------------------------------+-----------+
-| top_module_of_smart_farm               |     0.016 |
+| top_module_of_smart_farm               |     0.017 |
 |   cds_and_water_level_control_instance |     0.002 |
 |     xadc_cds                           |     0.002 |
-|   dht11_control_instance               |     0.001 |
-|     dth11                              |     0.001 |
 |   electric_fan_control_instance        |     0.002 |
 |   lcd_display_control_instance         |     0.002 |
 |   led_control_instance                 |     0.002 |
-|   window_control_instance              |     0.001 |
+|   uart_app_control_instance            |     0.001 |
+|   window_control_instance              |     0.002 |
 +----------------------------------------+-----------+
 
 

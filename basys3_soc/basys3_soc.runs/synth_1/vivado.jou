@@ -2,8 +2,8 @@
 # Vivado v2019.2 (64-bit)
 # SW Build 2708876 on Wed Nov  6 21:40:23 MST 2019
 # IP Build 2700528 on Thu Nov  7 00:09:20 MST 2019
-# Start of session at: Tue Aug 27 17:44:22 2024
-# Process ID: 3984
+# Start of session at: Wed Aug 28 14:17:42 2024
+# Process ID: 29912
 # Current directory: E:/Work/vivado_2019/basys3_soc/basys3_soc.runs/synth_1
 # Command line: vivado.exe -log top_module_of_smart_farm.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source top_module_of_smart_farm.tcl
 # Log file: E:/Work/vivado_2019/basys3_soc/basys3_soc.runs/synth_1/top_module_of_smart_farm.vds
