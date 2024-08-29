@@ -13,8 +13,8 @@ Command: link_design -top top_module_of_smart_farm -part xc7a35tcpg236-1
 Design is defaulting to srcset: sources_1
 Design is defaulting to constrset: constrs_1
 INFO: [Device 21-403] Loading part xc7a35tcpg236-1
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.019 . Memory (MB): peak = 943.242 ; gain = 0.000
-INFO: [Netlist 29-17] Analyzing 243 Unisim elements for replacement
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.017 . Memory (MB): peak = 944.137 ; gain = 0.000
+INFO: [Netlist 29-17] Analyzing 246 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-479] Netlist was created with Vivado 2019.2
 INFO: [Project 1-570] Preparing netlist for logic optimization
@@ -26,7 +26,7 @@ CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [E:
 Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
 Finished Parsing XDC File [E:/Work/vivado_2019/basys3_soc/basys3_soc.srcs/constrs_1/imports/verilog/Basys-3-Master.xdc]
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1067.023 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1067.301 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
   A total of 3 instances were transformed.
   IOBUF => IOBUF (IBUF, OBUFT): 1 instance 
@@ -44,57 +44,57 @@ INFO: [DRC 23-27] Running DRC with 2 threads
 INFO: [Project 1-461] DRC finished with 0 Errors
 INFO: [Project 1-462] Please refer to the DRC report (report_drc) for more information.
 
-Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.393 . Memory (MB): peak = 1086.000 ; gain = 18.977
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.355 . Memory (MB): peak = 1087.285 ; gain = 19.984
 
 Starting Cache Timing Information Task
 INFO: [Timing 38-35] Done setting XDC timing constraints.
-Ending Cache Timing Information Task | Checksum: 283e850e8
+Ending Cache Timing Information Task | Checksum: 37254eed
 
-Time (s): cpu = 00:00:03 ; elapsed = 00:00:05 . Memory (MB): peak = 1632.387 ; gain = 546.387
+Time (s): cpu = 00:00:03 ; elapsed = 00:00:05 . Memory (MB): peak = 1632.488 ; gain = 545.203
 
 Starting Logic Optimization Task
 
 Phase 1 Retarget
 INFO: [Opt 31-138] Pushed 2 inverter(s) to 2 load pin(s).
 INFO: [Opt 31-49] Retargeted 0 cell(s).
-Phase 1 Retarget | Checksum: 2323a4eed
+Phase 1 Retarget | Checksum: 1e0cd5fa4
 
-Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.080 . Memory (MB): peak = 1826.391 ; gain = 0.000
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.076 . Memory (MB): peak = 1832.449 ; gain = 0.000
 INFO: [Opt 31-389] Phase Retarget created 0 cells and removed 4 cells
 
 Phase 2 Constant propagation
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Phase 2 Constant propagation | Checksum: 2323a4eed
+Phase 2 Constant propagation | Checksum: 1e0cd5fa4
 
-Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.093 . Memory (MB): peak = 1826.391 ; gain = 0.000
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.088 . Memory (MB): peak = 1832.449 ; gain = 0.000
 INFO: [Opt 31-389] Phase Constant propagation created 0 cells and removed 0 cells
 
 Phase 3 Sweep
-Phase 3 Sweep | Checksum: 2465eebe1
+Phase 3 Sweep | Checksum: 213d56a45
 
-Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.130 . Memory (MB): peak = 1826.391 ; gain = 0.000
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.125 . Memory (MB): peak = 1832.449 ; gain = 0.000
 INFO: [Opt 31-389] Phase Sweep created 2 cells and removed 0 cells
 
 Phase 4 BUFG optimization
 INFO: [Opt 31-1112] Starts optimizing BUFG(s) with a common MMCM/DPLL/XPLL driver.
 INFO: [Opt 31-1112] Starts optimizing BUFG(s) with a common driver.
 INFO: [Opt 31-1092] Phase BUFG optimization transformed 0 BUFG(s) to MBUFG(s).
-Phase 4 BUFG optimization | Checksum: 2465eebe1
+Phase 4 BUFG optimization | Checksum: 213d56a45
 
-Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.158 . Memory (MB): peak = 1826.391 ; gain = 0.000
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.154 . Memory (MB): peak = 1832.449 ; gain = 0.000
 INFO: [Opt 31-662] Phase BUFG optimization created 0 cells of which 0 are BUFGs and removed 0 cells.
 
 Phase 5 Shift Register Optimization
 INFO: [Opt 31-1064] SRL Remap converted 0 SRLs to 0 registers and converted 0 registers of register chains to 0 SRLs
-Phase 5 Shift Register Optimization | Checksum: 2465eebe1
+Phase 5 Shift Register Optimization | Checksum: 213d56a45
 
-Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.182 . Memory (MB): peak = 1826.391 ; gain = 0.000
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.173 . Memory (MB): peak = 1832.449 ; gain = 0.000
 INFO: [Opt 31-389] Phase Shift Register Optimization created 0 cells and removed 0 cells
 
 Phase 6 Post Processing Netlist
-Phase 6 Post Processing Netlist | Checksum: 200d55a21
+Phase 6 Post Processing Netlist | Checksum: 162b75265
 
-Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.191 . Memory (MB): peak = 1826.391 ; gain = 0.000
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.179 . Memory (MB): peak = 1832.449 ; gain = 0.000
 INFO: [Opt 31-389] Phase Post Processing Netlist created 0 cells and removed 0 cells
 Opt_design Change Summary
 =========================
@@ -115,38 +115,38 @@ Opt_design Change Summary
 
 Starting Connectivity Check Task
 
-Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.004 . Memory (MB): peak = 1826.391 ; gain = 0.000
-Ending Logic Optimization Task | Checksum: 15bb768cc
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.004 . Memory (MB): peak = 1832.449 ; gain = 0.000
+Ending Logic Optimization Task | Checksum: 1dbcb6fe6
 
-Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.273 . Memory (MB): peak = 1826.391 ; gain = 0.000
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.264 . Memory (MB): peak = 1832.449 ; gain = 0.000
 
 Starting Power Optimization Task
 INFO: [Pwropt 34-132] Skipping clock gating for clocks with a period < 2.00 ns.
-Ending Power Optimization Task | Checksum: 15bb768cc
+Ending Power Optimization Task | Checksum: 1dbcb6fe6
 
-Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.005 . Memory (MB): peak = 1826.391 ; gain = 0.000
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.006 . Memory (MB): peak = 1832.449 ; gain = 0.000
 
 Starting Final Cleanup Task
-Ending Final Cleanup Task | Checksum: 15bb768cc
+Ending Final Cleanup Task | Checksum: 1dbcb6fe6
 
-Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1826.391 ; gain = 0.000
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1832.449 ; gain = 0.000
 
 Starting Netlist Obfuscation Task
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1826.391 ; gain = 0.000
-Ending Netlist Obfuscation Task | Checksum: 15bb768cc
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1832.449 ; gain = 0.000
+Ending Netlist Obfuscation Task | Checksum: 1dbcb6fe6
 
-Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1826.391 ; gain = 0.000
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1832.449 ; gain = 0.000
 INFO: [Common 17-83] Releasing license: Implementation
 27 Infos, 1 Warnings, 1 Critical Warnings and 0 Errors encountered.
 opt_design completed successfully
-opt_design: Time (s): cpu = 00:00:04 ; elapsed = 00:00:07 . Memory (MB): peak = 1826.391 ; gain = 759.367
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1826.391 ; gain = 0.000
+opt_design: Time (s): cpu = 00:00:04 ; elapsed = 00:00:07 . Memory (MB): peak = 1832.449 ; gain = 765.148
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1832.449 ; gain = 0.000
 INFO: [Timing 38-480] Writing timing data to binary archive.
 Writing placer database...
 Writing XDEF routing.
 Writing XDEF routing logical nets.
 Writing XDEF routing special nets.
-Write XDEF Complete: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.025 . Memory (MB): peak = 1826.391 ; gain = 0.000
+Write XDEF Complete: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.027 . Memory (MB): peak = 1832.449 ; gain = 0.000
 INFO: [Common 17-1381] The checkpoint 'E:/Work/vivado_2019/basys3_soc/basys3_soc.runs/impl_1/top_module_of_smart_farm_opt.dcp' has been generated.
 INFO: [runtcl-4] Executing : report_drc -file top_module_of_smart_farm_drc_opted.rpt -pb top_module_of_smart_farm_drc_opted.pb -rpx top_module_of_smart_farm_drc_opted.rpx
 Command: report_drc -file top_module_of_smart_farm_drc_opted.rpt -pb top_module_of_smart_farm_drc_opted.pb -rpx top_module_of_smart_farm_drc_opted.rpx
@@ -171,43 +171,43 @@ INFO: [Place 30-611] Multithreading enabled for place_design using a maximum of 
 Phase 1 Placer Initialization
 
 Phase 1.1 Placer Initialization Netlist Sorting
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1826.391 ; gain = 0.000
-Phase 1.1 Placer Initialization Netlist Sorting | Checksum: 134f2a92c
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1832.449 ; gain = 0.000
+Phase 1.1 Placer Initialization Netlist Sorting | Checksum: 10fb2a8e8
 
-Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.004 . Memory (MB): peak = 1826.391 ; gain = 0.000
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1826.391 ; gain = 0.000
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.005 . Memory (MB): peak = 1832.449 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1832.449 ; gain = 0.000
 
 Phase 1.2 IO Placement/ Clock Placement/ Build Placer Device
 INFO: [Timing 38-35] Done setting XDC timing constraints.
-Phase 1.2 IO Placement/ Clock Placement/ Build Placer Device | Checksum: 7c3edece
+Phase 1.2 IO Placement/ Clock Placement/ Build Placer Device | Checksum: afb50d5f
 
-Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.459 . Memory (MB): peak = 1826.391 ; gain = 0.000
+Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.442 . Memory (MB): peak = 1832.449 ; gain = 0.000
 
 Phase 1.3 Build Placer Netlist Model
-Phase 1.3 Build Placer Netlist Model | Checksum: b2840c88
+Phase 1.3 Build Placer Netlist Model | Checksum: bd3a011e
 
-Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.810 . Memory (MB): peak = 1826.391 ; gain = 0.000
+Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.788 . Memory (MB): peak = 1832.449 ; gain = 0.000
 
 Phase 1.4 Constrain Clocks/Macros
-Phase 1.4 Constrain Clocks/Macros | Checksum: b2840c88
+Phase 1.4 Constrain Clocks/Macros | Checksum: bd3a011e
 
-Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.812 . Memory (MB): peak = 1826.391 ; gain = 0.000
-Phase 1 Placer Initialization | Checksum: b2840c88
+Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.790 . Memory (MB): peak = 1832.449 ; gain = 0.000
+Phase 1 Placer Initialization | Checksum: bd3a011e
 
-Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.818 . Memory (MB): peak = 1826.391 ; gain = 0.000
+Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.796 . Memory (MB): peak = 1832.449 ; gain = 0.000
 
 Phase 2 Global Placement
 
 Phase 2.1 Floorplanning
-Phase 2.1 Floorplanning | Checksum: 9406f559
+Phase 2.1 Floorplanning | Checksum: d7601934
 
-Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.944 . Memory (MB): peak = 1826.391 ; gain = 0.000
+Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.960 . Memory (MB): peak = 1832.449 ; gain = 0.000
 
 Phase 2.2 Global Placement Core
 
 Phase 2.2.1 Physical Synthesis In Placer
 INFO: [Physopt 32-1018] Found 19 candidate LUT instances to create LUTNM shape
-INFO: [Physopt 32-775] End 1 Pass. Optimized 8 nets or cells. Created 0 new cell, deleted 8 existing cells and moved 0 existing cell
+INFO: [Physopt 32-775] End 1 Pass. Optimized 9 nets or cells. Created 1 new cell, deleted 8 existing cells and moved 0 existing cell
 INFO: [Physopt 32-65] No nets found for high-fanout optimization.
 INFO: [Physopt 32-232] Optimized 0 net. Created 0 new instance.
 INFO: [Physopt 32-775] End 1 Pass. Optimized 0 net or cell. Created 0 new cell, deleted 0 existing cell and moved 0 existing cell
@@ -220,7 +220,7 @@ INFO: [Physopt 32-526] No candidate cells for BRAM register optimization found i
 INFO: [Physopt 32-775] End 1 Pass. Optimized 0 net or cell. Created 0 new cell, deleted 0 existing cell and moved 0 existing cell
 INFO: [Physopt 32-949] No candidate nets found for HD net replication
 INFO: [Physopt 32-775] End 1 Pass. Optimized 0 net or cell. Created 0 new cell, deleted 0 existing cell and moved 0 existing cell
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1826.391 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1832.449 ; gain = 0.000
 
 Summary of Physical Synthesis Optimizations
 ============================================
@@ -229,76 +229,76 @@ Summary of Physical Synthesis Optimizations
 -----------------------------------------------------------------------------------------------------------------------------------------------------------
 |  Optimization                                     |  Added Cells  |  Removed Cells  |  Optimized Cells/Nets  |  Dont Touch  |  Iterations  |  Elapsed   |
 -----------------------------------------------------------------------------------------------------------------------------------------------------------
-|  LUT Combining                                    |            0  |              8  |                     8  |           0  |           1  |  00:00:00  |
+|  LUT Combining                                    |            1  |              8  |                     9  |           0  |           1  |  00:00:00  |
 |  Very High Fanout                                 |            0  |              0  |                     0  |           0  |           1  |  00:00:00  |
 |  DSP Register                                     |            0  |              0  |                     0  |           0  |           1  |  00:00:00  |
 |  Shift Register to Pipeline                       |            0  |              0  |                     0  |           0  |           1  |  00:00:00  |
 |  Shift Register                                   |            0  |              0  |                     0  |           0  |           1  |  00:00:00  |
 |  BRAM Register                                    |            0  |              0  |                     0  |           0  |           1  |  00:00:00  |
 |  Dynamic/Static Region Interface Net Replication  |            0  |              0  |                     0  |           0  |           1  |  00:00:00  |
-|  Total                                            |            0  |              8  |                     8  |           0  |           7  |  00:00:00  |
+|  Total                                            |            1  |              8  |                     9  |           0  |           7  |  00:00:00  |
 -----------------------------------------------------------------------------------------------------------------------------------------------------------
 
 
-Phase 2.2.1 Physical Synthesis In Placer | Checksum: 189315f3b
+Phase 2.2.1 Physical Synthesis In Placer | Checksum: e4e03dc4
 
-Time (s): cpu = 00:00:01 ; elapsed = 00:00:02 . Memory (MB): peak = 1826.391 ; gain = 0.000
-Phase 2.2 Global Placement Core | Checksum: 1baa1fa24
+Time (s): cpu = 00:00:02 ; elapsed = 00:00:02 . Memory (MB): peak = 1832.449 ; gain = 0.000
+Phase 2.2 Global Placement Core | Checksum: 6803dd1d
 
-Time (s): cpu = 00:00:01 ; elapsed = 00:00:02 . Memory (MB): peak = 1826.391 ; gain = 0.000
-Phase 2 Global Placement | Checksum: 1baa1fa24
+Time (s): cpu = 00:00:02 ; elapsed = 00:00:02 . Memory (MB): peak = 1832.449 ; gain = 0.000
+Phase 2 Global Placement | Checksum: 6803dd1d
 
-Time (s): cpu = 00:00:01 ; elapsed = 00:00:02 . Memory (MB): peak = 1826.391 ; gain = 0.000
+Time (s): cpu = 00:00:02 ; elapsed = 00:00:02 . Memory (MB): peak = 1832.449 ; gain = 0.000
 
 Phase 3 Detail Placement
 
 Phase 3.1 Commit Multi Column Macros
-Phase 3.1 Commit Multi Column Macros | Checksum: 1009f99e4
+Phase 3.1 Commit Multi Column Macros | Checksum: b4c571b5
 
-Time (s): cpu = 00:00:01 ; elapsed = 00:00:02 . Memory (MB): peak = 1826.391 ; gain = 0.000
+Time (s): cpu = 00:00:02 ; elapsed = 00:00:02 . Memory (MB): peak = 1832.449 ; gain = 0.000
 
 Phase 3.2 Commit Most Macros & LUTRAMs
-Phase 3.2 Commit Most Macros & LUTRAMs | Checksum: 23fe9ceb1
+Phase 3.2 Commit Most Macros & LUTRAMs | Checksum: f9cf6b96
 
-Time (s): cpu = 00:00:01 ; elapsed = 00:00:03 . Memory (MB): peak = 1826.391 ; gain = 0.000
+Time (s): cpu = 00:00:02 ; elapsed = 00:00:03 . Memory (MB): peak = 1832.449 ; gain = 0.000
 
 Phase 3.3 Area Swap Optimization
-Phase 3.3 Area Swap Optimization | Checksum: 1a0b00771
+Phase 3.3 Area Swap Optimization | Checksum: 106caeea1
 
-Time (s): cpu = 00:00:01 ; elapsed = 00:00:03 . Memory (MB): peak = 1826.391 ; gain = 0.000
+Time (s): cpu = 00:00:02 ; elapsed = 00:00:03 . Memory (MB): peak = 1832.449 ; gain = 0.000
 
 Phase 3.4 Pipeline Register Optimization
-Phase 3.4 Pipeline Register Optimization | Checksum: 22469c7c7
+Phase 3.4 Pipeline Register Optimization | Checksum: 16e8ad5a7
 
-Time (s): cpu = 00:00:01 ; elapsed = 00:00:03 . Memory (MB): peak = 1826.391 ; gain = 0.000
+Time (s): cpu = 00:00:02 ; elapsed = 00:00:03 . Memory (MB): peak = 1832.449 ; gain = 0.000
 
 Phase 3.5 Fast Optimization
-Phase 3.5 Fast Optimization | Checksum: 1dc3ae5e4
+Phase 3.5 Fast Optimization | Checksum: 92ea146b
 
-Time (s): cpu = 00:00:02 ; elapsed = 00:00:03 . Memory (MB): peak = 1826.391 ; gain = 0.000
+Time (s): cpu = 00:00:02 ; elapsed = 00:00:03 . Memory (MB): peak = 1832.449 ; gain = 0.000
 
 Phase 3.6 Small Shape Detail Placement
-Phase 3.6 Small Shape Detail Placement | Checksum: 165cc1663
+Phase 3.6 Small Shape Detail Placement | Checksum: 1b3acd145
 
-Time (s): cpu = 00:00:02 ; elapsed = 00:00:04 . Memory (MB): peak = 1826.391 ; gain = 0.000
+Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 1832.449 ; gain = 0.000
 
 Phase 3.7 Re-assign LUT pins
-Phase 3.7 Re-assign LUT pins | Checksum: 1566f130e
+Phase 3.7 Re-assign LUT pins | Checksum: 15c88cc42
 
-Time (s): cpu = 00:00:02 ; elapsed = 00:00:04 . Memory (MB): peak = 1826.391 ; gain = 0.000
+Time (s): cpu = 00:00:03 ; elapsed = 00:00:04 . Memory (MB): peak = 1832.449 ; gain = 0.000
 
 Phase 3.8 Pipeline Register Optimization
-Phase 3.8 Pipeline Register Optimization | Checksum: 1d2acd338
+Phase 3.8 Pipeline Register Optimization | Checksum: 133c8b33c
 
-Time (s): cpu = 00:00:02 ; elapsed = 00:00:04 . Memory (MB): peak = 1826.391 ; gain = 0.000
+Time (s): cpu = 00:00:03 ; elapsed = 00:00:04 . Memory (MB): peak = 1832.449 ; gain = 0.000
 
 Phase 3.9 Fast Optimization
-Phase 3.9 Fast Optimization | Checksum: 13c094e76
+Phase 3.9 Fast Optimization | Checksum: 965bbc5e
 
-Time (s): cpu = 00:00:02 ; elapsed = 00:00:04 . Memory (MB): peak = 1826.391 ; gain = 0.000
-Phase 3 Detail Placement | Checksum: 13c094e76
+Time (s): cpu = 00:00:03 ; elapsed = 00:00:04 . Memory (MB): peak = 1832.449 ; gain = 0.000
+Phase 3 Detail Placement | Checksum: 965bbc5e
 
-Time (s): cpu = 00:00:02 ; elapsed = 00:00:04 . Memory (MB): peak = 1826.391 ; gain = 0.000
+Time (s): cpu = 00:00:03 ; elapsed = 00:00:04 . Memory (MB): peak = 1832.449 ; gain = 0.000
 
 Phase 4 Post Placement Optimization and Clean-Up
 
@@ -306,176 +306,132 @@ Phase 4.1 Post Commit Optimization
 INFO: [Timing 38-35] Done setting XDC timing constraints.
 
 Phase 4.1.1 Post Placement Optimization
-Post Placement Optimization Initialization | Checksum: 1b811c6ad
+Post Placement Optimization Initialization | Checksum: 1a7386587
 
 Phase 4.1.1.1 BUFG Insertion
 INFO: [Place 46-56] BUFG insertion identified 0 candidate nets. Inserted BUFG: 0, Replicated BUFG Driver: 0, Skipped due to Placement/Routing Conflicts: 0, Skipped due to Timing Degradation: 0, Skipped due to Illegal Netlist: 0.
-Phase 4.1.1.1 BUFG Insertion | Checksum: 1b811c6ad
+Phase 4.1.1.1 BUFG Insertion | Checksum: 1a7386587
 
-Time (s): cpu = 00:00:02 ; elapsed = 00:00:05 . Memory (MB): peak = 1833.215 ; gain = 6.824
-INFO: [Place 30-746] Post Placement Timing Summary WNS=-2.489. For the most accurate timing information please run report_timing.
-Phase 4.1.1 Post Placement Optimization | Checksum: 1f83be1fa
+Time (s): cpu = 00:00:03 ; elapsed = 00:00:05 . Memory (MB): peak = 1840.289 ; gain = 7.840
+INFO: [Place 30-746] Post Placement Timing Summary WNS=-2.240. For the most accurate timing information please run report_timing.
+Phase 4.1.1 Post Placement Optimization | Checksum: 1d11660a1
 
-Time (s): cpu = 00:00:04 ; elapsed = 00:00:09 . Memory (MB): peak = 1833.215 ; gain = 6.824
-Phase 4.1 Post Commit Optimization | Checksum: 1f83be1fa
+Time (s): cpu = 00:00:05 ; elapsed = 00:00:09 . Memory (MB): peak = 1840.289 ; gain = 7.840
+Phase 4.1 Post Commit Optimization | Checksum: 1d11660a1
 
-Time (s): cpu = 00:00:04 ; elapsed = 00:00:09 . Memory (MB): peak = 1833.215 ; gain = 6.824
+Time (s): cpu = 00:00:05 ; elapsed = 00:00:09 . Memory (MB): peak = 1840.289 ; gain = 7.840
 
 Phase 4.2 Post Placement Cleanup
-Phase 4.2 Post Placement Cleanup | Checksum: 1f83be1fa
+Phase 4.2 Post Placement Cleanup | Checksum: 1d11660a1
 
-Time (s): cpu = 00:00:04 ; elapsed = 00:00:09 . Memory (MB): peak = 1833.215 ; gain = 6.824
+Time (s): cpu = 00:00:05 ; elapsed = 00:00:09 . Memory (MB): peak = 1840.289 ; gain = 7.840
 
 Phase 4.3 Placer Reporting
-Phase 4.3 Placer Reporting | Checksum: 1f83be1fa
+Phase 4.3 Placer Reporting | Checksum: 1d11660a1
 
-Time (s): cpu = 00:00:04 ; elapsed = 00:00:09 . Memory (MB): peak = 1833.215 ; gain = 6.824
+Time (s): cpu = 00:00:05 ; elapsed = 00:00:09 . Memory (MB): peak = 1840.289 ; gain = 7.840
 
 Phase 4.4 Final Placement Cleanup
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1833.215 ; gain = 0.000
-Phase 4.4 Final Placement Cleanup | Checksum: 190f11c94
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1840.289 ; gain = 0.000
+Phase 4.4 Final Placement Cleanup | Checksum: 1d521be8c
 
-Time (s): cpu = 00:00:04 ; elapsed = 00:00:09 . Memory (MB): peak = 1833.215 ; gain = 6.824
-Phase 4 Post Placement Optimization and Clean-Up | Checksum: 190f11c94
+Time (s): cpu = 00:00:05 ; elapsed = 00:00:09 . Memory (MB): peak = 1840.289 ; gain = 7.840
+Phase 4 Post Placement Optimization and Clean-Up | Checksum: 1d521be8c
 
-Time (s): cpu = 00:00:04 ; elapsed = 00:00:09 . Memory (MB): peak = 1833.215 ; gain = 6.824
-Ending Placer Task | Checksum: c3fc12ae
+Time (s): cpu = 00:00:05 ; elapsed = 00:00:09 . Memory (MB): peak = 1840.289 ; gain = 7.840
+Ending Placer Task | Checksum: 13b91da97
 
-Time (s): cpu = 00:00:04 ; elapsed = 00:00:09 . Memory (MB): peak = 1833.215 ; gain = 6.824
+Time (s): cpu = 00:00:05 ; elapsed = 00:00:09 . Memory (MB): peak = 1840.289 ; gain = 7.840
 INFO: [Common 17-83] Releasing license: Implementation
 60 Infos, 1 Warnings, 1 Critical Warnings and 0 Errors encountered.
 place_design completed successfully
-place_design: Time (s): cpu = 00:00:05 ; elapsed = 00:00:09 . Memory (MB): peak = 1833.215 ; gain = 6.824
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1833.215 ; gain = 0.000
+place_design: Time (s): cpu = 00:00:05 ; elapsed = 00:00:09 . Memory (MB): peak = 1840.289 ; gain = 7.840
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1840.289 ; gain = 0.000
 INFO: [Timing 38-480] Writing timing data to binary archive.
 Writing placer database...
 Writing XDEF routing.
 Writing XDEF routing logical nets.
 Writing XDEF routing special nets.
-Write XDEF Complete: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.116 . Memory (MB): peak = 1834.211 ; gain = 0.996
+Write XDEF Complete: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.137 . Memory (MB): peak = 1841.305 ; gain = 1.016
 INFO: [Common 17-1381] The checkpoint 'E:/Work/vivado_2019/basys3_soc/basys3_soc.runs/impl_1/top_module_of_smart_farm_placed.dcp' has been generated.
 INFO: [runtcl-4] Executing : report_io -file top_module_of_smart_farm_io_placed.rpt
-report_io: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.025 . Memory (MB): peak = 1834.211 ; gain = 0.000
+report_io: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.027 . Memory (MB): peak = 1841.305 ; gain = 0.000
 INFO: [runtcl-4] Executing : report_utilization -file top_module_of_smart_farm_utilization_placed.rpt -pb top_module_of_smart_farm_utilization_placed.pb
 INFO: [runtcl-4] Executing : report_control_sets -verbose -file top_module_of_smart_farm_control_sets_placed.rpt
-report_control_sets: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.004 . Memory (MB): peak = 1834.211 ; gain = 0.000
+report_control_sets: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.006 . Memory (MB): peak = 1841.305 ; gain = 0.000
 Command: phys_opt_design
 Attempting to get a license for feature 'Implementation' and/or device 'xc7a35t'
 INFO: [Common 17-349] Got license for feature 'Implementation' and/or device 'xc7a35t'
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1848.668 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1855.781 ; gain = 0.000
 
 Starting Physical Synthesis Task
 
 Phase 1 Physical Synthesis Initialization
 INFO: [Physopt 32-721] Multithreading enabled for phys_opt_design using a maximum of 2 CPUs
-INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-2.489 | TNS=-39.682 |
-Phase 1 Physical Synthesis Initialization | Checksum: 125e2789a
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-2.240 | TNS=-33.664 |
+Phase 1 Physical Synthesis Initialization | Checksum: 21e75b7f2
 
-Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.613 . Memory (MB): peak = 1848.688 ; gain = 0.020
-INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-2.489 | TNS=-39.682 |
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.577 . Memory (MB): peak = 1855.781 ; gain = 0.000
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-2.240 | TNS=-33.664 |
 
 Phase 2 DSP Register Optimization
 INFO: [Physopt 32-456] No candidate cells for DSP register optimization found in the design.
 INFO: [Physopt 32-775] End 2 Pass. Optimized 0 net or cell. Created 0 new cell, deleted 0 existing cell and moved 0 existing cell
-Phase 2 DSP Register Optimization | Checksum: 125e2789a
+Phase 2 DSP Register Optimization | Checksum: 21e75b7f2
 
-Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.620 . Memory (MB): peak = 1848.688 ; gain = 0.020
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.582 . Memory (MB): peak = 1855.781 ; gain = 0.000
 
 Phase 3 Critical Path Optimization
-INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-2.489 | TNS=-39.682 |
-INFO: [Physopt 32-662] Processed net dht11_control_instance/dth11/dht11_value[10].  Did not re-place instance dht11_control_instance/dth11/temperature_reg[2]
-INFO: [Physopt 32-702] Processed net dht11_control_instance/dth11/dht11_value[10]. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-2.240 | TNS=-33.664 |
+INFO: [Physopt 32-663] Processed net dht11_control_instance/dth11/Q[0].  Re-placed instance dht11_control_instance/dth11/temperature_reg[0]
+INFO: [Physopt 32-735] Processed net dht11_control_instance/dth11/Q[0]. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-2.145 | TNS=-33.569 |
+INFO: [Physopt 32-662] Processed net dht11_control_instance/dth11/dht11_value[3].  Did not re-place instance dht11_control_instance/dth11/humidity_reg[3]
+INFO: [Physopt 32-702] Processed net dht11_control_instance/dth11/dht11_value[3]. Optimizations did not improve timing on the net.
 INFO: [Physopt 32-662] Processed net dht11_control_instance/dth11/count_usec_reg[2].  Did not re-place instance dht11_control_instance/dth11/count_usec_reg[2]
-INFO: [Physopt 32-81] Processed net dht11_control_instance/dth11/count_usec_reg[2]. Replicated 1 times.
-INFO: [Physopt 32-735] Processed net dht11_control_instance/dth11/count_usec_reg[2]. Optimization improves timing on the net.
-INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-2.484 | TNS=-39.587 |
-INFO: [Physopt 32-662] Processed net dht11_control_instance/dth11/count_usec_reg[2]_repN.  Did not re-place instance dht11_control_instance/dth11/count_usec_reg[2]_replica
-INFO: [Physopt 32-572] Net dht11_control_instance/dth11/count_usec_reg[2]_repN was not replicated.
+INFO: [Physopt 32-572] Net dht11_control_instance/dth11/count_usec_reg[2] was not replicated.
 Resolution: phys_opt_design can be forced to replicate a net driver using the option -force_replication_on_nets <list of net objects>.
-INFO: [Physopt 32-702] Processed net dht11_control_instance/dth11/count_usec_reg[2]_repN. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net dht11_control_instance/dth11/count_usec_reg[2]. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-662] Processed net dht11_control_instance/dth11/ed/humidity[7]_i_2_n_0.  Did not re-place instance dht11_control_instance/dth11/ed/humidity[7]_i_2
+INFO: [Physopt 32-735] Processed net dht11_control_instance/dth11/ed/humidity[7]_i_2_n_0. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-2.096 | TNS=-32.785 |
 INFO: [Physopt 32-662] Processed net dht11_control_instance/dth11/ed/humidity[7]_i_3_n_0.  Did not re-place instance dht11_control_instance/dth11/ed/humidity[7]_i_3
 INFO: [Physopt 32-702] Processed net dht11_control_instance/dth11/ed/humidity[7]_i_3_n_0. Optimizations did not improve timing on the net.
 INFO: [Physopt 32-702] Processed net dht11_control_instance/dth11/ed/humidity1[7]. Optimizations did not improve timing on the net.
-INFO: [Physopt 32-735] Processed net dht11_control_instance/dth11/ed/humidity[7]_i_18_n_0. Optimization improves timing on the net.
-INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-2.463 | TNS=-39.251 |
 INFO: [Physopt 32-702] Processed net dht11_control_instance/dth11/ed/humidity_reg[7]_i_10_n_0. Optimizations did not improve timing on the net.
-INFO: [Physopt 32-735] Processed net dht11_control_instance/dth11/ed/humidity[7]_i_24_n_0. Optimization improves timing on the net.
-INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-2.461 | TNS=-39.219 |
-INFO: [Physopt 32-735] Processed net dht11_control_instance/dth11/ed/humidity[7]_i_23_n_0. Optimization improves timing on the net.
-INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-2.461 | TNS=-39.219 |
-INFO: [Physopt 32-662] Processed net dht11_control_instance/dth11/ed/humidity[7]_i_21_n_0.  Did not re-place instance dht11_control_instance/dth11/ed/humidity[7]_i_21
-INFO: [Physopt 32-702] Processed net dht11_control_instance/dth11/ed/humidity[7]_i_21_n_0. Optimizations did not improve timing on the net.
-INFO: [Physopt 32-662] Processed net dht11_control_instance/dth11/ed/D[25].  Did not re-place instance dht11_control_instance/dth11/ed/temp_data[25]_i_1
-INFO: [Physopt 32-710] Processed net dht11_control_instance/dth11/ed/humidity[7]_i_21_n_0. Critical path length was reduced through logic transformation on cell dht11_control_instance/dth11/ed/humidity[7]_i_21_comp.
-INFO: [Physopt 32-735] Processed net dht11_control_instance/dth11/ed/D[25]. Optimization improves timing on the net.
-INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-2.440 | TNS=-38.883 |
-INFO: [Physopt 32-662] Processed net dht11_control_instance/dth11/ed/humidity[7]_i_20_n_0.  Did not re-place instance dht11_control_instance/dth11/ed/humidity[7]_i_20
-INFO: [Physopt 32-702] Processed net dht11_control_instance/dth11/ed/humidity[7]_i_20_n_0. Optimizations did not improve timing on the net.
-INFO: [Physopt 32-662] Processed net dht11_control_instance/dth11/ed/humidity[7]_i_40_n_0.  Did not re-place instance dht11_control_instance/dth11/ed/humidity[7]_i_40
-INFO: [Physopt 32-710] Processed net dht11_control_instance/dth11/ed/humidity[7]_i_20_n_0. Critical path length was reduced through logic transformation on cell dht11_control_instance/dth11/ed/humidity[7]_i_20_comp.
-INFO: [Physopt 32-735] Processed net dht11_control_instance/dth11/ed/humidity[7]_i_40_n_0. Optimization improves timing on the net.
-INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-2.427 | TNS=-38.675 |
-INFO: [Physopt 32-702] Processed net dht11_control_instance/dth11/ed/humidity[7]_i_17_n_0. Optimizations did not improve timing on the net.
-INFO: [Physopt 32-662] Processed net dht11_control_instance/dth11/ed/humidity[7]_i_30_n_0.  Did not re-place instance dht11_control_instance/dth11/ed/humidity[7]_i_30
-INFO: [Physopt 32-572] Net dht11_control_instance/dth11/ed/humidity[7]_i_30_n_0 was not replicated.
+INFO: [Physopt 32-702] Processed net dht11_control_instance/dth11/ed/humidity[7]_i_23_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-662] Processed net dht11_control_instance/dth11/ed/humidity[7]_i_41_n_0.  Did not re-place instance dht11_control_instance/dth11/ed/humidity[7]_i_41
+INFO: [Physopt 32-572] Net dht11_control_instance/dth11/ed/humidity[7]_i_41_n_0 was not replicated.
 Resolution: phys_opt_design can be forced to replicate a net driver using the option -force_replication_on_nets <list of net objects>.
-INFO: [Physopt 32-702] Processed net dht11_control_instance/dth11/ed/humidity[7]_i_30_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net dht11_control_instance/dth11/ed/humidity[7]_i_41_n_0. Optimizations did not improve timing on the net.
 INFO: [Physopt 32-572] Net dht11_control_instance/dth11/ed/data_count[2]_i_2_n_0 was not replicated.
 Resolution: phys_opt_design can be forced to replicate a net driver using the option -force_replication_on_nets <list of net objects>.
 INFO: [Physopt 32-662] Processed net dht11_control_instance/dth11/ed/data_count[2]_i_2_n_0.  Did not re-place instance dht11_control_instance/dth11/ed/data_count[2]_i_2
-INFO: [Physopt 32-710] Processed net dht11_control_instance/dth11/ed/humidity[7]_i_30_n_0. Critical path length was reduced through logic transformation on cell dht11_control_instance/dth11/ed/humidity[7]_i_30_comp.
-INFO: [Physopt 32-735] Processed net dht11_control_instance/dth11/ed/data_count[2]_i_2_n_0. Optimization improves timing on the net.
-INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-2.386 | TNS=-38.023 |
-INFO: [Physopt 32-702] Processed net dht11_control_instance/dth11/ed/humidity[7]_i_23_n_0. Optimizations did not improve timing on the net.
-INFO: [Physopt 32-662] Processed net dht11_control_instance/dth11/ed/humidity[7]_i_40_n_0.  Did not re-place instance dht11_control_instance/dth11/ed/humidity[7]_i_40
-INFO: [Physopt 32-572] Net dht11_control_instance/dth11/ed/humidity[7]_i_40_n_0 was not replicated.
-Resolution: phys_opt_design can be forced to replicate a net driver using the option -force_replication_on_nets <list of net objects>.
-INFO: [Physopt 32-735] Processed net dht11_control_instance/dth11/ed/humidity[7]_i_40_n_0. Optimization improves timing on the net.
-INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-2.382 | TNS=-37.959 |
-INFO: [Physopt 32-662] Processed net dht11_control_instance/dth11/ed/humidity[7]_i_41_n_0.  Did not re-place instance dht11_control_instance/dth11/ed/humidity[7]_i_41
-INFO: [Physopt 32-710] Processed net dht11_control_instance/dth11/ed/humidity[7]_i_20_n_0. Critical path length was reduced through logic transformation on cell dht11_control_instance/dth11/ed/humidity[7]_i_20_comp_1.
-INFO: [Physopt 32-735] Processed net dht11_control_instance/dth11/ed/humidity[7]_i_41_n_0. Optimization improves timing on the net.
-INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-2.368 | TNS=-37.735 |
-INFO: [Physopt 32-662] Processed net dht11_control_instance/dth11/ed/D[18].  Did not re-place instance dht11_control_instance/dth11/ed/temp_data[18]_i_1
-INFO: [Physopt 32-710] Processed net dht11_control_instance/dth11/ed/humidity[7]_i_20_n_0. Critical path length was reduced through logic transformation on cell dht11_control_instance/dth11/ed/humidity[7]_i_20_comp.
-INFO: [Physopt 32-735] Processed net dht11_control_instance/dth11/ed/D[18]. Optimization improves timing on the net.
-INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-2.347 | TNS=-37.402 |
-INFO: [Physopt 32-735] Processed net dht11_control_instance/dth11/ed/humidity[7]_i_18_n_0. Optimization improves timing on the net.
-INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-2.332 | TNS=-37.162 |
-INFO: [Physopt 32-702] Processed net dht11_control_instance/dth11/ed/humidity[7]_i_24_n_0. Optimizations did not improve timing on the net.
-INFO: [Physopt 32-663] Processed net dht11_control_instance/dth11/ed/D[34].  Re-placed instance dht11_control_instance/dth11/ed/temp_data[34]_i_1
-INFO: [Physopt 32-735] Processed net dht11_control_instance/dth11/ed/D[34]. Optimization improves timing on the net.
-INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-2.321 | TNS=-36.986 |
-INFO: [Physopt 32-662] Processed net dht11_control_instance/dth11/ed/humidity[7]_i_40_n_0.  Did not re-place instance dht11_control_instance/dth11/ed/humidity[7]_i_40
-INFO: [Physopt 32-572] Net dht11_control_instance/dth11/ed/humidity[7]_i_40_n_0 was not replicated.
-Resolution: phys_opt_design can be forced to replicate a net driver using the option -force_replication_on_nets <list of net objects>.
-INFO: [Physopt 32-702] Processed net dht11_control_instance/dth11/ed/humidity[7]_i_40_n_0. Optimizations did not improve timing on the net.
-INFO: [Physopt 32-662] Processed net dht11_control_instance/dth11/ed/D[18].  Did not re-place instance dht11_control_instance/dth11/ed/temp_data[18]_i_1
-INFO: [Physopt 32-572] Net dht11_control_instance/dth11/ed/D[18] was not replicated.
-Resolution: phys_opt_design can be forced to replicate a net driver using the option -force_replication_on_nets <list of net objects>.
-INFO: [Physopt 32-702] Processed net dht11_control_instance/dth11/ed/D[18]. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net dht11_control_instance/dth11/ed/data_count[2]_i_2_n_0. Optimizations did not improve timing on the net.
 INFO: [Physopt 32-572] Net dht11_control_instance/dth11/temp_data[23]_i_3_n_0 was not replicated.
 Resolution: phys_opt_design can be forced to replicate a net driver using the option -force_replication_on_nets <list of net objects>.
 INFO: [Physopt 32-662] Processed net dht11_control_instance/dth11/temp_data[23]_i_3_n_0.  Did not re-place instance dht11_control_instance/dth11/temp_data[23]_i_3
-INFO: [Physopt 32-572] Net dht11_control_instance/dth11/temp_data[23]_i_3_n_0 was not replicated.
-Resolution: phys_opt_design can be forced to replicate a net driver using the option -force_replication_on_nets <list of net objects>.
+INFO: [Physopt 32-710] Processed net dht11_control_instance/dth11/ed/data_count[2]_i_2_n_0. Critical path length was reduced through logic transformation on cell dht11_control_instance/dth11/ed/data_count[2]_i_2_comp.
 INFO: [Physopt 32-735] Processed net dht11_control_instance/dth11/temp_data[23]_i_3_n_0. Optimization improves timing on the net.
-INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-2.150 | TNS=-34.010 |
-INFO: [Physopt 32-662] Processed net dht11_control_instance/dth11/count_usec_reg[16].  Did not re-place instance dht11_control_instance/dth11/count_usec_reg[16]
-INFO: [Physopt 32-572] Net dht11_control_instance/dth11/count_usec_reg[16] was not replicated.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-2.072 | TNS=-32.401 |
+INFO: [Physopt 32-662] Processed net dht11_control_instance/dth11/count_usec_reg[9].  Did not re-place instance dht11_control_instance/dth11/count_usec_reg[9]
+INFO: [Physopt 32-572] Net dht11_control_instance/dth11/count_usec_reg[9] was not replicated.
 Resolution: phys_opt_design can be forced to replicate a net driver using the option -force_replication_on_nets <list of net objects>.
-INFO: [Physopt 32-702] Processed net dht11_control_instance/dth11/count_usec_reg[16]. Optimizations did not improve timing on the net.
-INFO: [Physopt 32-572] Net dht11_control_instance/dth11/temp_data[23]_i_3_n_0 was not replicated.
+INFO: [Physopt 32-702] Processed net dht11_control_instance/dth11/count_usec_reg[9]. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-662] Processed net dht11_control_instance/dth11/next_state[5]_i_12_n_0.  Did not re-place instance dht11_control_instance/dth11/next_state[5]_i_12
+INFO: [Physopt 32-572] Net dht11_control_instance/dth11/next_state[5]_i_12_n_0 was not replicated.
 Resolution: phys_opt_design can be forced to replicate a net driver using the option -force_replication_on_nets <list of net objects>.
-INFO: [Physopt 32-662] Processed net dht11_control_instance/dth11/temp_data[23]_i_3_n_0.  Did not re-place instance dht11_control_instance/dth11/temp_data[23]_i_3
-INFO: [Physopt 32-572] Net dht11_control_instance/dth11/temp_data[23]_i_3_n_0 was not replicated.
+INFO: [Physopt 32-702] Processed net dht11_control_instance/dth11/next_state[5]_i_12_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-572] Net dht11_control_instance/dth11/ed/data_count_reg[3][0] was not replicated.
 Resolution: phys_opt_design can be forced to replicate a net driver using the option -force_replication_on_nets <list of net objects>.
-INFO: [Physopt 32-702] Processed net dht11_control_instance/dth11/temp_data[23]_i_3_n_0. Optimizations did not improve timing on the net.
-INFO: [Physopt 32-663] Processed net dht11_control_instance/dth11/temp_data[23]_i_8_n_0.  Re-placed instance dht11_control_instance/dth11/temp_data[23]_i_8
-INFO: [Physopt 32-735] Processed net dht11_control_instance/dth11/temp_data[23]_i_8_n_0. Optimization improves timing on the net.
-INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-2.119 | TNS=-33.483 |
-INFO: [Physopt 32-662] Processed net dht11_control_instance/dth11/temp_data[23]_i_8_n_0.  Did not re-place instance dht11_control_instance/dth11/temp_data[23]_i_8
-INFO: [Physopt 32-702] Processed net dht11_control_instance/dth11/temp_data[23]_i_8_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-662] Processed net dht11_control_instance/dth11/ed/data_count_reg[3][0].  Did not re-place instance dht11_control_instance/dth11/ed/humidity[7]_i_1
+INFO: [Physopt 32-572] Net dht11_control_instance/dth11/ed/data_count_reg[3][0] was not replicated.
+Resolution: phys_opt_design can be forced to replicate a net driver using the option -force_replication_on_nets <list of net objects>.
+INFO: [Physopt 32-735] Processed net dht11_control_instance/dth11/ed/data_count_reg[3][0]. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-2.044 | TNS=-31.953 |
+INFO: [Physopt 32-662] Processed net dht11_control_instance/dth11/ed/humidity[7]_i_5_n_0.  Did not re-place instance dht11_control_instance/dth11/ed/humidity[7]_i_5
+INFO: [Physopt 32-702] Processed net dht11_control_instance/dth11/ed/humidity[7]_i_5_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net dht11_control_instance/dth11/ed/humidity1[4]. Optimizations did not improve timing on the net.
 INFO: [Physopt 32-572] Net dht11_control_instance/dth11/ed/data_count_reg[3][0] was not replicated.
 Resolution: phys_opt_design can be forced to replicate a net driver using the option -force_replication_on_nets <list of net objects>.
 INFO: [Physopt 32-662] Processed net dht11_control_instance/dth11/ed/data_count_reg[3][0].  Did not re-place instance dht11_control_instance/dth11/ed/humidity[7]_i_1
@@ -484,90 +440,92 @@ Resolution: phys_opt_design can be forced to replicate a net driver using the op
 INFO: [Physopt 32-702] Processed net dht11_control_instance/dth11/ed/data_count_reg[3][0]. Optimizations did not improve timing on the net.
 INFO: [Physopt 32-702] Processed net clk_IBUF. Optimizations did not improve timing on the net.
 INFO: [Physopt 32-702] Processed net clk. Optimizations did not improve timing on the net.
-INFO: [Physopt 32-662] Processed net dht11_control_instance/dth11/dht11_value[10].  Did not re-place instance dht11_control_instance/dth11/temperature_reg[2]
-INFO: [Physopt 32-702] Processed net dht11_control_instance/dth11/dht11_value[10]. Optimizations did not improve timing on the net.
-INFO: [Physopt 32-662] Processed net dht11_control_instance/dth11/count_usec_reg[16].  Did not re-place instance dht11_control_instance/dth11/count_usec_reg[16]
-INFO: [Physopt 32-702] Processed net dht11_control_instance/dth11/count_usec_reg[16]. Optimizations did not improve timing on the net.
-INFO: [Physopt 32-662] Processed net dht11_control_instance/dth11/ed/humidity[7]_i_3_n_0.  Did not re-place instance dht11_control_instance/dth11/ed/humidity[7]_i_3
-INFO: [Physopt 32-702] Processed net dht11_control_instance/dth11/ed/humidity[7]_i_3_n_0. Optimizations did not improve timing on the net.
-INFO: [Physopt 32-702] Processed net dht11_control_instance/dth11/ed/humidity1[7]. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-662] Processed net dht11_control_instance/dth11/dht11_value[3].  Did not re-place instance dht11_control_instance/dth11/humidity_reg[3]
+INFO: [Physopt 32-702] Processed net dht11_control_instance/dth11/dht11_value[3]. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-662] Processed net dht11_control_instance/dth11/count_usec_reg[9].  Did not re-place instance dht11_control_instance/dth11/count_usec_reg[9]
+INFO: [Physopt 32-702] Processed net dht11_control_instance/dth11/count_usec_reg[9]. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-662] Processed net dht11_control_instance/dth11/ed/humidity[7]_i_5_n_0.  Did not re-place instance dht11_control_instance/dth11/ed/humidity[7]_i_5
+INFO: [Physopt 32-702] Processed net dht11_control_instance/dth11/ed/humidity[7]_i_5_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net dht11_control_instance/dth11/ed/humidity1[4]. Optimizations did not improve timing on the net.
 INFO: [Physopt 32-702] Processed net dht11_control_instance/dth11/ed/humidity[7]_i_23_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-662] Processed net dht11_control_instance/dth11/ed/humidity[7]_i_41_n_0.  Did not re-place instance dht11_control_instance/dth11/ed/humidity[7]_i_41
+INFO: [Physopt 32-702] Processed net dht11_control_instance/dth11/ed/humidity[7]_i_41_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-662] Processed net dht11_control_instance/dth11/ed/data_count[2]_i_2_n_0.  Did not re-place instance dht11_control_instance/dth11/ed/data_count[2]_i_2_comp
+INFO: [Physopt 32-735] Processed net dht11_control_instance/dth11/ed/data_count[2]_i_2_n_0. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-1.950 | TNS=-30.449 |
+INFO: [Physopt 32-662] Processed net dht11_control_instance/dth11/count_usec_reg[2].  Did not re-place instance dht11_control_instance/dth11/count_usec_reg[2]
+INFO: [Physopt 32-702] Processed net dht11_control_instance/dth11/count_usec_reg[2]. Optimizations did not improve timing on the net.
 INFO: [Physopt 32-662] Processed net dht11_control_instance/dth11/ed/humidity[7]_i_40_n_0.  Did not re-place instance dht11_control_instance/dth11/ed/humidity[7]_i_40
 INFO: [Physopt 32-702] Processed net dht11_control_instance/dth11/ed/humidity[7]_i_40_n_0. Optimizations did not improve timing on the net.
 INFO: [Physopt 32-662] Processed net dht11_control_instance/dth11/ed/D[18].  Did not re-place instance dht11_control_instance/dth11/ed/temp_data[18]_i_1
 INFO: [Physopt 32-702] Processed net dht11_control_instance/dth11/ed/D[18]. Optimizations did not improve timing on the net.
 INFO: [Physopt 32-662] Processed net dht11_control_instance/dth11/temp_data[23]_i_3_n_0.  Did not re-place instance dht11_control_instance/dth11/temp_data[23]_i_3
 INFO: [Physopt 32-702] Processed net dht11_control_instance/dth11/temp_data[23]_i_3_n_0. Optimizations did not improve timing on the net.
-INFO: [Physopt 32-662] Processed net dht11_control_instance/dth11/temp_data[23]_i_8_n_0.  Did not re-place instance dht11_control_instance/dth11/temp_data[23]_i_8
-INFO: [Physopt 32-702] Processed net dht11_control_instance/dth11/temp_data[23]_i_8_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-662] Processed net dht11_control_instance/dth11/next_state[5]_i_14_n_0.  Did not re-place instance dht11_control_instance/dth11/next_state[5]_i_14
+INFO: [Physopt 32-702] Processed net dht11_control_instance/dth11/next_state[5]_i_14_n_0. Optimizations did not improve timing on the net.
 INFO: [Physopt 32-662] Processed net dht11_control_instance/dth11/ed/data_count_reg[3][0].  Did not re-place instance dht11_control_instance/dth11/ed/humidity[7]_i_1
 INFO: [Physopt 32-702] Processed net dht11_control_instance/dth11/ed/data_count_reg[3][0]. Optimizations did not improve timing on the net.
 INFO: [Physopt 32-702] Processed net clk_IBUF. Optimizations did not improve timing on the net.
 INFO: [Physopt 32-702] Processed net clk. Optimizations did not improve timing on the net.
-INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-2.119 | TNS=-33.483 |
-Phase 3 Critical Path Optimization | Checksum: 125e2789a
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-1.950 | TNS=-30.449 |
+Phase 3 Critical Path Optimization | Checksum: 21e75b7f2
 
-Time (s): cpu = 00:00:01 ; elapsed = 00:00:03 . Memory (MB): peak = 1857.770 ; gain = 9.102
+Time (s): cpu = 00:00:01 ; elapsed = 00:00:02 . Memory (MB): peak = 1864.852 ; gain = 9.070
 
 Phase 4 Critical Path Optimization
-INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-2.119 | TNS=-33.483 |
-INFO: [Physopt 32-662] Processed net dht11_control_instance/dth11/dht11_value[10].  Did not re-place instance dht11_control_instance/dth11/temperature_reg[2]
-INFO: [Physopt 32-702] Processed net dht11_control_instance/dth11/dht11_value[10]. Optimizations did not improve timing on the net.
-INFO: [Physopt 32-662] Processed net dht11_control_instance/dth11/count_usec_reg[16].  Did not re-place instance dht11_control_instance/dth11/count_usec_reg[16]
-INFO: [Physopt 32-81] Processed net dht11_control_instance/dth11/count_usec_reg[16]. Replicated 1 times.
-INFO: [Physopt 32-735] Processed net dht11_control_instance/dth11/count_usec_reg[16]. Optimization improves timing on the net.
-INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-2.084 | TNS=-32.888 |
-INFO: [Physopt 32-662] Processed net dht11_control_instance/dth11/count_usec_reg[15].  Did not re-place instance dht11_control_instance/dth11/count_usec_reg[15]
-INFO: [Physopt 32-81] Processed net dht11_control_instance/dth11/count_usec_reg[15]. Replicated 1 times.
-INFO: [Physopt 32-735] Processed net dht11_control_instance/dth11/count_usec_reg[15]. Optimization improves timing on the net.
-INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-2.068 | TNS=-32.616 |
-INFO: [Physopt 32-662] Processed net dht11_control_instance/dth11/count_usec_reg[15]_repN.  Did not re-place instance dht11_control_instance/dth11/count_usec_reg[15]_replica
-INFO: [Physopt 32-702] Processed net dht11_control_instance/dth11/count_usec_reg[15]_repN. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-1.950 | TNS=-30.449 |
+INFO: [Physopt 32-662] Processed net dht11_control_instance/dth11/dht11_value[3].  Did not re-place instance dht11_control_instance/dth11/humidity_reg[3]
+INFO: [Physopt 32-702] Processed net dht11_control_instance/dth11/dht11_value[3]. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-662] Processed net dht11_control_instance/dth11/count_usec_reg[2].  Did not re-place instance dht11_control_instance/dth11/count_usec_reg[2]
+INFO: [Physopt 32-572] Net dht11_control_instance/dth11/count_usec_reg[2] was not replicated.
+Resolution: phys_opt_design can be forced to replicate a net driver using the option -force_replication_on_nets <list of net objects>.
+INFO: [Physopt 32-702] Processed net dht11_control_instance/dth11/count_usec_reg[2]. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-662] Processed net dht11_control_instance/dth11/ed/humidity[7]_i_5_n_0.  Did not re-place instance dht11_control_instance/dth11/ed/humidity[7]_i_5
+INFO: [Physopt 32-702] Processed net dht11_control_instance/dth11/ed/humidity[7]_i_5_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net dht11_control_instance/dth11/ed/humidity1[4]. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net dht11_control_instance/dth11/ed/humidity_reg[7]_i_10_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-735] Processed net dht11_control_instance/dth11/ed/humidity[7]_i_23_n_0. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-1.948 | TNS=-30.417 |
+INFO: [Physopt 32-735] Processed net dht11_control_instance/dth11/ed/humidity[7]_i_23_n_0. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-1.944 | TNS=-30.353 |
+INFO: [Physopt 32-735] Processed net dht11_control_instance/dth11/ed/humidity[7]_i_24_n_0. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-1.920 | TNS=-29.969 |
 INFO: [Physopt 32-662] Processed net dht11_control_instance/dth11/ed/humidity[7]_i_3_n_0.  Did not re-place instance dht11_control_instance/dth11/ed/humidity[7]_i_3
 INFO: [Physopt 32-702] Processed net dht11_control_instance/dth11/ed/humidity[7]_i_3_n_0. Optimizations did not improve timing on the net.
 INFO: [Physopt 32-702] Processed net dht11_control_instance/dth11/ed/humidity1[7]. Optimizations did not improve timing on the net.
-INFO: [Physopt 32-702] Processed net dht11_control_instance/dth11/ed/humidity_reg[7]_i_10_n_0. Optimizations did not improve timing on the net.
-INFO: [Physopt 32-702] Processed net dht11_control_instance/dth11/ed/humidity[7]_i_23_n_0. Optimizations did not improve timing on the net.
-INFO: [Physopt 32-662] Processed net dht11_control_instance/dth11/ed/humidity[7]_i_40_n_0.  Did not re-place instance dht11_control_instance/dth11/ed/humidity[7]_i_40
-INFO: [Physopt 32-572] Net dht11_control_instance/dth11/ed/humidity[7]_i_40_n_0 was not replicated.
-Resolution: phys_opt_design can be forced to replicate a net driver using the option -force_replication_on_nets <list of net objects>.
-INFO: [Physopt 32-702] Processed net dht11_control_instance/dth11/ed/humidity[7]_i_40_n_0. Optimizations did not improve timing on the net.
-INFO: [Physopt 32-662] Processed net dht11_control_instance/dth11/ed/D[18].  Did not re-place instance dht11_control_instance/dth11/ed/temp_data[18]_i_1
-INFO: [Physopt 32-572] Net dht11_control_instance/dth11/ed/D[18] was not replicated.
-Resolution: phys_opt_design can be forced to replicate a net driver using the option -force_replication_on_nets <list of net objects>.
-INFO: [Physopt 32-702] Processed net dht11_control_instance/dth11/ed/D[18]. Optimizations did not improve timing on the net.
-INFO: [Physopt 32-572] Net dht11_control_instance/dth11/temp_data[23]_i_3_n_0 was not replicated.
-Resolution: phys_opt_design can be forced to replicate a net driver using the option -force_replication_on_nets <list of net objects>.
-INFO: [Physopt 32-662] Processed net dht11_control_instance/dth11/temp_data[23]_i_3_n_0.  Did not re-place instance dht11_control_instance/dth11/temp_data[23]_i_3
-INFO: [Physopt 32-572] Net dht11_control_instance/dth11/temp_data[23]_i_3_n_0 was not replicated.
-Resolution: phys_opt_design can be forced to replicate a net driver using the option -force_replication_on_nets <list of net objects>.
-INFO: [Physopt 32-702] Processed net dht11_control_instance/dth11/temp_data[23]_i_3_n_0. Optimizations did not improve timing on the net.
-INFO: [Physopt 32-663] Processed net dht11_control_instance/dth11/temp_data[23]_i_8_n_0.  Re-placed instance dht11_control_instance/dth11/temp_data[23]_i_8
-INFO: [Physopt 32-735] Processed net dht11_control_instance/dth11/temp_data[23]_i_8_n_0. Optimization improves timing on the net.
-INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-2.066 | TNS=-32.582 |
-INFO: [Physopt 32-663] Processed net dht11_control_instance/dth11/count_usec_reg[9].  Re-placed instance dht11_control_instance/dth11/count_usec_reg[9]
-INFO: [Physopt 32-735] Processed net dht11_control_instance/dth11/count_usec_reg[9]. Optimization improves timing on the net.
-INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-2.054 | TNS=-32.378 |
-INFO: [Physopt 32-663] Processed net dht11_control_instance/dth11/count_usec_reg[6].  Re-placed instance dht11_control_instance/dth11/count_usec_reg[6]
-INFO: [Physopt 32-735] Processed net dht11_control_instance/dth11/count_usec_reg[6]. Optimization improves timing on the net.
-INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-2.031 | TNS=-31.987 |
-INFO: [Physopt 32-662] Processed net dht11_control_instance/dth11/temp_data[23]_i_8_n_0.  Did not re-place instance dht11_control_instance/dth11/temp_data[23]_i_8
-INFO: [Physopt 32-735] Processed net dht11_control_instance/dth11/temp_data[23]_i_8_n_0. Optimization improves timing on the net.
-INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-2.027 | TNS=-31.919 |
+INFO: [Physopt 32-735] Processed net dht11_control_instance/dth11/ed/humidity[7]_i_18_n_0. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-1.917 | TNS=-29.921 |
+INFO: [Physopt 32-735] Processed net dht11_control_instance/dth11/ed/humidity[7]_i_17_n_0. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-1.909 | TNS=-29.793 |
 INFO: [Physopt 32-662] Processed net dht11_control_instance/dth11/count_usec_reg[10].  Did not re-place instance dht11_control_instance/dth11/count_usec_reg[10]
 INFO: [Physopt 32-572] Net dht11_control_instance/dth11/count_usec_reg[10] was not replicated.
 Resolution: phys_opt_design can be forced to replicate a net driver using the option -force_replication_on_nets <list of net objects>.
 INFO: [Physopt 32-702] Processed net dht11_control_instance/dth11/count_usec_reg[10]. Optimizations did not improve timing on the net.
-INFO: [Physopt 32-663] Processed net dht11_control_instance/dth11/next_state[5]_i_12_n_0.  Re-placed instance dht11_control_instance/dth11/next_state[5]_i_12
-INFO: [Physopt 32-735] Processed net dht11_control_instance/dth11/next_state[5]_i_12_n_0. Optimization improves timing on the net.
-INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-2.026 | TNS=-31.898 |
-INFO: [Physopt 32-663] Processed net dht11_control_instance/dth11/count_usec_reg[18].  Re-placed instance dht11_control_instance/dth11/count_usec_reg[18]
-INFO: [Physopt 32-735] Processed net dht11_control_instance/dth11/count_usec_reg[18]. Optimization improves timing on the net.
-INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-2.022 | TNS=-31.834 |
-INFO: [Physopt 32-662] Processed net dht11_control_instance/dth11/count_usec_reg[16]_repN.  Did not re-place instance dht11_control_instance/dth11/count_usec_reg[16]_replica
-INFO: [Physopt 32-702] Processed net dht11_control_instance/dth11/count_usec_reg[16]_repN. Optimizations did not improve timing on the net.
-INFO: [Physopt 32-662] Processed net dht11_control_instance/dth11/temp_data[23]_i_8_n_0.  Did not re-place instance dht11_control_instance/dth11/temp_data[23]_i_8
-INFO: [Physopt 32-702] Processed net dht11_control_instance/dth11/temp_data[23]_i_8_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net dht11_control_instance/dth11/ed/humidity[7]_i_23_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-663] Processed net dht11_control_instance/dth11/ed/D[34].  Re-placed instance dht11_control_instance/dth11/ed/temp_data[34]_i_1
+INFO: [Physopt 32-735] Processed net dht11_control_instance/dth11/ed/D[34]. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-1.909 | TNS=-29.793 |
+INFO: [Physopt 32-663] Processed net dht11_control_instance/dth11/ed/humidity[7]_i_31_n_0.  Re-placed instance dht11_control_instance/dth11/ed/humidity[7]_i_31
+INFO: [Physopt 32-735] Processed net dht11_control_instance/dth11/ed/humidity[7]_i_31_n_0. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-1.889 | TNS=-29.473 |
+INFO: [Physopt 32-662] Processed net dht11_control_instance/dth11/ed/humidity[7]_i_31_n_0.  Did not re-place instance dht11_control_instance/dth11/ed/humidity[7]_i_31
+INFO: [Physopt 32-572] Net dht11_control_instance/dth11/ed/humidity[7]_i_31_n_0 was not replicated.
+Resolution: phys_opt_design can be forced to replicate a net driver using the option -force_replication_on_nets <list of net objects>.
+INFO: [Physopt 32-702] Processed net dht11_control_instance/dth11/ed/humidity[7]_i_31_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-662] Processed net dht11_control_instance/dth11/ed/D[18].  Did not re-place instance dht11_control_instance/dth11/ed/temp_data[18]_i_1
+INFO: [Physopt 32-572] Net dht11_control_instance/dth11/ed/D[18] was not replicated.
+Resolution: phys_opt_design can be forced to replicate a net driver using the option -force_replication_on_nets <list of net objects>.
+INFO: [Physopt 32-702] Processed net dht11_control_instance/dth11/ed/D[18]. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-572] Net dht11_control_instance/dth11/temp_data[23]_i_3_n_0 was not replicated.
+Resolution: phys_opt_design can be forced to replicate a net driver using the option -force_replication_on_nets <list of net objects>.
+INFO: [Physopt 32-662] Processed net dht11_control_instance/dth11/temp_data[23]_i_3_n_0.  Did not re-place instance dht11_control_instance/dth11/temp_data[23]_i_3
+INFO: [Physopt 32-572] Net dht11_control_instance/dth11/temp_data[23]_i_3_n_0 was not replicated.
+Resolution: phys_opt_design can be forced to replicate a net driver using the option -force_replication_on_nets <list of net objects>.
+INFO: [Physopt 32-702] Processed net dht11_control_instance/dth11/temp_data[23]_i_3_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-662] Processed net dht11_control_instance/dth11/next_state[5]_i_14_n_0.  Did not re-place instance dht11_control_instance/dth11/next_state[5]_i_14
+INFO: [Physopt 32-572] Net dht11_control_instance/dth11/next_state[5]_i_14_n_0 was not replicated.
+Resolution: phys_opt_design can be forced to replicate a net driver using the option -force_replication_on_nets <list of net objects>.
+INFO: [Physopt 32-702] Processed net dht11_control_instance/dth11/next_state[5]_i_14_n_0. Optimizations did not improve timing on the net.
 INFO: [Physopt 32-572] Net dht11_control_instance/dth11/ed/data_count_reg[3][0] was not replicated.
 Resolution: phys_opt_design can be forced to replicate a net driver using the option -force_replication_on_nets <list of net objects>.
 INFO: [Physopt 32-662] Processed net dht11_control_instance/dth11/ed/data_count_reg[3][0].  Did not re-place instance dht11_control_instance/dth11/ed/humidity[7]_i_1
@@ -576,32 +534,32 @@ Resolution: phys_opt_design can be forced to replicate a net driver using the op
 INFO: [Physopt 32-702] Processed net dht11_control_instance/dth11/ed/data_count_reg[3][0]. Optimizations did not improve timing on the net.
 INFO: [Physopt 32-702] Processed net clk_IBUF. Optimizations did not improve timing on the net.
 INFO: [Physopt 32-702] Processed net clk. Optimizations did not improve timing on the net.
-INFO: [Physopt 32-662] Processed net dht11_control_instance/dth11/dht11_value[10].  Did not re-place instance dht11_control_instance/dth11/temperature_reg[2]
-INFO: [Physopt 32-702] Processed net dht11_control_instance/dth11/dht11_value[10]. Optimizations did not improve timing on the net.
-INFO: [Physopt 32-662] Processed net dht11_control_instance/dth11/count_usec_reg[16]_repN.  Did not re-place instance dht11_control_instance/dth11/count_usec_reg[16]_replica
-INFO: [Physopt 32-702] Processed net dht11_control_instance/dth11/count_usec_reg[16]_repN. Optimizations did not improve timing on the net.
-INFO: [Physopt 32-662] Processed net dht11_control_instance/dth11/ed/humidity[7]_i_3_n_0.  Did not re-place instance dht11_control_instance/dth11/ed/humidity[7]_i_3
-INFO: [Physopt 32-702] Processed net dht11_control_instance/dth11/ed/humidity[7]_i_3_n_0. Optimizations did not improve timing on the net.
-INFO: [Physopt 32-702] Processed net dht11_control_instance/dth11/ed/humidity1[7]. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-662] Processed net dht11_control_instance/dth11/dht11_value[3].  Did not re-place instance dht11_control_instance/dth11/humidity_reg[3]
+INFO: [Physopt 32-702] Processed net dht11_control_instance/dth11/dht11_value[3]. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-662] Processed net dht11_control_instance/dth11/count_usec_reg[2].  Did not re-place instance dht11_control_instance/dth11/count_usec_reg[2]
+INFO: [Physopt 32-702] Processed net dht11_control_instance/dth11/count_usec_reg[2]. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-662] Processed net dht11_control_instance/dth11/ed/humidity[7]_i_5_n_0.  Did not re-place instance dht11_control_instance/dth11/ed/humidity[7]_i_5
+INFO: [Physopt 32-702] Processed net dht11_control_instance/dth11/ed/humidity[7]_i_5_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net dht11_control_instance/dth11/ed/humidity1[4]. Optimizations did not improve timing on the net.
 INFO: [Physopt 32-702] Processed net dht11_control_instance/dth11/ed/humidity[7]_i_23_n_0. Optimizations did not improve timing on the net.
-INFO: [Physopt 32-662] Processed net dht11_control_instance/dth11/ed/humidity[7]_i_40_n_0.  Did not re-place instance dht11_control_instance/dth11/ed/humidity[7]_i_40
-INFO: [Physopt 32-702] Processed net dht11_control_instance/dth11/ed/humidity[7]_i_40_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-662] Processed net dht11_control_instance/dth11/ed/humidity[7]_i_31_n_0.  Did not re-place instance dht11_control_instance/dth11/ed/humidity[7]_i_31
+INFO: [Physopt 32-702] Processed net dht11_control_instance/dth11/ed/humidity[7]_i_31_n_0. Optimizations did not improve timing on the net.
 INFO: [Physopt 32-662] Processed net dht11_control_instance/dth11/ed/D[18].  Did not re-place instance dht11_control_instance/dth11/ed/temp_data[18]_i_1
 INFO: [Physopt 32-702] Processed net dht11_control_instance/dth11/ed/D[18]. Optimizations did not improve timing on the net.
 INFO: [Physopt 32-662] Processed net dht11_control_instance/dth11/temp_data[23]_i_3_n_0.  Did not re-place instance dht11_control_instance/dth11/temp_data[23]_i_3
 INFO: [Physopt 32-702] Processed net dht11_control_instance/dth11/temp_data[23]_i_3_n_0. Optimizations did not improve timing on the net.
-INFO: [Physopt 32-662] Processed net dht11_control_instance/dth11/temp_data[23]_i_8_n_0.  Did not re-place instance dht11_control_instance/dth11/temp_data[23]_i_8
-INFO: [Physopt 32-702] Processed net dht11_control_instance/dth11/temp_data[23]_i_8_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-662] Processed net dht11_control_instance/dth11/next_state[5]_i_14_n_0.  Did not re-place instance dht11_control_instance/dth11/next_state[5]_i_14
+INFO: [Physopt 32-702] Processed net dht11_control_instance/dth11/next_state[5]_i_14_n_0. Optimizations did not improve timing on the net.
 INFO: [Physopt 32-662] Processed net dht11_control_instance/dth11/ed/data_count_reg[3][0].  Did not re-place instance dht11_control_instance/dth11/ed/humidity[7]_i_1
 INFO: [Physopt 32-702] Processed net dht11_control_instance/dth11/ed/data_count_reg[3][0]. Optimizations did not improve timing on the net.
 INFO: [Physopt 32-702] Processed net clk_IBUF. Optimizations did not improve timing on the net.
 INFO: [Physopt 32-702] Processed net clk. Optimizations did not improve timing on the net.
-INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-2.022 | TNS=-31.834 |
-Phase 4 Critical Path Optimization | Checksum: 125e2789a
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-1.889 | TNS=-29.473 |
+Phase 4 Critical Path Optimization | Checksum: 21e75b7f2
 
-Time (s): cpu = 00:00:02 ; elapsed = 00:00:04 . Memory (MB): peak = 1857.770 ; gain = 9.102
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.004 . Memory (MB): peak = 1857.770 ; gain = 0.000
-INFO: [Physopt 32-603] Post Physical Optimization Timing Summary | WNS=-2.022 | TNS=-31.834 |
+Time (s): cpu = 00:00:01 ; elapsed = 00:00:03 . Memory (MB): peak = 1864.852 ; gain = 9.070
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.003 . Memory (MB): peak = 1864.852 ; gain = 0.000
+INFO: [Physopt 32-603] Post Physical Optimization Timing Summary | WNS=-1.889 | TNS=-29.473 |
 
 Summary of Physical Synthesis Optimizations
 ============================================
@@ -611,25 +569,25 @@ Summary of Physical Synthesis Optimizations
 |  Optimization   |  WNS Gain (ns)  |  TNS Gain (ns)  |  Added Cells  |  Removed Cells  |  Optimized Cells/Nets  |  Dont Touch  |  Iterations  |  Elapsed   |
 -------------------------------------------------------------------------------------------------------------------------------------------------------------
 |  DSP Register   |          0.000  |          0.000  |            0  |              0  |                     0  |           0  |           1  |  00:00:00  |
-|  Critical Path  |          0.467  |          7.848  |            3  |              0  |                    22  |           0  |           2  |  00:00:03  |
-|  Total          |          0.467  |          7.848  |            3  |              0  |                    22  |           0  |           3  |  00:00:03  |
+|  Critical Path  |          0.351  |          4.191  |            0  |              0  |                    12  |           0  |           2  |  00:00:02  |
+|  Total          |          0.351  |          4.191  |            0  |              0  |                    12  |           0  |           3  |  00:00:02  |
 -------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1857.770 ; gain = 0.000
-Ending Physical Synthesis Task | Checksum: 125e2789a
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1864.852 ; gain = 0.000
+Ending Physical Synthesis Task | Checksum: 21e75b7f2
 
-Time (s): cpu = 00:00:02 ; elapsed = 00:00:04 . Memory (MB): peak = 1857.770 ; gain = 9.102
+Time (s): cpu = 00:00:01 ; elapsed = 00:00:03 . Memory (MB): peak = 1864.852 ; gain = 9.070
 INFO: [Common 17-83] Releasing license: Implementation
-263 Infos, 1 Warnings, 1 Critical Warnings and 0 Errors encountered.
+222 Infos, 1 Warnings, 1 Critical Warnings and 0 Errors encountered.
 phys_opt_design completed successfully
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1857.770 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1864.852 ; gain = 0.000
 INFO: [Timing 38-480] Writing timing data to binary archive.
 Writing placer database...
 Writing XDEF routing.
 Writing XDEF routing logical nets.
 Writing XDEF routing special nets.
-Write XDEF Complete: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.115 . Memory (MB): peak = 1866.605 ; gain = 8.836
+Write XDEF Complete: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.104 . Memory (MB): peak = 1873.633 ; gain = 8.781
 INFO: [Common 17-1381] The checkpoint 'E:/Work/vivado_2019/basys3_soc/basys3_soc.runs/impl_1/top_module_of_smart_farm_physopt.dcp' has been generated.
 Command: route_design
 Attempting to get a license for feature 'Implementation' and/or device 'xc7a35t'
@@ -645,41 +603,41 @@ INFO: [Vivado_Tcl 4-199] Please refer to the DRC report (report_drc) for more in
 
 Starting Routing Task
 INFO: [Route 35-254] Multithreading enabled for route_design using a maximum of 2 CPUs
-Checksum: PlaceDB: 3246589e ConstDB: 0 ShapeSum: 17d0f753 RouteDB: 0
+Checksum: PlaceDB: b3bfde5c ConstDB: 0 ShapeSum: ca916894 RouteDB: 0
 
 Phase 1 Build RT Design
-Phase 1 Build RT Design | Checksum: 113a3b5c6
+Phase 1 Build RT Design | Checksum: 16c56367c
 
-Time (s): cpu = 00:00:08 ; elapsed = 00:00:11 . Memory (MB): peak = 1957.031 ; gain = 78.348
-Post Restoration Checksum: NetGraph: b4ca0492 NumContArr: 5ed9b134 Constraints: 0 Timing: 0
+Time (s): cpu = 00:00:07 ; elapsed = 00:00:10 . Memory (MB): peak = 1960.375 ; gain = 74.668
+Post Restoration Checksum: NetGraph: 856fc5d5 NumContArr: e6e670a7 Constraints: 0 Timing: 0
 
 Phase 2 Router Initialization
 
 Phase 2.1 Create Timer
-Phase 2.1 Create Timer | Checksum: 113a3b5c6
+Phase 2.1 Create Timer | Checksum: 16c56367c
 
-Time (s): cpu = 00:00:08 ; elapsed = 00:00:11 . Memory (MB): peak = 1957.047 ; gain = 78.363
+Time (s): cpu = 00:00:07 ; elapsed = 00:00:10 . Memory (MB): peak = 1960.387 ; gain = 74.680
 
 Phase 2.2 Fix Topology Constraints
-Phase 2.2 Fix Topology Constraints | Checksum: 113a3b5c6
+Phase 2.2 Fix Topology Constraints | Checksum: 16c56367c
 
-Time (s): cpu = 00:00:08 ; elapsed = 00:00:11 . Memory (MB): peak = 1963.082 ; gain = 84.398
+Time (s): cpu = 00:00:07 ; elapsed = 00:00:10 . Memory (MB): peak = 1966.410 ; gain = 80.703
 
 Phase 2.3 Pre Route Cleanup
-Phase 2.3 Pre Route Cleanup | Checksum: 113a3b5c6
+Phase 2.3 Pre Route Cleanup | Checksum: 16c56367c
 
-Time (s): cpu = 00:00:08 ; elapsed = 00:00:11 . Memory (MB): peak = 1963.082 ; gain = 84.398
+Time (s): cpu = 00:00:07 ; elapsed = 00:00:10 . Memory (MB): peak = 1966.410 ; gain = 80.703
  Number of Nodes with overlaps = 0
 
 Phase 2.4 Update Timing
-Phase 2.4 Update Timing | Checksum: dbc04171
+Phase 2.4 Update Timing | Checksum: 16a6a0d18
 
-Time (s): cpu = 00:00:08 ; elapsed = 00:00:11 . Memory (MB): peak = 1977.031 ; gain = 98.348
-INFO: [Route 35-416] Intermediate Timing Summary | WNS=-1.944 | TNS=-30.487| WHS=-0.205 | THS=-16.516|
+Time (s): cpu = 00:00:08 ; elapsed = 00:00:11 . Memory (MB): peak = 1975.059 ; gain = 89.352
+INFO: [Route 35-416] Intermediate Timing Summary | WNS=-1.779 | TNS=-27.781| WHS=-0.204 | THS=-18.219|
 
-Phase 2 Router Initialization | Checksum: b83f95fc
+Phase 2 Router Initialization | Checksum: e25cd724
 
-Time (s): cpu = 00:00:08 ; elapsed = 00:00:11 . Memory (MB): peak = 1977.031 ; gain = 98.348
+Time (s): cpu = 00:00:08 ; elapsed = 00:00:11 . Memory (MB): peak = 1975.059 ; gain = 89.352
 
 Router Utilization Summary
   Global Vertical Routing Utilization    = 0 %
@@ -687,97 +645,98 @@ Router Utilization Summary
   Routable Net Status*
   *Does not include unroutable nets such as driverless and loadless.
   Run report_route_status for detailed report.
-  Number of Failed Nets               = 1722
+  Number of Failed Nets               = 1783
     (Failed Nets is the sum of unrouted and partially routed nets)
-  Number of Unrouted Nets             = 1722
+  Number of Unrouted Nets             = 1783
   Number of Partially Routed Nets     = 0
   Number of Node Overlaps             = 0
 
 
 Phase 3 Initial Routing
-Phase 3 Initial Routing | Checksum: 13d59352c
+Phase 3 Initial Routing | Checksum: 136b2e65f
 
-Time (s): cpu = 00:00:08 ; elapsed = 00:00:11 . Memory (MB): peak = 1977.031 ; gain = 98.348
+Time (s): cpu = 00:00:08 ; elapsed = 00:00:11 . Memory (MB): peak = 1976.652 ; gain = 90.945
 
 Phase 4 Rip-up And Reroute
 
 Phase 4.1 Global Iteration 0
- Number of Nodes with overlaps = 287
- Number of Nodes with overlaps = 66
- Number of Nodes with overlaps = 28
- Number of Nodes with overlaps = 23
- Number of Nodes with overlaps = 14
+ Number of Nodes with overlaps = 310
+ Number of Nodes with overlaps = 65
+ Number of Nodes with overlaps = 30
+ Number of Nodes with overlaps = 16
+ Number of Nodes with overlaps = 8
+ Number of Nodes with overlaps = 5
  Number of Nodes with overlaps = 3
+ Number of Nodes with overlaps = 1
  Number of Nodes with overlaps = 0
-INFO: [Route 35-416] Intermediate Timing Summary | WNS=-2.839 | TNS=-48.194| WHS=N/A    | THS=N/A    |
+INFO: [Route 35-416] Intermediate Timing Summary | WNS=-2.443 | TNS=-38.237| WHS=N/A    | THS=N/A    |
 
-Phase 4.1 Global Iteration 0 | Checksum: 11023884d
+Phase 4.1 Global Iteration 0 | Checksum: 19ed1797c
 
-Time (s): cpu = 00:00:08 ; elapsed = 00:00:12 . Memory (MB): peak = 1977.031 ; gain = 98.348
+Time (s): cpu = 00:00:08 ; elapsed = 00:00:12 . Memory (MB): peak = 1976.652 ; gain = 90.945
 
 Phase 4.2 Global Iteration 1
- Number of Nodes with overlaps = 59
- Number of Nodes with overlaps = 18
+ Number of Nodes with overlaps = 63
+ Number of Nodes with overlaps = 27
+ Number of Nodes with overlaps = 15
  Number of Nodes with overlaps = 8
- Number of Nodes with overlaps = 9
- Number of Nodes with overlaps = 7
  Number of Nodes with overlaps = 5
- Number of Nodes with overlaps = 5
+ Number of Nodes with overlaps = 2
  Number of Nodes with overlaps = 0
-INFO: [Route 35-416] Intermediate Timing Summary | WNS=-2.934 | TNS=-49.731| WHS=N/A    | THS=N/A    |
+INFO: [Route 35-416] Intermediate Timing Summary | WNS=-2.591 | TNS=-40.823| WHS=N/A    | THS=N/A    |
 
-Phase 4.2 Global Iteration 1 | Checksum: fdec889c
+Phase 4.2 Global Iteration 1 | Checksum: 1bd2c871f
 
-Time (s): cpu = 00:00:08 ; elapsed = 00:00:13 . Memory (MB): peak = 1977.031 ; gain = 98.348
-Phase 4 Rip-up And Reroute | Checksum: fdec889c
+Time (s): cpu = 00:00:08 ; elapsed = 00:00:13 . Memory (MB): peak = 1976.652 ; gain = 90.945
+Phase 4 Rip-up And Reroute | Checksum: 1bd2c871f
 
-Time (s): cpu = 00:00:08 ; elapsed = 00:00:13 . Memory (MB): peak = 1977.031 ; gain = 98.348
+Time (s): cpu = 00:00:08 ; elapsed = 00:00:13 . Memory (MB): peak = 1976.652 ; gain = 90.945
 
 Phase 5 Delay and Skew Optimization
 
 Phase 5.1 Delay CleanUp
 
 Phase 5.1.1 Update Timing
-Phase 5.1.1 Update Timing | Checksum: 169781244
+Phase 5.1.1 Update Timing | Checksum: 1987d77bb
 
-Time (s): cpu = 00:00:08 ; elapsed = 00:00:13 . Memory (MB): peak = 1977.031 ; gain = 98.348
-INFO: [Route 35-416] Intermediate Timing Summary | WNS=-2.759 | TNS=-45.969| WHS=N/A    | THS=N/A    |
+Time (s): cpu = 00:00:08 ; elapsed = 00:00:13 . Memory (MB): peak = 1976.652 ; gain = 90.945
+INFO: [Route 35-416] Intermediate Timing Summary | WNS=-2.363 | TNS=-36.957| WHS=N/A    | THS=N/A    |
 
  Number of Nodes with overlaps = 0
-Phase 5.1 Delay CleanUp | Checksum: 1cbf78f1b
+Phase 5.1 Delay CleanUp | Checksum: c6e3952c
 
-Time (s): cpu = 00:00:08 ; elapsed = 00:00:13 . Memory (MB): peak = 1977.031 ; gain = 98.348
+Time (s): cpu = 00:00:08 ; elapsed = 00:00:13 . Memory (MB): peak = 1976.652 ; gain = 90.945
 
 Phase 5.2 Clock Skew Optimization
-Phase 5.2 Clock Skew Optimization | Checksum: 1cbf78f1b
+Phase 5.2 Clock Skew Optimization | Checksum: c6e3952c
 
-Time (s): cpu = 00:00:08 ; elapsed = 00:00:13 . Memory (MB): peak = 1977.031 ; gain = 98.348
-Phase 5 Delay and Skew Optimization | Checksum: 1cbf78f1b
+Time (s): cpu = 00:00:08 ; elapsed = 00:00:13 . Memory (MB): peak = 1976.652 ; gain = 90.945
+Phase 5 Delay and Skew Optimization | Checksum: c6e3952c
 
-Time (s): cpu = 00:00:08 ; elapsed = 00:00:13 . Memory (MB): peak = 1977.031 ; gain = 98.348
+Time (s): cpu = 00:00:08 ; elapsed = 00:00:13 . Memory (MB): peak = 1976.652 ; gain = 90.945
 
 Phase 6 Post Hold Fix
 
 Phase 6.1 Hold Fix Iter
 
 Phase 6.1.1 Update Timing
-Phase 6.1.1 Update Timing | Checksum: 235d048c3
+Phase 6.1.1 Update Timing | Checksum: 13fef19d4
 
-Time (s): cpu = 00:00:08 ; elapsed = 00:00:13 . Memory (MB): peak = 1977.031 ; gain = 98.348
-INFO: [Route 35-416] Intermediate Timing Summary | WNS=-2.741 | TNS=-45.513| WHS=0.035  | THS=0.000  |
+Time (s): cpu = 00:00:08 ; elapsed = 00:00:13 . Memory (MB): peak = 1976.652 ; gain = 90.945
+INFO: [Route 35-416] Intermediate Timing Summary | WNS=-2.353 | TNS=-36.797| WHS=0.036  | THS=0.000  |
 
-Phase 6.1 Hold Fix Iter | Checksum: 28708c589
+Phase 6.1 Hold Fix Iter | Checksum: fc442237
 
-Time (s): cpu = 00:00:08 ; elapsed = 00:00:13 . Memory (MB): peak = 1977.031 ; gain = 98.348
-Phase 6 Post Hold Fix | Checksum: 28708c589
+Time (s): cpu = 00:00:08 ; elapsed = 00:00:13 . Memory (MB): peak = 1976.652 ; gain = 90.945
+Phase 6 Post Hold Fix | Checksum: fc442237
 
-Time (s): cpu = 00:00:08 ; elapsed = 00:00:13 . Memory (MB): peak = 1977.031 ; gain = 98.348
+Time (s): cpu = 00:00:08 ; elapsed = 00:00:13 . Memory (MB): peak = 1976.652 ; gain = 90.945
 
 Phase 7 Route finalize
 
 Router Utilization Summary
-  Global Vertical Routing Utilization    = 0.376624 %
-  Global Horizontal Routing Utilization  = 0.392244 %
+  Global Vertical Routing Utilization    = 0.42159 %
+  Global Horizontal Routing Utilization  = 0.366736 %
   Routable Net Status*
   *Does not include unroutable nets such as driverless and loadless.
   Run report_route_status for detailed report.
@@ -789,8 +748,8 @@ Router Utilization Summary
 
 Congestion Report
 North Dir 1x1 Area, Max Cong = 34.2342%, No Congested Regions.
-South Dir 1x1 Area, Max Cong = 23.4234%, No Congested Regions.
-East Dir 1x1 Area, Max Cong = 26.4706%, No Congested Regions.
+South Dir 1x1 Area, Max Cong = 24.3243%, No Congested Regions.
+East Dir 1x1 Area, Max Cong = 30.8824%, No Congested Regions.
 West Dir 1x1 Area, Max Cong = 42.6471%, No Congested Regions.
 
 ------------------------------
@@ -813,46 +772,46 @@ Direction: West
 Congested clusters found at Level 0
 Effective congestion level: 0 Aspect Ratio: 1 Sparse Ratio: 0
 
-Phase 7 Route finalize | Checksum: 261518b14
+Phase 7 Route finalize | Checksum: 72ae6ee5
 
-Time (s): cpu = 00:00:08 ; elapsed = 00:00:13 . Memory (MB): peak = 1977.031 ; gain = 98.348
+Time (s): cpu = 00:00:08 ; elapsed = 00:00:13 . Memory (MB): peak = 1976.652 ; gain = 90.945
 
 Phase 8 Verifying routed nets
 
  Verification completed successfully
-Phase 8 Verifying routed nets | Checksum: 261518b14
+Phase 8 Verifying routed nets | Checksum: 72ae6ee5
 
-Time (s): cpu = 00:00:08 ; elapsed = 00:00:13 . Memory (MB): peak = 1977.031 ; gain = 98.348
+Time (s): cpu = 00:00:08 ; elapsed = 00:00:13 . Memory (MB): peak = 1976.652 ; gain = 90.945
 
 Phase 9 Depositing Routes
-Phase 9 Depositing Routes | Checksum: 1d61039e8
+Phase 9 Depositing Routes | Checksum: 258b4e05
 
-Time (s): cpu = 00:00:08 ; elapsed = 00:00:13 . Memory (MB): peak = 1977.031 ; gain = 98.348
+Time (s): cpu = 00:00:08 ; elapsed = 00:00:13 . Memory (MB): peak = 1976.652 ; gain = 90.945
 
 Phase 10 Post Router Timing
-INFO: [Route 35-57] Estimated Timing Summary | WNS=-2.741 | TNS=-45.513| WHS=0.035  | THS=0.000  |
+INFO: [Route 35-57] Estimated Timing Summary | WNS=-2.353 | TNS=-36.797| WHS=0.036  | THS=0.000  |
 
 WARNING: [Route 35-328] Router estimated timing not met.
 Resolution: For a complete and accurate timing signoff, report_timing_summary must be run after route_design. Alternatively, route_design can be run with the -timing_summary option to enable a complete timing signoff at the end of route_design.
-Phase 10 Post Router Timing | Checksum: 1d61039e8
+Phase 10 Post Router Timing | Checksum: 258b4e05
 
-Time (s): cpu = 00:00:08 ; elapsed = 00:00:13 . Memory (MB): peak = 1977.031 ; gain = 98.348
+Time (s): cpu = 00:00:08 ; elapsed = 00:00:13 . Memory (MB): peak = 1976.652 ; gain = 90.945
 INFO: [Route 35-16] Router Completed Successfully
 
-Time (s): cpu = 00:00:08 ; elapsed = 00:00:13 . Memory (MB): peak = 1977.031 ; gain = 98.348
+Time (s): cpu = 00:00:08 ; elapsed = 00:00:13 . Memory (MB): peak = 1976.652 ; gain = 90.945
 
 Routing Is Done.
 INFO: [Common 17-83] Releasing license: Implementation
-281 Infos, 2 Warnings, 1 Critical Warnings and 0 Errors encountered.
+240 Infos, 2 Warnings, 1 Critical Warnings and 0 Errors encountered.
 route_design completed successfully
-route_design: Time (s): cpu = 00:00:08 ; elapsed = 00:00:14 . Memory (MB): peak = 1977.031 ; gain = 110.426
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1977.031 ; gain = 0.000
+route_design: Time (s): cpu = 00:00:09 ; elapsed = 00:00:14 . Memory (MB): peak = 1976.652 ; gain = 103.020
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1976.652 ; gain = 0.000
 INFO: [Timing 38-480] Writing timing data to binary archive.
 Writing placer database...
 Writing XDEF routing.
 Writing XDEF routing logical nets.
 Writing XDEF routing special nets.
-Write XDEF Complete: Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.143 . Memory (MB): peak = 1986.789 ; gain = 9.758
+Write XDEF Complete: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.138 . Memory (MB): peak = 1986.461 ; gain = 9.809
 INFO: [Common 17-1381] The checkpoint 'E:/Work/vivado_2019/basys3_soc/basys3_soc.runs/impl_1/top_module_of_smart_farm_routed.dcp' has been generated.
 INFO: [runtcl-4] Executing : report_drc -file top_module_of_smart_farm_drc_routed.rpt -pb top_module_of_smart_farm_drc_routed.pb -rpx top_module_of_smart_farm_drc_routed.rpx
 Command: report_drc -file top_module_of_smart_farm_drc_routed.rpt -pb top_module_of_smart_farm_drc_routed.pb -rpx top_module_of_smart_farm_drc_routed.rpx
@@ -872,7 +831,7 @@ INFO: [Timing 38-35] Done setting XDC timing constraints.
 Running Vector-less Activity Propagation...
 
 Finished Running Vector-less Activity Propagation
-293 Infos, 2 Warnings, 1 Critical Warnings and 0 Errors encountered.
+252 Infos, 2 Warnings, 1 Critical Warnings and 0 Errors encountered.
 report_power completed successfully
 INFO: [runtcl-4] Executing : report_route_status -file top_module_of_smart_farm_route_status.rpt -pb top_module_of_smart_farm_route_status.pb
 INFO: [runtcl-4] Executing : report_timing_summary -max_paths 10 -file top_module_of_smart_farm_timing_summary_routed.rpt -pb top_module_of_smart_farm_timing_summary_routed.pb -rpx top_module_of_smart_farm_timing_summary_routed.rpx -warn_on_violation 
@@ -900,12 +859,12 @@ Loading route data...
 Processing options...
 Creating bitmap...
 Creating bitstream...
-Bitstream compression saved 11497792 bits.
+Bitstream compression saved 11492256 bits.
 Writing bitstream ./top_module_of_smart_farm.bit...
 INFO: [Vivado 12-1842] Bitgen Completed Successfully.
 INFO: [Project 1-120] WebTalk data collection is mandatory when using a WebPACK part without a full Vivado license. To see the specific WebTalk data collected for your design, open the usage_statistics_webtalk.html or usage_statistics_webtalk.xml file in the implementation directory.
 INFO: [Common 17-83] Releasing license: Implementation
-312 Infos, 2 Warnings, 2 Critical Warnings and 0 Errors encountered.
+271 Infos, 2 Warnings, 2 Critical Warnings and 0 Errors encountered.
 write_bitstream completed successfully
-write_bitstream: Time (s): cpu = 00:00:04 ; elapsed = 00:00:08 . Memory (MB): peak = 2436.750 ; gain = 418.934
-INFO: [Common 17-206] Exiting Vivado at Wed Aug 28 14:19:21 2024...
+write_bitstream: Time (s): cpu = 00:00:06 ; elapsed = 00:00:08 . Memory (MB): peak = 2430.078 ; gain = 411.566
+INFO: [Common 17-206] Exiting Vivado at Thu Aug 29 15:42:18 2024...
