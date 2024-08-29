@@ -65,19 +65,19 @@ module top_module_of_smart_farm (
     wire [7:0] sunlight_value;
     wire water_flag;
     wire led_up_down;
-    wire [7:0] distance_between_plant_and_LED;
+    wire [21:0] distance_cm;
     
     // Instance of sensor module
     dht11_control dht11_control_instance (.clk(clk), .reset_p(reset_p), .dht11_data(dht11_data), .dht11_value(dht11_value));
     cds_and_water_level_control cds_and_water_level_control_instance (.clk(clk), .reset_p(reset_p), .vauxp6(vauxp6), .vauxn6(vauxn6), .vauxp15(vauxp15), .vauxn15(vauxn15), .water_flag(water_flag), .sunlight_value(sunlight_value) );
-    hc_sr04_control hc_sr04_control_instance (.clk(clk), .reset_p(reset_p), .hc_sr04_echo(hc_sr04_echo), .hc_sr04_trig(hc_sr04_trig), .led_up_down(led_up_down), .distance_between_plant_and_led(distance_between_plant_and_led));
+    HC_SR04_cntr HC_SR04_cntr_0(.clk(clk), .reset_p(reset_p), .hc_sr04_echo(hc_sr04_echo), .hc_sr04_trig(hc_sr04_trig), .distance(distance_cm),  .led_debug(led_debug)); 
     
     // Instance of Control module
     window_control window_control_instance (.clk(clk), .reset_p(reset_p), .dht11_value(dht11_value), .sw_window_open(sw_window_open), .sw_window_close(sw_window_close), .btn_window_control(btn_window_mode), .left_window_pwm(left_window_pwm), .right_window_pwm(right_window_pwm));
     electric_fan_control electric_fan_control_instance (.clk(clk), .reset_p(reset_p), .sw_cntr_electirc_fan_dir(sw_cntr_electirc_fan_dir), .sw_electric_fan_mode(sw_electric_fan_mode), .dht11_value(dht11_value), .btn_electric_fan_power(btn_electric_fan_power), .fan_pwm(fan_pwm), .fan_dir_pwm(fan_dir_pwm));
     led_control led_control_instance (.clk(clk), .reset_p(reset_p), .sw_led_mode(sw_led_mode), .btn_led_light(btn_led_light), .water_flag(water_flag), .sunlight_value(sunlight_value), .led_pwm(led_pwm), .warning_water_level_led(warning_water_level_led));
     water_pump water_pump_instance (.clk(clk), .reset_p(reset_p), .water_flag(water_flag), .pump_on_off(pump_on_off));  
-    led_height_control led_height_control_instance ( .clk(clk), .reset_p(reset_p), .sw_led_height_mode(sw_led_height_mode), .led_up_down(led_up_down), .distance_between_plant_and_led(distance_between_plant_and_led),
+    led_height_control led_height_control_instance ( .clk(clk), .reset_p(reset_p), .sw_led_height_mode(sw_led_height_mode), .distance_cm(distance_cm),
                         .sw_led_up(sw_led_up), .sw_led_down(sw_led_down), .half_step_mode_sequence(half_step_mode_sequence));
     
     // Instance of a module that displays temperature and humidity information      
@@ -85,7 +85,7 @@ module top_module_of_smart_farm (
     uart_app_control uart_app_control_instance (.clk(clk), .reset_p(reset_p), .rx(rx), .dht11_value(dht11_value), .tx(tx));
     
     // Show temperature, humidity to FND
-    show_the_fnd show_the_fnd_instance(.clk(clk), .reset_p(reset_p), .hex_value(dht11_value), .sunlight_value(sunlight_value), .com(com), .seg_7(seg_7));
+    show_the_fnd show_the_fnd_instance(.clk(clk), .reset_p(reset_p), .hex_value(dht11_value), .sunlight_value(sunlight_value), .com(com), .seg_7(seg_7), .distance_cm(distance_cm));
     
     
 endmodule
@@ -100,11 +100,12 @@ module show_the_fnd (
     input clk, reset_p,
     input [15:0] hex_value,
     input [7:0] sunlight_value,
+    input [21:0] distance_cm,
     output [3:0] com,
     output [7:0] seg_7);
     
     // Convert from binary to BCD Code
-    wire [15:0] temperature_bcd, humidity_bcd;
+    wire [11:0] temperature_bcd, humidity_bcd;
     bin_to_dec bcd_temp(.bin({4'b0, hex_value[15:8]}),  .bcd(temperature_bcd));
     bin_to_dec bcd_humi(.bin({4'b0, hex_value[7:0]}),  .bcd(humidity_bcd));
     
@@ -126,20 +127,10 @@ module hc_sr04_control (
     input clk, reset_p, 
     input hc_sr04_echo,
     output hc_sr04_trig,
-    output led_up_down,
     output [7:0] distance_between_plant_and_led );
     
     // Instance of HC_SR04 Control module
-    wire [21:0] distance_cm;
-    HC_SR04_cntr HC_SR04_cntr_0(.clk(clk), .reset_p(reset_p), .hc_sr04_echo(hc_sr04_echo), .hc_sr04_trig(hc_sr04_trig), .distance(distance_cm),  .led_debug(led_debug));
-    
-    // 만약 식물 간에 거리가 5cm 미만이면 led_up_down = 1
-    //      식물 간에 거리가 5cm 이상이면 led_uo_down = 0
-    assign led_up_down = (distance_cm < 22'd5) ? 1 : 0;
-    
-    // 현재 식물과 LED간에 거리를 출력한다.
-    assign distance_between_plant_and_led = distance_cm[7:0];
-    
+    HC_SR04_cntr HC_SR04_cntr_1 (.clk(clk), .reset_p(reset_p), .hc_sr04_echo(hc_sr04_echo), .hc_sr04_trig(hc_sr04_trig), .distance(distance_between_plant_and_led)); 
 endmodule
 
 
@@ -251,6 +242,11 @@ module window_control (
     reg [5:0] right_min_duty, right_max_duty;
     reg [5:0] left_min_duty, left_max_duty;
 
+    // 1msec Clock Pulse
+    wire clk_usec, clk_msec;
+    clock_div_100 usec_clk(.clk(clk), .reset_p(reset_p), .clk_div_100(clk_usec));
+    clock_div_1000 msec_clk(.clk(clk), .reset_p(reset_p), 
+        .clk_source(clk_usec), .clk_div_1000(clk_msec));
     
     // 각 상태 단계의 동작 및 다음 상태 전이 조건 정의
     always @(negedge clk or posedge reset_p) begin
@@ -259,13 +255,13 @@ module window_control (
            right_duty = right_max_duty;
            left_duty = left_min_duty;
               
-           right_max_duty = 6'd21;
+           right_max_duty = 6'd18;
            right_min_duty = 6'd5;
            
            left_max_duty = 6'd25;
-           left_min_duty = 6'd9;
+           left_min_duty = 6'd11;
         end
-        else begin
+        else if(clk_msec) begin
             case (state) 
                 // 1단계) 수동 조작 단계
                 S_MANUAL_MODE: begin
@@ -283,7 +279,7 @@ module window_control (
                 
                 // 2단계) 자동 조작 단계
                  S_AUTO_MODE : begin
-                    if(temperature < 8'd27 || humidity < 8'd40) begin
+                    if(temperature < 8'd27) begin
                         right_duty = right_max_duty;
                         left_duty = left_min_duty;
                     end
@@ -517,35 +513,63 @@ endmodule
 module led_height_control(
     input clk, reset_p,
     input sw_led_height_mode,
-    input led_up_down,
-    input [7:0] distance_between_plant_and_led,
+    input [21:0] distance_cm,
     input sw_led_up, sw_led_down,
     output [3:0] half_step_mode_sequence);
+    
+    // Declare state machine 
+    parameter S_MANUAL_MODE = 2'b01;
+    parameter S_AUTO_MODE = 2'b10;
+    
+    // Declare state variable
+    reg [1:0] state;
+    
+    // 언제 다음 state로 전이되는가?
+    always @(posedge clk or posedge reset_p) begin
+        if(reset_p) state = S_MANUAL_MODE;
+        else if(sw_led_height_mode) state = S_AUTO_MODE;
+        else if(!sw_led_height_mode) state = S_MANUAL_MODE;
+    end
     
     // Declare necessary variables
     reg up_down, motor_enable;
     
-    // Select up_down, motor_enable
-    always @(posedge clk or posedge reset_p) begin
+    // 각 상태 단계에서의 동작 및 다음 상태 전이 조건
+    always @(negedge clk or posedge reset_p) begin
         if(reset_p) begin
             up_down = 1;
             motor_enable = 0;
         end
         else begin
-            if(sw_led_up) begin
-                up_down = 1;
-                if(sw_led_down) motor_enable = 0;
-                else motor_enable = 1;
-            end
-            else if(sw_led_down) begin
-                up_down = 0;
-                if(sw_led_up) motor_enable = 0;
-                else motor_enable = 1;
-            end
-            else motor_enable = 0;
+            case(state) 
+                S_MANUAL_MODE :begin
+                    if(sw_led_up) begin
+                        up_down = 1;
+                        if(sw_led_down) motor_enable = 0;
+                        else motor_enable = 1;
+                    end
+                    else if(sw_led_down) begin
+                        up_down = 0;
+                        if(sw_led_up) motor_enable = 0;
+                        else motor_enable = 1;
+                    end
+                    else motor_enable = 0;
+                end
+                
+                S_AUTO_MODE : begin
+                    if(distance_cm < 22'd7) begin
+                        up_down = 1;
+                        motor_enable = 1; 
+                    end
+                    else if(distance_cm > 22'd15) begin
+                        up_down = 0;
+                        motor_enable = 1;
+                    end
+                    else motor_enable = 0;                    
+                end
+            endcase
         end
     end
-    
     
     // Instance of Step motor control module
     step_motor_control step_motor_control_instance (.clk(clk), .reset_p(reset_p), .up_down(up_down), .motor_enable(motor_enable), .half_step_mode_sequence(half_step_mode_sequence));
