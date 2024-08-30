@@ -92,14 +92,14 @@ set_property -dict { PACKAGE_PIN C15   IOSTANDARD LVCMOS33} [get_ports {tx}];#Sc
 set_property -dict { PACKAGE_PIN C16   IOSTANDARD LVCMOS33} [get_ports {rx}];#Sch name = JB10
 
 ##Pmod Header JC
-#set_property -dict { PACKAGE_PIN K17   IOSTANDARD LVCMOS33 } [get_ports {window_pwm}];#Sch name = JC1
+set_property -dict { PACKAGE_PIN K17   IOSTANDARD LVCMOS33 } [get_ports {pump_on_off}];#Sch name = JC1
 set_property -dict { PACKAGE_PIN M18   IOSTANDARD LVCMOS33 } [get_ports {fan_pwm}];#Sch name = JC2
 set_property -dict { PACKAGE_PIN N17   IOSTANDARD LVCMOS33 } [get_ports {fan_dir_pwm}];#Sch name = JC3
 set_property -dict { PACKAGE_PIN P18   IOSTANDARD LVCMOS33 } [get_ports {half_step_mode_sequence[0]}];#Sch name = JC4
 set_property -dict { PACKAGE_PIN L17   IOSTANDARD LVCMOS33 } [get_ports {half_step_mode_sequence[1]}];#Sch name = JC7
 set_property -dict { PACKAGE_PIN M19   IOSTANDARD LVCMOS33 } [get_ports {half_step_mode_sequence[2]}];#Sch name = JC8
 set_property -dict { PACKAGE_PIN P17   IOSTANDARD LVCMOS33 } [get_ports {half_step_mode_sequence[3]}];#Sch name = JC9
-set_property -dict { PACKAGE_PIN R18   IOSTANDARD LVCMOS33 } [get_ports {pump_on_off}];#Sch name = JC10
+#set_property -dict { PACKAGE_PIN R18   IOSTANDARD LVCMOS33 } [get_ports {pump_on_off}];#Sch name = JC10
 
 ##Pmod Header JXADC
 set_property -dict { PACKAGE_PIN J3   IOSTANDARD LVCMOS33 } [get_ports {vauxp6}];#Sch name = XA1_P

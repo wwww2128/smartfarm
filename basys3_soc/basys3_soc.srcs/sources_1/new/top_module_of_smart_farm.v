@@ -193,7 +193,7 @@ module cds_and_water_level_control (
         else if(eoc_out_pedge) begin
             case(channel_out[3:0])
                 6 : begin sunlight_value = do_out[15:8]; end
-                15 : begin water_flag  = (do_out[15:9] < 100) ? 1 : 0; end
+                15 : begin water_flag  = (do_out[15:9]<100) ? 1 : 0; end
             endcase
         end
     end
