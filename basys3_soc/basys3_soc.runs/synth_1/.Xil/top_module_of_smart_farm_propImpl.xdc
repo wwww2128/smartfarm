@@ -91,6 +91,8 @@ set_property src_info {type:XDC file:1 line:91 export:INPUT save:INPUT read:READ
 set_property -dict { PACKAGE_PIN C15   IOSTANDARD LVCMOS33} [get_ports {tx}];#Sch name = JB9
 set_property src_info {type:XDC file:1 line:92 export:INPUT save:INPUT read:READ} [current_design]
 set_property -dict { PACKAGE_PIN C16   IOSTANDARD LVCMOS33} [get_ports {rx}];#Sch name = JB10
+set_property src_info {type:XDC file:1 line:95 export:INPUT save:INPUT read:READ} [current_design]
+set_property -dict { PACKAGE_PIN K17   IOSTANDARD LVCMOS33 } [get_ports {pump_on_off}];#Sch name = JC1
 set_property src_info {type:XDC file:1 line:96 export:INPUT save:INPUT read:READ} [current_design]
 set_property -dict { PACKAGE_PIN M18   IOSTANDARD LVCMOS33 } [get_ports {fan_pwm}];#Sch name = JC2
 set_property src_info {type:XDC file:1 line:97 export:INPUT save:INPUT read:READ} [current_design]
@@ -103,8 +105,6 @@ set_property src_info {type:XDC file:1 line:100 export:INPUT save:INPUT read:REA
 set_property -dict { PACKAGE_PIN M19   IOSTANDARD LVCMOS33 } [get_ports {half_step_mode_sequence[2]}];#Sch name = JC8
 set_property src_info {type:XDC file:1 line:101 export:INPUT save:INPUT read:READ} [current_design]
 set_property -dict { PACKAGE_PIN P17   IOSTANDARD LVCMOS33 } [get_ports {half_step_mode_sequence[3]}];#Sch name = JC9
-set_property src_info {type:XDC file:1 line:102 export:INPUT save:INPUT read:READ} [current_design]
-set_property -dict { PACKAGE_PIN R18   IOSTANDARD LVCMOS33 } [get_ports {pump_on_off}];#Sch name = JC10
 set_property src_info {type:XDC file:1 line:105 export:INPUT save:INPUT read:READ} [current_design]
 set_property -dict { PACKAGE_PIN J3   IOSTANDARD LVCMOS33 } [get_ports {vauxp6}];#Sch name = XA1_P
 set_property src_info {type:XDC file:1 line:108 export:INPUT save:INPUT read:READ} [current_design]
